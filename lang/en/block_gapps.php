@@ -7,7 +7,7 @@
  */
 
 $string['bad'] = 'Bad!';
-$string['blockname'] = 'Hello World';
+$string['blockname'] = 'Google Apps';
 $string['blocks_helloworld_report_users'] = 'Report Title';
 $string['blocks_helloworld_report_users_description'] = 'Report Description';
 $string['cachetab'] = 'mr_cache';

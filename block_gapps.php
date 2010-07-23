@@ -12,7 +12,7 @@ class block_gapps extends block_list {
      * Init
      */
     function init() {
-        $this->title   = get_string('blockname', 'block_helloworld');
+        $this->title   = get_string('blockname', 'block_gapps');
         $this->version = 2010022400;
     }
 

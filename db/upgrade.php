@@ -13,7 +13,7 @@ function xmldb_block_helloworld_upgrade($oldversion=0) {
     if ($result && $oldversion < 2010022400) {
 
     /// Define table block_helloworld to be created
-        $table = new XMLDBTable('block_helloworld');
+        $table = new XMLDBTable('block_gapps');
 
     /// Adding fields to table block_helloworld
         $table->addFieldInfo('id', XMLDB_TYPE_INTEGER, '10', XMLDB_UNSIGNED, XMLDB_NOTNULL, XMLDB_SEQUENCE, null, null, null);
