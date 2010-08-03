@@ -212,68 +212,6 @@ class block_gmail extends block_list {
 		    return $this->content;
 	   // }
 	}
-    
-
-    /**
-     * This function uses 2 Legged OAuth to return the atom feed for 
-     * the users Gmail. 
-     */
-
-//    function obtain_gmail_feed() {
-//        global $USER;
-//        // http://code.google.com/p/oauth/
-//        // under Apache License, Version 2.0
-//        // http://www.apache.org/licenses/GPL-compatibility.html (some dispute if not GPL 3)
-//        // Moodle can be GPL 3 at your option
-//
-//        require_once('OAuth.php');
-//        $consumer  = new OAuthConsumer($this->domain, $this->oauthsecret, NULL);
-//        $user      = "$USER->username@$this->domain";
-//        $feed      = 'https://mail.google.com/mail/feed/atom';
-//        $params    = array('xoauth_requestor_id' => $user);
-//        $request   = OAuthRequest::from_consumer_and_token($consumer, NULL, 'GET', $feed, $params);
-//
-//        // TODO: Debug now pass it the string from teh PEM key that must also be on google
-//        // upload one to gmail and to the google OAuth settings place
-//        // seems to need new OAuthSignatureMethod_RSA_SHA1() rather .... to run the privkey code
-//        // old new OAuthSignatureMethod_HMAC_SHA1()
-//        $privkey = NULL; // for now
-//        $request->sign_request(new OAuthSignatureMethod_RSA_SHA1(), $consumer, NULL,$privkey);
-//
-//        // URL Encode the the params
-//        $url = $feed.'?xoauth_requestor_id='.urlencode($user);
-//
-//        // Check if curl is installed?
-//
-//        // Perform a GET to obtain the feed
-//        $curl = curl_init($url);
-//        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-//        curl_setopt($curl, CURLOPT_FAILONERROR, false);
-//        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-//        // Stream of OAuth Header params
-//        curl_setopt($curl, CURLOPT_HTTPHEADER, array($request->to_header()));
-//
-//        if (!$feeddata = curl_exec($curl)) {
-//            // Prevent Users from seeing the really nasty errors unless thye are developers
-//            $feederror = curl_error($curl);
-//            debugging('Gmail feed failed with: '.$feederror, DEBUG_DEVELOPER);
-//            $feeddata = '';
-//        }
-//        // There's no feed error when
-//        /*<HTML>
-//          <HEAD>
-//          <TITLE>Unauthorized</TITLE>
-//          </HEAD>
-//          <BODY BGCOLOR="#FFFFFF" TEXT="#000000">
-//          <H1>Unauthorized</H1>
-//          <H2>Error 401</H2>
-//          </BODY>
-//          </HTML>
-//        */
-//
-//        curl_close($curl);
-//        return $feeddata;
-//    }
 
  }
 
