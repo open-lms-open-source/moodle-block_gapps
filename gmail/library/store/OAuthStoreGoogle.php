@@ -484,9 +484,10 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
      * @param boolean no_user_check
      */
     public function deleteServerToken ( $consumer_key, $token, $user_id, $user_is_admin = false )
-    { 
+    {
+        global $DB;
         $where = 'token = "'.$token.'" AND user_id = '.$user_id;
-        delete_records_select('block_gmail_oauth_consumer_token', $where);
+        $DB->delete_records_select('block_gapps_oauth_consumer_token', $where);
     }
 
 

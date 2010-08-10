@@ -32,7 +32,10 @@
 
 require_once('../../../../config.php');
 require_login();
-global $USER,$CFG,$DB;
+global $USER,$CFG,$DB,$PAGE;
+
+
+$PAGE->set_url('/blocks/gapps/gmail/service/request_token.php');
 
 
 // If we are Refreshing Access Token We will Delete the token then
