@@ -112,7 +112,7 @@ $string['gmailhelp_help'] = 'The following settings control how moodle handles t
 
 $string['gmailblockname'] = 'Gmail';
 //$string['gmail'] = 'gmail';
-
+$string['domainnotset'] = 'Gapps Domain not set.';
 $string['oauthsecretstr'] = 'OAuth Consumer Secret';
 $string['oauthsecretinfo'] = 'This is the same value you find on Google\'s Manage OAuth Access page under Advanced tools.';
 $string['msgnumberunread'] = "Unread Message Count";

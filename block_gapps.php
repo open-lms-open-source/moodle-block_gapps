@@ -25,6 +25,14 @@ class block_gapps extends block_base {
     function get_content() {
         global $CFG, $USER, $COURSE, $OUTPUT, $PAGE;
 
+
+        // quick and simple way to prevent block
+        // from showing up on front page
+        if (!isloggedin()) {
+            $this->content = NULL;
+            return $this->content;
+        }
+
         if ($this->content !== NULL) {
             return $this->content;
         }
@@ -52,23 +60,24 @@ class block_gapps extends block_base {
         $gsync_tab_title = 'Gsync';
 
 
-        
-        // try {  
+
+        // Each Tab has to catch it's own errors since it will have to
+        // display that information in it's on tab.
+
         $gapps = $this->gapps_get_content(); // Gapps Generate Content
 
         // Gmail Genereate Content
-        $gmail = 'Gmail content';
-        //$this->gmail_get_content();
-
+        try {
+            $gmail = $this->gmail_get_content();
+        } catch ( Exception $e) {
+            $gmail = "Error: ".$e->getMessage();
+        }
 
         // Gsync Genereate Content
         $gsync = 'Gsync content';
-
         $gsync = $this->gsync_get_content();
 
-        // } catch () {
-        // 
-        // }
+
         // We need to control tabs based on capabilities
         // we could make classes for each service gmail/gsync/gapps and evaluate their cap function
         // then add or don't add the tab as we build the block content (which should be its own function)
@@ -223,9 +232,17 @@ class block_gapps extends block_base {
     }
 
     function gmail_get_content() {
+        global $CFG;
+        
         $items = array();
         $icons = array();
-        
+
+        require_once($CFG->dirroot.'/blocks/gapps/gmail/gmail.php');
+
+        $gmail = new block_gapps_gmail();
+
+        list($icons,$items) = $gmail->get_content();
+
         return $this->list_block_contents($icons, $items);
     }
 
