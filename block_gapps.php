@@ -14,6 +14,9 @@ class block_gapps extends block_base {
     function init() {
         $this->title   = get_string('blockname', 'block_gapps');
         $this->version = 2010022400;
+
+        // temporary for development remember to remove the purge_all_caches()
+        purge_all_caches();
     }
 
     /**
@@ -34,29 +37,12 @@ class block_gapps extends block_base {
         $PAGE->requires->css('/blocks/gapps/fonts-min.css');
         $PAGE->requires->css('/blocks/gapps/tabview.css');
 
-        // for now deprecated require_js
-        require_js($CFG->wwwroot.'/lib/yui/2.8.1/build/yahoo-dom-event/yahoo-dom-event.js');
-        require_js($CFG->wwwroot.'/lib/yui/2.8.1/build/element/element.js');
-        require_js($CFG->wwwroot.'/lib/yui/2.8.1/build/tabview/tabview.js'); //gapps.js
-        require_js($CFG->wwwroot.'/blocks/gapps/gapps.js');
+        // $PAGE->requires->yui_lib('autocomplete'); // YUI requirements are known about
+        $PAGE->requires->js('/lib/yui/2.8.1/build/yahoo-dom-event/yahoo-dom-event.js');
+        $PAGE->requires->js('/lib/yui/2.8.1/build/element/element.js');
+        $PAGE->requires->js('/lib/yui/2.8.1/build/tabview/tabview.js'); 
+        $PAGE->requires->js('/blocks/gapps/gapps.js');
 
-     /*  //The structure of module array is described at http://developer.yahoo.com/yui/3/yui/
-         $module = array(
-            'name'=>'form_filemanager',
-            'fullpath'=>'/lib/form/filemanager.js',
-            'requires' => array('core_filepicker', 'base', 'io', 'node', 'json', 'yui2-button', 'yui2-container', 'yui2-layout', 'yui2-menu', 'yui2-treeview'),
-            'strings' => array(array('loading', 'repository'), array('nomorefiles', 'repository'), array('confirmdeletefile', 'repository'),
-                 array('add', 'repository'), array('accessiblefilepicker', 'repository'), array('move', 'moodle'),
-                 array('cancel', 'moodle'), array('download', 'moodle'), array('ok', 'moodle'),
-                 array('emptylist', 'repository'), array('nofilesattached', 'repository'), array('entername', 'repository'), array('enternewname', 'repository'),
-                 array('zip', 'editor'), array('unzip', 'moodle'), array('rename', 'moodle'), array('delete', 'moodle'),
-                 array('cannotdeletefile', 'error'), array('confirmdeletefile', 'repository'),
-                 array('nopathselected', 'repository'), array('popupblockeddownload', 'repository'),
-                 array('draftareanofiles', 'repository'), array('path', 'moodle'), array('setmainfile', 'repository')
-            )
-        );
-        $PAGE->requires->js_module($module);
-        */
 
         $gapps_initjs = "gapps_testbuild();";
         $PAGE->requires->js_init_code($gapps_initjs);
@@ -148,7 +134,7 @@ class block_gapps extends block_base {
 
 
     function gapps_get_content() {
-        global $CFG;
+        global $CFG,$OUTPUT;
         
         $icons = array();
         $items = array();
@@ -197,6 +183,7 @@ class block_gapps extends block_base {
         		$icons[] = "<img src=\"$CFG->wwwroot/blocks/gapps/imgs/".$gs['icon_name']."\" alt=\"".$gs['service']."\" />";
 	        } else {
 	        	// Default to a check graphic
+                        // ".$OUTPUT->pix_url('/i/tick_green_small')."
 	        	$icons[] = "<img src=\"$CFG->pixpath/i/tick_green_small.gif\" alt=\"$service\" />";
 	        }
         }
@@ -206,7 +193,7 @@ class block_gapps extends block_base {
     }
 
     function gsync_get_content() {
-        global $CFG, $USER, $COURSE;
+        global $CFG, $USER, $COURSE,$OUTPUT;
 
         $items = array();
         $icons = array();
@@ -218,19 +205,19 @@ class block_gapps extends block_base {
 
         $title = get_string('settings', 'block_gapps');
         $items[] = "<a title=\"$title\" href=\"$CFG->wwwroot/$CFG->admin/settings.php?section=blocksettinggdata\">$title</a>";
-        $icons[] = "<img src=\"$CFG->pixpath/i/settings.gif\" alt=\"$title\" />";
+        $icons[] = "<img src=\"".$OUTPUT->pix_url('/i/settings')."\" alt=\"$title\" />";
 
         $title = get_string('status', 'block_gapps');
         $items[] = "<a title=\"$title\" href=\"$CFG->wwwroot/blocks/gapps/gdata/index.php?hook=status\">$title</a>";
-        $icons[] = "<img src=\"$CFG->pixpath/i/tick_green_small.gif\" alt=\"$title\" />";
+        $icons[] = "<img src=\"".$OUTPUT->pix_url('/i/tick_green_small')."\" alt=\"$title\" />";
 
         $title = get_string('userssynced', 'block_gapps');
         $items[] = "<a title=\"$title\" href=\"$CFG->wwwroot/blocks/gapps/gdata/index.php?hook=users\">$title</a>";
-        $icons[] = "<img src=\"$CFG->pixpath/i/users.gif\" alt=\"$title\" />";
+        $icons[] = "<img src=\"".$OUTPUT->pix_url('/i/users')."\" alt=\"$title\" />";
 
         $title = get_string('addusers', 'block_gapps');
         $items[] = "<a title=\"$title\" href=\"$CFG->wwwroot/blocks/gapps/gdata/index.php?hook=addusers\">$title</a>";
-        $icons[] = "<img src=\"$CFG->pixpath/i/users.gif\" alt=\"$title\" />";
+        $icons[] = "<img src=\"".$OUTPUT->pix_url('/i/users')."\" alt=\"$title\" />";
 
         return $this->list_block_contents($icons, $items);
     }
