@@ -224,9 +224,9 @@ class OAuthRequester extends OAuthRequestSigner
 		OAuthRequestLogger::start();
 
 		$store	    = OAuthStore::instance();
-		$r	    = $store->getServerTokenSecrets($consumer_key, $token, 'request', $usr_id);
+		$r		    = $store->getServerTokenSecrets($consumer_key, $token, 'request', $usr_id);
 		$uri 	    = $r['access_token_uri'];
-		$token_name = $r['token_name'];
+		$token_name	= $r['token_name'];
 
 		// Delete the server request token, this one was for one use only
 		$store->deleteServerToken($consumer_key, $r['token'], 0, true);
@@ -404,7 +404,7 @@ class OAuthRequester extends OAuthRequestSigner
                 global $CFG;
                 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, TRUE);
                 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 2);
-                curl_setopt($ch, CURLOPT_CAINFO,$CFG->dirroot."/blocks/gmail/cacert.pem");// when set ot false grant access works
+                curl_setopt($ch, CURLOPT_CAINFO,$CFG->dirroot."/blocks/gapps/gmail/cacert.pem");// when set ot false grant access works
               
                 foreach ($opts as $k => $v)
 		{

@@ -29,7 +29,7 @@ global $CFG,$USER;
 
 class block_gmail extends block_list {
 
- 	var $domain;
+    var $domain;
     var $oauthsecret;
     var $msgnumber;
     
