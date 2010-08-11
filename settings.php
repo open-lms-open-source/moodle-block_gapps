@@ -53,62 +53,65 @@ $gname = get_string('gsyncblockname','block_gapps');
 $hbutton = $OUTPUT->old_help_icon('googlesynchelp', $gname,'block_gapps');
 $configs[] = new admin_setting_heading('gsyncheader', $gname.' '.$hbutton, "");
 
-// not ready to include gsync settings yet
-//if (!class_exists('admin_setting_special_croninterval')) {
-//    /**
-//     * This setting behaves exactly like
-//     * admin_setting_configtext except it
-//     * also stores the value from this config
-//     * as seconds in the cron field of the
-//     * gdata block record.
-//     *
-//     * @package block_gdata
-//     **/
-//    class admin_setting_special_croninterval extends admin_setting_configtext {
-//
-//        /**
-//         * Set the cron field for the gdata block record
-//         * to the number of sections set in this setting.
-//         *
-//         * @return boolean
-//         **/
-//        function config_write($name, $value) {
-//            if (empty($value)) {
-//                $cron = 0;
-//            } else {
-//                $cron = $value * MINSECS;
-//            }
-//            if (set_field('block', 'cron', $cron, 'name', 'gdata')) {
-//                return parent::config_write($name, $value);
-//            }
-//            return false;
-//        }
-//    }
-//}
-//
-//
-//$configs[] = new admin_setting_configtext('username', get_string('usernamesetting', 'block_gapps'), get_string('usernamesettingdesc', 'block_gapps'), '', PARAM_RAW, 30);
-//$configs[] = new admin_setting_configpasswordunmask('password', get_string('passwordsetting', 'block_gapps'), get_string('passwordsettingdesc', 'block_gapps'), '');
-//$configs[] = new admin_setting_configtext('domain', get_string('domainsetting', 'block_gapps'), get_string('domainsettingdesc', 'block_gapps'), '', PARAM_RAW, 30);
-//$configs[] = new admin_setting_configcheckbox('usedomainemail', get_string('usedomainemailsetting', 'block_gapps'), get_string('usedomainemailsettingdesc', 'block_gapps'), 0);
-//$configs[] = new admin_setting_configcheckbox('allowevents', get_string('alloweventssetting', 'block_gapps'), get_string('alloweventssettingdesc', 'block_gapps'), 1);
-//$configs[] = new admin_setting_special_croninterval('croninterval', get_string('cronintervalsetting', 'block_gapps'), get_string('cronintervalsettingdesc', 'block_gapps'), 30, PARAM_INT, 30);
-//$configs[] = new admin_setting_configtext('cronexpire', get_string('cronexpiresetting', 'block_gapps'), get_string('cronexpiresettingdesc', 'block_gapps'), '24', PARAM_INT, 30);
-//
-//// How to handle Google Apps Accounts when not syncing (handle guser sync)
-//$options = array(0 => get_string('donothing', 'block_gapps'),   // do nothing
-//                 1 => get_string('disableacc', 'block_gapps'),  // disable
-//                 2 => get_string('deleteacc', 'block_gapps'));  // delete
-//$configs[] = new admin_setting_configselect('handlegusersync', get_string('hdlgusersync', 'block_gapps'),
-//                   get_string('hdlgusersyncdesc', 'block_gapps'),0, $options);
-//
-//// Should admins be kept from syncing?
-//$configs[] = new admin_setting_configcheckbox('nosyncadmins', get_string('nosyncadminssetting', 'block_gapps'), get_string('nosyncadminssettingdesc', 'block_gapps'), 0);
-//
-//// Remove admins from sync table right away
-//global $CFG,$FULLME;
-//$headaction = '<a href="'.$CFG->wwwroot.'/blocks/gdata/index.php?hook=cleanadmins&return='.$FULLME.'">'.get_string('cleanadminsfromsyncstr','block_gapps').'</a>';
-//$configs[] = new admin_setting_heading('cleanadminsfromsync',$headaction,'');
+
+if (!class_exists('admin_setting_special_croninterval')) {
+    /**
+     * This setting behaves exactly like
+     * admin_setting_configtext except it
+     * also stores the value from this config
+     * as seconds in the cron field of the
+     * gdata block record.
+     *
+     * @package block_gdata
+     **/
+    class admin_setting_special_croninterval extends admin_setting_configtext {
+
+        /**
+         * Set the cron field for the gdata block record
+         * to the number of sections set in this setting.
+         *
+         * @return boolean
+         **/
+        function config_write($name, $value) {
+            global $DB;
+            if (empty($value)) {
+                $cron = 0;
+            } else {
+                $cron = $value * MINSECS;
+            }
+            //$DB->set_field_select('block', 'cron', $cron,'name = ?',array('gdata'));
+            // set_field('block', 'cron', $cron, 'name', 'gdata')
+            if ($DB->set_field_select('block', 'cron', $cron,'name = ?',array('gdata'))) {
+                return parent::config_write($name, $value);
+            }
+            return false;
+        }
+    }
+}
+
+
+$configs[] = new admin_setting_configtext('username', get_string('usernamesetting', 'block_gapps'), get_string('usernamesettingdesc', 'block_gapps'), '', PARAM_RAW, 30);
+$configs[] = new admin_setting_configpasswordunmask('password', get_string('passwordsetting', 'block_gapps'), get_string('passwordsettingdesc', 'block_gapps'), '');
+$configs[] = new admin_setting_configtext('domain', get_string('domainsetting', 'block_gapps'), get_string('domainsettingdesc', 'block_gapps'), '', PARAM_RAW, 30);
+$configs[] = new admin_setting_configcheckbox('usedomainemail', get_string('usedomainemailsetting', 'block_gapps'), get_string('usedomainemailsettingdesc', 'block_gapps'), 0);
+$configs[] = new admin_setting_configcheckbox('allowevents', get_string('alloweventssetting', 'block_gapps'), get_string('alloweventssettingdesc', 'block_gapps'), 1);
+$configs[] = new admin_setting_special_croninterval('croninterval', get_string('cronintervalsetting', 'block_gapps'), get_string('cronintervalsettingdesc', 'block_gapps'), 30, PARAM_INT, 30);
+$configs[] = new admin_setting_configtext('cronexpire', get_string('cronexpiresetting', 'block_gapps'), get_string('cronexpiresettingdesc', 'block_gapps'), '24', PARAM_INT, 30);
+
+// How to handle Google Apps Accounts when not syncing (handle guser sync)
+$options = array(0 => get_string('donothing', 'block_gapps'),   // do nothing
+                 1 => get_string('disableacc', 'block_gapps'),  // disable
+                 2 => get_string('deleteacc', 'block_gapps'));  // delete
+$configs[] = new admin_setting_configselect('handlegusersync', get_string('hdlgusersync', 'block_gapps'),
+                   get_string('hdlgusersyncdesc', 'block_gapps'),0, $options);
+
+// Should admins be kept from syncing?
+$configs[] = new admin_setting_configcheckbox('nosyncadmins', get_string('nosyncadminssetting', 'block_gapps'), get_string('nosyncadminssettingdesc', 'block_gapps'), 0);
+
+// Remove admins from sync table right away
+global $CFG,$FULLME;
+$headaction = '<a href="'.$CFG->wwwroot.'/blocks/gdata/index.php?hook=cleanadmins&return='.$FULLME.'">'.get_string('cleanadminsfromsyncstr','block_gapps').'</a>';
+$configs[] = new admin_setting_heading('cleanadminsfromsync',$headaction,'');
 
 
 

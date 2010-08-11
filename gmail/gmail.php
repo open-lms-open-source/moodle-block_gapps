@@ -77,6 +77,7 @@ class block_gapps_gmail {
      * @var <type>
      */
     var $regrantaccess;
+    
    /**
     *
     */
@@ -192,7 +193,7 @@ class block_gapps_gmail {
         $composelink = '<a '.(($newwinlnk)?'target="_new"':'').' href="'.'http://mail.google.com/a/'.$domain.'/?AuthEventSource=SSO#compose">'.$composestr.'</a>';
         $inboxlink = '<a '.(($newwinlnk)?'target="_new"':'').' href="'.'http://mail.google.com/a/'.$domain.'">'.$inboxstr.'</a>';
 
-        $this->items[] = $inboxlink.' '.$composelink.' '.$unreadmsgsstr.'('.count($msgs).')<br/>';
+        $this->items[] = '<span style="font-size:0.8em;">'.$inboxlink.' '.$composelink.' '.$unreadmsgsstr.'('.count($msgs).')'.'</span><br/>';
         $this->icons[] = "<img src=\"$CFG->wwwroot/blocks/gapps/imgs/gmail.png\" alt=\"message\" />";
         
         // Only show as many messages as specified in config
