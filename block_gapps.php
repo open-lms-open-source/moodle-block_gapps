@@ -16,6 +16,7 @@ class block_gapps extends block_base {
         $this->version = 2010022400;
 
         // temporary for development remember to remove the purge_all_caches()
+        // NEXT: remove
         purge_all_caches();
     }
 
@@ -64,20 +65,22 @@ class block_gapps extends block_base {
         // Each Tab has to catch it's own errors since it will have to
         // display that information in it's on tab.
 
+        // just links so doesn't gen errors doesn't need try catch
         $gapps = $this->gapps_get_content(); // Gapps Generate Content
 
-        // Gmail Genereate Content
+        // Gmail Gen Content
         try {
             $gmail = $this->gmail_get_content();
         } catch ( Exception $e) {
             $gmail = "Error: ".$e->getMessage();
         }
 
-        // Gsync Genereate Content
+        // Gsync Gen Content
         $gsync = 'Gsync content';
         $gsync = $this->gsync_get_content();
 
-
+        // NEXT: Use capablities to show which tabs
+  
         // We need to control tabs based on capabilities
         // we could make classes for each service gmail/gsync/gapps and evaluate their cap function
         // then add or don't add the tab as we build the block content (which should be its own function)
