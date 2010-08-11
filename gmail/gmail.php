@@ -95,9 +95,10 @@ class block_gapps_gmail {
     * @return <type>
     */
    function get_footer_content() {
+      global $CFG;
       $req_token_link = $CFG->wwwroot.'/blocks/gapps/gmail/service/request_token.php';
       $this->items[] = '<span class="notifytiny">('.'<a href="'.$req_token_link.'">'.get_string('refreshtoken','block_gapps').'</a>'.')</span>';
-      $this->icons[] = '*';
+      $this->icons[] = ' ';
    }
 
 
