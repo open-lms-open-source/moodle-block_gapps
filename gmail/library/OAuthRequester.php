@@ -400,7 +400,7 @@ class OAuthRequester extends OAuthRequestSigner
 
 
                 // Moodlerooms Changes to this file to support https
-                // for blocks/gmail
+                // for blocks/gapps
                 global $CFG;
                 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, TRUE);
                 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 2);
