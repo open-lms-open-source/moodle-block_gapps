@@ -205,8 +205,8 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
             throw new OAuthException2('Problem calling record from function getServerTokenSecrets.'."'token_type',$token_type,'token',$token,'user_id',$user_id");
         }
     
-        $r['consumer_key'] = get_config('blocks/gmail','consumer_key');                    // ocr_consumer_key
-        $r['consumer_secret'] = get_config('blocks/gmail','oauthsecret');                  //ocr_consumer_secret as consumer_secret, aka oauth secret
+        $r['consumer_key'] = get_config('blocks/gapps','consumer_key');                    // ocr_consumer_key
+        $r['consumer_secret'] = get_config('blocks/gapps','oauthsecret');                  //ocr_consumer_secret as consumer_secret, aka oauth secret
         $r['token'] = $rec->token;                                                         //oct_token as token,
         $r['token_secret'] = $rec->token_secret;                                           //oct_token_secret as token_secret,
         $r['signature_methods'] = array('HMAC-SHA1');                                      //ocr_signature_methods as signature_methods,
@@ -309,8 +309,8 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
         $r = array();
         $r['id'] = 1; // the only server we refrence ALL users must use this server
         $r['user_id']           = $user_id;
-        $r['consumer_key']      = get_config('blocks/gmail','consumer_key');
-        $r['consumer_secret']   = get_config('blocks/gmail','oauthsecret');
+        $r['consumer_key']      = get_config('blocks/gapps','consumer_key');
+        $r['consumer_secret']   = get_config('blocks/gapps','oauthsecret');
         $r['signature_methods'] = array('HMAC-SHA1');
         $r['server_uri']        = 'https://mail.google.com/mail/feed/atom'; // the gmail feed
         $r['request_token_uri'] = 'https://www.google.com/accounts/OAuthGetRequestToken';
