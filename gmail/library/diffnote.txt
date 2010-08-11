@@ -12,7 +12,7 @@ line 402
                 global $CFG;
                 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, TRUE);
                 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 2);
-                curl_setopt($ch, CURLOPT_CAINFO,$CFG->dirroot."/blocks/gmail/cacert.pem");
+                curl_setopt($ch, CURLOPT_CAINFO,$CFG->dirroot."/blocks/gapps/gmail/cacert.pem");
 
 The file /store/OAuthStoreGoogle.php
 was also added to interface into Moodle's DB to store tokens and to contain Google's SSO 

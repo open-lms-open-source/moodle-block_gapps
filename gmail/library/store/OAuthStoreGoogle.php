@@ -167,8 +167,8 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
         if ( !$rec = $DB->get_record('block_gapps_oauth_consumer_token',array('user_id'=>$user_id)) ) {
             throw new OAuthException2('User not in token table.');
         }
-        $secrets['consumer_key'] = get_config('blocks/gmail','consumer_key'); // ocr_consumer_key
-        $secrets['consumer_secret'] = get_config('blocks/gmail','oauthsecret'); //ocr_consumer_secret as consumer_secret, aka oauth 
+        $secrets['consumer_key'] = get_config('blocks/gapps','consumer_key'); // ocr_consumer_key
+        $secrets['consumer_secret'] = get_config('blocks/gapps','oauthsecret'); //ocr_consumer_secret as consumer_secret, aka oauth
         $secrets['token'] = $rec->token; //oct_token as token,
         $secrets['token_secret'] = $rec->token_secret; //oct_token_secret as token_secret,
         $secrets['signature_methods'] = array('HMAC-SHA1'); //ocr_signature_methods as signature_methods,
