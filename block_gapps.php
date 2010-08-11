@@ -21,6 +21,36 @@ class block_gapps extends block_base {
     }
 
     /**
+     * This block can be added to Site, Course, or My Moodle
+     * Capabilities determine whether a user an see the tab or not.
+     * 
+     * @return <type> 
+     */
+    function applicable_formats() {
+        return array('all' => true, 'mod' => false, 'my' => true);
+    }
+
+    /**
+     * Called Statically (gsync tab requi)
+     *
+     * Does the current user have
+     * the capability to use this
+     * block and its features?
+     *
+     * May change, so using this method
+     *
+     * @param boolean $required Require the capability (throws error if is user does not have)
+     * @return boolean
+     **/
+    function has_capability_for_sync($required = false) {
+        if ($required) {
+            require_capability('moodle/site:config', get_context_instance(CONTEXT_SYSTEM));
+        }
+        return has_capability('moodle/site:config', get_context_instance(CONTEXT_SYSTEM));
+    }
+
+
+    /**
      * Link to view the block
      */
     function get_content() {
@@ -41,8 +71,6 @@ class block_gapps extends block_base {
 
         $this->content = new stdClass;
 
-        // <body class="yui-skin-sam"> // this could be placed in the body tag but possible to restyle for just in teh block
-
         $PAGE->requires->css('/blocks/gapps/fonts-min.css');
         $PAGE->requires->css('/blocks/gapps/tabview.css');
 
@@ -56,11 +84,6 @@ class block_gapps extends block_base {
         $gapps_initjs = "gapps_testbuild();";
         $PAGE->requires->js_init_code($gapps_initjs);
 
-        $gapps_tab_title = 'Gapps'; // could include alert icons
-        $gmail_tab_title = 'Gmail';
-        $gsync_tab_title = 'Gsync';
-
-
 
         // Each Tab has to catch it's own errors since it will have to
         // display that information in it's on tab.
@@ -69,6 +92,7 @@ class block_gapps extends block_base {
         $gapps = $this->gapps_get_content(); // Gapps Generate Content
 
         // Gmail Gen Content
+        $gmail = '';
         try {
             $gmail = $this->gmail_get_content();
         } catch ( Exception $e) {
@@ -76,49 +100,103 @@ class block_gapps extends block_base {
         }
 
         // Gsync Gen Content
-        $gsync = 'Gsync content';
-        $gsync = $this->gsync_get_content();
+        $gsync = '';
+        if( self::has_capability_for_sync() ) {
+            $gsync = $this->gsync_get_content();
+        }
 
-        // NEXT: Use capablities to show which tabs
-  
-        // We need to control tabs based on capabilities
-        // we could make classes for each service gmail/gsync/gapps and evaluate their cap function
-        // then add or don't add the tab as we build the block content (which should be its own function)
-        $this->content->text = '<div id="block_gapps_tabs" class="yui-skin-sam">
-                                   <div id="demo" class="yui-navset">
-                                   <ul class="yui-nav">
-                                         
-                                     <li><a href="#tab1"><em><span style="font-size:0.8em;">'.$gapps_tab_title.'</span></em></a></li>
-                                     <li class="selected"><a href="#tab2"><em><span style="font-size:0.8em;">'.$gmail_tab_title.'</span></em></a></li>
-                                     <li><a href="#tab3"><em><span style="font-size:0.8em;">'.$gsync_tab_title.'</span></em></a></li>
-                                   </ul>
-                                   <div class="yui-content">
-
-                                      <div id="tab1"><p>'.$gapps.'</p></div>
-
-                                      <div id="tab2"><p>'.$gmail.'</p></div>
-
-                                      <div id="tab3"><p>'.$gsync.'</p></div>
-
-                                    </div>
-                                    </div>
-                                </div>';
-
+        // Diagnostic Tab wrench icon should show up when debugging is turned on
+        // NEXT:
         
+        // form the tabs data object
+        $gapps_tab_title = 'Gapps'; // could include alert icons
+        $gmail_tab_title = 'Gmail';
+        $gsync_tab_title = 'Gsync';
 
+        $tabstorender = array();
+
+        $gapps_tab = NULL;
+        $gapps_tab->title = $gapps_tab_title;
+        $gapps_tab->content = $gapps;
+        $tabstorender[] = $gapps_tab;
+
+        $gmail_tab = NULL;
+        $gmail_tab->title = $gmail_tab_title;
+        $gmail_tab->content = $gmail;
+        $tabstorender[] = $gmail_tab;
+
+
+        $gsync_tab = NULL;
+        $gsync_tab->title = $gsync_tab_title;
+        $gsync_tab->content = $gsync;
+        $tabstorender[] = $gsync_tab;
+        
+        $blockcontent = $this->form_tabs($tabstorender,$gapps_tab_title);
+
+        $this->content->text = $blockcontent;
         $this->content->footer = '';
-
-        // $this->content->items = array();
-//        $this->content->icons = array();
-//        $title = get_string('view', 'block_gapps');
-//        $this->content->items[] = html_writer::tag('a', $title, array('title' => $title, 'href' => new moodle_url("/blocks/gapps/view.php?courseid=$COURSE->id")));
-//        $this->content->icons[] = html_writer::empty_tag('img', array('src' => $OUTPUT->pix_url('i/admin'), 'alt' => $title));
 
         return $this->content;
     }
 
 
 
+
+    /**
+     * This function expects a tab structure consiting of an array of objects
+     * each representing a tab.
+     * If a tab's content is empty the tab is not shown.
+     *
+     * @param <type> $tabstruct
+     * @param <type> $selected which tab do you want selected by default?
+     * @return <type>
+     */
+    function form_tabs($tabstruct,$selected = 'Gapps') {
+        // first remove tabs with empty content
+        $temp = array();
+        foreach($tabstruct as $tab) {
+            if (!empty($tab->content)) {
+                $temp[] = $tab;
+            }
+        }
+        $tabstruct = $temp;
+
+        // NEXT: to support other styles class="yui-skin-sam" may need to change
+        $t = '';
+        $t .= '<div id="block_gapps_tabs" class="yui-skin-sam">
+               <div id="demo" class="yui-navset">
+               <ul class="yui-nav">';
+
+        $j = 1;
+        foreach($tabstruct as $tab) {
+
+            if ($tab->title == $selected) {
+                $t .= '<li class="selected">';
+            } else {
+                $t .= '<li>';
+            }
+
+            $t .= '<a href="#tab'.$j.'"><em><span style="font-size:0.8em;">';
+
+            $t .= $tab->title;
+            $t .= '</span></em></a></li>';
+            $j++;
+        }            
+    
+
+        $t .= '</ul>
+               <div class="yui-content">';
+
+        $i = 1;
+        foreach ($tabstruct as $tab) {
+            $t .= '<div id="tab'.$i.'"><p>'.$tab->content.'</p></div>';
+            $i++;
+        }
+
+        $t .= '</div></div></div>';
+
+        return $t;
+    }
 
     /**
      * Borrowed from Block_list so I can control the block content but still pass in the list params
