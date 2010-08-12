@@ -229,9 +229,9 @@ class block_gapps extends block_base {
         $icons = array();
         $items = array();
 
-        $domain = get_config('auth/gsaml','domainname');
+        $domain = get_config('auth/gapps','domainname');
         if( empty($domain)) {
-        	$this->content->items[] = get_string('nodomainyet','block_gaccess');//"No DOMAIN configured yet";
+        	$this->content->items[] = get_string('nodomainyet','block_gapps');//"No DOMAIN configured yet";
     		return $this->content;
     	}
 
@@ -259,14 +259,14 @@ class block_gapps extends block_base {
         	)
         );
 
-        $newwinlnk = get_config('blocks/gaccess','newwinlink');
+        $newwinlnk = get_config('blocks/gapps','newwinlink');
         if ($newwinlnk) {
             $target = 'target=\"_new\"';
         } else {
             $target = '';
         }
 
-        foreach( $google_services as $gs ) { // $gs['']
+        foreach( $google_services as $gs ) { 
             $items[] = "<a ".$target.". title=\"".$gs['service']."\"  href=\"".$gs['relayurl']."\">".$gs['service']."</a>";
 
             if ( !empty($gs['icon_name']) ) {
