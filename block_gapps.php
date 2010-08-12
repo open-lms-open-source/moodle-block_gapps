@@ -229,15 +229,13 @@ class block_gapps extends block_base {
         $icons = array();
         $items = array();
 
-        $domain = get_config('auth/gapps','domainname');
+        $domain = get_config('blocks/gapps','domain');
         if( empty($domain)) {
-        	$this->content->items[] = get_string('nodomainyet','block_gapps');//"No DOMAIN configured yet";
-    		return $this->content;
+        	$items[] = get_string('domainnotset','block_gapps');
+                $icons[] = '';
+    		return $this->list_block_contents($icons, $items);
     	}
 
-
-        // USE the icons from this page
-        // https://www.google.com/a/cpanel/mroomsdev.com/Dashboard
         $google_services = array(
 
         	array(
