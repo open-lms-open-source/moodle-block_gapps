@@ -254,6 +254,13 @@ class block_gapps extends block_base {
         	        'service'   => 'Docs',
         			'relayurl'  => 'http://docs.google.com/a/'.$domain,
         			'icon_name' => 'gdocs.png'
+        	),
+
+
+                array(
+        	        'service'   => 'Start Page',
+        			'relayurl'  => 'http://partnerpage.google.com/'.$domain,
+        			'icon_name' => 'startpage.png'
         	)
         );
 
