@@ -18,4 +18,6 @@ require_once('../../config.php');
 // mr_bootstrap::startup();)
 require($CFG->dirroot.'/local/mr/bootstrap.php');
 
-mr_controller::render('blocks/helloworld', 'blockname', 'block_helloworld');
+mr_controller::render('blocks/gapps', 'blockname', 'block_gapps');
+
+//mr_controller::render('blocks/helloworld', 'blockname', 'block_helloworld');

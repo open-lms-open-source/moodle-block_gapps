@@ -293,25 +293,20 @@ class block_gapps extends block_base {
         $items = array();
         $icons = array();
 
-
-//        if (empty($this->instance) or !self::has_capability()) {
-//            return $this->content;
-//        }
-
         $title = get_string('settings', 'block_gapps');
-        $items[] = "<a title=\"$title\" href=\"$CFG->wwwroot/$CFG->admin/settings.php?section=blocksettinggdata\">$title</a>";
+        $items[] = "<a title=\"$title\" href=\"$CFG->wwwroot/$CFG->admin/settings.php?section=blocksettinggapps\">$title</a>";
         $icons[] = "<img src=\"".$OUTPUT->pix_url('/i/settings')."\" alt=\"$title\" />";
 
         $title = get_string('status', 'block_gapps');
-        $items[] = "<a title=\"$title\" href=\"$CFG->wwwroot/blocks/gapps/gdata/index.php?hook=status\">$title</a>";
+        $items[] = "<a title=\"$title\" href=\"$CFG->wwwroot/blocks/gapps/view.php?controller=gsync&action=status\">$title</a>";
         $icons[] = "<img src=\"".$OUTPUT->pix_url('/i/tick_green_small')."\" alt=\"$title\" />";
 
         $title = get_string('userssynced', 'block_gapps');
-        $items[] = "<a title=\"$title\" href=\"$CFG->wwwroot/blocks/gapps/gdata/index.php?hook=users\">$title</a>";
+        $items[] = "<a title=\"$title\" href=\"$CFG->wwwroot/blocks/gapps/view.php?controller=gsync&action=users\">$title</a>";
         $icons[] = "<img src=\"".$OUTPUT->pix_url('/i/users')."\" alt=\"$title\" />";
 
         $title = get_string('addusers', 'block_gapps');
-        $items[] = "<a title=\"$title\" href=\"$CFG->wwwroot/blocks/gapps/gdata/index.php?hook=addusers\">$title</a>";
+        $items[] = "<a title=\"$title\" href=\"$CFG->wwwroot/blocks/gapps/view.php?controller=gsync&action=addusers\">$title</a>";
         $icons[] = "<img src=\"".$OUTPUT->pix_url('/i/users')."\" alt=\"$title\" />";
 
         return $this->list_block_contents($icons, $items);
