@@ -3,13 +3,14 @@
  * Default controller
  *
  * @author Mark Nielsen
+ * @author edited by Chris Stones
  * @version $Id$
- * @package blocks/helloworld
+ * @package blocks/gapps
  */
 
 defined('MOODLE_INTERNAL') or die('Direct access to this script is forbidden.');
 
-class block_helloworld_controller_default extends mr_controller_block {
+class block_gapps_controller_default extends mr_controller_block {
 
     /**
      * Do common setup routines or use to change defaults
@@ -46,27 +47,11 @@ class block_helloworld_controller_default extends mr_controller_block {
 
     /**
      * Define tabs for all controllers
-     *
-     * Demo mr_tabs
      */
     public static function add_tabs($controller, &$tabs) {
-        // This is the NEW and prefered way to setup tabs.
-        // Only implement add_tabs in the default controller
-        // and then use the new mr_tabs methods toptab() and
-        // subtab() to create the tab structure.
-        $tabs->toptab('default')
-             ->subtab('view')
-             ->subtab('admin', array('action' => 'admin'), has_capability('moodle/site:config', $controller->get_context())) // Visible to admins
-             ->toptab('html', array('action' => 'html'))
-             ->toptab('db', array('controller' => 'db'))
-             ->subtab('view', array('controller' => 'db'))
-             ->subtab('record', array('controller' => 'db', 'action' => 'record'))
-             ->subtab('queue', array('controller' => 'db', 'action' => 'queue'))
-             ->toptab('plugin', array('controller' => 'plugin'))
-             ->toptab('cache', array('controller' => 'cache'))
-             ->toptab('filter', array('controller' => 'filter'))
-             ->toptab('table', array('controller' => 'table'))
-             ->toptab('report', array('controller' => 'report'));
+        $tabs->toptab('status', array('controller' => 'gsync','action' => 'status'))
+             ->toptab('users', array('controller' => 'gsync','action' => 'users'))
+             ->toptab('addusers', array('controller' => 'gsync','action' => 'addusers'));   
     }
 
     /**

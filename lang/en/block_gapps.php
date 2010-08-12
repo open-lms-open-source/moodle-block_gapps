@@ -105,6 +105,14 @@ $string['donothing'] = 'Do nothing';
 $string['disableacc'] = 'Disable Google Apps Account';
 $string['deleteacc'] = 'Delete the google apps account permanently';
 $string['handlegappsyncvalueerror'] = 'The Action on Sync Removal setting (handlegusersync) returned an unknown value.';
+$string['gappsconnectiontestfailed'] = 'Gapps Connection Error: {$a->msg}';
+
+$string['statustab'] = 'Status';
+$string['userstab'] = 'Users being synced';
+$string['adduserstab'] = 'Add users to sync';
+
+
+
 
 /* Gmail Strings formerly from (gmail) */
 $string['gmailhelp'] = 'Gmail Help';
