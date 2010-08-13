@@ -50,8 +50,8 @@ if (strpos($includepath, $zendlibpath) === false) {
  * Dependencies
  **/
 
-require_once($CFG->dirroot.'/blocks/gdata/http.php');
-require_once($CFG->dirroot.'/blocks/gdata/exception.php');
+require_once($CFG->dirroot.'/blocks/gapps/gdata/http.php');
+require_once($CFG->dirroot.'/blocks/gapps/gdata/exception.php');
 require_once('Zend/Gdata/Gapps.php');
 require_once('Zend/Gdata/ClientLogin.php');
 

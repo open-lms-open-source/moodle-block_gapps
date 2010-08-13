@@ -131,7 +131,7 @@ class blocks_gapps_helper_gapps extends mr_helper_abstract {
      *
      * @return void
      */
-    public function direct() {
+    public function direct($autoconnect = true) {
         global $OUTPUT,$CFG;
 
         mr_bootstrap::zend();
@@ -160,11 +160,11 @@ class blocks_gapps_helper_gapps extends mr_helper_abstract {
          * Set include path so Zend Library functions properly
          **/
 
-        $zendlibpath = $CFG->libdir.'/zend';
-        $includepath = get_include_path();
-        if (strpos($includepath, $zendlibpath) === false) {
-            set_include_path($includepath.PATH_SEPARATOR.$zendlibpath);
-        }
+//        $zendlibpath = $CFG->libdir.'/zend';
+//        $includepath = get_include_path();
+//        if (strpos($includepath, $zendlibpath) === false) {
+//            set_include_path($includepath.PATH_SEPARATOR.$zendlibpath);
+//        }
 
         /**
          * Dependencies
@@ -993,6 +993,222 @@ class blocks_gapps_helper_gapps extends mr_helper_abstract {
  // END class blocks_gdata_gapps
 
 
+/////////////////////////////////////////////////////////////
+// brought in from blocks_gdata.php
+/////////////////////////////////////////////////////////////
+
+
+    /**
+     * Helper method, displays a table
+     * of users with checkboxes next to them.
+     * Also includes a submit button to take
+     * action on those users.
+     *
+     * @param string $hook The calling hook
+     * @return string
+     * @todo Not in love with this method, but it works
+     **/
+    function display_user_table($hook) {
+        global $CFG,$DB,$OUTPUT;
+
+        require_once($CFG->libdir.'/tablelib.php');
+
+        $pagesize = optional_param('pagesize', 50, PARAM_INT);
+
+        $table  = new flexible_table("blocks-gdata-$hook");
+        $filter = $this->create_filter($hook, $pagesize);
+
+        // Define columns based on hook
+        switch($hook) {
+            case 'users':
+                $table->define_columns(array('username', 'fullname', 'email', 'lastsync', 'status'));
+                $table->define_headers(array(get_string('username'), get_string('fullname'), get_string('email'), get_string('lastsync', 'block_gapps'), get_string('status')));
+                break;
+
+            case 'addusers':
+                $table->define_columns(array('username', 'fullname', 'email'));
+                $table->define_headers(array(get_string('username'), get_string('fullname'), get_string('email')));
+                break;
+        }
+
+        $table->define_baseurl("$CFG->wwwroot/blocks/gdata/index.php?hook=$hook&amp;pagesize=$pagesize");
+        
+        $table->pageable(true);
+        $table->sortable(true, 'username', SORT_DESC);
+        $table->set_attribute('width', '100%');
+        $table->set_attribute('class', 'flexible generaltable generalbox');
+        $table->column_style('action', 'text-align', 'center');
+        $table->setup();
+
+        list($select, $from, $where) = $this->get_sql($hook, $filter);
+
+
+
+        $total = $DB->count_records_sql("SELECT COUNT(*) $from $where");
+/*
+ * SELECT COUNT(*) FROM mdl_user u, mdl_block_gdata_gapps g WHERE u.id = g.userid AND g.remove = 0 AND u.deleted = 0 AND u.id IN (SELECT id FROM mdl_user WHERE Array)
+[array (
+)]
+ */
+        //$total = count_records_sql("SELECT COUNT(*) $from $where");
+
+        $table->pagesize($pagesize, $total);
+
+        if ($users = $DB->get_records_sql("$select $from $where ORDER BY ".$table->get_sql_sort(),null, $table->get_page_start(), $table->get_page_size())) {
+            foreach ($users as $user) {
+                $username = print_checkbox("userids[]", $user->id, false, s($user->username), s($user->username), '', true);
+
+                // Define table contents based on hook
+                switch ($hook) {
+                    case 'users':
+                        if ($user->lastsync > 0) {
+                            $lastsync = userdate($user->lastsync);
+                        } else {
+                            $lastsync = get_string('never');
+                        }
+
+                        $table->add_data(array($username, fullname($user), $user->email, $lastsync, get_string("status$user->status", 'block_gapps')));
+                        break;
+
+                    case 'addusers':
+                        $table->add_data(array($username, fullname($user), $user->email));
+                        break;
+                }
+            }
+        }
+
+        $output  = $OUTPUT->box_start('boxaligncenter boxwidthwide');
+        $output .= $this->buffer(array($filter, 'display_add'));
+        $output .= $this->buffer(array($filter, 'display_active'));
+
+        if (empty($table->data)) {
+            // Avoid printing the form on empty tables
+            $output .= $this->buffer(array($table, 'print_html'));
+        } else {
+            $allstr       = get_string('selectall', 'block_gapps');
+            $nonestr      = get_string('selectnone', 'block_gapps');
+            $submitstr    = get_string("submitbutton$hook", 'block_gapps');
+            $submitallstr = get_string("submitbuttonall$hook", 'block_gapps', $total);
+            $confirmstr   = get_string("confirm$hook", 'block_gapps', $total);
+            $confirmstr   = addslashes_js($confirmstr);
+            $options      = array(50 => 50, 100 => 100, 250 => 250, 500 => 500, 1000 => 1000);
+
+            $output .= "<form class=\"userform\" id=\"userformid\" action=\"$CFG->wwwroot/blocks/gdata/index.php\" method=\"post\">";
+            $output .= '<input type="hidden" name="hook" value="'.$hook.'" />';
+            $output .= '<input type="hidden" name="sesskey" value="'.sesskey().'" />';
+            $output .= $this->buffer(array($table, 'print_html'));
+            $output .= "<p><a href=\"#\" title=\"$allstr\" onclick=\"select_all_in('FORM', 'userform', 'userformid'); return false;\">$allstr</a> / ";
+            $output .= "<a href=\"#\" title=\"$nonestr\" onclick=\"deselect_all_in('FORM', 'userform', 'userformid'); return false;\">$nonestr</a></p>";
+            $output .= "<input type=\"submit\" name=\"users\" value=\"$submitstr\" />&nbsp;&nbsp;";
+            $output .= "<input type=\"submit\" name=\"allusers\" value=\"$submitallstr\" onclick=\"return confirm('$confirmstr');\" />";
+            $output .= '</form><br />';
+            $output .= popup_form("$CFG->wwwroot/blocks/gdata/index.php?hook=$hook&amp;pagesize=", $options, 'changepagesize',
+                                  $pagesize, '', '', '', true, 'self', get_string('pagesize', 'block_gapps'));
+        }
+        $output .= $OUTPUT->box_end(true);
+
+        return $output;
+    }
+
+    /**
+     * Create the user filter
+     *
+     * @param string $hook The calling hook
+     * @param int $pagesize Page size
+     * @return user_filtering
+     * @warning new user_filtering can clear $_POST
+     **/
+    function create_filter($hook, $pagesize = 50) {
+        global $CFG;
+
+        require_once($CFG->dirroot.'/user/filters/lib.php');
+
+        return new user_filtering(NULL, $CFG->wwwroot.'/blocks/gdata/index.php', array('hook' => $hook, 'pagesize' => $pagesize));
+    }
+
+
+
+
+    /**
+     * Generate SQL for querying user view
+     * data
+     *
+     * All queries must return id, username and
+     * password fields from the user table.
+     *
+     * @param string $hook The calling hook
+     * @param user_filtering $filter User filter form
+     * @return array
+     **/
+    function get_sql($hook, $filter = NULL) {
+        global $CFG;
+
+        $select = $from = $where = '';
+
+        if ($filter === NULL) {
+            $filter = $this->create_filter($hook);
+        }
+
+        switch($hook) {
+            case 'users':
+                // Get all users that are not in our sync table (block_gdata_gapps) that are not scheduled to be deleted
+                $select = "SELECT u.id, u.username, u.password, u.firstname, u.lastname, u.email, g.lastsync, g.status";
+                $from   = "FROM {$CFG->prefix}user u, {$CFG->prefix}block_gdata_gapps g";
+                $where  = "WHERE u.id = g.userid AND g.remove = 0 AND u.deleted = 0";
+
+                // SQL gets a little weird here because the filtersql doesn't do field aliases
+                if ($filtersql = $filter->get_sql_filter()) {
+                    $where .= " AND u.id IN (SELECT id FROM {$CFG->prefix}user )";// WHERE $filtersql)"; // ChrisStones: Temp change for test
+                }
+                break;
+
+            case 'addusers':
+                // Get all users that are not in our sync table (block_gdata_gapps) or
+                // users that are in our sync table but are scheduled to be deleted
+
+                // or admins that we don't want to sync
+                $adminids = $this->return_adminids();
+
+                $select = "SELECT id, username, password, firstname, lastname, email";
+                $from   = "FROM {$CFG->prefix}user";
+
+                if (get_config('blocks/gdata','nosyncadmins')) {
+                    // filter out admins from syncing
+                    $where  = "WHERE id NOT IN (SELECT userid FROM {$CFG->prefix}block_gdata_gapps WHERE remove = 0) AND deleted = 0 AND username != 'guest'
+                               AND id NOT IN ($adminids)";
+                } else { // no admin filtering
+                    $where  = "WHERE id NOT IN (SELECT userid FROM {$CFG->prefix}block_gdata_gapps WHERE remove = 0) AND deleted = 0 AND username != 'guest'";
+                }
+
+                if ($filtersql = $filter->get_sql_filter()) {
+                    $where .= " AND $filtersql";
+                }
+                break;
+        }
+
+        return array($select, $from, $where);
+    }
+
+
+    /**
+     * Assists with calling functions that do no return output
+     *
+     * @param string $callback First param is a callback
+     * @param mixed $argX Keep passing arguments to pass to the callback
+     * @return string
+     **/
+    function buffer() {
+        $arguments = func_get_args();
+        $callback  = array_shift($arguments);
+
+        ob_start();
+        call_user_func_array($callback, $arguments);
+        $output = ob_get_contents();
+        ob_end_clean();
+
+        return $output;
+    }
+ 
 
     /**
      * Highlight some PHP code
