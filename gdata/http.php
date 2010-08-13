@@ -32,7 +32,7 @@
 /**
  * Dependencies
  **/
-require_once($CFG->dirroot.'/blocks/gdata/gapps.php');
+//require_once($CFG->dirroot.'/blocks/gapps/gdata/gapps.php'); // https doesn't need gapp functions
 require_once('Zend/Http/Client.php');
 
 /**
