@@ -327,6 +327,29 @@ class block_gapps extends block_base {
         return $this->list_block_contents($icons, $items);
     }
 
+
+
+    /**
+     * run crons from all components that need to run crons...
+     *
+     * @return boolean
+     **/
+    function cron() {
+        $status = true;
+
+        // crons...
+
+        // setup and run gmail cron... etc.
+        
+        // gsync cron
+        require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
+        $gapps = new blocks_gapps_model_gsync();
+        $status = $gapps->cron();
+
+        return $status;
+    }
+
+
 }
 
 ?>

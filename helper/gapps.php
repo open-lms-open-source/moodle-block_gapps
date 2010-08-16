@@ -190,7 +190,7 @@ class blocks_gapps_helper_gapps extends mr_helper_abstract {
 
         $autoconnect and $this->gapps_connect();
 
-        return true;
+        return true; // make this return $self; ?? so that I can use $gapps->like_syntax();
 
     }
 

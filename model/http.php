@@ -20,7 +20,7 @@
  * @author Mark Nielsen
  */
 
-
+// MARK: says make this into a model directory (model is just reusable object ) blocks/efolido model  client talks to their system helpers are singlonts no construtor do one thing
 /**
  * HTTP Client
  *

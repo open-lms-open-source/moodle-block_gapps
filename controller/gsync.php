@@ -40,11 +40,11 @@ class block_gapps_controller_gsync extends mr_controller_block {
         $this->tabs->set('status');
         $this->print_header();
 
-       // require_once($CFG->dirroot.'/blocks/gdata/gapps.php');
+        require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
+
 
         try {
-            //$gapps = new blocks_gdata_gapps();
-            $this->helper->gapps();
+            $gapps = new blocks_gapps_model_gsync();
 
             $this->notify->good('connectionsuccess',NULL, 'block_gapps');
         } catch (blocks_gdata_exception $e) {
@@ -55,39 +55,44 @@ class block_gapps_controller_gsync extends mr_controller_block {
         
         // Output Details on the Status Connection
         // useful for debugging
-        
-
+       
 
         $this->print_footer();
 
     }
 
     public function usersview_action() {
-     //       function users_display() {
-       // return $this->display_user_table('users');
-   // }
+        global $COURSE, $CFG;
+
         $this->tabs->set('users');
         $this->print_header();
 
-        $this->helper->gapps->display_user_table('users');
+
+        require_once($CFG->dirroot.'/blocks/gapps/report/users.php');
+        $report = new blocks_gapps_report_users($this->url, $COURSE->id);
+        $output = $this->mroutput->render($report);
+        print $output;
+
+        //$this->helper->gapps->display_user_table('users');
         
         $this->print_footer();
     }
 
     public function users_action() {
-
+        global $CFG;
         $this->tabs->set('users');
         $this->print_header();
 
-                global $CFG;
+        require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
 
-//        require_once($CFG->dirroot.'/blocks/gdata/gapps.php');
-//
+        print_object($_POST);
+
+
 //        if ($userids = optional_param('userids', 0, PARAM_INT) or optional_param('allusers', '', PARAM_RAW)) {
 //            if (!confirm_sesskey()) {
 //                throw new blocks_gdata_exception('confirmsesskeybad', 'error');
 //            }
-//            $gapps = new blocks_gdata_gapps(false);
+//            $gapps = new blocks_gapps_model_gsync(false);
 //
 //            if (optional_param('allusers', '', PARAM_RAW)) {
 //                list($select, $from, $where) = $this->get_sql('users');
@@ -109,8 +114,8 @@ class block_gapps_controller_gsync extends mr_controller_block {
 //            }
 //            redirect($CFG->wwwroot.'/blocks/gdata/index.php?hook=users');
 //        }
-//
-//
+
+
 
 
         $this->print_footer();
