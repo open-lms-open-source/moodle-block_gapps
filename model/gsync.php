@@ -39,21 +39,21 @@
 /**
  * Set include path so Zend Library functions properly
  **/
-
-$zendlibpath = $CFG->libdir.'/zend';
-$includepath = get_include_path();
-if (strpos($includepath, $zendlibpath) === false) {
-    set_include_path($includepath.PATH_SEPARATOR.$zendlibpath);
-}
-
-/**
- * Dependencies
- **/
-
-require_once($CFG->dirroot.'/blocks/gapps/gdata/http.php');
+//
+//$zendlibpath = $CFG->libdir.'/zend';
+//$includepath = get_include_path();
+//if (strpos($includepath, $zendlibpath) === false) {
+//    set_include_path($includepath.PATH_SEPARATOR.$zendlibpath);
+//}
+//
+///**
+// * Dependencies
+// **/
+//
+//require_once($CFG->dirroot.'/blocks/gapps/gdata/http.php');
 require_once($CFG->dirroot.'/blocks/gapps/gdata/exception.php');
-require_once('Zend/Gdata/Gapps.php');
-require_once('Zend/Gdata/ClientLogin.php');
+//require_once('Zend/Gdata/Gapps.php');
+//require_once('Zend/Gdata/ClientLogin.php');
 
 /**
  * Zend_Gdata_Gapps wrapper and wrapper for
@@ -71,7 +71,8 @@ require_once('Zend/Gdata/ClientLogin.php');
  *
  * @package block_gdata
  **/
-class blocks_gdata_gapps {
+ //blocks_gapps_model_gsync
+class blocks_gapps_model_gsync {
 
     /**
      * Password hash function to send
@@ -138,7 +139,7 @@ class blocks_gdata_gapps {
 
     /**
      * Counters for counting account actions made by
-     * the blocks_gdata_gapps class
+     * the blocks_gapps_model_gsync class
      *
      * @var string
      **/
@@ -167,12 +168,15 @@ class blocks_gdata_gapps {
      * @return void
      **/
     public function __construct($autoconnect = true) {
-        if (!$config = get_config('blocks/gdata')) {
+
+        mr_bootstrap::zend(); // set php search paths to find our zend lib
+
+        if (!$config = get_config('blocks/gapps')) {
             throw new blocks_gdata_exception('notconfigured');
         }
         foreach ($this->requiredconfig as $name) {
             if (!isset($config->$name)) {
-                throw new blocks_gdata_exception('missingrequiredconfig', 'block_gdata', $name);
+                throw new blocks_gdata_exception('missingrequiredconfig', 'block_gapps', $name);
             }
         }
         $this->config = $config;
@@ -187,7 +191,7 @@ class blocks_gdata_gapps {
      * @return void
      * @throws blocks_gdata_exception
      **/
-    public function gapps_connect() {
+    public function gapps_connect() { 
         try {
             if (!empty($this->config->authorization)) {
                 // Mimic what Zend_Gdata_ClientLogin::getHttpClient returns
@@ -207,7 +211,7 @@ class blocks_gdata_gapps {
         } catch (Zend_Gdata_App_AuthException $e) {
             throw new blocks_gdata_exception('authfailed');
         } catch (Zend_Gdata_App_Exception $e) {
-            throw new blocks_gdata_exception('gappserror', 'block_gdata', $e->getMessage());
+            throw new blocks_gdata_exception('gappserror', 'block_gapps', $e->getMessage());
         }
     }
 
@@ -231,7 +235,7 @@ class blocks_gdata_gapps {
             // Update users sync status
             $this->moodle_set_status($moodleuser->id, self::STATUS_ACCOUNT_CREATION_ERROR);
 
-            throw new blocks_gdata_exception('gappserror', 'block_gdata', $e->getMessage());
+            throw new blocks_gdata_exception('gappserror', 'block_gapps', $e->getMessage());
         }
     }
 
@@ -292,14 +296,14 @@ class blocks_gdata_gapps {
             $loginobj = $gappsuser->getLogin();
             $username = $loginobj->getUsername();
         } else {
-            throw new blocks_gdata_exception('gappserror', 'block_gdata', 'gapps_suspend_user expects User Entry Object');
+            throw new blocks_gdata_exception('gappserror', 'block_gapps', 'gapps_suspend_user expects User Entry Object');
         }
 
         try {
             $this->service->suspendUser($username);
             $this->moodle_delete_user($moodleuser->id);
         } catch (Zend_Gdata_App_Exception $e) {
-            throw new blocks_gdata_exception('gappserror', 'block_gdata', $e->getMessage());
+            throw new blocks_gdata_exception('gappserror', 'block_gapps', $e->getMessage());
         }
         $this->counts['disabled']++;
     }
@@ -327,7 +331,7 @@ class blocks_gdata_gapps {
         try {
             $this->service->restoreUser($username);
         } catch (Zend_Gdata_App_Exception $e) {
-            throw new blocks_gdata_exception('gappserror', 'block_gdata', $e->getMessage());
+            throw new blocks_gdata_exception('gappserror', 'block_gapps', $e->getMessage());
         }
 
         $this->counts['restored']++;
@@ -343,7 +347,7 @@ class blocks_gdata_gapps {
         if ($gappsuser instanceof Zend_Gdata_Gapps_UserEntry) {
             return $gappsuser->getLogin()->getSuspended();
         } else {
-            throw new blocks_gdata_exception('gappserror', 'block_gdata', 'gapps_is_suspended expects a User Entry Object');
+            throw new blocks_gdata_exception('gappserror', 'block_gapps', 'gapps_is_suspended expects a User Entry Object');
         }
     }
 
@@ -362,7 +366,7 @@ class blocks_gdata_gapps {
             // Username conflict - keep old data and update status
             $this->moodle_set_status($moodleuser->id, self::STATUS_USERNAME_CONFLICT);
 
-            throw new blocks_gdata_exception('usernameconflict', 'block_gdata', $moodleuser);
+            throw new blocks_gdata_exception('usernameconflict', 'block_gapps', $moodleuser);
         } else {
             // Delete old account from Google Apps
             $this->gapps_delete_user($gappsuser);
@@ -394,9 +398,9 @@ class blocks_gdata_gapps {
         try {
             $gappsuser = $this->service->createUser($username, $firstname, $lastname, $password, self::PASSWORD_HASH_FUNCTION);
         } catch (Zend_Gdata_Gapps_ServiceException $e) {
-            throw new blocks_gdata_exception('gappserror', 'block_gdata', (string) $e);
+            throw new blocks_gdata_exception('gappserror', 'block_gapps', (string) $e);
         } catch (Zend_Gdata_App_Exception $e) {
-            throw new blocks_gdata_exception('gappserror', 'block_gdata', $e->getMessage());
+            throw new blocks_gdata_exception('gappserror', 'block_gapps', $e->getMessage());
         }
 
         $this->counts['created']++;
@@ -440,7 +444,7 @@ class blocks_gdata_gapps {
             try {
                 $gappsuser->save();
             } catch (Zend_Gdata_App_Exception $e) {
-                throw new blocks_gdata_exception('gappserror', 'block_gdata', $e->getMessage());
+                throw new blocks_gdata_exception('gappserror', 'block_gapps', $e->getMessage());
             }
 
             $this->counts['updated']++;
@@ -472,7 +476,7 @@ class blocks_gdata_gapps {
         try {
             $gappsuser->delete();
         } catch (Zend_Gdata_App_Exception $e) {
-            throw new blocks_gdata_exception('gappserror', 'block_gdata', $e->getMessage());
+            throw new blocks_gdata_exception('gappserror', 'block_gapps', $e->getMessage());
         }
         $this->counts['deleted']++;
     }
@@ -488,7 +492,7 @@ class blocks_gdata_gapps {
         try {
             $gappsuser = $this->service->retrieveUser($username);
         } catch (Zend_Gdata_App_Exception $e) {
-            throw new blocks_gdata_exception('gappserror', 'block_gdata', $e->getMessage());
+            throw new blocks_gdata_exception('gappserror', 'block_gapps', $e->getMessage());
         }
         return $gappsuser;
     }
@@ -503,9 +507,9 @@ class blocks_gdata_gapps {
         try {
             return $this->service->retrieveAllUsers();
         } catch (Zend_Gdata_Gapps_ServiceException $e) {
-            throw new blocks_gdata_exception('gappserror', 'block_gdata', (string) $e);
+            throw new blocks_gdata_exception('gappserror', 'block_gapps', (string) $e);
         } catch (Zend_Gdata_App_Exception $e) {
-            throw new blocks_gdata_exception('gappserror', 'block_gdata', $e->getMessage());
+            throw new blocks_gdata_exception('gappserror', 'block_gapps', $e->getMessage());
         }
         return $gappsusers;
     }
@@ -532,7 +536,7 @@ class blocks_gdata_gapps {
         } else {
             // Inserting new - don't allow duplicate usernames as Gapps will not allow it anyways
             if (record_exists('block_gdata_gapps', 'username', $user->username)) {
-                throw new blocks_gdata_exception('usernamealreadyexists', 'block_gdata', $user->username);
+                throw new blocks_gdata_exception('usernamealreadyexists', 'block_gapps', $user->username);
             }
 
             $record           = new stdClass;
@@ -568,7 +572,7 @@ class blocks_gdata_gapps {
         $record->status   = $status;
 
         if (!update_record('block_gdata_gapps', $record)) {
-            throw new blocks_gdata_exception('failedtoupdatesyncrecord', 'block_gdata', $record->id);
+            throw new blocks_gdata_exception('failedtoupdatesyncrecord', 'block_gapps', $record->id);
         }
 
         if ($this->config->usedomainemail) {
@@ -607,7 +611,7 @@ class blocks_gdata_gapps {
      **/
     public function moodle_delete_user($id) {
         if (!delete_records('block_gdata_gapps', 'id', $id)) {
-            throw new blocks_gdata_exception('failedtodeletesyncrecord', 'block_gdata', $id);
+            throw new blocks_gdata_exception('failedtodeletesyncrecord', 'block_gapps', $id);
         }
     }
 
@@ -761,7 +765,7 @@ class blocks_gdata_gapps {
                     $this->delete_user($moodleuser, $gappsuser);
 
                 } else {
-                    throw new blocks_gdata_exception('handlegappsyncvalueerror', 'block_gdata');
+                    throw new blocks_gdata_exception('handlegappsyncvalueerror', 'block_gapps');
                 }
 
             } else if ($moodleuser->username != $moodleuser->oldusername and $gappsuser !== NULL) {
@@ -907,7 +911,7 @@ class blocks_gdata_gapps {
                 case 'user_updated':
                 case 'password_changed':
                     try {
-                        $gapps      = new blocks_gdata_gapps();
+                        $gapps      = new blocks_gapps_model_gsync();
                         $moodleuser = $gapps->moodle_get_user($eventdata->id);
                         $gappsuser  = $gapps->gapps_get_user($moodleuser->oldusername);
 
@@ -974,6 +978,154 @@ class blocks_gdata_gapps {
         // Clear out clients array
         $clients = array();
     }
-} // END class blocks_gdata_gapps
+
+
+
+    /**
+     * Rest page for accepting user accounts to sync
+     *
+     * The closing PHP tag (?>) was deliberately left out
+     *
+     * @author Mark Nielsen
+     * @version $Id$
+     * @package block_gdata
+     **/
+    function rest() {
+        global $CFG;
+        // Only accept POST requests
+       // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        //
+        $nomoodlecookie = true;
+        require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
+
+        $response = array('counts' => array('errors' => 1), 'message' => '');
+
+        if ($userid = optional_param('userid', 0, PARAM_INT)) {
+            try {
+                // Want to capture output so we
+                // can return it properly
+                ob_start();
+
+                $gapps = new blocks_gapps_model_gsync(); /// the $gapps makes the code easier to read so leaving as gapps and not $this
+
+                $moodleuser = $gapps->moodle_get_user($userid);
+                $gapps->sync_moodle_user_to_gapps($moodleuser);
+
+                $output = ob_get_contents();
+                $output = trim($output);
+                ob_end_clean();
+
+                if (!empty($output)) {
+                    $response['message'] = $output;
+                }
+                $response['counts'] = $gapps->counts;
+
+            } catch (blocks_gdata_exception $e) {
+                $response['message'] = $e->getMessage();
+            } catch (Zend_Exception $e) {
+                // Catch Zend_Exception just in case it happens
+                $response['message'] = $e->getMessage();
+            }
+        } else {
+            $response['message'] = 'Invalid userid passed';
+        }
+
+        echo serialize($response);
+
+    }
+
+
+    /**
+     * Gsync Cron
+     * @todo NOT CONVERTED YET
+     *
+     * @param <type> $testrun a parameter to define if we are debugging our code or not
+     */
+    function cron() {
+        global $CFG;
+
+        require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
+
+        // Make sure this is not set
+        unset_config('authorization', 'blocks/gapps');
+
+        // The following code prevents the cron method
+        // from being ran multiple times when the first
+        // is still being executed
+        $expire  = get_config('blocks/gapps', 'cronexpire');
+        $started = get_config('blocks/gapps', 'cronstarted');
+
+        if (empty($expire) or !is_numeric($expire)) {
+            // Not set properly - go to default
+            $expire = HOURSECS * 24;
+        } else {
+            $expire = HOURSECS * $expire;
+        }
+        if (!empty($started)) {
+            $timetocheck = time() - $expire;
+
+            if ($started > $timetocheck) {
+                mtrace('Gdata cron haulted: cron is either still running or has not yet expired.  The cron will expire at '.userdate($started + $expire));
+                return true; // Still return true to prevent us from hitting this message every 5 minutes or so
+            }
+        }
+
+        // Be user to use the same time...
+        $now = time();
+
+        // Set the time we started
+        set_config('cronstarted', $now, 'blocks/gapps');
+
+        try {
+            $gapps = new blocks_gapps_model_gsync();
+            $gapps->sync_moodle_to_gapps($now + $expire);
+        } catch (blocks_gdata_exception $e) {
+            mtrace('Synchronization haulted: '.$e->getMessage());
+        } catch (Zend_Exception $e) {
+            mtrace('Synchronization haulted: '.$e->getMessage());
+        }
+
+        // Zero out our start time to free up the cron
+        set_config('cronstarted', 0, 'blocks/gdata');
+
+        // Always remove
+        unset_config('authorization', 'blocks/gdata');
+
+        // Always return true
+        return true;
+
+
+        // old cron.php file....
+        //        $nomoodlecookie = true; // cookie not needed
+        //
+        //        require_once(dirname(dirname(dirname(__FILE__))).'/config.php'); // global moodle config file.
+        //        require_once($CFG->libdir.'/blocklib.php');
+        //
+        //        set_time_limit(0);
+        //
+        //        $starttime = microtime();
+        //        $timenow   = time();
+        //
+        //        if ($block = get_record_select("block", "cron > 0 AND (($timenow - lastcron) > cron) AND visible = 1 AND name = 'gdata'")) {
+        //            if (block_method_result('gdata', 'cron_alt')) {
+        //                if (!set_field('block', 'lastcron', $timenow, 'id', $block->id)) {
+        //                    mtrace('Error: could not update timestamp for '.$block->name);
+        //                }
+        //            }
+        //        } else {
+        //            mtrace('Not time to run gdata block cron');
+        //        }
+        //
+        //        $difftime = microtime_diff($starttime, microtime());
+        //        mtrace("Execution took ".$difftime." seconds");
+
+    }
+
+
+
+
+
+    
+} // END class blocks_gapps_model_gsync
 
 ?>
