@@ -83,8 +83,8 @@ $string['statusnever'] = 'Never';
 $string['statusok'] = 'OK';
 $string['statususernameconflict'] = 'Username conflict';
 $string['submitbuttonaddusers'] = 'Add users to sync';
-$string['submitbuttonalladdusers'] = 'Add all $a users';
-$string['submitbuttonallusers'] = 'Remove all $a users';
+$string['submitbuttonalladdusers'] = 'Add all {$a} users';
+$string['submitbuttonallusers'] = 'Remove all {$a} users';
 $string['submitbuttonusers'] = 'Remove users from sync';
 $string['usedomainemailsetting'] = 'Use Google Apps email';
 $string['usedomainemailsettingdesc'] = 'Update Moodle\'s user record with the email from the Google Apps domain.  The update will occur during the Moodle to Google Apps synchronization.';
@@ -108,6 +108,7 @@ $string['handlegappsyncvalueerror'] = 'The Action on Sync Removal setting (handl
 $string['gappsconnectiontestfailed'] = 'Gapps Connection Error: {$a->msg}';
 
 $string['blocks_gapps_report_users'] = 'Users being synced';
+$string['blocks_gapps_report_addusers'] = 'Add users to sync';
 
 $string['statustab'] = 'Status';
 $string['userstab'] = 'Users being synced';
