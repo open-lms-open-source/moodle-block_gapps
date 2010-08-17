@@ -5,7 +5,7 @@
  * @package blocks/gapps
  * @author Chris Stones
  */
-class blocks_gapps_report_users extends mr_report_abstract {
+class blocks_gapps_report_addusers extends mr_report_abstract {
     /**
      * Report's init routine
      *
@@ -46,14 +46,14 @@ class blocks_gapps_report_users extends mr_report_abstract {
     public function table_init() {
         $this->table = new mr_html_table($this->preferences, $this->url, 'username');
 
-//       $this->table->add_column('username', get_string('username'))
-//                    ->add_column('fullname', get_string('fullname'))
-//                    ->add_column('email',    get_string('email'))
-//                    ->add_column('lastsync', get_string('lastsync'))
-//                    ->add_column('status',   get_string('status'));
+
 
 //SELECT u.id, u.username, u.password, u.firstname, u.lastname, u.email, g.lastsync, g.status
-
+//            case 'addusers':
+            //    $table->define_columns(array('username', 'fullname', 'email'));
+            //    $table->define_headers(array(get_string('username'), get_string('fullname'), get_string('email')));
+             //   break;
+//  $table->add_data(array($username, fullname($user), $user->email));
         $this->table->add_column('u.username',     get_string('username'))
                     //->add_column('u.fullname',     get_string('fullname'))
                     ->add_column('u.firstname',     get_string('firstname'))
@@ -64,6 +64,18 @@ class blocks_gapps_report_users extends mr_report_abstract {
 
     }
 
+
+    /**
+     * Returns site admins as a comma seperated string
+     */
+    private function return_adminids() {
+        global $CFG;
+        $admins = get_admins();
+        $adminids = array_keys($admins);
+        return implode(',',$adminids);
+    }
+
+
     /**
      * Report SQL
      */
@@ -73,55 +85,36 @@ class blocks_gapps_report_users extends mr_report_abstract {
         // recoverying moodle users filter
         $filter = mr_var::instance()->get('blocks_gdata_filter');
         list($filtersql,$fparams) = $filter->get_sql_filter();  //get_sql_filter($extra='', array $params=null)
-        //print_object($filter);die;
 
-//
-//        $sql = "SELECT $fields
-//                  FROM {$CFG->prefix}user
-//                 WHERE $filtersql";
-//
-//        // Get all users that are not in our sync table (block_gdata_gapps) that are not scheduled to be deleted
-//        $select = "SELECT u.id, u.username, u.password, u.firstname, u.lastname, u.email, g.lastsync, g.status";
-//        $from   = "FROM {$CFG->prefix}user u, {$CFG->prefix}block_gdata_gapps g";
-//        $where  = "WHERE u.id = g.userid AND g.remove = 0 AND u.deleted = 0";
-// $sql  = "u.id = g.userid AND g.remove = 0 AND u.deleted = 0";
-        // NOT implemented yet.... TODO: 
-        // SQL gets a little weird here because the filtersql doesn't do field aliases
-//        if ($filtersql = $filter->get_sql_filter()) {
-//            $where .= " AND u.id IN (SELECT id FROM {$CFG->prefix}user WHERE $filtersql)";
-//        }
+        // Get all users that are not in our sync table (block_gdata_gapps) or
+        // users that are in our sync table but are scheduled to be deleted
 
+        // or admins that we don't want to sync
+        $adminids = $this->return_adminids();
 
-     //   $select = "SELECT u.id, u.username, u.password, u.firstname, u.lastname, u.email, g.lastsync, g.status";
-        $from   = "FROM {user} u, {block_gdata_gapps} g";
-        $where  = "WHERE u.id = g.userid AND g.remove = 0 AND u.deleted = 0";
+        // can't define it ilke this becaue the COUNT(*) will ruin it...
+        
+        $select = "SELECT id, username, password, firstname, lastname, email";
 
+        $from   = "FROM {user}";
 
-    $sql = 'SELECT '.$fields.' FROM {user} WHERE u.id = g.userid AND g.remove = 0 AND u.deleted = 0 '.$filtersql;
-    if (empty($filtersql) ) {
-         $sql = 'SELECT '.$fields.' FROM {user} u, {block_gdata_gapps} g WHERE u.id = g.userid AND g.remove = 0 AND u.deleted = 0';//.$filtersql;
-    }
-    return array($sql,$fparams);
-       // return array($sql, $filterparams);
+        if (get_config('blocks/gapps','nosyncadmins')) {
+            // filter out admins from syncing
+            $where  = "WHERE id NOT IN (SELECT userid FROM {block_gdata_gapps} WHERE remove = 0) AND deleted = 0 AND username != 'guest'
+                       AND id NOT IN ($adminids)";
+        } else { // no admin filtering
+            $where  = "WHERE id NOT IN (SELECT userid FROM {block_gdata_gapps} WHERE remove = 0) AND deleted = 0 AND username != 'guest'";
+        }
 
-        /**
-         *
-     called with... list($select, $from, $where) = $this->get_sql($hook, $filter);
+        // if filter sql exists..
+        if (!empty($filtersql)) {
+            $where .= " AND $filtersql";
+        }
 
 
-                // Get all users that are not in our sync table (block_gdata_gapps) that are not scheduled to be deleted
-                $select = "SELECT u.id, u.username, u.password, u.firstname, u.lastname, u.email, g.lastsync, g.status";
-                $from   = "FROM {$CFG->prefix}user u, {$CFG->prefix}block_gdata_gapps g";
-                $where  = "WHERE u.id = g.userid AND g.remove = 0 AND u.deleted = 0";
+        $sql = $select.' '.$from.' '.$where;
 
-                // SQL gets a little weird here because the filtersql doesn't do field aliases
-                if ($filtersql = $filter->get_sql_filter()) {
-                    $where .= " AND u.id IN (SELECT id FROM {$CFG->prefix}user WHERE $filtersql)";
-                }
-
-         */
-
-
+        return array($sql,$fparams);
     }
 
     public function output_wrapper($tablehtml) {
@@ -149,8 +142,8 @@ class blocks_gapps_report_users extends mr_report_abstract {
         $totalusers = '[totalusersselected]';
             $allstr       = get_string('selectall',            'block_gapps');
             $nonestr      = get_string('selectnone',           'block_gapps');
-            $submitstr    = get_string("submitbuttonusers",    'block_gapps');
-            $submitallstr = get_string("submitbuttonallusers", 'block_gapps',$totalusers);
+            $submitstr    = get_string("submitbuttonaddusers",    'block_gapps');
+            $submitallstr = get_string("submitbuttonalladdusers", 'block_gapps',$totalusers);
             $confirmstr   = get_string("confirmusers",         'block_gapps');
             $confirmstr   = addslashes_js($confirmstr); // deprecated function.. remove
             $options      = array(50 => 50, 100 => 100, 250 => 250, 500 => 500, 1000 => 1000);
@@ -173,6 +166,19 @@ class blocks_gapps_report_users extends mr_report_abstract {
 
         return $filterform.$tablehtml.$output;
     }
+
+
+
+    /**
+     * Add a row to the table
+     *
+     * @param mixed $row The row to add
+     * @return void
+     */
+    //public function table_fill_row($row) {
+    //    $this->table->add_row($row);
+    //}
+
 
 
     /**

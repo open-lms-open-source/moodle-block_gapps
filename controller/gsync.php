@@ -69,9 +69,27 @@ class block_gapps_controller_gsync extends mr_controller_block {
 
 
         require_once($CFG->dirroot.'/blocks/gapps/report/users.php');
-        $report = new blocks_gapps_report_users($this->url, $COURSE->id);
+        require_once($CFG->dirroot.'/user/filters/lib.php');
+
+        // don't auto run because moodle's userfilter clears the _POST global and we need to save
+        // and process those
+        $report = new blocks_gapps_report_users($this->url, $COURSE->id,false);
+             
+
+        $filter =  new user_filtering(NULL, $this->url);//,
+                                    //  array('hook' => $hook, 'pagesize' => $pagesize));
+// mr_var::instance()->set
+//mr_var::instance()->get
+        mr_var::instance()->set('blocks_gdata_filter', $filter);
+        $report->run();
         $output = $this->mroutput->render($report);
         print $output;
+
+
+
+        //$report = new blocks_gapps_report_users($this->url, $COURSE->id);
+        //$output = $this->mroutput->render($report);
+        //print $output;
 
         //$this->helper->gapps->display_user_table('users');
         
@@ -127,7 +145,29 @@ class block_gapps_controller_gsync extends mr_controller_block {
         echo "addusers action";
         $this->print_footer();
     }
-    
+
+
+    public function addusersview_action() {
+        global $CFG,$COURSE;
+        $this->tabs->set('addusers');
+        $this->print_header();
+
+        require_once($CFG->dirroot.'/blocks/gapps/report/addusers.php');
+        require_once($CFG->dirroot.'/user/filters/lib.php');
+
+        // don't auto run because moodle's userfilter clears the _POST global and we need to save
+        // and process those
+        $report = new blocks_gapps_report_addusers($this->url, $COURSE->id,false);
+
+
+        $filter =  new user_filtering(NULL, $this->url);
+
+        mr_var::instance()->set('blocks_gdata_filter', $filter);
+        $report->run();
+        $output = $this->mroutput->render($report);
+        print $output;
+        $this->print_footer();
+    }
     
     
     

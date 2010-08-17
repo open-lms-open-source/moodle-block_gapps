@@ -51,7 +51,7 @@ class block_gapps_controller_default extends mr_controller_block {
     public static function add_tabs($controller, &$tabs) {
         $tabs->toptab('status', array('controller' => 'gsync','action' => 'status'))
              ->toptab('users', array('controller' => 'gsync','action' => 'usersview'))
-             ->toptab('addusers', array('controller' => 'gsync','action' => 'addusers'));   
+             ->toptab('addusers', array('controller' => 'gsync','action' => 'addusersview'));
     }
 
     /**
