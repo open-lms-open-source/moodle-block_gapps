@@ -13,7 +13,7 @@ class block_gapps extends block_base {
      */
     function init() {
         $this->title   = get_string('blockname', 'block_gapps');
-        $this->version = 2010022400;
+        //$this->version = 2010022400;
 
         // temporary for development remember to remove the purge_all_caches()
         // NEXT: remove
@@ -302,11 +302,11 @@ class block_gapps extends block_base {
         $icons[] = "<img src=\"".$OUTPUT->pix_url('/i/tick_green_small')."\" alt=\"$title\" />";
 
         $title = get_string('userssynced', 'block_gapps');
-        $items[] = "<a title=\"$title\" href=\"$CFG->wwwroot/blocks/gapps/view.php?controller=gsync&action=users\">$title</a>";
+        $items[] = "<a title=\"$title\" href=\"$CFG->wwwroot/blocks/gapps/view.php?controller=gsync&action=usersview\">$title</a>";
         $icons[] = "<img src=\"".$OUTPUT->pix_url('/i/users')."\" alt=\"$title\" />";
 
         $title = get_string('addusers', 'block_gapps');
-        $items[] = "<a title=\"$title\" href=\"$CFG->wwwroot/blocks/gapps/view.php?controller=gsync&action=addusers\">$title</a>";
+        $items[] = "<a title=\"$title\" href=\"$CFG->wwwroot/blocks/gapps/view.php?controller=gsync&action=addusersview\">$title</a>";
         $icons[] = "<img src=\"".$OUTPUT->pix_url('/i/users')."\" alt=\"$title\" />";
 
         return $this->list_block_contents($icons, $items);

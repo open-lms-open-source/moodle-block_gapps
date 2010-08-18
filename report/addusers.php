@@ -58,10 +58,57 @@ class blocks_gapps_report_addusers extends mr_report_abstract {
                     //->add_column('u.fullname',     get_string('fullname'))
                     ->add_column('u.firstname',     get_string('firstname'))
                     ->add_column('u.lastname',     get_string('lastname'))
-                    ->add_column('u.email',        get_string('email'))
-                    ->add_column('g.lastsync',     get_string('lastsync','block_gapps'))
-                    ->add_column('g.status', get_string('status','block_gapps'));
+                    ->add_column('u.email',        get_string('email'));
+                    //->add_column('g.lastsync',     get_string('lastsync','block_gapps'))
+                    //->add_column('g.status', get_string('status','block_gapps'));
 
+    }
+
+
+    /**
+     * Add a row to the table
+     *
+     * @param mixed $row The row to add
+     * @return void
+     */
+    public function table_fill_row($row) {
+        // add checkboxes to the username field
+        //        stdClass Object
+        //(
+        //    [id] => 2
+        //    [username] => admin
+        //    [password] => b2bc171fbb717c0b12f871d3ed2fef4b
+        //    [firstname] => Admin
+        //    [lastname] => User
+        //    [email] => sirhcsenots@gmail.com
+        //)
+
+        $row->username = html_writer::checkbox("userids[]", $row->id, false, ' '.$row->username);
+
+        $this->table->add_row($row);
+
+                // CONVERTING THIS
+        /*
+         *                 $username = print_checkbox("userids[]", $user->id, false, s($user->username), s($user->username), '', true);
+
+                // Define table contents based on hook
+                switch ($hook) {
+                    case 'users':
+                        if ($user->lastsync > 0) {
+                            $lastsync = userdate($user->lastsync);
+                        } else {
+                            $lastsync = get_string('never');
+                        }
+
+                        $table->add_data(array($username, fullname($user), $user->email, $lastsync, get_string("status$user->status", 'block_gdata')));
+                        break;
+
+                    case 'addusers':
+                        $table->add_data(array($username, fullname($user), $user->email));
+                        break;
+                }
+         */
+        
     }
 
 
@@ -93,7 +140,11 @@ class blocks_gapps_report_addusers extends mr_report_abstract {
         $adminids = $this->return_adminids();
 
         // can't define it ilke this becaue the COUNT(*) will ruin it...
-        
+//        if (1 != substr_count($fields,'COUNT')) {
+//            $fields = 'u.id,'.$fields;
+//        }
+
+
         $select = "SELECT id, username, password, firstname, lastname, email";
 
         $from   = "FROM {user}";
@@ -121,50 +172,56 @@ class blocks_gapps_report_addusers extends mr_report_abstract {
         global $COURSE,$CFG,$OUTPUT;
         $formcode = '<br>where forms would show up';
 
-        
-
+       
         // Now collected the filter form code to wrap our report
         $filter = mr_var::instance()->get('blocks_gdata_filter');
         ob_start();
-        $filter->display_add();
-        //$filter->display_active();
+        $filter->display_add();    //$output .= $this->buffer(array($filter, 'display_add'));
+        $filter->display_active(); //$output .= $this->buffer(array($filter, 'display_active'));
         $filterform = ob_get_flush();
 
-//$OUTPUT->box_start()
+
         $output  = $OUTPUT->box_start('boxaligncenter boxwidthwide');
-        //$output .= $this->buffer(array($filter, 'display_add'));
-        //$output .= $this->buffer(array($filter, 'display_active'));
+        
+        // Don't print the bottom form on empty tables
+        if (1 == substr_count($tablehtml,get_string('nothingtodisplay'))) {
+             $output .= $OUTPUT->notification('Nothing to display.','');
+             $output .= $OUTPUT->box_end();
+             return $filterform.$tablehtml;
+        }
+        
 
-        //if (empty($this->table->data)) {
-            // Avoid printing the form on empty tables
-        ///    $output .= $this->buffer(array($table, 'print_html'));
-        //} else {
-        $totalusers = '[totalusersselected]';
-            $allstr       = get_string('selectall',            'block_gapps');
-            $nonestr      = get_string('selectnone',           'block_gapps');
-            $submitstr    = get_string("submitbuttonaddusers",    'block_gapps');
-            $submitallstr = get_string("submitbuttonalladdusers", 'block_gapps',$totalusers);
-            $confirmstr   = get_string("confirmusers",         'block_gapps');
-            $confirmstr   = addslashes_js($confirmstr); // deprecated function.. remove
-            $options      = array(50 => 50, 100 => 100, 250 => 250, 500 => 500, 1000 => 1000);
+        $totalusers = '[[total]]'; // $this->max_selectable();
+        $allstr       = get_string('selectall',               'block_gapps');
+        $nonestr      = get_string('selectnone',              'block_gapps');
+        $submitstr    = get_string("submitbuttonaddusers",    'block_gapps');
+        $submitallstr = get_string("submitbuttonalladdusers", 'block_gapps',$totalusers);
+        $confirmstr   = get_string("confirmusers",            'block_gapps');
 
-            $output .= "<form class=\"userform\" id=\"userformid\" action=\"$CFG->wwwroot/blocks/gapps/view.php?courseid=$COURSE->id&controller=gsync&action=users\" method=\"post\">";
-            //$output .= '<input type="hidden" name="hook" value="'.$hook.'" />';
-            $output .= '<input type="hidden" name="sesskey" value="'.sesskey().'" />';
-            //$output .= $this->buffer(array($table, 'print_html'));
-            $output .= "<p><a href=\"#\" title=\"$allstr\" onclick=\"select_all_in('FORM', 'userform', 'userformid'); return false;\">$allstr</a> / ";
-            $output .= "<a href=\"#\" title=\"$nonestr\" onclick=\"deselect_all_in('FORM', 'userform', 'userformid'); return false;\">$nonestr</a></p>";
-            $output .= "<input type=\"submit\" name=\"users\" value=\"$submitstr\" />&nbsp;&nbsp;";
-            $output .= "<input type=\"submit\" name=\"allusers\" value=\"$submitallstr\" onclick=\"return confirm('$confirmstr');\" />";
-            $output .= '</form><br />';
+        $confirmstr   = addslashes_js($confirmstr); // deprecated function.. remove
+        //$options      = array(50 => 50, 100 => 100, 250 => 250, 500 => 500, 1000 => 1000);
+
+        // Start of form
+        $action = $CFG->wwwroot.'/blocks/gapps/view.php?courseid='.$COURSE->id.'&controller=gsync&action=addusers';
+        $output .= "<form class=\"userform\" id=\"userformid\" action=\"$action\" method=\"post\">";
+        $output .= '<input type="hidden" name="sesskey" value="'.sesskey().'" />';
+
+        // table with it's checkboxes has to appear inside this form
+        $output .= $tablehtml;
+
+        $output .= "<p><a href=\"#\" title=\"$allstr\" onclick=\"select_all_in('FORM', 'userform', 'userformid'); return false;\">$allstr</a> / ";
+        $output .= "<a href=\"#\" title=\"$nonestr\" onclick=\"deselect_all_in('FORM', 'userform', 'userformid'); return false;\">$nonestr</a></p>";
+        $output .= "<input type=\"submit\" name=\"users\" value=\"$submitstr\" />&nbsp;&nbsp;";
+        $output .= "<input type=\"submit\" name=\"allusers\" value=\"$submitallstr\" onclick=\"return confirm('$confirmstr');\" />";
+        $output .= '</form><br />';
 
             // M2 no pop ups anymore...
             //$output .= popup_form("$CFG->wwwroot/blocks/gdata/index.php?hook=$hook&amp;pagesize=", $options, 'changepagesize',
             //                      $pagesize, '', '', '', true, 'self', get_string('pagesize', 'block_gdata'));
-        //}
+        
         $output .= $OUTPUT->box_end();
 
-        return $filterform.$tablehtml.$output;
+        return $filterform.$output;
     }
 
 

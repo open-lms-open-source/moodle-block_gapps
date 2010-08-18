@@ -168,8 +168,14 @@ class blocks_gapps_model_gsync {
      * @return void
      **/
     public function __construct($autoconnect = true) {
-
+        global $CFG;
         mr_bootstrap::zend(); // set php search paths to find our zend lib
+        // now make the zend includes
+        require_once($CFG->dirroot.'/blocks/gapps/gdata/exception.php');
+        require_once('Zend/Gdata/Gapps.php');
+        require_once('Zend/Gdata/ClientLogin.php');
+
+
 
         if (!$config = get_config('blocks/gapps')) {
             throw new blocks_gdata_exception('notconfigured');
@@ -362,7 +368,8 @@ class blocks_gapps_model_gsync {
      * @throws blocks_gdata_exception
      **/
     public function rename_user($moodleuser, $gappsuser) {
-        if (record_exists('block_gdata_gapps', 'username', $moodleuser->username)) {
+        global $DB;
+        if ($DB->record_exists('block_gdata_gapps', array('username' => $moodleuser->username))) {
             // Username conflict - keep old data and update status
             $this->moodle_set_status($moodleuser->id, self::STATUS_USERNAME_CONFLICT);
 
@@ -522,11 +529,12 @@ class blocks_gapps_model_gsync {
      * @throws blocks_gdata_exception
      **/
     public function moodle_create_user($user) {
+        global $DB;
         // Check for existing record first
-        if ($record = get_record('block_gdata_gapps', 'userid', $user->id)) {
+        if ($record = $DB->get_record('block_gdata_gapps',array( 'userid'=> $user->id))) {
             if ($record->remove == 1) {
                 // Was set to be removed... enable it and leave other fields unchanged
-                if (!set_field('block_gdata_gapps', 'remove', 0, 'id', $record->id)) {
+                if (!$DB->set_field('block_gdata_gapps', 'remove', 0, array('id'=> $record->id))) {
                     throw new blocks_gdata_exception('setfieldfailed');
                 }
             } else {
@@ -535,7 +543,7 @@ class blocks_gapps_model_gsync {
             }
         } else {
             // Inserting new - don't allow duplicate usernames as Gapps will not allow it anyways
-            if (record_exists('block_gdata_gapps', 'username', $user->username)) {
+            if ($DB->record_exists('block_gdata_gapps', array('username'=> $user->username))) {
                 throw new blocks_gdata_exception('usernamealreadyexists', 'block_gapps', $user->username);
             }
 
@@ -547,7 +555,7 @@ class blocks_gapps_model_gsync {
             $record->lastsync = 0;
             $record->status   = self::STATUS_NEVER;
 
-            if (!insert_record('block_gdata_gapps', $record)) {
+            if (!$DB->insert_record('block_gdata_gapps', $record)) {
                 throw new blocks_gdata_exception('insertfailed');
             }
         }
@@ -564,6 +572,8 @@ class blocks_gapps_model_gsync {
      * @throws blocks_gdata_exception
      **/
     public function moodle_update_user($moodleuser, $status = self::STATUS_OK) {
+        global $DB;
+
         $record           = new stdClass;
         $record->id       = $moodleuser->id;
         $record->username = $moodleuser->username;
@@ -571,7 +581,7 @@ class blocks_gapps_model_gsync {
         $record->lastsync = time();
         $record->status   = $status;
 
-        if (!update_record('block_gdata_gapps', $record)) {
+        if (!$DB->update_record('block_gdata_gapps', $record)) {
             throw new blocks_gdata_exception('failedtoupdatesyncrecord', 'block_gapps', $record->id);
         }
 
@@ -579,7 +589,7 @@ class blocks_gapps_model_gsync {
             $domainemail = "$moodleuser->username@{$this->config->domain}";
 
             if ($moodleuser->email != $domainemail) {
-                if (!set_field('user', 'email', $domainemail, 'id', $moodleuser->userid)) {
+                if (!$DB->set_field('user', 'email', $domainemail, array('id'=> $moodleuser->userid))) {
                     throw new blocks_gdata_exception('failedtoupdateemail');
                 }
             }
@@ -594,8 +604,9 @@ class blocks_gapps_model_gsync {
      * @throws blocks_gdata_exception
      **/
     public function moodle_remove_user($userid) {
-        if ($id = get_field('block_gdata_gapps', 'id', 'userid', $userid)) {
-            if (!set_field('block_gdata_gapps', 'remove', 1, 'id', $id)) {
+        global $DB;
+        if ($id = $DB->get_field('block_gdata_gapps', 'id', array('userid' => $userid))) {
+            if (!$DB->set_field('block_gdata_gapps', 'remove', 1, array('id', $id))) {
                 throw new blocks_gdata_exception('setfieldfailed');
             }
         } else {
@@ -610,7 +621,8 @@ class blocks_gapps_model_gsync {
      * @return void
      **/
     public function moodle_delete_user($id) {
-        if (!delete_records('block_gdata_gapps', 'id', $id)) {
+        global $DB;
+        if (!$DB->delete_records('block_gdata_gapps', array('id' => $id))) {
             throw new blocks_gdata_exception('failedtodeletesyncrecord', 'block_gapps', $id);
         }
     }
@@ -624,18 +636,20 @@ class blocks_gapps_model_gsync {
      * @throws blocks_gdata_exception
      **/
     public function moodle_get_user($userid) {
-        global $CFG;
+        global $CFG,$DB;
 
-        $as = sql_as();
-
-        $moodleuser = get_record_sql("SELECT g.username $as oldusername, g.id, g.userid,
-                                             g.password $as oldpassword, g.remove, g.lastsync,
+        // you could rename the methods 'after' the objects are returned??
+        // TODO: look into an sql_as fix for now don't warn
+        //$as = sql_as();
+        
+        $moodleuser = $DB->get_record_sql("SELECT g.username AS oldusername, g.id, g.userid,
+                                             g.password AS oldpassword, g.remove, g.lastsync,
                                              g.status, u.username, u.password, u.firstname,
                                              u.lastname, u.email, u.deleted,u.auth
-                                        FROM {$CFG->prefix}user u,
-                                             {$CFG->prefix}block_gdata_gapps g
+                                        FROM {user} u,
+                                             {block_gdata_gapps} g
                                        WHERE u.id = g.userid
-                                         AND g.userid = $userid");
+                                         AND g.userid = ?",array($userid));
 
         if ($moodleuser === false) {
             throw new blocks_gdata_exception('nouserfound');
@@ -651,9 +665,10 @@ class blocks_gapps_model_gsync {
      * @throws blocks_gdata_exception
      **/
     public function moodle_get_users() {
-        global $CFG;
+        global $CFG,$DB;
 
-        $as = sql_as();
+        // TODO: look into sql_as fix for now don't warn
+        //$as = sql_as();
 
         // Only grab those who are out of date according to our cron interval
         $timetocheck = time() - ($this->config->croninterval * MINSECS);
@@ -661,18 +676,18 @@ class blocks_gapps_model_gsync {
         // Filter Out Admins from sync option
         $adminids = $this->return_adminids();
         $adminfilter = " AND u.id NOT IN ($adminids)";
-        if (!get_config('blocks/gdata','nosyncadmins')) {
+        if (!get_config('blocks/gapps','nosyncadmins')) {
             $adminfilter = '';
         }
         
-        $rs = get_recordset_sql("SELECT g.username $as oldusername, g.id, g.userid,
-                                        g.password $as oldpassword, g.remove, g.lastsync,
+        $rs = get_recordset_sql("SELECT g.username AS oldusername, g.id, g.userid,
+                                        g.password AS oldpassword, g.remove, g.lastsync,
                                         g.status, u.username, u.password, u.firstname,
                                         u.lastname, u.email, u.deleted,u.auth
-                                   FROM {$CFG->prefix}user u,
-                                        {$CFG->prefix}block_gdata_gapps g
+                                   FROM {user} u,
+                                        {block_gdata_gapps} g
                                   WHERE u.id = g.userid
-                                    AND g.lastsync < $timetocheck".$adminfilter);
+                                    AND g.lastsync < ?".$adminfilter,array($timetocheck));
 
         if ($rs === false) {
             throw new blocks_gdata_exception('nousersfound');
@@ -697,7 +712,8 @@ class blocks_gapps_model_gsync {
      * @param string $status User's sync status, please use one of the STATUS constants defined in this class
      **/
     public function moodle_set_status($id, $status) {
-        if (!set_field('block_gdata_gapps', 'status', $status, 'id', $id)) {
+        global $DB;
+        if (!$DB->set_field('block_gdata_gapps', 'status', $status, array('id' => $id))) {
             throw new blocks_gdata_exception('setfieldfailed');
         }
     }
@@ -798,7 +814,7 @@ class blocks_gapps_model_gsync {
 
         // Save authorization header to share with HTTP clients
         $auth = $this->service->getStaticHttpClient()->getHeader('authorization');
-        set_config('authorization', $auth, 'blocks/gdata');
+        set_config('authorization', $auth, 'blocks/gapps');
 
         $expired = false;   // Flag for when we reached or max execution time
         $clients = array(); // Our HTTP clients
@@ -813,7 +829,11 @@ class blocks_gapps_model_gsync {
             }
 
             // Setup a new http client to process the user
-            $client = new blocks_gdata_http($CFG->wwwroot.'/blocks/gdata/rest.php', $this->httpconfig);
+            // rest is now a function in model/gsync  $this->rest()
+            // TODO: rewrite to use gsync method.. if possible
+            require_once($CFG->dirroot.'/blocks/gapps/model/http.php');
+            // for now point it to our OLD rest.php
+            $client = new blocks_gdata_http($CFG->wwwroot.'/blocks/gapps/porting/gdata/rest.php', $this->httpconfig);
             $client->setParameterPost('userid', $moodleuser->userid);
             $client->request('POST');
 
@@ -831,7 +851,7 @@ class blocks_gapps_model_gsync {
         }
 
         // Want to use a new one next round
-        unset_config('authorization', 'blocks/gdata');
+        unset_config('authorization', 'blocks/gapps');
 
         $feedback and mtrace('Number of Google Apps accounts deleted: '.$this->counts['deleted']);
         $feedback and mtrace('Number of Google Apps accounts disabled: '.$this->counts['disabled']);
@@ -904,7 +924,7 @@ class blocks_gapps_model_gsync {
      **/
     private static function event_handler($event, $eventdata) {
         // Check first to see if events are allowed
-        if (get_config('blocks/gdata', 'allowevents')) {
+        if (get_config('blocks/gapps', 'allowevents')) {
 
             switch ($event) {
                 case 'user_deleted':
@@ -1086,10 +1106,10 @@ class blocks_gapps_model_gsync {
         }
 
         // Zero out our start time to free up the cron
-        set_config('cronstarted', 0, 'blocks/gdata');
+        set_config('cronstarted', 0, 'blocks/gapps');
 
         // Always remove
-        unset_config('authorization', 'blocks/gdata');
+        unset_config('authorization', 'blocks/gapps');
 
         // Always return true
         return true;
