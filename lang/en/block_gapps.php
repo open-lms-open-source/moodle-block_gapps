@@ -114,7 +114,8 @@ $string['statustab'] = 'Status';
 $string['userstab'] = 'Users being synced';
 $string['adduserstab'] = 'Add users to sync';
 
-
+$string['changessaved'] = 'Changes saved.';
+$string['notimplementedyet'] = 'Not Implemented yet.';
 
 
 /* Gmail Strings formerly from (gmail) */
