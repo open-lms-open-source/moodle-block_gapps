@@ -195,12 +195,12 @@ class blocks_gapps_report_users extends mr_report_abstract {
              return $filterform.$tablehtml;
         }
 
-        $totalusers = '[totalusersselected]';
+        $totalusers = $this->max_selectable();//'[totalusersselected]';
         $allstr       = get_string('selectall',            'block_gapps');
         $nonestr      = get_string('selectnone',           'block_gapps');
         $submitstr    = get_string("submitbuttonusers",    'block_gapps');
         $submitallstr = get_string("submitbuttonallusers", 'block_gapps',$totalusers);
-        $confirmstr   = get_string("confirmusers",         'block_gapps');
+        $confirmstr   = get_string("confirmusers",         'block_gapps',$totalusers);
 
         $confirmstr   = addslashes_js($confirmstr); // deprecated function.. remove
         $options      = array(50 => 50, 100 => 100, 250 => 250, 500 => 500, 1000 => 1000);
@@ -230,7 +230,6 @@ class blocks_gapps_report_users extends mr_report_abstract {
 
     /**
      * Total records all this page that the Select All XXX users can select
-     * UNTESTED possible replacement for $total string in the buttons
      */
      function max_selectable() {
         // obtain filter

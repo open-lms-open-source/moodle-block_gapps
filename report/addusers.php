@@ -29,39 +29,16 @@ class blocks_gapps_report_addusers extends mr_report_abstract {
     }
 
     /**
-     * Filter setup
-     *
-     * @return void
-     */
-//    public function filter_init() {
-//        $this->filter = new mr_html_filter($this->preferences, $this->url);
-//        $this->filter->new_text('username', get_string('username'));
-//    }
-
-    /**
      * Table setup
      *
      * @return void
      */
     public function table_init() {
         $this->table = new mr_html_table($this->preferences, $this->url, 'username');
-
-
-
-//SELECT u.id, u.username, u.password, u.firstname, u.lastname, u.email, g.lastsync, g.status
-//            case 'addusers':
-            //    $table->define_columns(array('username', 'fullname', 'email'));
-            //    $table->define_headers(array(get_string('username'), get_string('fullname'), get_string('email')));
-             //   break;
-//  $table->add_data(array($username, fullname($user), $user->email));
         $this->table->add_column('u.username',     get_string('username'))
-                    //->add_column('u.fullname',     get_string('fullname'))
                     ->add_column('u.firstname',     get_string('firstname'))
                     ->add_column('u.lastname',     get_string('lastname'))
                     ->add_column('u.email',        get_string('email'));
-                    //->add_column('g.lastsync',     get_string('lastsync','block_gapps'))
-                    //->add_column('g.status', get_string('status','block_gapps'));
-
     }
 
 
@@ -139,14 +116,12 @@ class blocks_gapps_report_addusers extends mr_report_abstract {
         // or admins that we don't want to sync
         $adminids = $this->return_adminids();
 
-        // can't define it ilke this becaue the COUNT(*) will ruin it...
-//        if (1 != substr_count($fields,'COUNT')) {
-//            $fields = 'u.id,'.$fields;
-//        }
-
 
         $select = "SELECT id, username, password, firstname, lastname, email";
-
+        if (1 == substr_count($fields,'COUNT')) {
+            $select = "SELECT ".$fields;
+        } 
+        
         $from   = "FROM {user}";
 
         if (get_config('blocks/gapps','nosyncadmins')) {
@@ -191,12 +166,12 @@ class blocks_gapps_report_addusers extends mr_report_abstract {
         }
         
 
-        $totalusers = '[[total]]'; // $this->max_selectable();
+        $totalusers = $this->max_selectable();
         $allstr       = get_string('selectall',               'block_gapps');
         $nonestr      = get_string('selectnone',              'block_gapps');
         $submitstr    = get_string("submitbuttonaddusers",    'block_gapps');
         $submitallstr = get_string("submitbuttonalladdusers", 'block_gapps',$totalusers);
-        $confirmstr   = get_string("confirmusers",            'block_gapps');
+        $confirmstr   = get_string("confirmusers",            'block_gapps',$totalusers);
 
         $confirmstr   = addslashes_js($confirmstr); // deprecated function.. remove
         //$options      = array(50 => 50, 100 => 100, 250 => 250, 500 => 500, 1000 => 1000);
@@ -225,16 +200,18 @@ class blocks_gapps_report_addusers extends mr_report_abstract {
     }
 
 
-
     /**
-     * Add a row to the table
-     *
-     * @param mixed $row The row to add
-     * @return void
+     * Total records all this page that the Select All XXX users can select
      */
-    //public function table_fill_row($row) {
-    //    $this->table->add_row($row);
-    //}
+     function max_selectable() {
+        // obtain filter
+        // function is faulty
+        $filter = mr_var::instance()->get('blocks_gdata_filter');
+        list($filtersql,$fparams) = $filter->get_sql_filter();
+        $total = $this->count_records($filtersql); // <-- pass it a filter sql
+        return $total;
+     }
+
 
 
 
