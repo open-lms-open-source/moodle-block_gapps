@@ -29,38 +29,21 @@ class blocks_gapps_report_users extends mr_report_abstract {
     }
 
     /**
-     * Filter setup
-     *
-     * @return void
-     */
-//    public function filter_init() {
-//        $this->filter = new mr_html_filter($this->preferences, $this->url);
-//        $this->filter->new_text('username', get_string('username'));
-//    }
-
-    /**
      * Table setup
      *
      * @return void
      */
     public function table_init() {
+        // url of users table view
+        $this->url->params(array('controller' => 'gsync', 'action' => 'usersview'));
         $this->table = new mr_html_table($this->preferences, $this->url, 'username');
-
-//       $this->table->add_column('username', get_string('username'))
-//                    ->add_column('fullname', get_string('fullname'))
-//                    ->add_column('email',    get_string('email'))
-//                    ->add_column('lastsync', get_string('lastsync'))
-//                    ->add_column('status',   get_string('status'));
-
-//SELECT u.id, u.username, u.password, u.firstname, u.lastname, u.email, g.lastsync, g.status
-
-        $this->table->add_column('u.username',     get_string('username'))
-                    ->add_column('u.firstname',     get_string('firstname'))
-                    ->add_column('u.lastname',     get_string('lastname'))
-                    ->add_column('u.email',        get_string('email'))
-                    ->add_column('g.lastsync',     get_string('lastsync','block_gapps'))
-                    ->add_column('g.status', get_string('status','block_gapps'));
-
+        $this->table->add_column('u.id', '', array('display' => false))
+                    ->add_column('u.username',  get_string('username'))
+                    ->add_column('u.firstname', get_string('firstname'))
+                    ->add_column('u.lastname',  get_string('lastname'))
+                    ->add_column('u.email',     get_string('email'))
+                    ->add_column('g.lastsync',  get_string('lastsync','block_gapps'))
+                    ->add_column('g.status',    get_string('status','block_gapps'));
     }
 
 
@@ -73,39 +56,16 @@ class blocks_gapps_report_users extends mr_report_abstract {
     public function table_fill_row($row) {
         // add checkboxes to the username field
         $row->username = html_writer::checkbox("userids[]", $row->id, false, ' '.$row->username);
-
-        //print_object($row);
-
+        
         if ($row->lastsync > 0) {
             $lastsync = userdate($row->lastsync);
         } else {
             $lastsync = get_string('never');
         }
+
         $row->status = get_string("status".$row->status, 'block_gapps');
 
-
         $this->table->add_row($row);
-        // CONVERTING THIS
-        /*
-         *                 $username = print_checkbox("userids[]", $user->id, false, s($user->username), s($user->username), '', true);
-
-                // Define table contents based on hook
-                switch ($hook) {
-                    case 'users':
-                        if ($user->lastsync > 0) {
-                            $lastsync = userdate($user->lastsync);
-                        } else {
-                            $lastsync = get_string('never');
-                        }
-
-                        $table->add_data(array($username, fullname($user), $user->email, $lastsync, get_string("status$user->status", 'block_gdata')));
-                        break;
-
-                    case 'addusers':
-                        $table->add_data(array($username, fullname($user), $user->email));
-                        break;
-                }
-         */
     }
 
     
@@ -118,7 +78,6 @@ class blocks_gapps_report_users extends mr_report_abstract {
         // recoverying moodle users filter
         $filter = mr_var::instance()->get('blocks_gdata_filter');
         list($filtersql,$fparams) = $filter->get_sql_filter();  //get_sql_filter($extra='', array $params=null)
-        //print_object($filter);die;
 
 //
 //        $sql = "SELECT $fields
@@ -143,9 +102,9 @@ class blocks_gapps_report_users extends mr_report_abstract {
 
         // count records needs to make fields COUNT(*) but I need the id passed for the checkboxes
 
-    if (1 != substr_count($fields,'COUNT')) {
-        $fields = 'u.id,'.$fields;
-    }
+//    if (1 != substr_count($fields,'COUNT')) {
+//        $fields = 'u.id,'.$fields;
+//    }
 
     $sql = 'SELECT '.$fields.' FROM {user} WHERE u.id = g.userid AND g.remove = 0 AND u.deleted = 0 '.$filtersql;
     if (empty($filtersql) ) {
