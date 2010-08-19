@@ -606,7 +606,7 @@ class blocks_gapps_model_gsync {
     public function moodle_remove_user($userid) {
         global $DB;
         if ($id = $DB->get_field('block_gdata_gapps', 'id', array('userid' => $userid))) {
-            if (!$DB->set_field('block_gdata_gapps', 'remove', 1, array('id', $id))) {
+            if (!$DB->set_field('block_gdata_gapps', 'remove', 1, array('id' => $id))) { 
                 throw new blocks_gdata_exception('setfieldfailed');
             }
         } else {
