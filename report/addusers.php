@@ -34,11 +34,13 @@ class blocks_gapps_report_addusers extends mr_report_abstract {
      * @return void
      */
     public function table_init() {
+        $this->url->params(array('controller' => 'gsync', 'action' => 'addusersview')); 
         $this->table = new mr_html_table($this->preferences, $this->url, 'username');
-        $this->table->add_column('u.username',     get_string('username'))
-                    ->add_column('u.firstname',     get_string('firstname'))
-                    ->add_column('u.lastname',     get_string('lastname'))
-                    ->add_column('u.email',        get_string('email'));
+        $this->table->add_column('id', '', array('display' => false))
+                    ->add_column('username',     get_string('username'))
+                    ->add_column('firstname',     get_string('firstname'))
+                    ->add_column('lastname',     get_string('lastname'))
+                    ->add_column('email',        get_string('email'));
     }
 
 
@@ -50,42 +52,8 @@ class blocks_gapps_report_addusers extends mr_report_abstract {
      */
     public function table_fill_row($row) {
         // add checkboxes to the username field
-        //        stdClass Object
-        //(
-        //    [id] => 2
-        //    [username] => admin
-        //    [password] => b2bc171fbb717c0b12f871d3ed2fef4b
-        //    [firstname] => Admin
-        //    [lastname] => User
-        //    [email] => sirhcsenots@gmail.com
-        //)
-
         $row->username = html_writer::checkbox("userids[]", $row->id, false, ' '.$row->username);
-
         $this->table->add_row($row);
-
-                // CONVERTING THIS
-        /*
-         *                 $username = print_checkbox("userids[]", $user->id, false, s($user->username), s($user->username), '', true);
-
-                // Define table contents based on hook
-                switch ($hook) {
-                    case 'users':
-                        if ($user->lastsync > 0) {
-                            $lastsync = userdate($user->lastsync);
-                        } else {
-                            $lastsync = get_string('never');
-                        }
-
-                        $table->add_data(array($username, fullname($user), $user->email, $lastsync, get_string("status$user->status", 'block_gdata')));
-                        break;
-
-                    case 'addusers':
-                        $table->add_data(array($username, fullname($user), $user->email));
-                        break;
-                }
-         */
-        
     }
 
 
@@ -117,10 +85,11 @@ class blocks_gapps_report_addusers extends mr_report_abstract {
         $adminids = $this->return_adminids();
 
 
-        $select = "SELECT id, username, password, firstname, lastname, email";
-        if (1 == substr_count($fields,'COUNT')) {
-            $select = "SELECT ".$fields;
-        } 
+//        $select = "SELECT id, username, password, firstname, lastname, email";
+//        if (1 == substr_count($fields,'COUNT')) {
+//            $select = "SELECT ".$fields;
+//        }
+        $select = "SELECT ".$fields;
         
         $from   = "FROM {user}";
 
@@ -145,9 +114,7 @@ class blocks_gapps_report_addusers extends mr_report_abstract {
 
     public function output_wrapper($tablehtml) {
         global $COURSE,$CFG,$OUTPUT;
-        $formcode = '<br>where forms would show up';
 
-       
         // Now collected the filter form code to wrap our report
         $filter = mr_var::instance()->get('blocks_gdata_filter');
         ob_start();
@@ -190,9 +157,9 @@ class blocks_gapps_report_addusers extends mr_report_abstract {
         $output .= "<input type=\"submit\" name=\"allusers\" value=\"$submitallstr\" onclick=\"return confirm('$confirmstr');\" />";
         $output .= '</form><br />';
 
-            // M2 no pop ups anymore...
-            //$output .= popup_form("$CFG->wwwroot/blocks/gdata/index.php?hook=$hook&amp;pagesize=", $options, 'changepagesize',
-            //                      $pagesize, '', '', '', true, 'self', get_string('pagesize', 'block_gdata'));
+        // M2 no pop ups anymore...
+        //$output .= popup_form("$CFG->wwwroot/blocks/gdata/index.php?hook=$hook&amp;pagesize=", $options, 'changepagesize',
+        //                      $pagesize, '', '', '', true, 'self', get_string('pagesize', 'block_gdata'));
         
         $output .= $OUTPUT->box_end();
 

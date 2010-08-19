@@ -21,14 +21,10 @@ class block_gapps_controller_gsync extends mr_controller_block {
         $this->print_header();
 
         echo $this->output->heading('Demo of gsync controller');
-        
-        // $this->helper->gapps(); // init Gapps helpder (pulls in Zend libs etc.
+       
         echo "gsync test";
         
         echo $this->output->box_start('generalbox boxaligncenter boxwidthnormal');
-
-
-
 
         echo $this->output->box_end();
         $this->print_footer();
@@ -168,23 +164,6 @@ class block_gapps_controller_gsync extends mr_controller_block {
         $operationstatus = true;
 
         require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
-
-        //print_object($_POST);
-        /*
-         * addusers action
-
-            Array
-            (
-                [sesskey] => WK2yNte957
-                [userids] => Array
-                    (
-                        [0] => 3
-                    )
-
-                [users] => Add users to sync
-            )
-
-         */
 
         if ($userids = optional_param('userids', 0, PARAM_INT) or optional_param('allusers', '', PARAM_RAW)) {
             if (!confirm_sesskey()) {
