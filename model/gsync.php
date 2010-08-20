@@ -1016,8 +1016,6 @@ class blocks_gapps_model_gsync {
     function rest() {
         global $CFG;
         // Only accept POST requests
-       // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        //
         $nomoodlecookie = true;
         require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
 
@@ -1054,7 +1052,6 @@ class blocks_gapps_model_gsync {
         }
 
         echo serialize($response);
-
     }
 
 
@@ -1093,6 +1090,8 @@ class blocks_gapps_model_gsync {
                     return true; // Still return true to prevent us from hitting this message every 5 minutes or so
                 }
             }
+        } else {
+            $expire = HOURSECS * 1; // for testing small number of users only
         }
 
         // Be user to use the same time...
