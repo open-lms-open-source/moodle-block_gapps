@@ -81,7 +81,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
     }
 
     public function users_action() {
-        global $CFG;
+        global $CFG,$SESSION,$DB;
         $this->tabs->set('users');
         $operationstatus = true;
         require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
@@ -96,10 +96,29 @@ class block_gapps_controller_gsync extends mr_controller_block {
             $gapps = new blocks_gapps_model_gsync(false);
 
             if (optional_param('allusers', '', PARAM_RAW)) {
-                $this->notify->bad('notimplementedyet','block_gapps');
-                $operationstatus = false;
+ //               $this->notify->bad('notimplementedyet','block_gapps');
+//                $operationstatus = false;
 //                list($select, $from, $where) = $this->get_sql('users');
-//
+
+                // Obtain sql from the stored filter
+                if (isset($SESSION->blocks_gapps_report_users->fsql)) {
+                    $fsql = $SESSION->blocks_gapps_report_users->fsql;
+                    $fparams = $SESSION->blocks_gapps_report_users->fparams;
+                } else {
+                    throw new blocks_gdata_exception('missingfiltersql');
+                }
+
+                // Bulk processing
+                if ($rs = $DB->get_recordset_sql($fsql,$fparams)) {
+                    while ($rs->valid()) {
+                        $user = $rs->current();
+                        $gapps->moodle_remove_user($user->id);
+                        $rs->next();
+                    }
+                    $rs->close();
+                } else {
+                    throw new blocks_gdata_exception('invalidparameter');
+                }
 //                // Bulk processing
 //                if ($rs = get_recordset_sql("$select $from $where")) {
 //                    while ($user = rs_fetch_next_record($rs)) {
@@ -109,6 +128,8 @@ class block_gapps_controller_gsync extends mr_controller_block {
 //                } else {
 //                    throw new blocks_gdata_exception('invalidparameter');
 //                }
+
+
             } else {
                 // Handle ID submit
                 foreach ($userids as $userid) {
@@ -159,7 +180,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
     }
 
     public function addusers_action() {
-        global $CFG,$COURSE,$DB;
+        global $CFG,$COURSE,$DB,$SESSION;
         $this->tabs->set('addusers');
         $operationstatus = true;
 
@@ -175,8 +196,32 @@ class block_gapps_controller_gsync extends mr_controller_block {
 
             if (optional_param('allusers', '', PARAM_RAW)) { 
                 //// process ALL usersides on that page
-                $this->notify->bad('notimplementedyet','block_gapps');
-                $operationstatus = false;
+                //$this->notify->bad('notimplementedyet','block_gapps');
+                //$operationstatus = false;
+
+                // Obtain sql from the stored filter
+                if (isset($SESSION->blocks_gapps_report_addusers->fsql)) {
+                    $fsql = $SESSION->blocks_gapps_report_addusers->fsql;
+                    $fparams = $SESSION->blocks_gapps_report_addusers->fparams;
+                } else {
+                    throw new blocks_gdata_exception('missingfiltersql');
+                }
+                
+                // Bulk processing
+                if ($rs = $DB->get_recordset_sql($fsql,$fparams)) {
+                    while ($rs->valid()) {
+                        $user = $rs->current();
+                        $user = $DB->get_record('user',array('id'=>$user->id));
+                        $gapps->moodle_create_user($user);
+                        $rs->next();
+                    }
+                    $rs->close();
+                } else {
+                    throw new blocks_gdata_exception('invalidparameter');
+                }
+
+
+
                 //throw new blocks_gdata_exception('notimplementedyet');
 //                list($select, $from, $where) = $this->get_sql('addusers'); // need to CONVERT
 //

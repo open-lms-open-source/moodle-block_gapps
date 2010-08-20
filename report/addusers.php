@@ -6,6 +6,8 @@
  * @author Chris Stones
  */
 class blocks_gapps_report_addusers extends mr_report_abstract {
+
+
     /**
      * Report's init routine
      *
@@ -72,7 +74,7 @@ class blocks_gapps_report_addusers extends mr_report_abstract {
      * Report SQL
      */
     public function get_sql($fields, $filtersql, $filterparams) {
-        global $CFG;
+        global $CFG,$SESSION;
 
         // recoverying moodle users filter
         $filter = mr_var::instance()->get('blocks_gdata_filter');
@@ -84,13 +86,7 @@ class blocks_gapps_report_addusers extends mr_report_abstract {
         // or admins that we don't want to sync
         $adminids = $this->return_adminids();
 
-
-//        $select = "SELECT id, username, password, firstname, lastname, email";
-//        if (1 == substr_count($fields,'COUNT')) {
-//            $select = "SELECT ".$fields;
-//        }
         $select = "SELECT ".$fields;
-        
         $from   = "FROM {user}";
 
         if (get_config('blocks/gapps','nosyncadmins')) {
@@ -106,8 +102,13 @@ class blocks_gapps_report_addusers extends mr_report_abstract {
             $where .= " AND $filtersql";
         }
 
-
         $sql = $select.' '.$from.' '.$where;
+
+        // Can't find a better way to preserve this safely for passing to the controller handler
+        if (!substr_count($fields,'COUNT') ) {
+            $SESSION->blocks_gapps_report_addusers->fsql = $sql; // store for later option to submit all selected users
+            $SESSION->blocks_gapps_report_addusers->fparams = $fparams;
+        }
 
         return array($sql,$fparams);
     }
@@ -179,8 +180,13 @@ class blocks_gapps_report_addusers extends mr_report_abstract {
         return $total;
      }
 
-
-
+     /**
+      *
+      * @return <type>
+      */
+     function get_fsql() {
+        return $this->fsql;
+     }
 
     /**
      * Assists with calling functions that do no return output
