@@ -319,6 +319,88 @@ class block_gapps_controller_gsync extends mr_controller_block {
         $this->print_footer();
     }
     
-    
-    
+
+    /**
+     * Testing Interface (to call model/diagnostic.php  you can bring up the dev docs in another tab
+     */
+
+    public function viewdiagnostics_action() {
+        global $CFG,$COURSE,$OUTPUT;
+        $this->tabs->set('diagnostic');
+        $this->print_header();
+
+        echo $this->output->heading('Heading Line of code');
+
+
+        echo "Tables of data for current settings of all aspects<br/>";
+        echo "status of systems";
+
+
+        $this->print_footer();
+    }
+
+
+    public function runcron_action() {
+        global $CFG,$DB;
+
+        $this->tabs->set('diagnostic');
+        $this->print_header();
+
+        ob_start();
+        // emulates the old cron.php test file
+        // preps the moodle cron to accept the
+        $nomoodlecookie = true; // cookie not needed
+
+        require_once($CFG->libdir.'/blocklib.php');
+
+        set_time_limit(0);
+
+        $starttime = microtime();
+        $timenow   = time();
+
+        // the gapps cron needs to run
+        if ($block = $DB->get_record_select("block", "cron > 0 AND ((? - lastcron) > cron) AND visible = 1 AND name = 'gapps'",array($timenow))) {
+            //if (block_method_result('gdata', 'cron_alt')) {
+                if (!$DB->set_field('block', 'lastcron', $timenow, array('id'=> $block->id))) {
+                    mtrace('Error: could not update timestamp for '.$block->name);
+                }
+            //}
+        } else {
+            mtrace('Not time to run gapps gsync cron');
+        }
+
+        $difftime = microtime_diff($starttime, microtime());
+        mtrace("Execution took ".$difftime." seconds");
+
+
+
+        // now set up and run the gapps cron
+        require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
+        $gapps = new blocks_gapps_model_gsync(false);
+        $gapps->cron(true);
+
+
+        $buffer = ob_get_flush();
+        print_object($buffer);
+        $this->print_footer();
+        
+        //$this->notify->good('notimplementedyet','block_gapps');
+        
+        //$actionurl = $CFG->wwwroot.'/blocks/gapps/view.php?controller=gsync&action=viewdiagnostics';
+        //redirect($actionurl);
+    }
+
+
+    public function viewdocs_action() {
+        global $CFG,$COURSE;
+        $this->tabs->set('diagnostic');
+        $this->print_header();
+
+        echo $this->output->heading("Place to show phpdoc output (and proper links)");
+
+        $this->print_footer();
+    }
+
+
+
 }
