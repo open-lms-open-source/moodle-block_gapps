@@ -73,64 +73,29 @@ class blocks_gapps_report_users extends mr_report_abstract {
      * Report SQL
      */
     public function get_sql($fields, $filtersql, $filterparams) {
-        global $CFG;
+        global $CFG,$SESSION;
 
         // recoverying moodle users filter
         $filter = mr_var::instance()->get('blocks_gdata_filter');
-        list($filtersql,$fparams) = $filter->get_sql_filter();  //get_sql_filter($extra='', array $params=null)
+        list($filtersql,$fparams) = $filter->get_sql_filter();  
 
-//
-//        $sql = "SELECT $fields
-//                  FROM {$CFG->prefix}user
-//                 WHERE $filtersql";
-//
-//        // Get all users that are not in our sync table (block_gdata_gapps) that are not scheduled to be deleted
-//        $select = "SELECT u.id, u.username, u.password, u.firstname, u.lastname, u.email, g.lastsync, g.status";
-//        $from   = "FROM {$CFG->prefix}user u, {$CFG->prefix}block_gdata_gapps g";
-//        $where  = "WHERE u.id = g.userid AND g.remove = 0 AND u.deleted = 0";
-// $sql  = "u.id = g.userid AND g.remove = 0 AND u.deleted = 0";
-        // NOT implemented yet.... TODO: 
-        // SQL gets a little weird here because the filtersql doesn't do field aliases
-//        if ($filtersql = $filter->get_sql_filter()) {
-//            $where .= " AND u.id IN (SELECT id FROM {$CFG->prefix}user WHERE $filtersql)";
-//        }
-
-
-     //   $select = "SELECT u.id, u.username, u.password, u.firstname, u.lastname, u.email, g.lastsync, g.status";
+        $select = "SELECT $fields";
         $from   = "FROM {user} u, {block_gdata_gapps} g";
         $where  = "WHERE u.id = g.userid AND g.remove = 0 AND u.deleted = 0";
 
-        // count records needs to make fields COUNT(*) but I need the id passed for the checkboxes
+        // SQL gets a little weird here because the filtersql doesn't do field aliases
+        if (!empty($filtersql)) {
+            $where .= " AND u.id IN (SELECT id FROM {user} WHERE $filtersql)";
+        }
 
-//    if (1 != substr_count($fields,'COUNT')) {
-//        $fields = 'u.id,'.$fields;
-//    }
+        $sql = $select .' '. $from .' '. $where;
 
-    $sql = 'SELECT '.$fields.' FROM {user} WHERE u.id = g.userid AND g.remove = 0 AND u.deleted = 0 '.$filtersql;
-    if (empty($filtersql) ) {
-         $sql = 'SELECT '.$fields.' FROM {user} u, {block_gdata_gapps} g WHERE u.id = g.userid AND g.remove = 0 AND u.deleted = 0';//.$filtersql;
-    }
-    return array($sql,$fparams);
-       // return array($sql, $filterparams);
+        if (!substr_count($fields,'COUNT') ) {
+            $SESSION->blocks_gapps_report_users->fsql = $sql; // store for later option to submit all selected users
+            $SESSION->blocks_gapps_report_users->fparams = $fparams;
+        }
 
-        /**
-         *
-     called with... list($select, $from, $where) = $this->get_sql($hook, $filter);
-
-
-                // Get all users that are not in our sync table (block_gdata_gapps) that are not scheduled to be deleted
-                $select = "SELECT u.id, u.username, u.password, u.firstname, u.lastname, u.email, g.lastsync, g.status";
-                $from   = "FROM {$CFG->prefix}user u, {$CFG->prefix}block_gdata_gapps g";
-                $where  = "WHERE u.id = g.userid AND g.remove = 0 AND u.deleted = 0";
-
-                // SQL gets a little weird here because the filtersql doesn't do field aliases
-                if ($filtersql = $filter->get_sql_filter()) {
-                    $where .= " AND u.id IN (SELECT id FROM {$CFG->prefix}user WHERE $filtersql)";
-                }
-
-         */
-
-
+        return array($sql,$fparams);
     }
 
     public function output_wrapper($tablehtml) {
@@ -154,7 +119,7 @@ class blocks_gapps_report_users extends mr_report_abstract {
              return $filterform.$tablehtml;
         }
 
-        $totalusers = $this->max_selectable();//'[totalusersselected]';
+        $totalusers = $this->max_selectable();
         $allstr       = get_string('selectall',            'block_gapps');
         $nonestr      = get_string('selectnone',           'block_gapps');
         $submitstr    = get_string("submitbuttonusers",    'block_gapps');
