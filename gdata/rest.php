@@ -33,9 +33,8 @@
 
 // Only accept POST requests
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nomoodlecookie = true;
 
-    require('../../../config.php');
+    require_once('../../../config.php');
 
     // now set up and run the gapps cron
     require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
