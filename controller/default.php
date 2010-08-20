@@ -49,9 +49,13 @@ class block_gapps_controller_default extends mr_controller_block {
      * Define tabs for all controllers
      */
     public static function add_tabs($controller, &$tabs) {
-        $tabs->toptab('status', array('controller' => 'gsync','action' => 'status'))
-             ->toptab('users', array('controller' => 'gsync','action' => 'usersview'))
-             ->toptab('addusers', array('controller' => 'gsync','action' => 'addusersview'));
+        $tabs->toptab('status',     array('controller' => 'gsync','action' => 'status'))
+             ->toptab('users',      array('controller' => 'gsync','action' => 'usersview'))
+             ->toptab('addusers',   array('controller' => 'gsync','action' => 'addusersview'))
+             ->toptab('diagnostic', array('controller' => 'gsync','action' => 'viewdiagnostics'),has_capability('moodle/site:config', $controller->get_context()))
+             ->subtab('runcron',    array('controller' => 'gsync','action' => 'runcron'))
+             ->subtab('viewdocs',   array('controller' => 'gsync','action' => 'viewdocs'));
+
     }
 
     /**

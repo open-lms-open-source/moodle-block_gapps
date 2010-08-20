@@ -680,7 +680,7 @@ class blocks_gapps_model_gsync {
             $adminfilter = '';
         }
         
-        $rs = get_recordset_sql("SELECT g.username AS oldusername, g.id, g.userid,
+        $rs = $DB->get_recordset_sql("SELECT g.username AS oldusername, g.id, g.userid,
                                         g.password AS oldpassword, g.remove, g.lastsync,
                                         g.status, u.username, u.password, u.firstname,
                                         u.lastname, u.email, u.deleted,u.auth
@@ -808,7 +808,7 @@ class blocks_gapps_model_gsync {
      * @throws blocks_gdata_exception
      **/
     public function sync_moodle_to_gapps($expire = 0, $feedback = true) {
-        global $CFG;
+        global $CFG,$DB;
 
         $feedback and mtrace('Starting Moodle to Google Apps synchronization');
 
@@ -821,7 +821,8 @@ class blocks_gapps_model_gsync {
 
         // Loop through our users from Moodle
         $rs = $this->moodle_get_users();
-        while ($moodleuser = rs_fetch_next_record($rs)) {
+        while ($rs->valid()) {
+            $moodleuser = $rs->current();
             // Check expire time first
             if (!empty($expire) and time() > $expire) {
                 $expired = true;
@@ -842,8 +843,9 @@ class blocks_gapps_model_gsync {
             if (count($clients) >= self::MAX_CLIENTS) {
                 $this->process_clients($clients, $feedback);
             }
+            $rs->next();
         }
-        rs_close($rs);
+        $rs->close();
 
         // Process any left overs if we have time
         if (!$expired and !empty($clients)) {
@@ -1061,7 +1063,7 @@ class blocks_gapps_model_gsync {
      *
      * @param <type> $testrun a parameter to define if we are debugging our code or not
      */
-    function cron() {
+    function cron($forcerun = false) {
         global $CFG;
 
         require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
@@ -1075,18 +1077,20 @@ class blocks_gapps_model_gsync {
         $expire  = get_config('blocks/gapps', 'cronexpire');
         $started = get_config('blocks/gapps', 'cronstarted');
 
-        if (empty($expire) or !is_numeric($expire)) {
-            // Not set properly - go to default
-            $expire = HOURSECS * 24;
-        } else {
-            $expire = HOURSECS * $expire;
-        }
-        if (!empty($started)) {
-            $timetocheck = time() - $expire;
+        if (!$forcerun) {
+            if (empty($expire) or !is_numeric($expire)) {
+                // Not set properly - go to default
+                $expire = HOURSECS * 24;
+            } else {
+                $expire = HOURSECS * $expire;
+            }
+            if (!empty($started)) {
+                $timetocheck = time() - $expire;
 
-            if ($started > $timetocheck) {
-                mtrace('Gdata cron haulted: cron is either still running or has not yet expired.  The cron will expire at '.userdate($started + $expire));
-                return true; // Still return true to prevent us from hitting this message every 5 minutes or so
+                if ($started > $timetocheck) {
+                    mtrace('gapps cron haulted: cron is either still running or has not yet expired.  The cron will expire at '.userdate($started + $expire));
+                    return true; // Still return true to prevent us from hitting this message every 5 minutes or so
+                }
             }
         }
 

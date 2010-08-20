@@ -117,6 +117,9 @@ $string['adduserstab'] = 'Add users to sync';
 $string['changessaved'] = 'Changes saved.';
 $string['notimplementedyet'] = 'Not Implemented yet.';
 
+$string['diagnostictab'] = 'Diagnostics';
+$string['diagnosticruncrontab']  = 'Run Cron';
+$string['diagnosticviewdocstab']  = 'View Docs';
 
 /* Gmail Strings formerly from (gmail) */
 $string['gmailhelp'] = 'Gmail Help';
