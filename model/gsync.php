@@ -830,11 +830,8 @@ class blocks_gapps_model_gsync {
             }
 
             // Setup a new http client to process the user
-            // rest is now a function in model/gsync  $this->rest()
-            // TODO: rewrite to use gsync method.. if possible
             require_once($CFG->dirroot.'/blocks/gapps/model/http.php');
 
-            // for now point it to our OLD rest.php
             $client = new blocks_gdata_http($CFG->wwwroot.'/blocks/gapps/gdata/rest.php', $this->httpconfig);
             $client->setParameterPost('userid', $moodleuser->userid);
             $client->request('POST');

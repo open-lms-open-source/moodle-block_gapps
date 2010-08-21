@@ -35,8 +35,9 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     require_once('../../../config.php');
-
+    
     // now set up and run the gapps cron
+    require_once($CFG->dirroot.'/local/mr/framework/bootstrap.php');
     require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
     $gapps = new blocks_gapps_model_gsync(false);
     $gapps->rest();

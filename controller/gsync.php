@@ -349,35 +349,42 @@ class block_gapps_controller_gsync extends mr_controller_block {
         ob_start();
         // emulates the old cron.php test file
         // preps the moodle cron to accept the
-        $nomoodlecookie = true; // cookie not needed
-
-        require_once($CFG->libdir.'/blocklib.php');
-
-        set_time_limit(0);
-
-        $starttime = microtime();
-        $timenow   = time();
+//        $nomoodlecookie = true; // cookie not needed
+//
+//        require_once($CFG->libdir.'/blocklib.php');
+//
+//        set_time_limit(0);
+//
+//        $starttime = microtime();
+//        $timenow   = time();
 
         // the gapps cron needs to run
-        if ($block = $DB->get_record_select("block", "cron > 0 AND ((? - lastcron) > cron) AND visible = 1 AND name = 'gapps'",array($timenow))) {
-            //if (block_method_result('gdata', 'cron_alt')) {
-                if (!$DB->set_field('block', 'lastcron', $timenow, array('id'=> $block->id))) {
-                    mtrace('Error: could not update timestamp for '.$block->name);
-                }
-            //}
-        } else {
-            mtrace('Not time to run gapps gsync cron');
-        }
+//        if ($block = $DB->get_record_select("block", "cron > 0 AND ((? - lastcron) > cron) AND visible = 1 AND name = 'gapps'",array($timenow))) {
+//            //if (block_method_result('gdata', 'cron_alt')) {
+//                if (!$DB->set_field('block', 'lastcron', $timenow, array('id'=> $block->id))) {
+//                    mtrace('Error: could not update timestamp for '.$block->name);
+//                }
+//            //}
+//        } else {
+//            mtrace('Not time to run gapps gsync cron');
+//        }
+//
+//        $difftime = microtime_diff($starttime, microtime());
+//        mtrace("Execution took ".$difftime." seconds");
 
-        $difftime = microtime_diff($starttime, microtime());
-        mtrace("Execution took ".$difftime." seconds");
-
-
-
+/*
+ * The rest.php is having trouble with
+ * Incorrect access detected, this server may be accessed only through "http://chrisstones.no-ip.org/~admin/WORK/GIT_M2/moodle" address, sorry.
+Please notify server administrator.
+ *
+ * moodle's config won't let outside sites call the rest.php
+ *
+ * 541 lib/setuplib.php
+ */
         // now set up and run the gapps cron
         require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
         $gapps = new blocks_gapps_model_gsync(false);
-        $gapps->cron(true);
+        $gapps->cron(true); // force run option to true
 
 
         $buffer = ob_get_flush();
