@@ -823,6 +823,7 @@ class blocks_gapps_model_gsync {
         $rs = $this->moodle_get_users();
         while ($rs->valid()) {
             $moodleuser = $rs->current();
+
             // Check expire time first
             if (!empty($expire) and time() > $expire) {
                 $expired = true;
@@ -914,6 +915,10 @@ class blocks_gapps_model_gsync {
     public static function password_changed_event($user) {
         return self::event_handler('password_changed', $user);
     }
+    // Adding a new user to the gsync queue not yet enabled
+    //public static function user_created_event($user) {
+    //    return self::event_handler('user_created', $user);
+    //}
 
     /**
      * Event handler: processes all events
@@ -930,6 +935,7 @@ class blocks_gapps_model_gsync {
                 case 'user_deleted':
                 case 'user_updated':
                 case 'password_changed':
+                //case 'user_created':
                     try {
                         $gapps      = new blocks_gapps_model_gsync();
                         $moodleuser = $gapps->moodle_get_user($eventdata->id);
@@ -1002,13 +1008,11 @@ class blocks_gapps_model_gsync {
 
 
     /**
-     * Rest page for accepting user accounts to sync
+     * Rest function that emulates the rest page for accepting user accounts to sync
      *
      * The closing PHP tag (?>) was deliberately left out
      *
-     * @author Mark Nielsen
-     * @version $Id$
-     * @package block_gdata
+     * @package block_gapps
      **/
     function rest() {
         global $CFG;

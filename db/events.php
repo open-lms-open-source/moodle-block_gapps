@@ -32,22 +32,31 @@
 
 $handlers = array(
     'user_updated' => array(
-        'handlerfile'     => '/blocks/gapps/gdata/gapps.php',
-        'handlerfunction' => array('blocks_gdata_gapps', 'user_updated_event'),
+        'handlerfile'     => '/blocks/gapps/model/gsync.php',
+        'handlerfunction' => array('blocks_gapps_model_gsync', 'user_updated_event'),
         'schedule'        => 'instant'
     ),
 
     'user_deleted' => array(
-        'handlerfile'     => '/blocks/gapps/gdata/gapps.php',
-        'handlerfunction' => array('blocks_gdata_gapps', 'user_deleted_event'),
+        'handlerfile'     => '/blocks/gapps/model/gsync.php',
+        'handlerfunction' => array('blocks_gapps_model_gsync', 'user_deleted_event'),
         'schedule'        => 'instant'
     ),
 
     'password_changed' => array(
-        'handlerfile'     => '/blocks/gapps/gdata/gapps.php',
-        'handlerfunction' => array('blocks_gdata_gapps', 'password_changed_event'),
+        'handlerfile'     => '/blocks/gapps/model/gsync.php',
+        'handlerfunction' => array('blocks_gapps_model_gsync', 'password_changed_event'),
         'schedule'        => 'instant'
     )
 );
 
+// 'user_created'  not yet enabled
+/*
+ *     'user_created' => array(
+        'handlerfile'     => '/blocks/gapps/model/gsync.php',
+        'handlerfunction' => array('blocks_gapps_model_gsync', 'user_created_event'),
+        'schedule'        => 'instant'
+    )
+ *
+ */
 ?>

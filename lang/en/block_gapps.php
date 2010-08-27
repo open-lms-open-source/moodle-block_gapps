@@ -121,6 +121,11 @@ $string['diagnostictab'] = 'Diagnostics';
 $string['diagnosticruncrontab']  = 'Run Cron';
 $string['diagnosticviewdocstab']  = 'View Docs';
 
+
+$string['addusersruncrontab'] = 'Run Cron';
+$string['addusersviewdocstab'] = 'View docs';
+$string['diagnosticsyncusertab'] = 'Sync User Directly';
+
 /* Gmail Strings formerly from (gmail) */
 $string['gmailhelp'] = 'Gmail Help';
 $string['gmailhelp_help'] = 'The following settings control how moodle handles the Google RSS Atom Feed.';

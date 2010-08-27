@@ -1,10 +1,10 @@
 <?php // $Id$
 /**
- * helloworld block class definition
+ * block_gapps 
  *
- * @author Mark Nielsen
+ * @author Chris Stones
  * @version $Id$
- * @package block_helloworld
+ * @package block_gapps
  */
 
 class block_gapps extends block_base {
@@ -13,11 +13,9 @@ class block_gapps extends block_base {
      */
     function init() {
         $this->title   = get_string('blockname', 'block_gapps');
-        //$this->version = 2010022400;
 
-        // temporary for development remember to remove the purge_all_caches()
-        // NEXT: remove
-        purge_all_caches();
+        // Toggle on or off for development
+        // purge_all_caches();
     }
 
     /**
@@ -31,7 +29,7 @@ class block_gapps extends block_base {
     }
 
     /**
-     * Called Statically (gsync tab requi)
+     * Called Statically (gsync tab required)
      *
      * Does the current user have
      * the capability to use this
@@ -335,17 +333,25 @@ class block_gapps extends block_base {
      * @return boolean
      **/
     function cron() {
+        global $CFG;
+        mtrace("");
         $status = true;
-
+        
         // crons...
 
         // setup and run gmail cron... etc.
         
         // gsync cron
+
+        mtrace("gsync: Cron Running....");
+        require_once($CFG->dirroot.'/local/mr/framework/bootstrap.php');
         require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
         $gapps = new blocks_gapps_model_gsync();
         $status = $gapps->cron();
+        mtrace("gsync: Cron Complete.");
 
+        mtrace("blocks/gapps Cron Complete.");
+        
         return $status;
     }
 

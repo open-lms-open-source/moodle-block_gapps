@@ -38,7 +38,7 @@ class blocks_gdata_exception extends Exception {
      * @param int $code Error code
      * @return void
      **/
-    public function __construct($identifier, $module = 'block_gdata', $a = NULL, $code = 0) {
+    public function __construct($identifier, $module = 'block_gapps', $a = NULL, $code = 0) {
         global $CFG;
 
         $message = get_string($identifier, $module, $a);
