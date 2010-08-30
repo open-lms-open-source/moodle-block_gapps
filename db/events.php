@@ -43,20 +43,17 @@ $handlers = array(
         'schedule'        => 'instant'
     ),
 
-    'password_changed' => array(
+    'auth_gsaml_password_changed' => array(
         'handlerfile'     => '/blocks/gapps/model/gsync.php',
         'handlerfunction' => array('blocks_gapps_model_gsync', 'password_changed_event'),
-        'schedule'        => 'instant'
+        'schedule'        => 'instant' // 'cron' // problem is rest of the code has to run before you sync the user and new password user must be auth with gsaml
+    ),
+
+    'user_created' => array(
+        'handlerfile'     => '/blocks/gapps/model/gsync.php',
+        'handlerfunction' => array('blocks_gapps_model_gsync', 'user_created_event'),
+        'schedule'        => 'instant' 
     )
 );
 
-// 'user_created'  not yet enabled
-/*
- *     'user_created' => array(
-        'handlerfile'     => '/blocks/gapps/model/gsync.php',
-        'handlerfunction' => array('blocks_gapps_model_gsync', 'user_created_event'),
-        'schedule'        => 'instant'
-    )
- *
- */
 ?>

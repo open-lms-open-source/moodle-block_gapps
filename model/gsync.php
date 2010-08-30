@@ -915,10 +915,16 @@ class blocks_gapps_model_gsync {
     public static function password_changed_event($user) {
         return self::event_handler('password_changed', $user);
     }
-    // Adding a new user to the gsync queue not yet enabled
-    //public static function user_created_event($user) {
-    //    return self::event_handler('user_created', $user);
-    //}
+
+    /**
+     * Events API Hook for event 'user_created'
+     *
+     * @param object $user moodle user object
+     * @return boolean
+     */
+    public static function user_created_event($user) {
+        return self::event_handler('user_created', $user);
+    }
 
     /**
      * Event handler: processes all events
@@ -935,7 +941,7 @@ class blocks_gapps_model_gsync {
                 case 'user_deleted':
                 case 'user_updated':
                 case 'password_changed':
-                //case 'user_created':
+                case 'user_created':
                     try {
                         $gapps      = new blocks_gapps_model_gsync();
                         $moodleuser = $gapps->moodle_get_user($eventdata->id);
