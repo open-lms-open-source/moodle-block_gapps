@@ -382,12 +382,17 @@ class block_gapps_controller_gsync extends mr_controller_block {
 
 
     public function viewdocs_action() {
-        global $CFG,$COURSE;
+        global $CFG,$COURSE,$OUTPUT;
         $this->tabs->set('diagnostic');
         $this->print_header();
 
-        echo $this->output->heading("Place to show phpdoc output (and proper links)");
-
+        print $this->output->heading("Gapps Documentation");
+        print $OUTPUT->box_start('generalbox boxaligncenter');
+        $str = '<iframe src="'.$CFG->wwwroot.'/blocks/gapps/docs/index.html'.'" width="100%" height="600" align="center"> </iframe>';
+        print $str;
+        print $OUTPUT->box_end();
+        
+        
         $this->print_footer();
     }
 

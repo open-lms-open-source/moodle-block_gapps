@@ -16,6 +16,8 @@ class block_gapps extends block_base {
 
         // Toggle on or off for development
         // purge_all_caches();
+        // when debuggin events reupdate events
+        //events_update_definition('block_gapps');
     }
 
     /**
