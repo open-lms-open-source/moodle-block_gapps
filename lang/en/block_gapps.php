@@ -122,9 +122,24 @@ $string['diagnosticruncrontab']  = 'Run Cron';
 $string['diagnosticviewdocstab']  = 'View Docs';
 
 
+$string['diagnosticgappslogstab'] = 'Gapps Logs';
 $string['addusersruncrontab'] = 'Run Cron';
 $string['addusersviewdocstab'] = 'View docs';
 $string['diagnosticsyncusertab'] = 'Sync User Directly';
+
+// gapps logs
+
+$string['blocks_gapps_report_gappslogs'] = 'Gapps Logs';
+$string['id']   = 'ID';
+$string['time']   = 'Time';
+$string['userid'] = 'UserID';
+$string['ip']     = 'IP Address';
+$string['course'] = 'Course';
+$string['module'] = 'Module';
+$string['cmid']   = 'cmid';
+$string['action'] = 'Action';
+$string['url']    = 'URL';
+$string['info']   = 'Information';
 
 /* Gmail Strings formerly from (gmail) */
 $string['gmailhelp'] = 'Gmail Help';

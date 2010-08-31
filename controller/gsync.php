@@ -43,6 +43,12 @@ class block_gapps_controller_gsync extends mr_controller_block {
         $this->print_footer();
     }
 
+    /**
+     * Checks that blocks_gapps_model_gsync() can properly connect to Google Apps
+     *
+     * @global object $CFG
+     * @global object $OUTPUT
+     */
     public function status_action() {
         global $CFG,$OUTPUT;
         
@@ -65,6 +71,12 @@ class block_gapps_controller_gsync extends mr_controller_block {
 
     }
 
+    /**
+     * Displays users currently in the gsync table
+     *
+     * @global object $COURSE
+     * @global object $CFG
+     */
     public function usersview_action() {
         global $COURSE, $CFG;
 
@@ -89,6 +101,13 @@ class block_gapps_controller_gsync extends mr_controller_block {
         $this->print_footer();
     }
 
+    /**
+     * Performs the remove selected users actions.
+     *
+     * @global object $CFG
+     * @global object $SESSION
+     * @global object $DB
+     */
     public function users_action() {
         global $CFG,$SESSION,$DB;
         $this->tabs->set('users');
@@ -116,6 +135,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
                         $user = $rs->current();
                         $gapps->moodle_remove_user($user->id);
                         $rs->next();
+                        add_to_log(SITEID, 'block_gapps', 'gsync:users_action Bulk moodle_remove_user','', 'userid='.$user->id, 0,0);
                     }
                     $rs->close();
                 } else {
@@ -126,6 +146,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
                 // Handle ID submit
                 foreach ($userids as $userid) {
                     $gapps->moodle_remove_user($userid);
+                    add_to_log(SITEID, 'block_gapps', 'gsync:users_action  moodle_remove_user','', 'userid='.$userid, 0,0);
                 }
             }
         }
@@ -135,6 +156,14 @@ class block_gapps_controller_gsync extends mr_controller_block {
         redirect($actionurl);
     }
 
+    /**
+     * Creates users in the gsync table so that they can sync next time cron runs.
+     *
+     * @global object $CFG
+     * @global object $COURSE
+     * @global object $DB
+     * @global object $SESSION
+     */
     public function addusers_action() {
         global $CFG,$COURSE,$DB,$SESSION;
         $this->tabs->set('addusers');
@@ -164,9 +193,12 @@ class block_gapps_controller_gsync extends mr_controller_block {
                         $user = $rs->current();
                         // Had to pull in the full user object here. Thus this DB line is diff from original code
                         // because filter didn't have password field
-                        $user = $DB->get_record('user',array('id'=>$user->id)); 
+                        $user = $DB->get_record('user',array('id'=>$user->id));
+
                         $gapps->moodle_create_user($user);
                         $rs->next();
+
+                        add_to_log(SITEID, 'block_gapps', 'gsync:addusers_action Bulk moodle_create_user','', 'userid='.$user->id, 0,0);
                     }
                     $rs->close();
                 } else {
@@ -179,6 +211,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
                     // return a user object with only id,username and password
                     if ($user = $DB->get_record('user', array('id'=> $userid), 'id, username, password')) {
                         $gapps->moodle_create_user($user);
+                        add_to_log(SITEID, 'block_gapps', 'gsync:addusers_action selected ids moodle_create_user','', 'success userid='.$user->id, 0,0);
                     } else {
                         throw new blocks_gdata_exception('invalidparameter');
                     }
@@ -192,7 +225,12 @@ class block_gapps_controller_gsync extends mr_controller_block {
         redirect($actionurl);
     }
 
-
+    /**
+     * Displays the users an admin can add to the gsync table.
+     *
+     * @global object $CFG
+     * @global object $COURSE
+     */
     public function addusersview_action() {
         global $CFG,$COURSE;
         $this->tabs->set('addusers');
@@ -290,6 +328,12 @@ class block_gapps_controller_gsync extends mr_controller_block {
         $this->print_footer();
     }
 
+    /**
+     * Debugging form for Retriving Gapps Userdata
+     *
+     * @global <type> $CFG
+     * @return <type>
+     */
     public function gapps_get_user_form() {
         global $CFG;
         $output = '<br />';
@@ -302,7 +346,13 @@ class block_gapps_controller_gsync extends mr_controller_block {
         return $output;
     }
 
-
+    /**
+     * Force GSync cron to run
+     *
+     * @global object $CFG
+     * @global object $DB
+     * @global object $OUTPUT
+     */
     public function runcron_action() {
         global $CFG,$DB,$OUTPUT;
 
@@ -321,11 +371,20 @@ class block_gapps_controller_gsync extends mr_controller_block {
 
 
         $this->print_footer();
-        
+        add_to_log(SITEID, 'block_gapps', 'gsync:runcron_action','', '', 0,0);
         //$actionurl = $CFG->wwwroot.'/blocks/gapps/view.php?controller=gsync&action=viewdiagnostics';
         //redirect($actionurl);
     }
 
+    /**
+     * Force Sync a Given User
+     *
+     * @global <object> $CFG
+     * @global <object> $CFG
+     * @global <object> $COURSE
+     * @global <object> $OUTPUT
+     * @global <object> $DB
+     */
     public function syncuser_action() {
         global $CFG;
 
@@ -366,7 +425,12 @@ class block_gapps_controller_gsync extends mr_controller_block {
         $this->print_footer();
     }
 
-
+    /**
+     * Force Sync User Form HTML
+     *
+     * @global object $CFG
+     * @return $string html for the form
+     */
     public function gapps_get_syncuser_form() {
         global $CFG;
         $output = '<br />';
@@ -380,7 +444,13 @@ class block_gapps_controller_gsync extends mr_controller_block {
     }
 
 
-
+    /**
+     * View this PHPDoc Generated Content.
+     *
+     * @global <object> $CFG
+     * @global <object> $COURSE
+     * @global <object> $OUTPUT
+     */
     public function viewdocs_action() {
         global $CFG,$COURSE,$OUTPUT;
         $this->tabs->set('diagnostic');
@@ -396,6 +466,26 @@ class block_gapps_controller_gsync extends mr_controller_block {
         $this->print_footer();
     }
 
+    /**
+     * View only Gapps related Moodle logs
+     *
+     * @global <object> $CFG
+     * @global <object> $COURSE
+     * @global <object> $OUTPUT
+     */
+    public function gappslogs_action() {
+        global $CFG,$COURSE,$OUTPUT;
+        $this->tabs->set('diagnostic');
 
+        //print $this->output->heading("Gapps Action Logs");
+        //print $OUTPUT->box_start('generalbox boxaligncenter');
 
+        require_once($CFG->dirroot.'/blocks/gapps/report/gappslogs.php');
+        $report = new blocks_gapps_report_gappslogs($this->url, $COURSE->id);
+
+        $this->print_header();
+        print $this->mroutput->render($report);
+        //print $OUTPUT->box_end();
+        $this->print_footer();
+    }
 }

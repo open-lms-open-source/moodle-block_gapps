@@ -43,10 +43,12 @@ $handlers = array(
         'schedule'        => 'instant'
     ),
 
-    'auth_gsaml_password_changed' => array(
+    // not necessarily since google sends the users HASH anyway but we leave it here in case
+    // moodle implements what is says it does in the docs
+    'password_changed' => array(
         'handlerfile'     => '/blocks/gapps/model/gsync.php',
         'handlerfunction' => array('blocks_gapps_model_gsync', 'password_changed_event'),
-        'schedule'        => 'instant' // 'cron' // problem is rest of the code has to run before you sync the user and new password user must be auth with gsaml
+        'schedule'        => 'instant' 
     ),
 
     'user_created' => array(
