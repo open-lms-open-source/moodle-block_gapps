@@ -61,6 +61,7 @@ class blocks_gapps_report_gappslogs extends mr_report_abstract {
      * @return string
      */
     public function output_wrapper($tablehtml) {
+        // http://docs.moodle.org/en/Development:Output_renderers
         // need to overide the boxwidthnormal width and make it 95%
         $head = '<span class="widereportbox">';
         $tail = '</span>';

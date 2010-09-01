@@ -943,10 +943,26 @@ class blocks_gapps_model_gsync {
         if (get_config('blocks/gapps', 'allowevents')) {
             add_to_log(SITEID, 'block_gapps', 'blocks_gapps_model_gsync:event_handler','', $event.' eventdata->id='.$eventdata->id, 0,0);
             switch ($event) {
+                case 'user_created':
+                    $user = $eventdata;
+                    try {
+                        $gapps = new blocks_gapps_model_gsync();
+                        $gapps->moodle_create_user($user);
+                        $moodleuser = $gapps->moodle_get_user($eventdata->id);
+                        $gappsuser  = $gapps->gapps_get_user($moodleuser->oldusername);
+
+                        $gapps->sync_moodle_user_to_gapps($moodleuser, $gappsuser, false);
+
+                    } catch (blocks_gdata_exception $e) {
+                        // Do nothing on errors
+                        add_to_log(SITEID, 'block_gapps', 'sync event_handler user_created','', 'ERROR:'.$e->getMessage().' usr='.$eventdata->id, 0,0);
+                    }
+
+                    add_to_log(SITEID, 'block_gapps', 'sync event_handler','', 'user_created processed usr='.$eventdata->id, 0,0);
+                    break;
                 case 'user_deleted':
                 case 'user_updated':
                 case 'password_changed':
-                case 'user_created':
                     try {
                         $gapps      = new blocks_gapps_model_gsync();
                         $moodleuser = $gapps->moodle_get_user($eventdata->id);
@@ -956,7 +972,9 @@ class blocks_gapps_model_gsync {
 
                     } catch (blocks_gdata_exception $e) {
                         // Do nothing on errors
+                        add_to_log(SITEID, 'block_gapps', 'sync event_handler user_deleted,updated or pws chng','', 'ERROR:'.$e->getMessage().' usr='.$eventdata->id, 0,0);
                     }
+                    add_to_log(SITEID, 'block_gapps', 'sync event_handler user_deleted,updated or pws chng','','usr='.$eventdata->id, 0,0);
                     break;
             }
         }
