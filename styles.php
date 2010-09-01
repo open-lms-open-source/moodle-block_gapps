@@ -2,7 +2,7 @@
     width: 100%;
 }
 
-.widereportbox
+#page-blocks-gapps-view .widereportbox
 {
     width: 95%;
 }
