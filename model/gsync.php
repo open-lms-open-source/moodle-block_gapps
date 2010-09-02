@@ -51,6 +51,7 @@
 // **/
 //
 //require_once($CFG->dirroot.'/blocks/gapps/gdata/http.php');
+require($CFG->dirroot.'/local/mr/bootstrap.php');
 require_once($CFG->dirroot.'/blocks/gapps/gdata/exception.php');
 //require_once('Zend/Gdata/Gapps.php');
 //require_once('Zend/Gdata/ClientLogin.php');
@@ -747,7 +748,7 @@ class blocks_gapps_model_gsync {
     public function sync_moodle_user_to_gapps($moodleuser, $gappsuser = NULL, $feedback = true) {
         if ($gappsuser === NULL) {
             $gappsuser = $this->gapps_get_user($moodleuser->username);
-            add_to_log(SITEID, 'block_gapps', 'sync_moodle_user_to_gapps gapps_get_user','', 'gappsuser was NULL usr='.$moodleuser->username, 0,0);
+            add_to_log(SITEID, 'block_gapps', 'sync_func _get_user','', 'guser:NULL usr='.$moodleuser->username, 0,0);
         }
 
         try {
@@ -774,28 +775,29 @@ class blocks_gapps_model_gsync {
                 if ($hdlsync == 0 ) {
                     // Do nothing to the gapps account but must delete user from sync
                     $this->moodle_delete_user($moodleuser->id);
-                    add_to_log(SITEID, 'block_gapps', 'sync_moodle_user_to_gapps moodle_delete_user','', 'Do nothing to gapps account usrid='.$moodleuser->id, 0,0);
+                    add_to_log(SITEID, 'block_gapps', 'sync mdl_delete_user','', 'Do nothing to gapps account usrid='.$moodleuser->id, 0,0);
                     
                 } else if($hdlsync == 1 ) { // Disable GApps Acount
                     $this->gapps_suspend_user($moodleuser, $gappsuser);
-                    add_to_log(SITEID, 'block_gapps', 'sync_moodle_user_to_gapps gapps_suspend_user','', 'usrid='.$moodleuser->id, 0,0);
-                } else if($hdlsync == 2 ) { // Delete user
+                    add_to_log(SITEID, 'block_gapps', 'sync gapps_suspend_user','', 'usrid='.$moodleuser->id, 0,0);
+                } else if($hdlsync == 2 ) { // Delete user from gapps 
                     $this->delete_user($moodleuser, $gappsuser);
-                    add_to_log(SITEID, 'block_gapps', 'sync_moodle_user_to_gapps delete_user','', 'usrid='.$moodleuser->id, 0,0);
+                    $this->gapps_delete_user($moodleuser->username);
+                    add_to_log(SITEID, 'block_gapps', 'sync delete_user','', 'usrid='.$moodleuser->id, 0,0);
                 } else {
                     throw new blocks_gdata_exception('handlegappsyncvalueerror', 'block_gapps');
                 }
 
             } else if ($moodleuser->username != $moodleuser->oldusername and $gappsuser !== NULL) {
                 $this->rename_user($moodleuser, $gappsuser);
-                add_to_log(SITEID, 'block_gapps', 'sync_moodle_user_to_gapps rename_user','', 'usrid='.$moodleuser->id, 0,0);
+                add_to_log(SITEID, 'block_gapps', 'sync rename_user','', 'usrid='.$moodleuser->id, 0,0);
 
             } else if ($gappsuser === NULL) {
                 $this->create_user($moodleuser, false);
-                add_to_log(SITEID, 'block_gapps', 'sync_moodle_user_to_gapps create_user','', 'usrid='.$moodleuser->id, 0,0);
+                add_to_log(SITEID, 'block_gapps', 'sync create_user','', 'usrid='.$moodleuser->id, 0,0);
             } else {
                 $this->update_user($moodleuser, $gappsuser);
-                add_to_log(SITEID, 'block_gapps', 'sync_moodle_user_to_gapps update_user','', 'usrid='.$moodleuser->id, 0,0);
+                add_to_log(SITEID, 'block_gapps', 'sync update_user','', 'usrid='.$moodleuser->id, 0,0);
             }
         } catch (blocks_gdata_exception $e) {
             $feedback and mtrace($e->getMessage());
@@ -941,7 +943,7 @@ class blocks_gapps_model_gsync {
     private static function event_handler($event, $eventdata) {
         // Check first to see if events are allowed
         if (get_config('blocks/gapps', 'allowevents')) {
-            add_to_log(SITEID, 'block_gapps', 'blocks_gapps_model_gsync:event_handler','', $event.' eventdata->id='.$eventdata->id, 0,0);
+            add_to_log(SITEID, 'block_gapps', 'model:event_handler','', $event.' eventdata->id='.$eventdata->id, 0,0);
             switch ($event) {
                 case 'user_created':
                     $user = $eventdata;
@@ -955,7 +957,7 @@ class blocks_gapps_model_gsync {
 
                     } catch (blocks_gdata_exception $e) {
                         // Do nothing on errors
-                        add_to_log(SITEID, 'block_gapps', 'sync event_handler user_created','', 'ERROR:'.$e->getMessage().' usr='.$eventdata->id, 0,0);
+                        add_to_log(SITEID, 'block_gapps', 'sync event_handler user_created','', 'ERROR:'.substr($e->getMessage(),0,190).' usr='.$eventdata->id, 0,0);
                     }
 
                     add_to_log(SITEID, 'block_gapps', 'sync event_handler','', 'user_created processed usr='.$eventdata->id, 0,0);
@@ -972,9 +974,9 @@ class blocks_gapps_model_gsync {
 
                     } catch (blocks_gdata_exception $e) {
                         // Do nothing on errors
-                        add_to_log(SITEID, 'block_gapps', 'sync event_handler user_deleted,updated or pws chng','', 'ERROR:'.$e->getMessage().' usr='.$eventdata->id, 0,0);
+                        add_to_log(SITEID, 'block_gapps', 'sync event_hndler user deluppws','', 'ERROR:'.substr($e->getMessage(),0,190).'usr='.$eventdata->id, 0,0);
                     }
-                    add_to_log(SITEID, 'block_gapps', 'sync event_handler user_deleted,updated or pws chng','','usr='.$eventdata->id, 0,0);
+                    add_to_log(SITEID, 'block_gapps', 'sync event_hndler user deluppws','','usr='.$eventdata->id, 0,0);
                     break;
             }
         }
