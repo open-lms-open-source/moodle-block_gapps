@@ -135,7 +135,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
                         $user = $rs->current();
                         $gapps->moodle_remove_user($user->id);
                         $rs->next();
-                        add_to_log(SITEID, 'block_gapps', 'gsync:users_action Bulk moodle_remove_user','', 'userid='.$user->id, 0,0);
+                        add_to_log(SITEID, 'block_gapps', 'gsync:usr_act Bulk mdl remove_user','', 'userid='.$user->id, 0,0);
                     }
                     $rs->close();
                 } else {
@@ -146,7 +146,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
                 // Handle ID submit
                 foreach ($userids as $userid) {
                     $gapps->moodle_remove_user($userid);
-                    add_to_log(SITEID, 'block_gapps', 'gsync:users_action  moodle_remove_user','', 'userid='.$userid, 0,0);
+                    add_to_log(SITEID, 'block_gapps', 'gsync:urs_act m_remove_user','', 'userid='.$userid, 0,0);
                 }
             }
         }
@@ -198,7 +198,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
                         $gapps->moodle_create_user($user);
                         $rs->next();
 
-                        add_to_log(SITEID, 'block_gapps', 'gsync:addusers_action Bulk moodle_create_user','', 'userid='.$user->id, 0,0);
+                        add_to_log(SITEID, 'block_gapps', 'gsync:addursBulk create_usr','', 'usr='.$user->id, 0,0);
                     }
                     $rs->close();
                 } else {
@@ -211,7 +211,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
                     // return a user object with only id,username and password
                     if ($user = $DB->get_record('user', array('id'=> $userid), 'id, username, password')) {
                         $gapps->moodle_create_user($user);
-                        add_to_log(SITEID, 'block_gapps', 'gsync:addusers_action selected ids moodle_create_user','', 'success userid='.$user->id, 0,0);
+                        add_to_log(SITEID, 'block_gapps', 'gsync:addusrs_act m_create_user','', 'suc usr='.$user->id, 0,0);
                     } else {
                         throw new blocks_gdata_exception('invalidparameter');
                     }
@@ -371,7 +371,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
 
 
         $this->print_footer();
-        add_to_log(SITEID, 'block_gapps', 'gsync:runcron_action','', '', 0,0);
+        add_to_log(SITEID, 'block_gapps', 'gsync:runcron_act','', '', 0,0);
         //$actionurl = $CFG->wwwroot.'/blocks/gapps/view.php?controller=gsync&action=viewdiagnostics';
         //redirect($actionurl);
     }
