@@ -1,29 +1,36 @@
 <?php
+/**
+ * Copyright (C) 2010  Moodlerooms Inc.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see http://opensource.org/licenses/gpl-3.0.html.
+ *
+ * @copyright  Copyright (c) 2009 Moodlerooms Inc. (http://www.moodlerooms.com)
+ * @license    http://opensource.org/licenses/gpl-3.0.html     GNU Public License
+ */
 
 /**
  * All the functionalty of the gmail service wrapped into one object.
  * The gmail class has to manage a couple of different things.
+ *
  * 1 It needs to manage the OAuthTokens in a table
  * 2 Provide endpoints for Oauth protocol
  * 3 use the Modified OAuth Lib
- * 4
- * 5 It needs to parse RSS Atom Feed
+ * 4 It needs to parse RSS Atom Feed
  *   SimplePie RSS and Atom Feed Framework.
  *
-
-  0. The Gmail block will display the most recent emails from Gmail within
-     Moodle with the following informaiton:
-  1. Gmail's email chain information CAN'T GET INFO FROM FEED
-  2. The email's Subject
-  3. The email's Arrival Date
-  5. The Gmail block will display a link to the user's Gmail email
-  7. The Gmail block will display a link to Compose a new email in Gmail
-  8. The Gmail block will verify that a
-     Gmail account exists for the user before displaying their email.
-  9. The Gmail block will call the Gmail account creation process
-     in the GMail Batch Account library if a Gmail account doesn't exist.
-
-
+ * auth/gsaml is required before links will take users to their inboxes
+ *
  *
  * @author Chris Stones
  * @version $Id$
@@ -34,38 +41,44 @@ global $CFG,$USER;
 
 class block_gapps_gmail {
     /**
+     * The Google Apps domain
      *
-     * @var <type>
+     * @var string
      */
     var $domain;
 
     /**
+     * OAuth Secret string
      *
-     * @var <type>
+     * @var string
      */
     var $oauthsecret;
 
     /**
+     * How many messages can you show?
      *
-     * @var <type>
+     * @var integer
      */
     var $msgnumber;
 
     /**
+     * Text for each message item
      *
-     * @var <type>
+     * @var array
      */
     var $items;
 
     /**
+     * Icons to show beside the messages
      *
-     * @var <type>
+     * @var array
      */
     var $icons;
 
     /**
+     * Feed Error string
      *
-     * @var <type>
+     * @var string
      */
     var $feederror;
 
@@ -79,7 +92,7 @@ class block_gapps_gmail {
     var $regrantaccess;
     
    /**
-    *
+    * Gmail Object constructor requires libs.
     */
    function __construct() {
        $this->regrantaccess = false;
@@ -93,7 +106,6 @@ class block_gapps_gmail {
    /**
     * Since gmail is in a tab we can't display the regrant link in the footer because it would
     * show up for all the tabs. You need to either add it as another option
-    * @return <type>
     */
    function get_footer_content() {
       global $CFG;
@@ -104,9 +116,9 @@ class block_gapps_gmail {
 
 
   /**
-   * Libaries gmail needs as well as important notes about those libs here
+   * Libaries gmail needs 
    *
-   * @global <type> $CFG
+   * @global object $CFG
    */
    function include_required_libs() {
        global $CFG;
@@ -122,10 +134,10 @@ class block_gapps_gmail {
    /**
     * Written to be called inside of gapps block_gapps to fill the tab with content.
     * 
-    * @global <type> $SESSION
-    * @global <type> $CFG
-    * @global <type> $USER
-    * @return array($icons,$items)
+    * @global object $SESSION
+    * @global object $CFG
+    * @global object $USER
+    * @return array array($icons,$items)
     */
    function get_content() {
         global $SESSION,$CFG,$USER, $DB;
@@ -163,8 +175,11 @@ class block_gapps_gmail {
     }
 
     /**
+     * Parse the raw atom feed into php object
      *
-     * @param <type> $feeddata 
+     * @global object $USER
+     * @global object $CFG
+     * @param string $feeddata
      */
     function parse_feed_data($feeddata) {
         global $USER,$CFG;
@@ -269,16 +284,16 @@ class block_gapps_gmail {
     /**
      * Returns the atom feed only requires oauth3/OAuthRequester.php
      *
-     * @param <type> $user_id
-     * @param <type> $request_uri
-     * @return <type>
+     * @param integer $user_id
+     * @param string $request_uri
+     * @return mixed array or feed
      */
     function oauth3_obtain_feed($user_id,$request_uri='https://mail.google.com/mail/feed/atom') {
         // Do we have a token for this user???
         // if not return error print "no token found for" exit();
         // if this is a curl call you can't use global user here
-        //$user_id= 5;
-        //$request_uri = 'https://mail.google.com/mail/feed/atom';
+        // $user_id= 5;
+        // $request_uri = 'https://mail.google.com/mail/feed/atom';
         $feed = '';
         if (!function_exists('getallheaders')) {
             function getallheaders() {
@@ -307,12 +322,11 @@ class block_gapps_gmail {
     }
 
     /**
-     * If the error has to do with a band oauth token then we ask the user
+     * If the error has to do with a bad oauth token then we ask the user
      * to refresh that token by regranting access.
      * If it can't be handled the function returns false. It returns true otherwise.
      *
-     * 
-     * @param <type> $errormsg
+     * @param string $errormsg
      * @return boolean true if we can handle this error false if we can not
      */
     function handle_oauth3_feed_errors($errormsg) {

@@ -20,19 +20,13 @@
  * @author Mark Nielsen
  */
 
-// MARK: says make this into a model directory (model is just reusable object ) blocks/efolido model  client talks to their system helpers are singlonts no construtor do one thing
 /**
  * HTTP Client
  *
  * @author Mark Nielsen
  * @version $Id$
- * @package blocks_gdata
+ * @package block_gapps
  **/
-
-/**
- * Dependencies
- **/
-//require_once($CFG->dirroot.'/blocks/gapps/gdata/gapps.php'); // https doesn't need gapp functions
 require_once('Zend/Http/Client.php');
 
 /**
@@ -40,8 +34,6 @@ require_once('Zend/Http/Client.php');
  * Zend_Http_Client->request() method so
  * we can start multiple requests at
  * once to mimic threading.
- *
- * @package blocks_gdata
  **/
 class blocks_gdata_http extends Zend_Http_Client {
     /**

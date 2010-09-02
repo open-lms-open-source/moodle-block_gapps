@@ -1,9 +1,30 @@
 <?php
 /**
+ * Copyright (C) 2009  Moodlerooms Inc.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see http://opensource.org/licenses/gpl-3.0.html.
+ *
+ * @copyright  Copyright (c) 2009 Moodlerooms Inc. (http://www.moodlerooms.com)
+ * @license    http://opensource.org/licenses/gpl-3.0.html     GNU Public License
+ */
+ 
+/**
  * Language string
  *
  * @author Mark Nielsen
- * @package blocks/helloworld
+ * @author Chris Stones
+ * @package block_gapps
  */
 
 $string['bad'] = 'Bad!';
@@ -38,9 +59,6 @@ $string['view'] = 'View';
  * GSync Strings formerly from (gdata)
  * Language entries for Google Data Block
  *
- * @author Mark Nielsen
- * @version $Id$
- * @package block_gdata
  **/
 
 $string['addusers'] = 'Add users to sync';
@@ -106,22 +124,16 @@ $string['disableacc'] = 'Disable Google Apps Account';
 $string['deleteacc'] = 'Delete the google apps account permanently';
 $string['handlegappsyncvalueerror'] = 'The Action on Sync Removal setting (handlegusersync) returned an unknown value.';
 $string['gappsconnectiontestfailed'] = 'Gapps Connection Error: {$a->msg}';
-
 $string['blocks_gapps_report_users'] = 'Users being synced';
 $string['blocks_gapps_report_addusers'] = 'Add users to sync';
-
 $string['statustab'] = 'Status';
 $string['userstab'] = 'Users being synced';
 $string['adduserstab'] = 'Add users to sync';
-
 $string['changessaved'] = 'Changes saved.';
 $string['notimplementedyet'] = 'Not Implemented yet.';
-
 $string['diagnostictab'] = 'Diagnostics';
 $string['diagnosticruncrontab']  = 'Run Cron';
 $string['diagnosticviewdocstab']  = 'View Docs';
-
-
 $string['diagnosticgappslogstab'] = 'Gapps Logs';
 $string['addusersruncrontab'] = 'Run Cron';
 $string['addusersviewdocstab'] = 'View docs';
@@ -156,29 +168,21 @@ $string['sorrycannotgetmail'] = 'Sorry, could not obtain mail.';
 $string['compose'] = 'Compose';
 $string['inbox'] = 'Inbox';
 $string['unreadmsgs'] = 'Unread';
-
 $string['showfirstname'] = 'Show First Name';
 $string['showfirstnameinfo'] = 'Show the author\'s first name next to their message.';
-
 $string['showlastname'] = 'Show Last Name';
 $string['showlastnameinfo'] = 'Show the author\'s last name next to their message.';
-
 $string['newwinlink'] = 'New Window Links';
 $string['newwinlinkinfo'] = 'If selected links will open in new window.';
-
-
 $string['mustusegoogleauthenticaion'] = 'You must be using Google SSO Authentication for this block to work.';
 $string['missingoauthkey'] = 'Missing OAuth Key';
-
 $string['consumer_key'] = 'Google Apps Domain';
 $string['consumer_keyinfo'] = 'Enter the domain for your Google Apps Service here.';
 $string['use3leggedoauth'] = 'Use 3 Legged OAuth';
 $string['use3leggedoauthinfo'] = 'You may choose to authenticate via 2 legged or 3 legged OAuth.';
 $string['grantaccesstoinbox'] = 'Grant Access to your Inbox';
-
 $string['refreshtoken'] = 'Refresh Access Token';
 $string['refreshfailed'] = 'Failed to delete token record.';
-
 $string['googlesynchelp_help'] = 'Google Sync Help';
 $string['googlesynchelp'] = '';
 //$string['googlesynchelp'] = <<<EOD
