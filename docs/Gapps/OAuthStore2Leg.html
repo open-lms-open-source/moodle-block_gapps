@@ -1,0 +1,1711 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class OAuthStore2Leg</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class OAuthStore2Leg</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Abstract base class for OAuthStore implementations</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> <p>Marc Worrell &lt;<a href="mailto:marcw@pobox.com">marcw@pobox.com</a>&gt;</p><p>The MIT License</p><p>Copyright (c) 2007-2008 Mediamatic Lab</p><p>Permission is hereby granted, free of charge, to any person obtaining a copy  of this software and associated documentation files (the &quot;Software&quot;), to deal  in the Software without restriction, including without limitation the rights  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell  copies of the Software, and to permit persons to whom the Software is  furnished to do so, subject to the following conditions:</p><p>The above copyright notice and this permission notice shall be included in  all copies or substantial portions of the Software.</p><p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN  THE SOFTWARE.</p></li>
+				<li><span class="field">version:</span> $Id$</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_gmail---library---store---OAuthStore2Leg.php.html">/gmail/library/store/OAuthStore2Leg.php</a> (line <span class="field">35</span>)
+		</p>
+		
+				
+		<pre><a href="../Gapps/OAuthStoreAbstract.html">OAuthStoreAbstract</a>
+   |
+   --OAuthStore2Leg</pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$consumer_key" title="details" class="var-name">$consumer_key</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$consumer_secret" title="details" class="var-name">$consumer_secret</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$signature_method" title="details" class="var-name">$signature_method</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$token_type" title="details" class="var-name">$token_type</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																																																																																																																																																																																														
+				<div class="method-definition">
+											<span class="method-result">OAuthStore2Leg</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addConsumerRequestToken" title="details" class="method-name">addConsumerRequestToken</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addLog" title="details" class="method-name">addLog</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$keys</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$received</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$sent</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$base_string</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$notes</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addServerToken" title="details" class="method-name">addServerToken</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$token_type</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$token_secret</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#authorizeConsumerRequestToken" title="details" class="method-name">authorizeConsumerRequestToken</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$referrer_host</span> = <span class="var-default">''</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#checkServerNonce" title="details" class="method-name">checkServerNonce</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$timestamp</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$nonce</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#countConsumerAccessTokens" title="details" class="method-name">countConsumerAccessTokens</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#countServerTokens" title="details" class="method-name">countServerTokens</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#deleteConsumer" title="details" class="method-name">deleteConsumer</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$user_is_admin</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#deleteConsumerAccessToken" title="details" class="method-name">deleteConsumerAccessToken</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$user_is_admin</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#deleteConsumerRequestToken" title="details" class="method-name">deleteConsumerRequestToken</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$token</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#deleteServer" title="details" class="method-name">deleteServer</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$user_is_admin</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#deleteServerToken" title="details" class="method-name">deleteServerToken</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$user_is_admin</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#exchangeConsumerRequestForAccessToken" title="details" class="method-name">exchangeConsumerRequestForAccessToken</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getConsumer" title="details" class="method-name">getConsumer</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$user_is_admin</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getConsumerAccessToken" title="details" class="method-name">getConsumerAccessToken</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getConsumerRequestToken" title="details" class="method-name">getConsumerRequestToken</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$token</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getConsumerStatic" title="details" class="method-name">getConsumerStatic</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getSecretsForSignature" title="details" class="method-name">getSecretsForSignature</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$uri</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getSecretsForVerify" title="details" class="method-name">getSecretsForVerify</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$token_type</span> = <span class="var-default">'access'</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getServer" title="details" class="method-name">getServer</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$user_is_admin</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getServerForUri" title="details" class="method-name">getServerForUri</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$uri</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getServerToken" title="details" class="method-name">getServerToken</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getServerTokenSecrets" title="details" class="method-name">getServerTokenSecrets</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$token_type</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">''</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#install" title="details" class="method-name">install</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#listConsumers" title="details" class="method-name">listConsumers</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#listConsumerTokens" title="details" class="method-name">listConsumerTokens</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#listLog" title="details" class="method-name">listLog</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$options</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#listServers" title="details" class="method-name">listServers</a>
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$q</span> = <span class="var-default">''</span>], <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#listServerTokens" title="details" class="method-name">listServerTokens</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setConsumerAccessTokenTtl" title="details" class="method-name">setConsumerAccessTokenTtl</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$ttl</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setServerTokenTtl" title="details" class="method-name">setServerTokenTtl</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$token_ttl</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#updateConsumer" title="details" class="method-name">updateConsumer</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$user_is_admin</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#updateServer" title="details" class="method-name">updateServer</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$server</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$user_is_admin</span> = <span class="var-default">false</span>])
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+<a name="var$consumer_key" id="$consumer_key"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$consumer_key</span>
+						(line <span class="line-number">37</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$consumer_secret" id="$consumer_secret"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$consumer_secret</span>
+						(line <span class="line-number">38</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$signature_method" id="$signature_method"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$signature_method</span>
+			 = <span class="var-default">array('HMAC-SHA1')</span>			(line <span class="line-number">39</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$token_type" id="$token_type"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$token_type</span>
+			 = <span class="var-default"> false</span>			(line <span class="line-number">40</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">45</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">OAuthStore2Leg</span>
+		<span class="method-name">
+			__construct
+		</span>
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$options</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodaddConsumerRequestToken" id="addConsumerRequestToken"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">addConsumerRequestToken</span> (line <span class="line-number">91</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addConsumerRequestToken
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$consumer_key</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$options</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodaddConsumerRequestToken">OAuthStoreAbstract::addConsumerRequestToken()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodaddLog" id="addLog"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">addLog</span> (line <span class="line-number">106</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addLog
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$keys</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$received</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$sent</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$base_string</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$notes</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$keys</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$received</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$sent</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$base_string</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$notes</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_id</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodaddLog">OAuthStoreAbstract::addLog()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodaddServerToken" id="addServerToken"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">addServerToken</span> (line <span class="line-number">69</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addServerToken
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$token_type</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$token_secret</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$consumer_key</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$token_type</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$token</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$token_secret</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_id</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$options</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodaddServerToken">OAuthStoreAbstract::addServerToken()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodauthorizeConsumerRequestToken" id="authorizeConsumerRequestToken"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">authorizeConsumerRequestToken</span> (line <span class="line-number">94</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			authorizeConsumerRequestToken
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$referrer_host</span> = <span class="var-default">''</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$token</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_id</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$referrer_host</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodauthorizeConsumerRequestToken">OAuthStoreAbstract::authorizeConsumerRequestToken()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodcheckServerNonce" id="checkServerNonce"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">checkServerNonce</span> (line <span class="line-number">104</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			checkServerNonce
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$timestamp</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$nonce</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$consumer_key</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$token</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$timestamp</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$nonce</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodcheckServerNonce">OAuthStoreAbstract::checkServerNonce()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodcountConsumerAccessTokens" id="countConsumerAccessTokens"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">countConsumerAccessTokens</span> (line <span class="line-number">95</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			countConsumerAccessTokens
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$consumer_key</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodcountConsumerAccessTokens">OAuthStoreAbstract::countConsumerAccessTokens()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodcountServerTokens" id="countServerTokens"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">countServerTokens</span> (line <span class="line-number">75</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			countServerTokens
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$consumer_key</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodcountServerTokens">OAuthStoreAbstract::countServerTokens()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methoddeleteConsumer" id="deleteConsumer"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">deleteConsumer</span> (line <span class="line-number">87</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			deleteConsumer
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$user_is_admin</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$consumer_key</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_id</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_is_admin</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methoddeleteConsumer">OAuthStoreAbstract::deleteConsumer()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methoddeleteConsumerAccessToken" id="deleteConsumerAccessToken"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">deleteConsumerAccessToken</span> (line <span class="line-number">98</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			deleteConsumerAccessToken
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$user_is_admin</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$token</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_id</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_is_admin</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methoddeleteConsumerAccessToken">OAuthStoreAbstract::deleteConsumerAccessToken()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methoddeleteConsumerRequestToken" id="deleteConsumerRequestToken"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">deleteConsumerRequestToken</span> (line <span class="line-number">93</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			deleteConsumerRequestToken
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$token</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$token</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methoddeleteConsumerRequestToken">OAuthStoreAbstract::deleteConsumerRequestToken()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methoddeleteServer" id="deleteServer"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">deleteServer</span> (line <span class="line-number">71</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			deleteServer
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$user_is_admin</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$consumer_key</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_id</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_is_admin</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methoddeleteServer">OAuthStoreAbstract::deleteServer()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methoddeleteServerToken" id="deleteServerToken"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">deleteServerToken</span> (line <span class="line-number">77</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			deleteServerToken
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$user_is_admin</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$consumer_key</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$token</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_id</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_is_admin</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methoddeleteServerToken">OAuthStoreAbstract::deleteServerToken()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodexchangeConsumerRequestForAccessToken" id="exchangeConsumerRequestForAccessToken"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">exchangeConsumerRequestForAccessToken</span> (line <span class="line-number">96</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			exchangeConsumerRequestForAccessToken
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$token</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$options</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodexchangeConsumerRequestForAccessToken">OAuthStoreAbstract::exchangeConsumerRequestForAccessToken()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodgetConsumer" id="getConsumer"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getConsumer</span> (line <span class="line-number">88</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getConsumer
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$user_is_admin</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$consumer_key</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_id</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_is_admin</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodgetConsumer">OAuthStoreAbstract::getConsumer()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodgetConsumerAccessToken" id="getConsumerAccessToken"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getConsumerAccessToken</span> (line <span class="line-number">97</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getConsumerAccessToken
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$token</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_id</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodgetConsumerAccessToken">OAuthStoreAbstract::getConsumerAccessToken()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodgetConsumerRequestToken" id="getConsumerRequestToken"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getConsumerRequestToken</span> (line <span class="line-number">92</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getConsumerRequestToken
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$token</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$token</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodgetConsumerRequestToken">OAuthStoreAbstract::getConsumerRequestToken()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodgetConsumerStatic" id="getConsumerStatic"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getConsumerStatic</span> (line <span class="line-number">89</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getConsumerStatic
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodgetConsumerStatic">OAuthStoreAbstract::getConsumerStatic()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodgetSecretsForSignature" id="getSecretsForSignature"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSecretsForSignature</span> (line <span class="line-number">59</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getSecretsForSignature
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$uri</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$uri</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_id</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodgetSecretsForSignature">OAuthStoreAbstract::getSecretsForSignature()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodgetSecretsForVerify" id="getSecretsForVerify"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSecretsForVerify</span> (line <span class="line-number">58</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getSecretsForVerify
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$token_type</span> = <span class="var-default">'access'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$consumer_key</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$token</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$token_type</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodgetSecretsForVerify">OAuthStoreAbstract::getSecretsForVerify()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodgetServer" id="getServer"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getServer</span> (line <span class="line-number">72</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getServer
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$user_is_admin</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$consumer_key</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_id</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_is_admin</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodgetServer">OAuthStoreAbstract::getServer()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodgetServerForUri" id="getServerForUri"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getServerForUri</span> (line <span class="line-number">73</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getServerForUri
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$uri</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$uri</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_id</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodgetServerForUri">OAuthStoreAbstract::getServerForUri()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodgetServerToken" id="getServerToken"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getServerToken</span> (line <span class="line-number">76</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getServerToken
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$consumer_key</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$token</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_id</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodgetServerToken">OAuthStoreAbstract::getServerToken()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodgetServerTokenSecrets" id="getServerTokenSecrets"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getServerTokenSecrets</span> (line <span class="line-number">68</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getServerTokenSecrets
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$token_type</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">''</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$consumer_key</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$token</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$token_type</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_id</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$name</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodgetServerTokenSecrets">OAuthStoreAbstract::getServerTokenSecrets()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodinstall" id="install"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">install</span> (line <span class="line-number">109</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			install
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodinstall">OAuthStoreAbstract::install()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodlistConsumers" id="listConsumers"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">listConsumers</span> (line <span class="line-number">101</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			listConsumers
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_id</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodlistConsumers">OAuthStoreAbstract::listConsumers()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodlistConsumerTokens" id="listConsumerTokens"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">listConsumerTokens</span> (line <span class="line-number">102</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			listConsumerTokens
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_id</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodlistConsumerTokens">OAuthStoreAbstract::listConsumerTokens()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodlistLog" id="listLog"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">listLog</span> (line <span class="line-number">107</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			listLog
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$options</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$options</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_id</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodlistLog">OAuthStoreAbstract::listLog()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodlistServers" id="listServers"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">listServers</span> (line <span class="line-number">83</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			listServers
+		</span>
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$q</span> = <span class="var-default">''</span>], <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$q</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_id</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodlistServers">OAuthStoreAbstract::listServers()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodlistServerTokens" id="listServerTokens"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">listServerTokens</span> (line <span class="line-number">74</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			listServerTokens
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_id</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodlistServerTokens">OAuthStoreAbstract::listServerTokens()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodsetConsumerAccessTokenTtl" id="setConsumerAccessTokenTtl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setConsumerAccessTokenTtl</span> (line <span class="line-number">99</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setConsumerAccessTokenTtl
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$ttl</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$token</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$ttl</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodsetConsumerAccessTokenTtl">OAuthStoreAbstract::setConsumerAccessTokenTtl()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodsetServerTokenTtl" id="setServerTokenTtl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setServerTokenTtl</span> (line <span class="line-number">78</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setServerTokenTtl
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer_key</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$token</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$token_ttl</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$consumer_key</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$token</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$token_ttl</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodupdateConsumer" id="updateConsumer"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">updateConsumer</span> (line <span class="line-number">86</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			updateConsumer
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$consumer</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$user_is_admin</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$consumer</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_id</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_is_admin</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodupdateConsumer">OAuthStoreAbstract::updateConsumer()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodupdateServer" id="updateServer"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">updateServer</span> (line <span class="line-number">84</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			updateServer
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$server</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$user_is_admin</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$server</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_id</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_is_admin</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreAbstract.html#methodupdateServer">OAuthStoreAbstract::updateServer()</a></dt>
+					</dl>
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../Gapps/OAuthStoreAbstract.html">OAuthStoreAbstract</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodaddConsumerRequestToken">OAuthStoreAbstract::addConsumerRequestToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodaddLog">OAuthStoreAbstract::addLog()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodaddServerToken">OAuthStoreAbstract::addServerToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodauthorizeConsumerRequestToken">OAuthStoreAbstract::authorizeConsumerRequestToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodcheckServerNonce">OAuthStoreAbstract::checkServerNonce()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodcountConsumerAccessTokens">OAuthStoreAbstract::countConsumerAccessTokens()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodcountServerTokens">OAuthStoreAbstract::countServerTokens()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methoddeleteConsumer">OAuthStoreAbstract::deleteConsumer()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methoddeleteConsumerAccessToken">OAuthStoreAbstract::deleteConsumerAccessToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methoddeleteConsumerRequestToken">OAuthStoreAbstract::deleteConsumerRequestToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methoddeleteServer">OAuthStoreAbstract::deleteServer()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methoddeleteServerToken">OAuthStoreAbstract::deleteServerToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodexchangeConsumerRequestForAccessToken">OAuthStoreAbstract::exchangeConsumerRequestForAccessToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodgenerateKey">OAuthStoreAbstract::generateKey()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodgetConsumer">OAuthStoreAbstract::getConsumer()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodgetConsumerAccessToken">OAuthStoreAbstract::getConsumerAccessToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodgetConsumerRequestToken">OAuthStoreAbstract::getConsumerRequestToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodgetConsumerStatic">OAuthStoreAbstract::getConsumerStatic()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodgetSecretsForSignature">OAuthStoreAbstract::getSecretsForSignature()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodgetSecretsForVerify">OAuthStoreAbstract::getSecretsForVerify()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodgetServer">OAuthStoreAbstract::getServer()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodgetServerForUri">OAuthStoreAbstract::getServerForUri()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodgetServerToken">OAuthStoreAbstract::getServerToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodgetServerTokenSecrets">OAuthStoreAbstract::getServerTokenSecrets()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodinstall">OAuthStoreAbstract::install()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodisUTF8">OAuthStoreAbstract::isUTF8()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodlistConsumers">OAuthStoreAbstract::listConsumers()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodlistConsumerTokens">OAuthStoreAbstract::listConsumerTokens()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodlistLog">OAuthStoreAbstract::listLog()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodlistServers">OAuthStoreAbstract::listServers()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodlistServerTokens">OAuthStoreAbstract::listServerTokens()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodmakeUTF8">OAuthStoreAbstract::makeUTF8()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodsetConsumerAccessTokenTtl">OAuthStoreAbstract::setConsumerAccessTokenTtl()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodupdateConsumer">OAuthStoreAbstract::updateConsumer()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodupdateServer">OAuthStoreAbstract::updateServer()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Thu, 02 Sep 2010 15:03:22 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

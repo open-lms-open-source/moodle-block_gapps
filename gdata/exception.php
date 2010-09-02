@@ -26,7 +26,7 @@
  *
  * @author Mark Nielsen
  * @version $Id$
- * @package block_gdata
+ * @package block_gapps
  **/
 class blocks_gdata_exception extends Exception {
     /**

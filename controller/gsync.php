@@ -1,10 +1,30 @@
 <?php
 /**
+ * Copyright (C) 2010  Moodlerooms Inc.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see http://opensource.org/licenses/gpl-3.0.html.
+ *
+ * @copyright  Copyright (c) 2009 Moodlerooms Inc. (http://www.moodlerooms.com)
+ * @license    http://opensource.org/licenses/gpl-3.0.html     GNU Public License
+ */
+
+/**
  * gsync View and actions
  *
  * @author Chris Stones
  * @version $Id$
- * @package blocks/gapps
+ * @package block_gapps
  */
 
 defined('MOODLE_INTERNAL') or die('Direct access to this script is forbidden.');
@@ -331,8 +351,8 @@ class block_gapps_controller_gsync extends mr_controller_block {
     /**
      * Debugging form for Retriving Gapps Userdata
      *
-     * @global <type> $CFG
-     * @return <type>
+     * @global object $CFG
+     * @return string
      */
     public function gapps_get_user_form() {
         global $CFG;
@@ -372,18 +392,16 @@ class block_gapps_controller_gsync extends mr_controller_block {
 
         $this->print_footer();
         add_to_log(SITEID, 'block_gapps', 'gsync:runcron_act','', '', 0,0);
-        //$actionurl = $CFG->wwwroot.'/blocks/gapps/view.php?controller=gsync&action=viewdiagnostics';
-        //redirect($actionurl);
     }
 
     /**
      * Force Sync a Given User
      *
-     * @global <object> $CFG
-     * @global <object> $CFG
-     * @global <object> $COURSE
-     * @global <object> $OUTPUT
-     * @global <object> $DB
+     * @global object $CFG
+     * @global object $CFG
+     * @global object $COURSE
+     * @global object $OUTPUT
+     * @global object $DB
      */
     public function syncuser_action() {
         global $CFG;
@@ -418,7 +436,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
         } else {
           print $this->gapps_get_syncuser_form();
         }
-        // Provides a form to enter a user to prefrom the sync directly
+        // Provides a form to enter a user to preform the sync directly
         
         print $OUTPUT->box_end();
 
@@ -429,7 +447,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
      * Force Sync User Form HTML
      *
      * @global object $CFG
-     * @return $string html for the form
+     * @return string html for the form
      */
     public function gapps_get_syncuser_form() {
         global $CFG;
@@ -447,9 +465,9 @@ class block_gapps_controller_gsync extends mr_controller_block {
     /**
      * View this PHPDoc Generated Content.
      *
-     * @global <object> $CFG
-     * @global <object> $COURSE
-     * @global <object> $OUTPUT
+     * @global object $CFG
+     * @global object $COURSE
+     * @global object $OUTPUT
      */
     public function viewdocs_action() {
         global $CFG,$COURSE,$OUTPUT;
@@ -469,23 +487,19 @@ class block_gapps_controller_gsync extends mr_controller_block {
     /**
      * View only Gapps related Moodle logs
      *
-     * @global <object> $CFG
-     * @global <object> $COURSE
-     * @global <object> $OUTPUT
+     * @global object $CFG
+     * @global object $COURSE
+     * @global object $OUTPUT
      */
     public function gappslogs_action() {
         global $CFG,$COURSE,$OUTPUT;
         $this->tabs->set('diagnostic');
-
-        //print $this->output->heading("Gapps Action Logs");
-        //print $OUTPUT->box_start('generalbox boxaligncenter');
 
         require_once($CFG->dirroot.'/blocks/gapps/report/gappslogs.php');
         $report = new blocks_gapps_report_gappslogs($this->url, $COURSE->id);
 
         $this->print_header();
         print $this->mroutput->render($report);
-        //print $OUTPUT->box_end();
         $this->print_footer();
     }
 }

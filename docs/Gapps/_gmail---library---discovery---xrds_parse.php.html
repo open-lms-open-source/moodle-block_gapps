@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs for page xrds_parse.php</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="file-name">/gmail/library/discovery/xrds_parse.php</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-functions">Functions</a>
+			</div>
+	<div class="info-box-body">	
+		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Parse a XRDS discovery description to a simple array format.</p>
+<p class="description"><p>For now a simple parse of the document. Better error checking  in a later version.</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> <p>Marc Worrell &lt;<a href="mailto:marcw@pobox.com">marcw@pobox.com</a>&gt;</p><p>The MIT License</p><p>Copyright (c) 2007-2008 Mediamatic Lab</p><p>Permission is hereby granted, free of charge, to any person obtaining a copy  of this software and associated documentation files (the &quot;Software&quot;), to deal  in the Software without restriction, including without limitation the rights  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell  copies of the Software, and to permit persons to whom the Software is  furnished to do so, subject to the following conditions:</p><p>The above copyright notice and this permission notice shall be included in  all copies or substantial portions of the Software.</p><p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN  THE SOFTWARE.</p></li>
+				<li><span class="field">version:</span> $Id$</li>
+			</ul>
+		
+			</div>
+</div>
+		
+
+	
+	
+	
+	<a name="sec-functions"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Functions</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<span class="disabled">Functions</span>
+		</div>
+		<div class="info-box-body">	
+			<a name="functionxrds_oauth_service_uris" id="functionxrds_oauth_service_uris"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="method-title">xrds_oauth_service_uris</span> (line <span class="line-number">221</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return the OAuth service uris in order of the priority.</p>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			xrds_oauth_service_uris
+		</span>
+					(<span class="var-type">XPath</span>&nbsp;<span class="var-name">$xpath</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">XPath</span>
+				<span class="var-name">$xpath</span><span class="var-description">: xpath</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionxrds_parse" id="functionxrds_parse"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="method-title">xrds_parse</span> (line <span class="line-number">56</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Parse the xrds file in the argument.  The xrds description must have been  fetched via curl or something else.</p>
+<p class="description"><p>TODO: more robust checking, support for more service documents  TODO: support for URIs to definition instead of local xml:id</p></p>
+	<ul class="tags">
+				<li><span class="field">exception:</span> Exception when the file is in an unknown format</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			xrds_parse
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$data</span><span class="var-description">: data contents of xrds file</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionxrds_priority" id="functionxrds_priority"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="method-title">xrds_priority</span> (line <span class="line-number">284</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Fetch the priority of a element</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> 'null' or int</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			xrds_priority
+		</span>
+					(<span class="var-type">DOMElement</span>&nbsp;<span class="var-name">$elt</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">DOMElement</span>
+				<span class="var-name">$elt</span><span class="var-description">: elt</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionxrds_priority_flatten" id="functionxrds_priority_flatten"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="method-title">xrds_priority_flatten</span> (line <span class="line-number">254</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Flatten an array according to the priority</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> one dimensional array</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			xrds_priority_flatten
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$ps</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$ps</span><span class="var-description">: ps buckets per prio</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionxrds_xrd_oauth" id="functionxrds_xrd_oauth"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="method-title">xrds_xrd_oauth</span> (line <span class="line-number">100</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Parse a XRD definition for OAuth and return the uris etc.</p>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			xrds_xrd_oauth
+		</span>
+					(<span class="var-type">XPath</span>&nbsp;<span class="var-name">$xpath</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">XPath</span>
+				<span class="var-name">$xpath</span><span class="var-description">: xpath</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$id</span><span class="var-description">: id</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionxrds_xrd_oauth_service" id="functionxrds_xrd_oauth_service"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="method-title">xrds_xrd_oauth_service</span> (line <span class="line-number">158</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Parse a service definition for OAuth in a simple xrd element</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> (type, service desc)</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			xrds_xrd_oauth_service
+		</span>
+					(<span class="var-type">DOMElement</span>&nbsp;<span class="var-name">$n</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">DOMElement</span>
+				<span class="var-name">$n</span><span class="var-description">: n</span>			</li>
+				</ul>
+		
+	
+</div>
+		</div>
+	</div>
+	
+	<p class="notes" id="credit">
+		Documentation generated on Thu, 02 Sep 2010 15:03:24 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

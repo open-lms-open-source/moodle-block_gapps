@@ -1,0 +1,10 @@
+# create the documenation with something
+# run it inside of /gapps/docs/ 
+# memory limits for php may need to be increased
+PHPDoc --sourcecode -i "porting/" -t ./docs -ti "Gapps Moodle Block Documentation" -dn "Gapps" -o HTML:frames:phphtmllib -d . 
+
+# try removing the folders you dont' want to doc.. seems you can only ignore one folder with -i option :/ no idea why
+# HTML:frames:phphtmllib
+
+#HTML:default:default
+

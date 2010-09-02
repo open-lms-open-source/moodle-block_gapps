@@ -1,12 +1,33 @@
-<?php // $Id$
+<?php
 /**
- * block_gapps 
+ * Copyright (C) 2009  Moodlerooms Inc.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see http://opensource.org/licenses/gpl-3.0.html.
+ *
+ * @copyright  Copyright (c) 2009 Moodlerooms Inc. (http://www.moodlerooms.com)
+ * @license    http://opensource.org/licenses/gpl-3.0.html     GNU Public License
+ * @package block_gapps
+ */
+
+/**
+ * This block encapsulates all the prior functionality of the Gmail,Gapps and Gdata blocks
+ * from the prior release of the Google-Moodle intergration.
  *
  * @author Chris Stones
  * @version $Id$
  * @package block_gapps
  */
-
 class block_gapps extends block_base {
     /**
      * Init
@@ -16,15 +37,15 @@ class block_gapps extends block_base {
 
         // Toggle on or off for development
         // purge_all_caches();
-        // when debuggin events reupdate events
-        //events_update_definition('block_gapps');
+        // If you want to update the events without modifing version.php use...
+        // events_update_definition('block_gapps');
     }
 
     /**
      * This block can be added to Site, Course, or My Moodle
      * Capabilities determine whether a user an see the tab or not.
      * 
-     * @return <type> 
+     * @return array settings
      */
     function applicable_formats() {
         return array('all' => true, 'mod' => false, 'my' => true);
@@ -41,7 +62,7 @@ class block_gapps extends block_base {
      *
      * @param boolean $required Require the capability (throws error if is user does not have)
      * @return boolean
-     **/
+     */
     function has_capability_for_sync($required = false) {
         if ($required) {
             require_capability('moodle/site:config', get_context_instance(CONTEXT_SYSTEM));
@@ -105,8 +126,6 @@ class block_gapps extends block_base {
             $gsync = $this->gsync_get_content();
         }
 
-        // Diagnostic Tab wrench icon should show up when debugging is turned on
-        // NEXT:
         
         // form the tabs data object
         $gapps_tab_title = 'Gapps'; // could include alert icons
@@ -147,9 +166,9 @@ class block_gapps extends block_base {
      * each representing a tab.
      * If a tab's content is empty the tab is not shown.
      *
-     * @param <type> $tabstruct
-     * @param <type> $selected which tab do you want selected by default?
-     * @return <type>
+     * @param  object $tabstruct
+     * @param  string $selected which tab do you want selected by default?
+     * @return string HTML for the YUI to process
      */
     function form_tabs($tabstruct,$selected = 'Gapps') {
         // first remove tabs with empty content
@@ -161,7 +180,7 @@ class block_gapps extends block_base {
         }
         $tabstruct = $temp;
 
-        // NEXT: to support other styles class="yui-skin-sam" may need to change
+        // To support other styles class="yui-skin-sam" may need to change
         $t = '';
         $t .= '<div id="block_gapps_tabs" class="yui-skin-sam">
                <div id="demo" class="yui-navset">
@@ -222,7 +241,13 @@ class block_gapps extends block_base {
         return html_writer::tag('ul', implode("\n", $lis), array('class' => 'list'));
     }
 
-
+    /**
+     * Gapps Service Links
+     *
+     * @global object $CFG
+     * @global object $OUTPUT
+     * @return string html
+     */
     function gapps_get_content() {
         global $CFG,$OUTPUT;
         
@@ -287,6 +312,15 @@ class block_gapps extends block_base {
         return $this->list_block_contents($icons, $items);
     }
 
+    /**
+     * Get Gsync Tab Content
+     *
+     * @global object $CFG
+     * @global object $USER
+     * @global object $COURSE
+     * @global object $OUTPUT
+     * @return string gsync html content
+     */
     function gsync_get_content() {
         global $CFG, $USER, $COURSE,$OUTPUT;
 
@@ -312,6 +346,12 @@ class block_gapps extends block_base {
         return $this->list_block_contents($icons, $items);
     }
 
+    /**
+     * Get html content for the gmail tab
+     *
+     * @global object $CFG
+     * @return string html content for tab
+     */
     function gmail_get_content() {
         global $CFG;
         
@@ -333,15 +373,13 @@ class block_gapps extends block_base {
      * run crons from all components that need to run crons...
      *
      * @return boolean
-     **/
+     */
     function cron() {
         global $CFG;
         mtrace("");
         $status = true;
         
-        // crons...
-
-        // setup and run gmail cron... etc.
+        // Run crons...
         
         // gsync cron
 

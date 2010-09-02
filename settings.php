@@ -1,11 +1,31 @@
 <?php
 /**
+ * Copyright (C) 2009  Moodlerooms Inc.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see http://opensource.org/licenses/gpl-3.0.html.
+ *
+ * @copyright  Copyright (c) 2009 Moodlerooms Inc. (http://www.moodlerooms.com)
+ * @license    http://opensource.org/licenses/gpl-3.0.html     GNU Public License
+ */
+ 
+/**
  * GApps Settings (gapps,gmail,gsync)
  * 
  * http://docs.moodle.org/en/Development:Admin_settings#External_pages
  * @author Chris Stones
  * @version $Id$
- * @package blocks/gapps
+ * @package block_gapps
  **/
 
 defined('MOODLE_INTERNAL') or die('Direct access to this script is forbidden.');
@@ -61,8 +81,6 @@ if (!class_exists('admin_setting_special_croninterval')) {
      * also stores the value from this config
      * as seconds in the cron field of the
      * gdata block record.
-     *
-     * @package block_gdata
      **/
     class admin_setting_special_croninterval extends admin_setting_configtext {
 
@@ -106,24 +124,12 @@ $configs[] = new admin_setting_configselect('handlegusersync', get_string('hdlgu
                    get_string('hdlgusersyncdesc', 'block_gapps'),0, $options);
 
 // Should admins be kept from syncing?
-$configs[] = new admin_setting_configcheckbox('nosyncadmins', get_string('nosyncadminssetting', 'block_gapps'), get_string('nosyncadminssettingdesc', 'block_gapps'), 0);
+$configs[] = new admin_setting_configcheckbox('nosyncadmins', get_string('nosyncadminssetting', 'block_gapps'), get_string('nosyncadminssettingdesc', 'block_gapps'),1);
 
 // Remove admins from sync table right away
 global $CFG,$FULLME;
 $headaction = '<a href="'.$CFG->wwwroot.'/blocks/gdata/index.php?hook=cleanadmins&return='.$FULLME.'">'.get_string('cleanadminsfromsyncstr','block_gapps').'</a>';
 $configs[] = new admin_setting_heading('cleanadminsfromsync',$headaction,'');
-
-
-
-
-// Diagnostics page
-//$configs[] = new admin_setting_heading('diagnostics', "Diagnostics Page", $info = "Gsync Settings");
-
-
-// We are adding each set of configrations to a childadmin page under the blocksettinggapps catgory in plugins > blocks >
-//
-// Gmail Settings
-//$ADMIN->add('blocksettinggapps', new admin_category('blocksettinggappsgmail', get_string('authentication', 'admin')));
 
 // Define the config plugin so it is saved to
 // the config_plugin table then add to the settings page

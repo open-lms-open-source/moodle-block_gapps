@@ -17,9 +17,7 @@
  * 
  * @copyright  Copyright (c) 2009 Moodlerooms Inc. (http://www.moodlerooms.com)
  * @license    http://opensource.org/licenses/gpl-3.0.html     GNU Public License
- * @author Mark Nielsen
  */
-
 
 /**
  * Google Apps Service
@@ -32,47 +30,18 @@
  *   - http://framework.zend.com/manual/en/zend.gdata.html
  *
  * @author Mark Nielsen
+ * @author modified by Chris Stones
  * @version $Id$
- * @package block_gdata
- **/
+ * @package block_gapps
+ */
 
-/**
- * Set include path so Zend Library functions properly
- **/
-//
-//$zendlibpath = $CFG->libdir.'/zend';
-//$includepath = get_include_path();
-//if (strpos($includepath, $zendlibpath) === false) {
-//    set_include_path($includepath.PATH_SEPARATOR.$zendlibpath);
-//}
-//
-///**
-// * Dependencies
-// **/
-//
-//require_once($CFG->dirroot.'/blocks/gapps/gdata/http.php');
+
 require($CFG->dirroot.'/local/mr/bootstrap.php');
 require_once($CFG->dirroot.'/blocks/gapps/gdata/exception.php');
-//require_once('Zend/Gdata/Gapps.php');
-//require_once('Zend/Gdata/ClientLogin.php');
 
 /**
- * Zend_Gdata_Gapps wrapper and wrapper for
- * the management of the Moodle table block_gdata_gapps
- * which contains users being synced and sync data
- *
- * Naming conventions:
- *   - Methods with gapps_ prefix operate on Google Apps only
- *   - Methods with moodle_ prefix operate on Moodle only
- *   - Remaining methods may operate on both or none
- *   - $googleusers and $googleuser are used for Google Apps Users and
- *     are Zend_Gdata_Gapps_UserFeed and Zend_Gdata_Gapps_UserEntry classes
- *   - $moodleusers and $moodleuser are user object from {@link moodle_get_user}
- *     and {@link moodle_get_users}
- *
- * @package block_gdata
- **/
- //blocks_gapps_model_gsync
+ * Main Gapps Sync Class. Nearly all the functionality is wrapped in here.
+ */
 class blocks_gapps_model_gsync {
 
     /**
@@ -81,21 +50,21 @@ class blocks_gapps_model_gsync {
      * we are sending our passwords
      *
      * @var string
-     **/
+     */
     const PASSWORD_HASH_FUNCTION = 'MD5';
 
     /**
      * User sync status: Never been synced
      *
      * @var string
-     **/
+     */
     const STATUS_NEVER = 'never';
 
     /**
      * User sync status: Everythink is A-OK! <('')>
      *
      * @var string
-     **/
+     */
     const STATUS_OK = 'ok';
 
     /**
@@ -103,7 +72,7 @@ class blocks_gapps_model_gsync {
      * users have the same username in Moodle or in Google Apps
      *
      * @var string
-     **/
+     */
     const STATUS_USERNAME_CONFLICT = 'usernameconflict';
 
     /**
@@ -112,7 +81,7 @@ class blocks_gapps_model_gsync {
      * Google Apps account
      *
      * @var string
-     **/
+     */
     const STATUS_ACCOUNT_CREATION_ERROR = 'accountcreationerror';
 
     /**
@@ -120,7 +89,7 @@ class blocks_gapps_model_gsync {
      * or make more specific status
      *
      * @var string
-     **/
+     */
     const STATUS_ERROR = 'error';
 
     /**
@@ -128,7 +97,7 @@ class blocks_gapps_model_gsync {
      * be ran at once
      *
      * @var int
-     **/
+     */
     const MAX_CLIENTS = 5;
 
     /**
@@ -143,21 +112,21 @@ class blocks_gapps_model_gsync {
      * the blocks_gapps_model_gsync class
      *
      * @var string
-     **/
+     */
     public $counts = array('created' => 0, 'updated' => 0, 'deleted' => 0, 'errors' => 0,'disabled' => 0, 'restored' => 0);
 
     /**
      * Required values from the config
      *
      * @var string
-     **/
+     */
     protected $requiredconfig = array('username', 'password', 'domain', 'usedomainemail', 'croninterval');
 
     /**
      * Configs
      *
      * @var object
-     **/
+     */
     protected $config;
 
     /**
@@ -167,7 +136,7 @@ class blocks_gapps_model_gsync {
      *
      * @param boolean $autoconnect Automatically connect to Google Apps
      * @return void
-     **/
+     */
     public function __construct($autoconnect = true) {
         global $CFG;
         mr_bootstrap::zend(); // set php search paths to find our zend lib
@@ -197,7 +166,7 @@ class blocks_gapps_model_gsync {
      *
      * @return void
      * @throws blocks_gdata_exception
-     **/
+     */
     public function gapps_connect() { 
         try {
             if (!empty($this->config->authorization)) {
@@ -229,7 +198,7 @@ class blocks_gapps_model_gsync {
      * @param object $moodleuser Object from {@link moodle_get_user} or {@link moodle_get_users}
      * @param boolean $checkexists Check if the user exists before creating
      * @return void
-     **/
+     */
     public function create_user($moodleuser, $checkexists = true) {
         try {
             // Add account to Google Apps
@@ -252,7 +221,7 @@ class blocks_gapps_model_gsync {
      * @param object $moodleuser Object from {@link moodle_get_user} or {@link moodle_get_users}
      * @param Zend_Gdata_Gapps_UserEntry $gappsuser User entry from Google Apps
      * @return void
-     **/
+     */
     public function update_user($moodleuser, $gappsuser) {
         $this->gapps_update_user($gappsuser, $moodleuser);
         $this->moodle_update_user($moodleuser);
@@ -266,7 +235,7 @@ class blocks_gapps_model_gsync {
      *                         Always try to fetch user from Google Apps
      *                         prior to calling this method
      * @return void
-     **/
+     */
     public function delete_user($moodleuser, $gappsuser) {
         if ($gappsuser !== NULL) {
             $this->gapps_delete_user($gappsuser);
@@ -367,7 +336,7 @@ class blocks_gapps_model_gsync {
      * @param Zend_Gdata_Gapps_UserEntry $gappsuser User entry from Google Apps
      * @return void
      * @throws blocks_gdata_exception
-     **/
+     */
     public function rename_user($moodleuser, $gappsuser) {
         global $DB;
         if ($DB->record_exists('block_gdata_gapps', array('username' => $moodleuser->username))) {
@@ -395,7 +364,7 @@ class blocks_gapps_model_gsync {
      * @param boolean $checkexists Check if the user exists before creating
      * @return Zend_Gdata_Gapps_UserEntry
      * @throws blocks_gdata_exception
-     **/
+     */
     public function gapps_create_user($username, $firstname, $lastname, $password, $checkexists = true) {
         if ($checkexists) {
             if ($this->gapps_get_user($username) !== NULL) {
@@ -423,7 +392,7 @@ class blocks_gapps_model_gsync {
      * @param object $moodleuser Object from {@link moodle_get_user} or {@link moodle_get_users}
      * @return void
      * @throws blocks_gdata_exception
-     **/
+     */
     public function gapps_update_user($gappsuser, $moodleuser) {
         $save = false;
 
@@ -465,7 +434,7 @@ class blocks_gapps_model_gsync {
      * @param mixed $param Either a Zend_Gdata_Gapps_UserEntry or a string that corresponds to the username
      * @return void
      * @throws blocks_gdata_exception
-     **/
+     */
     public function gapps_delete_user($param) {
         if (is_string($param)) {
             // Param is the username string
@@ -495,7 +464,7 @@ class blocks_gapps_model_gsync {
      * @param string $username The username of the user in Google Apps
      * @return Zend_Gdata_Gapps_UserEntry or NULL if user not found
      * @throws blocks_gdata_exception
-     **/
+     */
     public function gapps_get_user($username) {
         try {
             $gappsuser = $this->service->retrieveUser($username);
@@ -510,7 +479,7 @@ class blocks_gapps_model_gsync {
      *
      * @return Zend_Gdata_Gapps_UserFeed
      * @throws blocks_gdata_exception
-     **/
+     */
     public function gapps_get_users() {
         try {
             return $this->service->retrieveAllUsers();
@@ -528,7 +497,7 @@ class blocks_gapps_model_gsync {
      * @param object $user Moodle user record from user table
      * @return object
      * @throws blocks_gdata_exception
-     **/
+     */
     public function moodle_create_user($user) {
         global $DB;
         // Check for existing record first
@@ -571,7 +540,7 @@ class blocks_gapps_model_gsync {
      * @param string $status User's sync status, please use one of the STATUS constants defined in this class
      * @return void
      * @throws blocks_gdata_exception
-     **/
+     */
     public function moodle_update_user($moodleuser, $status = self::STATUS_OK) {
         global $DB;
 
@@ -603,7 +572,7 @@ class blocks_gapps_model_gsync {
      * @param int $userid ID of the user to be removed
      * @return void
      * @throws blocks_gdata_exception
-     **/
+     */
     public function moodle_remove_user($userid) {
         global $DB;
         if ($id = $DB->get_field('block_gdata_gapps', 'id', array('userid' => $userid))) {
@@ -620,7 +589,7 @@ class blocks_gapps_model_gsync {
      *
      * @param int $id The record ID
      * @return void
-     **/
+     */
     public function moodle_delete_user($id) {
         global $DB;
         if (!$DB->delete_records('block_gdata_gapps', array('id' => $id))) {
@@ -639,10 +608,7 @@ class blocks_gapps_model_gsync {
     public function moodle_get_user($userid) {
         global $CFG,$DB;
 
-        // you could rename the methods 'after' the objects are returned??
-        // TODO: look into an sql_as fix for now don't warn
-        //$as = sql_as();
-        
+        // TODO: Moodle lacks a clean upgrade path for sql code that used the AS ($as = sql_as();)
         $moodleuser = $DB->get_record_sql("SELECT g.username AS oldusername, g.id, g.userid,
                                              g.password AS oldpassword, g.remove, g.lastsync,
                                              g.status, u.username, u.password, u.firstname,
@@ -668,8 +634,7 @@ class blocks_gapps_model_gsync {
     public function moodle_get_users() {
         global $CFG,$DB;
 
-        // TODO: look into sql_as fix for now don't warn
-        //$as = sql_as();
+        // TODO: Moodle lacks a clean upgrade path for sql code that used the AS ($as = sql_as();)
 
         // Only grab those who are out of date according to our cron interval
         $timetocheck = time() - ($this->config->croninterval * MINSECS);
@@ -721,6 +686,8 @@ class blocks_gapps_model_gsync {
 
     /**
      * Sync a single Moodle user to Google Apps
+     * This is almost the heart of the sync code. Think of it like
+     * a train station where you switch all actions based on settings.
      *
      * Sync Rules:
      *   - If a user has been deleted in Moodle their Google Apps Account will be either disabled, deleted or left alone.
@@ -974,7 +941,7 @@ class blocks_gapps_model_gsync {
 
                     } catch (blocks_gdata_exception $e) {
                         // Do nothing on errors
-                        add_to_log(SITEID, 'block_gapps', 'sync event_hndler user deluppws','', 'ERROR:'.substr($e->getMessage(),0,190).'usr='.$eventdata->id, 0,0);
+                        add_to_log(SITEID, 'block_gapps', 'sync event_hndler user deluppws','', 'ERROR:'.substr($e->getMessage(),0,190).' usr='.$eventdata->id, 0,0);
                     }
                     add_to_log(SITEID, 'block_gapps', 'sync event_hndler user deluppws','','usr='.$eventdata->id, 0,0);
                     break;
@@ -1040,10 +1007,6 @@ class blocks_gapps_model_gsync {
 
     /**
      * Rest function that emulates the rest page for accepting user accounts to sync
-     *
-     * The closing PHP tag (?>) was deliberately left out
-     *
-     * @package block_gapps
      **/
     function rest() {
         global $CFG;
@@ -1089,9 +1052,9 @@ class blocks_gapps_model_gsync {
 
     /**
      * Gsync Cron
-     * @todo NOT CONVERTED YET
      *
-     * @param <type> $testrun a parameter to define if we are debugging our code or not
+     * @param boolean $testrun a parameter to define if we are debugging our code or not
+     * @return boolean true always true so we don't halt the main cron
      */
     function cron($forcerun = false) {
         global $CFG;
@@ -1149,39 +1112,6 @@ class blocks_gapps_model_gsync {
 
         // Always return true
         return true;
-
-
-        // old cron.php file....
-        //        $nomoodlecookie = true; // cookie not needed
-        //
-        //        require_once(dirname(dirname(dirname(__FILE__))).'/config.php'); // global moodle config file.
-        //        require_once($CFG->libdir.'/blocklib.php');
-        //
-        //        set_time_limit(0);
-        //
-        //        $starttime = microtime();
-        //        $timenow   = time();
-        //
-        //        if ($block = get_record_select("block", "cron > 0 AND (($timenow - lastcron) > cron) AND visible = 1 AND name = 'gdata'")) {
-        //            if (block_method_result('gdata', 'cron_alt')) {
-        //                if (!set_field('block', 'lastcron', $timenow, 'id', $block->id)) {
-        //                    mtrace('Error: could not update timestamp for '.$block->name);
-        //                }
-        //            }
-        //        } else {
-        //            mtrace('Not time to run gdata block cron');
-        //        }
-        //
-        //        $difftime = microtime_diff($starttime, microtime());
-        //        mtrace("Execution took ".$difftime." seconds");
-
     }
-
-
-
-
-
     
 } // END class blocks_gapps_model_gsync
-
-?>

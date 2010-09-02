@@ -1,0 +1,1011 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class OAuthRequest</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class OAuthRequest</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Object to parse an incoming OAuth request or prepare an outgoing OAuth request</p>
+		<p class="notes">
+			Located in <a class="field" href="_gmail---library---OAuthRequest.php.html">/gmail/library/OAuthRequest.php</a> (line <span class="field">39</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																																								<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$body" title="details" class="var-name">$body</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$headers" title="details" class="var-name">$headers</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$method" title="details" class="var-name">$method</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$param" title="details" class="var-name">$param</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$realm" title="details" class="var-name">$realm</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$uri" title="details" class="var-name">$uri</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$uri_parts" title="details" class="var-name">$uri_parts</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																																																																																						
+				<div class="method-definition">
+											<span class="method-result">OAuthRequest</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$uri</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$method</span> = <span class="var-default">'GET'</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">''</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$headers</span> = <span class="var-default">array()</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$body</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#calculateDataSignature" title="details" class="method-name">calculateDataSignature</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$consumer_secret</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$token_secret</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$signature_method</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#calculateSignature" title="details" class="method-name">calculateSignature</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$consumer_secret</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$token_secret</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$token_type</span> = <span class="var-default">'access'</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#checks" title="details" class="method-name">checks</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#defaultPortForScheme" title="details" class="method-name">defaultPortForScheme</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$scheme</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getBody" title="details" class="method-name">getBody</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getMethod" title="details" class="method-name">getMethod</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getNormalizedParams" title="details" class="method-name">getNormalizedParams</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getParam" title="details" class="method-name">getParam</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$urldecode</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getRequestUrl" title="details" class="method-name">getRequestUrl</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../Gapps/OAuthSignatureMethod.html">OAuthSignatureMethod</a></span>
+										<a href="#getSignatureMethod" title="details" class="method-name">getSignatureMethod</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$method</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#parseUri" title="details" class="method-name">parseUri</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$parameters</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#redirect" title="details" class="method-name">redirect</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$uri</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$params</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#selectSignatureMethod" title="details" class="method-name">selectSignatureMethod</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$methods</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#setBody" title="details" class="method-name">setBody</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$body</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setParam" title="details" class="method-name">setParam</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$encoded</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#signatureBaseString" title="details" class="method-name">signatureBaseString</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#transcodeParams" title="details" class="method-name">transcodeParams</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#urldecode" title="details" class="method-name">urldecode</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$s</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#urlencode" title="details" class="method-name">urlencode</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$s</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#urltranscode" title="details" class="method-name">urltranscode</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$s</span>)
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+<a name="var$body" id="$body"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$body</span>
+						(line <span class="line-number">60</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$headers" id="$headers"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$headers</span>
+						(line <span class="line-number">54</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$method" id="$method"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$method</span>
+						(line <span class="line-number">57</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$param" id="$param"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$param</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number">45</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$realm" id="$realm"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$realm</span>
+						(line <span class="line-number">42</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$uri" id="$uri"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$uri</span>
+						(line <span class="line-number">51</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$uri_parts" id="$uri_parts"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$uri_parts</span>
+						(line <span class="line-number">48</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">73</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Construct from the current request. Useful for checking the signature of a request.</p>
+<p class="description"><p>When not supplied with any parameters this will use the current request.</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">OAuthRequest</span>
+		<span class="method-name">
+			__construct
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$uri</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$method</span> = <span class="var-default">'GET'</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$parameters</span> = <span class="var-default">''</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$headers</span> = <span class="var-default">array()</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$body</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$uri</span><span class="var-description">: uri                might include parameters</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$method</span><span class="var-description">: method            GET, PUT, POST etc.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$parameters</span><span class="var-description">: parameters        additional post parameters, urlencoded (RFC1738)</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$headers</span><span class="var-description">: headers            headers for request</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$body</span><span class="var-description">: body            optional body of the OAuth request (POST or PUT)</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcalculateDataSignature" id="calculateDataSignature"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">calculateDataSignature</span> (line <span class="line-number">203</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Calculate the signature of a string.</p>
+<p class="description"><p>Uses the signature method from the current parameters.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> signature</li>
+				<li><span class="field">exception:</span> OAuthException2 thrown when the signature method is unknown</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			calculateDataSignature
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$consumer_secret</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$token_secret</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$signature_method</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$data</span><span class="var-description">: data</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$consumer_secret</span><span class="var-description">: consumer_secret</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$token_secret</span><span class="var-description">: token_secret</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$signature_method</span><span class="var-description">: signature_method</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcalculateSignature" id="calculateSignature"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">calculateSignature</span> (line <span class="line-number">162</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Calculate the signature of the request, using the method in oauth_signature_method.</p>
+<p class="description"><p>The signature is returned encoded in the form as used in the url.  So the base64 and  urlencoding has been done.</p></p>
+	<ul class="tags">
+				<li><span class="field">exception:</span> when not all parts available</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			calculateSignature
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$consumer_secret</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$token_secret</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$token_type</span> = <span class="var-default">'access'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$consumer_secret</span><span class="var-description">: consumer_secret</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$token_secret</span><span class="var-description">: token_secret</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$token_type</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodchecks" id="checks"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">checks</span> (line <span class="line-number">287</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Perform some sanity checks.</p>
+	<ul class="tags">
+				<li><span class="field">exception:</span> OAuthException2 thrown when sanity checks failed</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			checks
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methoddefaultPortForScheme" id="defaultPortForScheme"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">defaultPortForScheme</span> (line <span class="line-number">566</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return the default port for a scheme</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			defaultPortForScheme
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$scheme</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$scheme</span><span class="var-description">: scheme</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetBody" id="getBody"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getBody</span> (line <span class="line-number">471</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return the body of the OAuth request.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> null when no body</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getBody
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetMethod" id="getMethod"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getMethod</span> (line <span class="line-number">305</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return the request method</p>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getMethod
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetNormalizedParams" id="getNormalizedParams"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNormalizedParams</span> (line <span class="line-number">316</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return the complete parameter string for the signature check.</p>
+<p class="description"><p>All parameters are correctly urlencoded and sorted on name and value</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getNormalizedParams
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetParam" id="getParam"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getParam</span> (line <span class="line-number">383</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get a parameter, value is always urlencoded</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> value        false when not found</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getParam
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$urldecode</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: name</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$urldecode</span><span class="var-description">: urldecode    set to true to decode the value upon return</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetRequestUrl" id="getRequestUrl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRequestUrl</span> (line <span class="line-number">356</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return the normalised url for signature checks</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getRequestUrl
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetSignatureMethod" id="getSignatureMethod"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSignatureMethod</span> (line <span class="line-number">263</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Fetch the signature object used for calculating and checking the signature base string</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> object</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Gapps/OAuthSignatureMethod.html">OAuthSignatureMethod</a></span>
+		<span class="method-name">
+			getSignatureMethod
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$method</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$method</span><span class="var-description">: method</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodparseUri" id="parseUri"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">parseUri</span> (line <span class="line-number">495</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Parse the uri into its parts.  Fill in the missing parts.</p>
+	<ul class="tags">
+				<li><span class="field">todo:</span> support for multiple occurences of parameters</li>
+				<li><span class="field">todo:</span> check for the use of https, right now we default to http</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			parseUri
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$parameters</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$parameters</span><span class="var-description">: optional extra parameters (from eg the http post)</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodredirect" id="redirect"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">redirect</span> (line <span class="line-number">750</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Simple function to perform a redirect (GET).</p>
+<p class="description"><p>Redirects the User-Agent, does not return.</p></p>
+	<ul class="tags">
+				<li><span class="field">exception:</span> OAuthException2 when redirect uri is illegal</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			redirect
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$uri</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$params</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$uri</span><span class="var-description">: uri</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$params</span><span class="var-description">: params        parameters, urlencoded</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodselectSignatureMethod" id="selectSignatureMethod"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">selectSignatureMethod</span> (line <span class="line-number">224</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Select a signature method from the list of available methods.</p>
+<p class="description"><p>We try to check the most secure methods first.</p></p>
+	<ul class="tags">
+				<li><span class="field">todo:</span> Let the signature method tell us how secure it is</li>
+				<li><span class="field">exception:</span> OAuthException2 when we don't support any method in the list</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			selectSignatureMethod
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$methods</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$methods</span><span class="var-description">: methods</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetBody" id="setBody"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setBody</span> (line <span class="line-number">482</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return the body of the OAuth request.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> null when no body</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			setBody
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$body</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$body</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetParam" id="setParam"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setParam</span> (line <span class="line-number">418</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set a parameter</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setParam
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$encoded</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: name</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: value</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$encoded</span><span class="var-description">: encoded    set to true when the values are already encoded</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsignatureBaseString" id="signatureBaseString"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">signatureBaseString</span> (line <span class="line-number">141</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return the signature base string.</p>
+<p class="description"><p>Note that we can't use rawurlencode due to specified use of RFC3986.</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			signatureBaseString
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodtranscodeParams" id="transcodeParams"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">transcodeParams</span> (line <span class="line-number">446</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Re-encode all parameters so that they are encoded using RFC3986.</p>
+<p class="description"><p>Updates the $this-&gt;param attribute.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			transcodeParams
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodurldecode" id="urldecode"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">urldecode</span> (line <span class="line-number">604</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Decode a string according to RFC3986.</p>
+<p class="description"><p>Also correctly decodes RFC1738 urls.</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			urldecode
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$s</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$s</span><span class="var-description">: s</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodurlencode" id="urlencode"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">urlencode</span> (line <span class="line-number">585</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Encode a string according to the RFC3986</p>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			urlencode
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$s</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$s</span><span class="var-description">: s</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodurltranscode" id="urltranscode"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">urltranscode</span> (line <span class="line-number">624</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">urltranscode - make sure that a value is encoded using RFC3986.</p>
+<p class="description"><p>We use a basic urldecode() function so that any use of '+' as the  encoding of the space character is correctly handled.</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			urltranscode
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$s</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$s</span><span class="var-description">: s</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Thu, 02 Sep 2010 15:03:21 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

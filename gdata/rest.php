@@ -28,7 +28,7 @@
  *
  * @author Mark Nielsen
  * @version $Id$
- * @package block_gdata
+ * @package block_gapps
  **/
 
 // Only accept POST requests
