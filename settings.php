@@ -45,7 +45,7 @@ $configs[] = new admin_setting_configcheckbox('newwinlink', "New Window Links",
 /********************************************************
  *                      Gmail settings                  *
  ********************************************************/
-$hbutton = $OUTPUT->old_help_icon('gmailhelp', get_string('gmailhelp','block_gapps'),'block_gapps');
+$hbutton = '';//$OUTPUT->old_help_icon('gmailhelp', get_string('gmailhelp','block_gapps'),'block_gapps');
 $configs[] = new admin_setting_heading('gmail', "Gmail Settings ".$hbutton, "");
 
 
@@ -70,7 +70,7 @@ $configs[] = new admin_setting_configcheckbox('showlastname', get_string('showla
  *                      Gsync Settings                  *
  ********************************************************/
 $gname = get_string('gsyncblockname','block_gapps');
-$hbutton = $OUTPUT->old_help_icon('googlesynchelp', $gname,'block_gapps');
+$hbutton = '';//$OUTPUT->old_help_icon('googlesynchelp', $gname,'block_gapps');  // $OUTPUT->help_icon() instead
 $configs[] = new admin_setting_heading('gsyncheader', $gname.' '.$hbutton, "");
 
 
