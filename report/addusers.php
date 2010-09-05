@@ -159,7 +159,7 @@ class blocks_gapps_report_addusers extends mr_report_abstract {
         $nonestr      = get_string('selectnone',              'block_gapps');
         $submitstr    = get_string("submitbuttonaddusers",    'block_gapps');
         $submitallstr = get_string("submitbuttonalladdusers", 'block_gapps',$totalusers);
-        $confirmstr   = get_string("confirmusers",            'block_gapps',$totalusers);
+        $confirmstr   = get_string("confirmaddusers",         'block_gapps',$totalusers);
 
         $confirmstr   = addslashes_js($confirmstr); // deprecated function.. remove
         //$options      = array(50 => 50, 100 => 100, 250 => 250, 500 => 500, 1000 => 1000);
