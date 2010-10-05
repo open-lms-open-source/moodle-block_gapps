@@ -136,7 +136,7 @@ class blocks_gapps_report_users extends mr_report_abstract {
         if (1 == substr_count($tablehtml,$nothingtodisplay)) {
              $output .= $OUTPUT->notification(get_string('nothingtodisplay'),'');
              $output .= $OUTPUT->box_end();
-             return $filterform.$tablehtml;
+             return $tablehtml;
         }
 
         $totalusers = $this->max_selectable();
@@ -151,14 +151,14 @@ class blocks_gapps_report_users extends mr_report_abstract {
 
 
         $action = $CFG->wwwroot.'/blocks/gapps/view.php?courseid='.$COURSE->id.'&controller=gsync&action=users';
-        $output .= "<form class=\"userform\" id=\"userformid\" action=\"$action\" method=\"post\">";
+        $output .= "<form class=\"userform\" id=\"userformid2\" action=\"$action\" method=\"post\">";
         $output .= '<input type="hidden" name="sesskey" value="'.sesskey().'" />';
 
         // so checkboxes are inside the form
         $output .= $tablehtml;
 
-        $output .= "<p><a href=\"#\" title=\"$allstr\" onclick=\"select_all_in('FORM', 'userform', 'userformid'); return false;\">$allstr</a> / ";
-        $output .= "<a href=\"#\" title=\"$nonestr\" onclick=\"deselect_all_in('FORM', 'userform', 'userformid'); return false;\">$nonestr</a></p>";
+        $output .= "<p><a href=\"#\" title=\"$allstr\" onclick=\"select_all_in_element_with_id('userformid2', 'checked'); return false;\">$allstr</a> / ";
+        $output .= "<a href=\"#\" title=\"$nonestr\" onclick=\"select_all_in_element_with_id('userformid2',null); return false;\">$nonestr</a></p>";
         $output .= "<input type=\"submit\" name=\"users\" value=\"$submitstr\" />&nbsp;&nbsp;";
         $output .= "<input type=\"submit\" name=\"allusers\" value=\"$submitallstr\" onclick=\"return confirm('$confirmstr');\" />";
         $output .= '</form><br />';
@@ -169,7 +169,7 @@ class blocks_gapps_report_users extends mr_report_abstract {
 
         $output .= $OUTPUT->box_end();
 
-        return $filterform.$output;
+        return $output;
     }
 
     /**
