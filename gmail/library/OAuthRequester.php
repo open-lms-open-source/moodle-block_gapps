@@ -224,9 +224,13 @@ class OAuthRequester extends OAuthRequestSigner
 		OAuthRequestLogger::start();
 
 		$store	    = OAuthStore::instance();
-		$r		    = $store->getServerTokenSecrets($consumer_key, $token, 'request', $usr_id);
+		$r          = $store->getServerTokenSecrets($consumer_key, $token, 'request', $usr_id);
 		$uri 	    = $r['access_token_uri'];
-		$token_name	= $r['token_name'];
+                if (array_key_exists('token_name',$r) ) {
+                    $token_name = $r['token_name'];
+                } else {
+                    $token_name = NULL; /// because accessing an key not in an array returns NULL
+                }
 
 		// Delete the server request token, this one was for one use only
 		$store->deleteServerToken($consumer_key, $r['token'], 0, true);
