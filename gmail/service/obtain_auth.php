@@ -27,6 +27,8 @@
  * THE SOFTWARE.
  */
 
+// See  http://oauth.net/core/1.0a/
+
 require_once('../../../../config.php');
 require_login();
 global $USER,$CFG;
@@ -42,9 +44,13 @@ if (!function_exists('getallheaders'))
     }
 }
 
-$consumer_key = required_param('consumer_key');
-$oauth_token  = required_param('oauth_token');
-$user_id      = required_param('usr_id');
+// Moodle doesn't have exact data types for proper cleaning so we
+// attempt to clean ourselves.
+$consumer_key = required_param('consumer_key',PARAM_RAW);
+
+// Since Moodle doesn't have a cleaning type for RFC 3986
+$oauth_token  = required_param('oauth_token',PARAM_RAW); 
+$user_id      = required_param('usr_id',PARAM_INT);
 
 $store  = OAuthStore::instance('Google');
 
