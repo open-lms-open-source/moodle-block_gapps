@@ -139,17 +139,17 @@ class blocks_gapps_report_addusers extends mr_report_abstract {
         // Now collected the filter form code to wrap our report
         $filter = mr_var::instance()->get('blocks_gdata_filter');
         ob_start();
-        $filter->display_add();    //$output .= $this->buffer(array($filter, 'display_add'));
-        $filter->display_active(); //$output .= $this->buffer(array($filter, 'display_active'));
-        $filterform = ob_get_flush();
-
+        $filter->display_add();   
+        $filter->display_active(); 
+        $filterform = ob_get_contents();
+        ob_clean();
 
         $output  = $OUTPUT->box_start('boxaligncenter boxwidthwide');
         // Don't print the bottom form on empty tables
         if (1 == substr_count($tablehtml,get_string('nothingtodisplay'))) {
              $output .= $OUTPUT->notification('Nothing to display.','');
              $output .= $OUTPUT->box_end();
-             return $tablehtml;
+             return $filterform.$tablehtml;
         }
         
 
@@ -183,7 +183,7 @@ class blocks_gapps_report_addusers extends mr_report_abstract {
         
         $output .= $OUTPUT->box_end();
 
-        return $output;
+        return $filterform.$output;
     }
 
 

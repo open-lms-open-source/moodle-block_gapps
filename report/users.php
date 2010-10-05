@@ -124,9 +124,10 @@ class blocks_gapps_report_users extends mr_report_abstract {
         // Now collected the filter form code to wrap our report
         $filter = mr_var::instance()->get('blocks_gdata_filter');
         ob_start();
-        $filter->display_add();   //$output .= $this->buffer(array($filter, 'display_add'));
-        $filter->display_active();//$output .= $this->buffer(array($filter, 'display_active'));
-        $filterform = ob_get_flush();
+        $filter->display_add();
+        $filter->display_active();
+        $filterform = ob_get_contents();
+        ob_clean();
 
 
         $output  = $OUTPUT->box_start('boxaligncenter boxwidthwide');
@@ -136,7 +137,7 @@ class blocks_gapps_report_users extends mr_report_abstract {
         if (1 == substr_count($tablehtml,$nothingtodisplay)) {
              $output .= $OUTPUT->notification(get_string('nothingtodisplay'),'');
              $output .= $OUTPUT->box_end();
-             return $tablehtml;
+             return $filterform.$tablehtml;
         }
 
         $totalusers = $this->max_selectable();
@@ -169,7 +170,7 @@ class blocks_gapps_report_users extends mr_report_abstract {
 
         $output .= $OUTPUT->box_end();
 
-        return $output;
+        return $filterform.$output;
     }
 
     /**
