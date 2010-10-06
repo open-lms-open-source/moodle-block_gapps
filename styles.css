@@ -2,9 +2,9 @@
     width: 100%;
 }
 
-
-div#page > div#page-content > div#region-main-box > div#region-post-box > div#region-main-wrap > div#region-main > div.region-content > div.box {
-    width: 100%;
+/* Widen tables so data does not overlap */
+body#page-blocks-gapps-view div.boxwidthnormal  {
+    width: 90%;
 }
 
 
