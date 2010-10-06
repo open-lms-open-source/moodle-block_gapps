@@ -92,18 +92,14 @@ class block_gapps extends block_base {
 
         $this->content = new stdClass;
 
-        $PAGE->requires->css('/blocks/gapps/fonts-min.css');
-        $PAGE->requires->css('/blocks/gapps/tabview.css');
-
-        // $PAGE->requires->yui_lib('autocomplete'); // YUI requirements are known about
-        $PAGE->requires->js('/lib/yui/2.8.1/build/yahoo-dom-event/yahoo-dom-event.js');
-        $PAGE->requires->js('/lib/yui/2.8.1/build/element/element.js');
-        $PAGE->requires->js('/lib/yui/2.8.1/build/tabview/tabview.js'); 
-        $PAGE->requires->js('/blocks/gapps/gapps.js');
-
-
-        $gapps_initjs = "gapps_testbuild();";
-        $PAGE->requires->js_init_code($gapps_initjs);
+        // using the YUI2 (2.8) tabview js
+        $module = array(
+            'name'      => 'block_gapps',
+            'fullpath'  => '/blocks/gapps/gapps.js',
+            'requires'  => array('yui2-tabview','yui2-yahoo','yui2-dom','yui2-event','yui2-element'),
+            'strings'   => array(),
+        );
+        $PAGE->requires->js_init_call('M.block_gapps.tabs.init', null, false, $module);
 
 
         // Each Tab has to catch it's own errors since it will have to
