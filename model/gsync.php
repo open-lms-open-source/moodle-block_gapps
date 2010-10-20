@@ -901,6 +901,15 @@ class blocks_gapps_model_gsync {
     }
 
     /**
+     * Custom auth/gsaml event handler
+     * @param object $eventdata contains a user object and a username
+     * @return boolean
+     */
+    public static function user_authenticated_event($eventdata) {
+        return self::event_handler('auth_gsaml_user_authenticated', $eventdata);
+    }
+    
+    /**
      * Event handler: processes all events
      *
      * @param string $event Name of the event
@@ -912,6 +921,9 @@ class blocks_gapps_model_gsync {
         if (get_config('blocks/gapps', 'allowevents')) {
             add_to_log(SITEID, 'block_gapps', 'model:event_handler','', $event.' eventdata->id='.$eventdata->id, 0,0);
             switch ($event) {
+                case 'auth_gsaml_user_authenticated':
+                    $this->handle_gsaml_user_auth_event($eventdata);
+                    break;
                 case 'user_created':
                     $user = $eventdata;
                     try {
@@ -949,6 +961,48 @@ class blocks_gapps_model_gsync {
         }
 
         return true;
+    }
+
+
+    /**
+     *  The Google Moodle system will create a Google Apps account
+     *  If an account exists in Moodle but not Google Apps.
+     *  Hence, verify that user has a google account. If not create one for them.
+     *  NOTE: that this may take some time for google to process new users
+     *
+     *  This function handles the event fired from the auth/gsaml plugin via this
+     *  function trigger_gsaml_user_auth_event($user, $username);
+     */
+    function handle_gsaml_user_auth_event($eventdata) {
+        $username = $eventdata->username;
+        $user = $eventdata->user;
+
+        try {
+            // obtain object and test connect to service
+            $g_user = $this->gapps_get_user($username);
+            if (empty($g_user)) {
+
+                  // Admins are excluded from this syncing procedure
+                 $admins = get_admins();
+                 if (!array_key_exists($user->id,$admins) ) {
+                     // Create Moodle User in the Gsync system
+                     $this->moodle_create_user($user);
+
+                     // Create google user
+                     $m_user = $this->moodle_get_user($user->id);
+                     $this->create_user($m_user);
+
+                     add_to_log(SITEID, 'block_gapps', 'gsaml create usr','', $user->username, 0,0);
+                 }
+            }
+
+        } catch (blocks_gdata_exception $e) {
+            if (stripos($e->getMessage(),'Error 1100: UserDeletedRecently') ) {
+                add_to_log(SITEID, 'block_gapps', 'handle gsaml err','', 'Error 1100: UserDeletedRecently', 0,0);
+                // Google does not allow a user to be created after deletion until at least 5 days have passed.
+            }
+            debugging($e->getMessage());
+        }
     }
 
     /**
