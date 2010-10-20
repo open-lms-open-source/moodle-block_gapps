@@ -25,7 +25,6 @@
  *
  * @author Mark Nielsen
  * @author Modfied by Chris Stones
- * @version $Id$
  * @package block_gapps
  **/
 
@@ -39,6 +38,12 @@ $handlers = array(
     'user_deleted' => array(
         'handlerfile'     => '/blocks/gapps/model/gsync.php',
         'handlerfunction' => array('blocks_gapps_model_gsync', 'user_deleted_event'),
+        'schedule'        => 'instant'
+    ),
+
+    'auth_gsaml_user_authenticated' => array(
+        'handlerfile'     => '/blocks/gapps/model/gsync.php',
+        'handlerfunction' => array('blocks_gapps_model_gsync', 'user_authenticated_event'),
         'schedule'        => 'instant'
     ),
 
