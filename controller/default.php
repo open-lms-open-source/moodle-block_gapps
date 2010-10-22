@@ -23,8 +23,7 @@
  * Default controller
  *
  * @author Mark Nielsen
- * @author edited by Chris Stones
- * @version $Id$
+ * @author Chris Stones
  * @package block_gapps
  */
 
@@ -57,15 +56,5 @@ class block_gapps_controller_default extends mr_controller_block {
                ->subtab('viewdocs',   array('controller' => 'gsync','action' => 'viewdocs'))
                ->subtab('gappslogs',   array('controller' => 'gsync','action' => 'gappslogs'));
 
-    }
-
-    /**
-     * Default screen
-     */
-    public function view_action() {
-                $this->print_header();
-                echo "default view action";
-                $this->print_footer();
-                
     }
 }
