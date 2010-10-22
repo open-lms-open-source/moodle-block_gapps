@@ -133,11 +133,4 @@ class blocks_gapps_report_gappslogs extends mr_report_abstract {
         return array($sql,$filterparams);
     }
 
-     /**
-      *
-      * @return <type>
-      */
-     function get_fsql() {
-        return $this->fsql;
-     }
 }

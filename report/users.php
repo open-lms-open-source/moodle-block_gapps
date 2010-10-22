@@ -132,7 +132,8 @@ class blocks_gapps_report_users extends mr_report_abstract {
 
         $output  = $OUTPUT->box_start('boxaligncenter boxwidthwide');
         
-        // if "Nothing to display" is inside the html then there are no elements and we don't need the form buttons...
+        // if "Nothing to display" is inside the html then
+        // there are no elements and we don't need the form buttons
         $nothingtodisplay = get_string('nothingtodisplay');
         if (1 == substr_count($tablehtml,$nothingtodisplay)) {
              $output .= $OUTPUT->notification(get_string('nothingtodisplay'),'');
@@ -163,11 +164,6 @@ class blocks_gapps_report_users extends mr_report_abstract {
         $output .= "<input type=\"submit\" name=\"users\" value=\"$submitstr\" />&nbsp;&nbsp;";
         $output .= "<input type=\"submit\" name=\"allusers\" value=\"$submitallstr\" onclick=\"return confirm('$confirmstr');\" />";
         $output .= '</form><br />';
-
-            // M2 no pop ups anymore...
-            //$output .= popup_form("$CFG->wwwroot/blocks/gdata/index.php?hook=$hook&amp;pagesize=", $options, 'changepagesize',
-            //                      $pagesize, '', '', '', true, 'self', get_string('pagesize', 'block_gdata'));
-
         $output .= $OUTPUT->box_end();
 
         return $filterform.$output;
@@ -183,25 +179,4 @@ class blocks_gapps_report_users extends mr_report_abstract {
         $total = $this->count_records($filtersql); // <-- pass it a filter sql
         return $total;
      }
-     
-    /**
-     * Assists with calling functions that do no return output
-     *
-     * @param string $callback First param is a callback
-     * @param mixed $argX Keep passing arguments to pass to the callback
-     * @return string
-     **/
-    function buffer() {
-        $arguments = func_get_args();
-        $callback  = array_shift($arguments);
-
-        ob_start();
-        call_user_func_array($callback, $arguments);
-        $output = ob_get_contents();
-        ob_end_clean();
-
-        return $output;
-    }
-
-
 }
