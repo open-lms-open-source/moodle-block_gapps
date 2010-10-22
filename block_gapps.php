@@ -25,7 +25,6 @@
  * from the prior release of the Google-Moodle intergration.
  *
  * @author Chris Stones
- * @version $Id$
  * @package block_gapps
  */
 class block_gapps extends block_base {
@@ -37,6 +36,7 @@ class block_gapps extends block_base {
 
         // Toggle on or off for development
         // purge_all_caches();
+        
         // If you want to update the events without modifing version.php use...
         // events_update_definition('block_gapps');
     }
