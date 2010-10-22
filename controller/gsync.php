@@ -53,14 +53,14 @@ class block_gapps_controller_gsync extends mr_controller_block {
     public function view_action() {
         global $OUTPUT;
         $this->tabs->set('status');
-        $this->print_header();
+        $output = '';
 
-        print $this->output->heading('Gsync Default View');
-        print $OUTPUT->notification("GSync Default View");
-        print $this->output->box_start('generalbox boxaligncenter boxwidthnormal');
+        $output .= $this->output->heading('Gsync Default View');
+        $output .= $OUTPUT->notification("GSync Default View");
+        $output .= $this->output->box_start('generalbox boxaligncenter boxwidthnormal');
 
-        print $this->output->box_end();
-        $this->print_footer();
+        $output .= $this->output->box_end();
+        return $output;
     }
 
     /**
@@ -73,22 +73,21 @@ class block_gapps_controller_gsync extends mr_controller_block {
         global $CFG,$OUTPUT;
         
         $this->tabs->set('status');
-        $this->print_header();
+        $output = '';
 
         require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
 
 
         try {
             $gapps = new blocks_gapps_model_gsync();
-            print $OUTPUT->notification(get_string('connectionsuccess','block_gapps'),'notifysuccess');
+            $output .= $OUTPUT->notification(get_string('connectionsuccess','block_gapps'),'notifysuccess');
         } catch (blocks_gdata_exception $e) {
             $a = NULL;
             $a->msg = $e->getMessage();
-            print $OUTPUT->notification(get_string('gappsconnectiontestfailed','block_gapps',$a));
+            $output .= $OUTPUT->notification(get_string('gappsconnectiontestfailed','block_gapps',$a));
         }
        
-        $this->print_footer();
-
+        return $output;
     }
 
     /**
@@ -106,18 +105,15 @@ class block_gapps_controller_gsync extends mr_controller_block {
         require_once($CFG->dirroot.'/blocks/gapps/report/users.php');
         require_once($CFG->dirroot.'/user/filters/lib.php');
 
-        // don't auto run because moodle's userfilter clears the _POST global and we need to save
-        // and process those
+        // don't auto run because moodle's userfilter clears the _POST global
+        // and we need to save and process those
         $report = new blocks_gapps_report_users($this->url, $COURSE->id,false);
-             
-
-        $filter =  new user_filtering(NULL, $this->url);//  array('hook' => $hook, 'pagesize' => $pagesize));
+        $filter =  new user_filtering(NULL, $this->url);
                                     
         mr_var::instance()->set('blocks_gdata_filter', $filter);
         $report->run();
-        $output = $this->mroutput->render($report);
-        print $output;
-        
+        print $this->mroutput->render($report);
+
         $this->print_footer();
     }
 
@@ -131,6 +127,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
     public function users_action() {
         global $CFG,$SESSION,$DB;
         $this->tabs->set('users');
+
         $operationstatus = true;
         require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
 
@@ -172,7 +169,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
         }
 
         $operationstatus and $this->notify->good('changessaved','block_gapps');
-        $actionurl = $CFG->wwwroot.'/blocks/gapps/view.php?controller=gsync&action=usersview';//.$COURSE->id;
+        $actionurl = $CFG->wwwroot.'/blocks/gapps/view.php?controller=gsync&action=usersview';
         redirect($actionurl);
     }
 
@@ -259,16 +256,15 @@ class block_gapps_controller_gsync extends mr_controller_block {
         require_once($CFG->dirroot.'/blocks/gapps/report/addusers.php');
         require_once($CFG->dirroot.'/user/filters/lib.php');
 
-        // don't auto run because moodle's userfilter clears the _POST global and we need to save
-        // and process those
+        // don't auto run because moodle's userfilter clears
+        // the _POST global and we need to save and process those
         $report = new blocks_gapps_report_addusers($this->url, $COURSE->id,false);
 
         $filter =  new user_filtering(NULL, $this->url);
 
         mr_var::instance()->set('blocks_gdata_filter', $filter);
         $report->run();
-        $output = $this->mroutput->render($report);
-        print $output;
+        print $this->mroutput->render($report);
         $this->print_footer();
     }
     
@@ -377,21 +373,20 @@ class block_gapps_controller_gsync extends mr_controller_block {
         global $CFG,$DB,$OUTPUT;
 
         $this->tabs->set('diagnostic');
-        $this->print_header();
+        $output = '';
 
         // now set up and run the gapps cron
         require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
         $gapps = new blocks_gapps_model_gsync();
 
-        print $OUTPUT->box_start('generalbox boxaligncenter boxwidthnormal');
-        print "<pre>";
+        $output .= $OUTPUT->box_start('generalbox boxaligncenter boxwidthnormal');
+        $output .= "<pre>";
         $gapps->cron(true); // force run option to true
-        print "</pre>";
-        print $OUTPUT->box_end();
+        $output .= "</pre>";
+        $output .= $OUTPUT->box_end();
 
-
-        $this->print_footer();
         add_to_log(SITEID, 'block_gapps', 'gsync:runcron_act','', '', 0,0);
+        return $output;
     }
 
     /**
