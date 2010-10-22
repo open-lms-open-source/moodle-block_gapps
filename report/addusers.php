@@ -200,33 +200,5 @@ class blocks_gapps_report_addusers extends mr_report_abstract {
         //mr_var::instance()->remove('blocks_gdata_filter'); // don't keep duplicating filters
         return $total;
      }
-
-     /**
-      *
-      * @return <type>
-      */
-     function get_fsql() {
-        return $this->fsql;
-     }
-
-    /**
-     * Assists with calling functions that do no return output
-     *
-     * @param string $callback First param is a callback
-     * @param mixed $argX Keep passing arguments to pass to the callback
-     * @return string
-     **/
-    function buffer() {
-        $arguments = func_get_args();
-        $callback  = array_shift($arguments);
-
-        ob_start();
-        call_user_func_array($callback, $arguments);
-        $output = ob_get_contents();
-        ob_end_clean();
-
-        return $output;
-    }
-
-
+     
 }
