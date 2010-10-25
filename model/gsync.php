@@ -811,7 +811,7 @@ class blocks_gapps_model_gsync {
             $client->setParameterPost('userid',$moodleuser->userid);
             $client->setParameterPost('controller','gsync');
             $client->setParameterPost('action','rest');
-
+            $client->request('POST');
 
             $clients[] = $client;
 
