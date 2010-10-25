@@ -81,7 +81,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
         try {
             $gapps = new blocks_gapps_model_gsync();
             $output .= $OUTPUT->notification(get_string('connectionsuccess','block_gapps'),'notifysuccess');
-        } catch (blocks_gdata_exception $e) {
+        } catch (blocks_gapps_exception $e) {
             $a = NULL;
             $a->msg = $e->getMessage();
             $output .= $OUTPUT->notification(get_string('gappsconnectiontestfailed','block_gapps',$a));
@@ -133,7 +133,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
 
         if ($userids = optional_param('userids', 0, PARAM_INT) or optional_param('allusers', '', PARAM_RAW)) {
             if (!confirm_sesskey()) {
-                throw new blocks_gdata_exception('confirmsesskeybad', 'error');
+                throw new blocks_gapps_exception('confirmsesskeybad', 'error');
             }
             $gapps = new blocks_gapps_model_gsync();
 
@@ -143,7 +143,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
                     $fsql = $SESSION->blocks_gapps_report_users->fsql;
                     $fparams = $SESSION->blocks_gapps_report_users->fparams;
                 } else {
-                    throw new blocks_gdata_exception('missingfiltersql');
+                    throw new blocks_gapps_exception('missingfiltersql');
                 }
 
                 // Bulk processing
@@ -156,7 +156,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
                     }
                     $rs->close();
                 } else {
-                    throw new blocks_gdata_exception('invalidparameter');
+                    throw new blocks_gapps_exception('invalidparameter');
                 }
 
             } else {
@@ -190,7 +190,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
 
         if ($userids = optional_param('userids', 0, PARAM_INT) or optional_param('allusers', '', PARAM_RAW)) {
             if (!confirm_sesskey()) {
-                throw new blocks_gdata_exception('confirmsesskeybad', 'error');
+                throw new blocks_gapps_exception('confirmsesskeybad', 'error');
             }
 
             $gapps = new blocks_gapps_model_gsync();
@@ -201,7 +201,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
                     $fsql = $SESSION->blocks_gapps_report_addusers->fsql;
                     $fparams = $SESSION->blocks_gapps_report_addusers->fparams;
                 } else {
-                    throw new blocks_gdata_exception('missingfiltersql');
+                    throw new blocks_gapps_exception('missingfiltersql');
                 }
                 
                 // Bulk processing
@@ -219,7 +219,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
                     }
                     $rs->close();
                 } else {
-                    throw new blocks_gdata_exception('invalidparameter');
+                    throw new blocks_gapps_exception('invalidparameter');
                 }
 
             } else { 
@@ -230,7 +230,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
                         $gapps->moodle_create_user($user);
                         add_to_log(SITEID, 'block_gapps', 'gsync:addusrs_act m_create_user','', 'suc usr='.$user->id, 0,0);
                     } else {
-                        throw new blocks_gdata_exception('invalidparameter');
+                        throw new blocks_gapps_exception('invalidparameter');
                     }
                 }
             }
@@ -329,7 +329,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
                 print_object($gapps->moodle_get_user($userid));
 
 
-            } catch (blocks_gdata_exception $e) {
+            } catch (blocks_gapps_exception $e) {
                 print $e->getMessage();
             }
 
