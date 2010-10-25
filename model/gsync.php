@@ -808,10 +808,10 @@ class blocks_gapps_model_gsync {
             require_once($CFG->dirroot.'/blocks/gapps/model/http.php');
 
             $client = new blocks_gdata_http($CFG->wwwroot.'/blocks/gapps/view.php', $this->httpconfig);
-            $client->setParametersPost(array(
-                      'userid'     => $moodleuser->userid,
-                      'controller' => 'gsync',
-                      'action'     => 'rest'));
+            $client->setParameterPost('userid',$moodleuser->userid);
+            $client->setParameterPost('controller','gsync');
+            $client->setParameterPost('action','rest');
+
 
             $clients[] = $client;
 
