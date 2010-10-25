@@ -354,9 +354,9 @@ class block_gapps extends block_base {
         $items = array();
         $icons = array();
 
-        require_once($CFG->dirroot.'/blocks/gapps/gmail/gmail.php');
+        require_once($CFG->dirroot.'/blocks/gapps/model/gmail.php');
 
-        $gmail = new block_gapps_gmail();
+        $gmail = new blocks_gapps_model_gmail();
 
         list($icons,$items) = $gmail->get_content();
 

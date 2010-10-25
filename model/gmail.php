@@ -33,13 +33,13 @@
  *
  *
  * @author Chris Stones
- * @version $Id$
  * @package block_gapps
  **/
 
 global $CFG,$USER;
 
-class block_gapps_gmail {
+//class blocks_gapps_model_gmail {
+class blocks_gapps_model_gmail {
     /**
      * The Google Apps domain
      *
