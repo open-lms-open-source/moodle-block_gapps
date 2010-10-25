@@ -138,13 +138,19 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																																																																																																																																																										
+																																																																																																																																																																																		
 				<div class="method-definition">
 					static 						<span class="method-result">boolean</span>
 										<a href="#password_changed_event" title="details" class="method-name">password_changed_event</a>
 											(<span class="var-type">object</span>&nbsp;<span class="var-name">$user</span>)
 									</div>
 																																																						
+				<div class="method-definition">
+					static 						<span class="method-result">boolean</span>
+										<a href="#user_authenticated_event" title="details" class="method-name">user_authenticated_event</a>
+											(<span class="var-type">object</span>&nbsp;<span class="var-name">$eventdata</span>)
+									</div>
+														
 				<div class="method-definition">
 					static 						<span class="method-result">boolean</span>
 										<a href="#user_created_event" title="details" class="method-name">user_created_event</a>
@@ -242,6 +248,12 @@
 									</div>
 														
 				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#handle_gsaml_user_auth_event" title="details" class="method-name">handle_gsaml_user_auth_event</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$eventdata</span>)
+									</div>
+														
+				<div class="method-definition">
 											<span class="method-result">object</span>
 										<a href="#moodle_create_user" title="details" class="method-name">moodle_create_user</a>
 											(<span class="var-type">object</span>&nbsp;<span class="var-name">$user</span>)
@@ -312,7 +324,7 @@
 										<a href="#update_user" title="details" class="method-name">update_user</a>
 											(<span class="var-type">object</span>&nbsp;<span class="var-name">$moodleuser</span>, <span class="var-type">Zend_Gdata_Gapps_UserEntry</span>&nbsp;<span class="var-name">$gappsuser</span>)
 									</div>
-																																			</div>
+																																											</div>
 		</div>
 	</div>		
 
@@ -333,7 +345,7 @@
 		<div class="info-box-body">
 			
 <a name="var$config" id="$config"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -355,7 +367,7 @@
 
 </div>
 <a name="var$counts" id="$counts"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -377,7 +389,7 @@
 
 </div>
 <a name="var$httpconfig" id="$httpconfig"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -399,7 +411,7 @@
 
 </div>
 <a name="var$requiredconfig" id="$requiredconfig"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -438,10 +450,10 @@
 		<div class="info-box-body">
 			<A NAME='method_detail'></A>
 <a name="methodpassword_changed_event" id="password_changed_event"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static password_changed_event</span> (line <span class="line-number">889</span>)
+		<span class="method-title">static password_changed_event</span> (line <span class="line-number">891</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -467,11 +479,40 @@
 		
 			
 	</div>
+<a name="methoduser_authenticated_event" id="user_authenticated_event"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static user_authenticated_event</span> (line <span class="line-number">910</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Custom auth/gsaml event handler</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">boolean</span>
+		<span class="method-name">
+			user_authenticated_event
+		</span>
+					(<span class="var-type">object</span>&nbsp;<span class="var-name">$eventdata</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">object</span>
+				<span class="var-name">$eventdata</span><span class="var-description">: contains a user object and a username</span>			</li>
+				</ul>
+		
+			
+	</div>
 <a name="methoduser_created_event" id="user_created_event"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static user_created_event</span> (line <span class="line-number">899</span>)
+		<span class="method-title">static user_created_event</span> (line <span class="line-number">901</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -500,7 +541,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static user_deleted_event</span> (line <span class="line-number">871</span>)
+		<span class="method-title">static user_deleted_event</span> (line <span class="line-number">873</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -530,7 +571,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static user_updated_event</span> (line <span class="line-number">856</span>)
+		<span class="method-title">static user_updated_event</span> (line <span class="line-number">858</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -621,7 +662,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">cron</span> (line <span class="line-number">1059</span>)
+		<span class="method-title">cron</span> (line <span class="line-number">1119</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -691,7 +732,7 @@
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Connect to Google Apps using  our config credentials</p>
 	<ul class="tags">
-				<li><span class="field">throws:</span> blocks_gdata_exception</li>
+				<li><span class="field">throws:</span> blocks_gapps_exception</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -716,7 +757,7 @@
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Create a user in Google Apps</p>
 	<ul class="tags">
-				<li><span class="field">throws:</span> blocks_gdata_exception</li>
+				<li><span class="field">throws:</span> blocks_gapps_exception</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -758,7 +799,7 @@
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Delete user from Google Apps</p>
 	<ul class="tags">
-				<li><span class="field">throws:</span> blocks_gdata_exception</li>
+				<li><span class="field">throws:</span> blocks_gapps_exception</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -789,7 +830,7 @@
 <p class="short-description">Get a user from Google Apps</p>
 	<ul class="tags">
 				<li><span class="field">return:</span> or NULL if user not found</li>
-				<li><span class="field">throws:</span> blocks_gdata_exception</li>
+				<li><span class="field">throws:</span> blocks_gapps_exception</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -819,7 +860,7 @@
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Get a page of users from Google Apps</p>
 	<ul class="tags">
-				<li><span class="field">throws:</span> blocks_gdata_exception</li>
+				<li><span class="field">throws:</span> blocks_gapps_exception</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -939,7 +980,7 @@
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Update a user in Google Apps</p>
 	<ul class="tags">
-				<li><span class="field">throws:</span> blocks_gdata_exception</li>
+				<li><span class="field">throws:</span> blocks_gapps_exception</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -962,8 +1003,35 @@
 		
 			
 	</div>
-<a name="methodmoodle_create_user" id="moodle_create_user"><!-- --></a>
+<a name="methodhandle_gsaml_user_auth_event" id="handle_gsaml_user_auth_event"><!-- --></a>
 <div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">handle_gsaml_user_auth_event</span> (line <span class="line-number">978</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The Google Moodle system will create a Google Apps account   If an account exists in Moodle but not Google Apps.</p>
+<p class="description"><p>Hence, verify that user has a google account. If not create one for them.   NOTE: that this may take some time for google to process new users</p><p>This function handles the event fired from the auth/gsaml plugin via this   function trigger_gsaml_user_auth_event($user, $username);</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			handle_gsaml_user_auth_event
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$eventdata</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$eventdata</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodmoodle_create_user" id="moodle_create_user"><!-- --></a>
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">moodle_create_user</span> (line <span class="line-number">501</span>)
@@ -972,7 +1040,7 @@
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Create a user in Moodle's block_gdata_gapps table</p>
 	<ul class="tags">
-				<li><span class="field">throws:</span> blocks_gdata_exception</li>
+				<li><span class="field">throws:</span> blocks_gapps_exception</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -993,7 +1061,7 @@
 			
 	</div>
 <a name="methodmoodle_delete_user" id="moodle_delete_user"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">moodle_delete_user</span> (line <span class="line-number">593</span>)
@@ -1022,7 +1090,7 @@
 			
 	</div>
 <a name="methodmoodle_get_user" id="moodle_get_user"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">moodle_get_user</span> (line <span class="line-number">608</span>)
@@ -1031,7 +1099,7 @@
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Get Moodle user - this object is used  by other methods in this class.</p>
 	<ul class="tags">
-				<li><span class="field">throws:</span> blocks_gdata_exception</li>
+				<li><span class="field">throws:</span> blocks_gapps_exception</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -1052,7 +1120,7 @@
 			
 	</div>
 <a name="methodmoodle_get_users" id="moodle_get_users"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">moodle_get_users</span> (line <span class="line-number">634</span>)
@@ -1062,7 +1130,7 @@
 <p class="short-description">Get all Moodle users that need to be synced - the  objects returned are used by other methods in this class</p>
 	<ul class="tags">
 				<li><span class="field">return:</span> RecordSet</li>
-				<li><span class="field">throws:</span> blocks_gdata_exception</li>
+				<li><span class="field">throws:</span> blocks_gapps_exception</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -1078,7 +1146,7 @@
 			
 	</div>
 <a name="methodmoodle_remove_user" id="moodle_remove_user"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">moodle_remove_user</span> (line <span class="line-number">576</span>)
@@ -1087,7 +1155,7 @@
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Sets a user to be deleted on the next sync</p>
 	<ul class="tags">
-				<li><span class="field">throws:</span> blocks_gdata_exception</li>
+				<li><span class="field">throws:</span> blocks_gapps_exception</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -1108,7 +1176,7 @@
 			
 	</div>
 <a name="methodmoodle_set_status" id="moodle_set_status"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">moodle_set_status</span> (line <span class="line-number">680</span>)
@@ -1140,7 +1208,7 @@
 			
 	</div>
 <a name="methodmoodle_update_user" id="moodle_update_user"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">moodle_update_user</span> (line <span class="line-number">544</span>)
@@ -1149,7 +1217,7 @@
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Update a user in Moodle's block_gdata_gapps table and  potentially modify the user's email in Moodle's  user table</p>
 	<ul class="tags">
-				<li><span class="field">throws:</span> blocks_gdata_exception</li>
+				<li><span class="field">throws:</span> blocks_gapps_exception</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -1173,7 +1241,7 @@
 			
 	</div>
 <a name="methodrename_user" id="rename_user"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">rename_user</span> (line <span class="line-number">340</span>)
@@ -1182,7 +1250,7 @@
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Renames a Google Apps account by deleting  the old one and creating a new one</p>
 	<ul class="tags">
-				<li><span class="field">throws:</span> blocks_gdata_exception</li>
+				<li><span class="field">throws:</span> blocks_gapps_exception</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -1206,10 +1274,10 @@
 			
 	</div>
 <a name="methodrest" id="rest"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">rest</span> (line <span class="line-number">1011</span>)
+		<span class="method-title">rest</span> (line <span class="line-number">1067</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1227,7 +1295,7 @@
 			
 	</div>
 <a name="methodsync_moodle_to_gapps" id="sync_moodle_to_gapps"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">sync_moodle_to_gapps</span> (line <span class="line-number">784</span>)
@@ -1236,7 +1304,7 @@
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Sync Moodle users to Google Apps</p>
 	<ul class="tags">
-				<li><span class="field">throws:</span> blocks_gdata_exception</li>
+				<li><span class="field">throws:</span> blocks_gapps_exception</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -1260,7 +1328,7 @@
 			
 	</div>
 <a name="methodsync_moodle_user_to_gapps" id="sync_moodle_user_to_gapps"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">sync_moodle_user_to_gapps</span> (line <span class="line-number">715</span>)
@@ -1278,7 +1346,7 @@
      check first name, last name and password for changes
      in Moodle, then update if necessary.</li></ul></p></p>
 	<ul class="tags">
-				<li><span class="field">throws:</span> blocks_gdata_exception</li>
+				<li><span class="field">throws:</span> blocks_gapps_exception</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -1305,7 +1373,7 @@
 			
 	</div>
 <a name="methodupdate_user" id="update_user"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">update_user</span> (line <span class="line-number">225</span>)
@@ -1355,7 +1423,7 @@
 					</div>
 		<div class="info-box-body">
 			<a name="constMAX_CLIENTS" id="MAX_CLIENTS"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="const-header">
 		<img src="../media/images/Variable.png" />
@@ -1372,7 +1440,7 @@
 	
 </div>
 <a name="constPASSWORD_HASH_FUNCTION" id="PASSWORD_HASH_FUNCTION"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="const-header">
 		<img src="../media/images/Variable.png" />
@@ -1389,7 +1457,7 @@
 	
 </div>
 <a name="constSTATUS_ACCOUNT_CREATION_ERROR" id="STATUS_ACCOUNT_CREATION_ERROR"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="const-header">
 		<img src="../media/images/Variable.png" />
@@ -1406,7 +1474,7 @@
 	
 </div>
 <a name="constSTATUS_ERROR" id="STATUS_ERROR"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="const-header">
 		<img src="../media/images/Variable.png" />
@@ -1423,7 +1491,7 @@
 	
 </div>
 <a name="constSTATUS_NEVER" id="STATUS_NEVER"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="const-header">
 		<img src="../media/images/Variable.png" />
@@ -1440,7 +1508,7 @@
 	
 </div>
 <a name="constSTATUS_OK" id="STATUS_OK"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="const-header">
 		<img src="../media/images/Variable.png" />
@@ -1457,7 +1525,7 @@
 	
 </div>
 <a name="constSTATUS_USERNAME_CONFLICT" id="STATUS_USERNAME_CONFLICT"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="const-header">
 		<img src="../media/images/Variable.png" />
@@ -1478,7 +1546,7 @@
 	</div>
 
 	<p class="notes" id="credit">
-		Documentation generated on Thu, 02 Sep 2010 15:03:21 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Mon, 25 Oct 2010 11:16:28 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>
