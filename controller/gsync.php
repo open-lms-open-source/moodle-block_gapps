@@ -381,7 +381,10 @@ class block_gapps_controller_gsync extends mr_controller_block {
 
         $output .= $OUTPUT->box_start('generalbox boxaligncenter boxwidthnormal');
         $output .= "<pre>";
+        ob_start();
         $gapps->cron(true); // force run option to true
+        $output .= ob_get_contents();
+        ob_end_clean();
         $output .= "</pre>";
         $output .= $OUTPUT->box_end();
 

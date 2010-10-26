@@ -807,10 +807,8 @@ class blocks_gapps_model_gsync {
             // Setup a new http client to process the user
             require_once($CFG->dirroot.'/blocks/gapps/model/http.php');
 
-            $client = new blocks_gdata_http($CFG->wwwroot.'/blocks/gapps/view.php', $this->httpconfig);
+            $client = new blocks_gdata_http($CFG->wwwroot.'/blocks/gapps/rest.php', $this->httpconfig);
             $client->setParameterPost('userid',$moodleuser->userid);
-            $client->setParameterPost('controller','gsync');
-            $client->setParameterPost('action','rest');
             $client->request('POST');
 
             $clients[] = $client;
@@ -1066,48 +1064,43 @@ class blocks_gapps_model_gsync {
      **/
     function rest() {
         global $CFG;
+        // Only accept POST requests
+        $nomoodlecookie = true;
+        require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // Only accept POST requests
-            $nomoodlecookie = true;
-            require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
+        $response = array('counts' => array('errors' => 1), 'message' => '');
 
-            $response = array('counts' => array('errors' => 1), 'message' => '');
+        if ($userid = optional_param('userid', 0, PARAM_INT)) {
+            try {
+                // Want to capture output so we
+                // can return it properly
+                ob_start();
 
-            if ($userid = optional_param('userid', 0, PARAM_INT)) {
-                try {
-                    // Want to capture output so we
-                    // can return it properly
-                    ob_start();
+                $gapps = new blocks_gapps_model_gsync(); /// the $gapps makes the code easier to read so leaving as gapps and not $this
 
-                    $gapps = new blocks_gapps_model_gsync(); /// the $gapps makes the code easier to read so leaving as gapps and not $this
+                $moodleuser = $gapps->moodle_get_user($userid);
+                $gapps->sync_moodle_user_to_gapps($moodleuser);
 
-                    $moodleuser = $gapps->moodle_get_user($userid);
-                    $gapps->sync_moodle_user_to_gapps($moodleuser);
+                $output = ob_get_contents();
+                $output = trim($output);
+                ob_end_clean();
 
-                    $output = ob_get_contents();
-                    $output = trim($output);
-                    ob_end_clean();
-
-                    if (!empty($output)) {
-                        $response['message'] = $output;
-                    }
-                    $response['counts'] = $gapps->counts;
-
-                } catch (blocks_gapps_exception $e) {
-                    $response['message'] = $e->getMessage();
-                } catch (Zend_Exception $e) {
-                    // Catch Zend_Exception just in case it happens
-                    $response['message'] = $e->getMessage();
+                if (!empty($output)) {
+                    $response['message'] = $output;
                 }
-            } else {
-                $response['message'] = 'Invalid userid passed';
-            }
+                $response['counts'] = $gapps->counts;
 
-            echo serialize($response);
+            } catch (blocks_gapps_exception $e) {
+                $response['message'] = $e->getMessage();
+            } catch (Zend_Exception $e) {
+                // Catch Zend_Exception just in case it happens
+                $response['message'] = $e->getMessage();
+            }
+        } else {
+            $response['message'] = 'Invalid userid passed';
         }
 
-        die;
+        echo serialize($response);
     }
 
     /**
