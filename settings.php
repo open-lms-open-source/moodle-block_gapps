@@ -51,9 +51,6 @@ $configs[] = new admin_setting_heading('gmail', "Gmail Settings ".$hbutton, "");
 
 $configs[] = new admin_setting_configpasswordunmask('oauthsecret', get_string('oauthsecretstr', 'block_gapps'), get_string('oauthsecretinfo', 'block_gapps'), '');
 
-$configs[] = new admin_setting_configtext('consumer_key', get_string('consumer_key', 'block_gapps'), get_string('consumer_keyinfo', 'block_gapps'), '');
-
-
 $configs[] = new admin_setting_configtext('msgnumber', get_string('msgnumberunread', 'block_gapps'), get_string('msgnumberunreadinfo', 'block_gapps'), '0', PARAM_RAW, 5);
 
 // Open links in new window

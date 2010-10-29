@@ -23,22 +23,17 @@
  * Upgrades
  *
  * @author Chris Stones
- * @version $Id$
  * @package block_gapps
  **/
-
 function xmldb_block_gapps_upgrade($oldversion=0) {
     global $CFG, $DB, $OUTPUT;
 
     $dbman = $DB->get_manager();
-
-
     $result = true;
 
-    // see mod/workshop/db/upgrade.php for example 2.0 upgrade code
-
+    // Checks required for upgrading between 1.9 and 2.0 are found
+    // in _self_test() in the block definition then db/install.php is
+    // used to clean up data
 
     return $result;
 }
-
-?>

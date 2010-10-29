@@ -73,7 +73,7 @@ $user_id = $USER->id; // most often the current user
 // NOTE: if they need to revoke token or if current token doesn't work this link should
 //       show up.
 
-$consumer_key = get_config('blocks/gapps','consumer_key'); // the google apps domain
+$consumer_key = get_config('blocks/gapps','domain'); // the google apps domain
 $params = array('scope'=>'https://mail.google.com/mail/feed/atom');
 
 

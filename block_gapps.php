@@ -42,6 +42,77 @@ class block_gapps extends block_base {
     }
 
     /**
+     * This funtion is the only hook we have before the install/upgrade code  gaccess,gdata and gmail
+     * for 2.0 will run. (see lib/upgradelib.php lines 595 and so on)
+     *
+     * This function checks if we are upgrading from 1.9 series to 2.0 and
+     * it renames the tables so data can be migrated on post install
+     */
+     function _self_test() {
+        global $CFG, $DB, $OUTPUT;
+
+        $dbman = $DB->get_manager();
+
+        // Check that we are upgrading from 1.9 to 2.0
+        // needs to only run when upgrading from 1.9 to 2.0 and no other time
+
+        // Check that we are upgrading from 1.9 to 2.0 and if we have a gapps already?
+        // oldversion will be false if gapps wasn't installed
+        // prior so check that it's a boolean value
+        // and future that if it's false don't run any update code
+        $oldversion = $DB->get_field('block','version',array('name'=>'gapps')); // false if not found
+        if ( $CFG->version  < 2010102501 and (is_bool($oldversion) and !$oldversion) ) {
+
+            echo $OUTPUT->notification('Updating gapps from 1.9 to 2.0', 'notifysuccess');
+            
+            // Don't rename tables if the renamed tables exist
+            if ($dbman->table_exists('block_gdata_gapps') and !$dbman->table_exists('block_gdata_gapps_old')) {
+                // rename by adding suffix _old
+                echo $OUTPUT->notification('block_gdata_gapps exists renaming to block_gdata_gapps_old', 'notifysuccess');
+                $dbman->rename_table(new xmldb_table('block_gdata_gapps'), 'block_gdata_gapps_old');
+            }
+
+
+            if ($dbman->table_exists('block_gapps')) {
+                $dbman->rename_table(new xmldb_table('block_gapps'),'block_gapps_old');
+                echo $OUTPUT->notification('block_gapps renamed to block_gapps_old.', 'notifysuccess');
+            }
+
+
+            if ($dbman->table_exists('block_gapps_oauth_consumer_token')  and !$dbman->table_exists('block_gapps_oauth_consumer_token_old') ) {
+                // rename by adding suffix _old
+                echo $OUTPUT->notification('block_gapps_oauth_consumer_token exists renaming to block_gapps_oauth_consumer_token_old', 'notifysuccess');
+                $dbman->rename_table(new xmldb_table('block_gapps_oauth_consumer_token'), 'block_gapps_oauth_consumer_token_old');
+            }
+
+
+            // Move Config Settings Over
+            // Gather settings...
+            // gaccess has duplicate newwinlink field so we leave it out  and go with the gdata one
+            $gdata   = $DB->get_records('config_plugins',array('plugin'=>'blocks/gdata'));
+            $gmail   = $DB->get_records('config_plugins',array('plugin'=>'blocks/gmail'));
+
+            // combine settings and insert as gapps
+            $sdata = array_merge($gdata,$gmail);
+            foreach ($sdata as $row) {
+                $row->plugin = 'blocks/gapps';
+                if ( $row->name == 'consumer_key' ) {
+                    continue;
+                }
+                $DB->insert_record('config_plugins',$row);
+            }
+
+            // Delete old settings
+            $DB->delete_records('config_plugins',array('plugin'=>'blocks/gaccess'));
+            $DB->delete_records('config_plugins',array('plugin'=>'blocks/gdata'));
+            $DB->delete_records('config_plugins',array('plugin'=>'blocks/gmail'));
+                        
+        }
+
+        return parent::_self_test();
+     }
+
+    /**
      * This block can be added to Site, Course, or My Moodle
      * Capabilities determine whether a user an see the tab or not.
      * 
