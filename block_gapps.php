@@ -111,6 +111,14 @@ class block_gapps extends block_base {
 
         return parent::_self_test();
      }
+     
+    /**
+     * Clean up the configs upon deletion of the block
+     */
+    function before_delete() {
+        global $DB;
+        $DB->delete_records('config_plugins',array('plugin'=>'blocks/gapps'));
+    }
 
     /**
      * This block can be added to Site, Course, or My Moodle
