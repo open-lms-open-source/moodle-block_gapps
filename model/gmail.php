@@ -195,7 +195,7 @@ class blocks_gapps_model_gmail {
         $status = $feed->init();
         $msgs = $feed->get_items();
 
-        $domain = get_config('blocks/gapps','consumer_key');
+        $domain = get_config('blocks/gapps','domain');
 
         
         $unreadmsgsstr = get_string('unreadmsgs','block_gapps');
@@ -266,7 +266,7 @@ class blocks_gapps_model_gmail {
      * Check that gapps has google apps domain set
      */
     function check_domain_set() {
-        if ( !$domain = get_config('blocks/gapps','consumer_key')) {
+        if ( !$domain = get_config('blocks/gapps','domain')) {
             throw new Exception(get_string('domainnotset','block_gapps'));
         }
     }
