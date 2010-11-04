@@ -922,7 +922,12 @@ class blocks_gapps_model_gsync {
             add_to_log(SITEID, 'block_gapps', 'model:event_handler','', $event.' eventdata->id='.$eventdata->id, 0,0);
             switch ($event) {
                 case 'auth_gsaml_user_authenticated':
-                    $this->handle_gsaml_user_auth_event($eventdata);
+                    try {
+                        $gapps = new blocks_gapps_model_gsync();
+                        $gapps->handle_gsaml_user_auth_event($eventdata);
+                    } catch (blocks_gapps_exception $e) {
+                        add_to_log(SITEID, 'block_gapps', 'auth_gsaml_user_authenticated','', 'ERROR:'.substr($e->getMessage(),0,190).' usr='.$eventdata->id, 0,0);
+                    }
                     break;
                 case 'user_created':
                     $user = $eventdata;
