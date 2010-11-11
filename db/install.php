@@ -44,4 +44,28 @@ function xmldb_block_gapps_install() {
         echo $OUTPUT->notification('block_gapps_old deleted.', 'notifysuccess');
     }
 
+    // Consolidate former block_instances of gmail,gaccess and gdata
+    // and make sure only one gapps per parentcontextid
+    $insts = $DB->get_records_select('block_instances', " blockname='gmail' OR blockname='gaccess' OR blockname='gdata' ",
+                                     null,'id, blockname, parentcontextid');
+
+    // convert instances to gapps and update a single instance in that context while
+    // deleting all the extra ones
+    $current_cxt = null;
+    foreach ($insts as $inst) {
+        // are we the first one in a new context?
+        if ($current_cxt != $inst->parentcontextid) {
+            $current_cxt = $inst->parentcontextid;
+            $inst->blockname = 'gapps';
+            $DB->update_record('block_instances',$inst);
+        } else {
+            $DB->delete_records('block_instances', array('id'=>$inst->id));
+        }
+    }
+
+    // Delete from block table
+    $DB->delete_records('block', array('name'=>'gdata'));
+    $DB->delete_records('block', array('name'=>'gaccess'));
+    $DB->delete_records('block', array('name'=>'gmail'));
+    
 }
