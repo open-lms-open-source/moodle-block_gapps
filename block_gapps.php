@@ -102,6 +102,16 @@ class block_gapps extends block_base {
                 $DB->insert_record('config_plugins',$row);
             }
 
+            // Delete Old Events
+            events_uninstall('block/gaccess');
+            events_uninstall('block/gdata');
+            events_uninstall('block/gmail');
+
+            // Delete Old Caps
+            capabilities_cleanup('block/gaccess');
+            capabilities_cleanup('block/gdata');
+            capabilities_cleanup('block/gmail');
+
             // Delete old settings
             $DB->delete_records('config_plugins',array('plugin'=>'blocks/gaccess'));
             $DB->delete_records('config_plugins',array('plugin'=>'blocks/gdata'));
