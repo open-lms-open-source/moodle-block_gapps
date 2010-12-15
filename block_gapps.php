@@ -315,9 +315,17 @@ class block_gapps extends block_base {
         $lis = array();
         foreach ($items as $key => $string) {
             $item = html_writer::start_tag('li', array('class' => 'r' . $row));
-            if (!empty($icons[$key])) { //test if the content has an assigned icon
-                $item .= html_writer::tag('div', $icons[$key], array('class' => 'icon column c0'));
+            //if (!empty($icons[$key])) { //test if the content has an assigned icon
+            //    $item .= html_writer::tag('div', $icons[$key], array('class' => 'icon column c0'));
+            //}
+
+            // Tempory change to make it look nice for joule 1.5/2.0 release
+            // until Moodle fixes MDL-25457
+            if (!empty($icons[$key])) {
+                $string = $icons[$key].' '.$string;
             }
+            // End of Tempory Change
+            
             $item .= html_writer::tag('div', $string, array('class' => 'column c1'));
             $item .= html_writer::end_tag('li');
             $lis[] = $item;
