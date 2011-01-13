@@ -475,15 +475,19 @@ class block_gapps extends block_base {
         // Run crons...
         
         // gsync cron
+        try {
+            mtrace("gsync: Cron Running....");
+            require_once($CFG->dirroot.'/local/mr/framework/bootstrap.php');
+            require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
+            $gapps = new blocks_gapps_model_gsync();
+            $status = $gapps->cron();
+            mtrace("gsync: Cron Complete.");
 
-        mtrace("gsync: Cron Running....");
-        require_once($CFG->dirroot.'/local/mr/framework/bootstrap.php');
-        require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
-        $gapps = new blocks_gapps_model_gsync();
-        $status = $gapps->cron();
-        mtrace("gsync: Cron Complete.");
-
-        mtrace("blocks/gapps Cron Complete.");
+            mtrace("blocks/gapps Cron Complete.");
+        } catch (Exception $e) {
+            mtrace("Error in gsync: ".$e->getMessage());
+            mtrace("\nSkipping gsync cron for now.");
+        }
         
         return $status;
     }
