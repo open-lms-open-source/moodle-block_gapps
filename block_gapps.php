@@ -40,7 +40,11 @@ class block_gapps extends block_base {
         // If you want to update the events without modifing version.php use...
         // events_update_definition('block_gapps');
     }
-
+    
+    function has_config() {
+        return true;
+    }
+    
     /**
      * This funtion is the only hook we have before the install/upgrade code  gaccess,gdata and gmail
      * for 2.0 will run. (see lib/upgradelib.php lines 595 and so on)
