@@ -13,35 +13,67 @@ function xmldb_block_gapps_install() {
     $dbman = $DB->get_manager();
 
     echo $OUTPUT->notification('block_gapps 2.0 Installing', 'notifysuccess');
-    
-    // Migrate Data from former tables gmail,gdata,gaccess
-    if ($dbman->table_exists('block_gdata_gapps_old')) {
-        $data = $DB->get_records('block_gdata_gapps_old');
-        foreach ($data as $row) {
-            $DB->insert_record('block_gdata_gapps',$row);
+
+    ////////////////////////////////////////////////////////////////////////
+    // Code that is really meant to be run when upgrading from 1.9 to 2.0
+    // however it's safe to run because what it pulls won't exist
+    // and will fail gracefully if we are installing fresh on 2.0
+
+
+    // Move Config Settings Over
+    // Gather settings...
+    // gaccess has duplicate newwinlink field so we leave it out and go with the gdata one
+    $gdata   = $DB->get_records('config_plugins',array('plugin'=>'blocks/gdata'));
+    $gmail   = $DB->get_records('config_plugins',array('plugin'=>'blocks/gmail'));
+
+    // combine settings and insert as gapps
+    $sdata = array_merge($gdata,$gmail);
+    foreach ($sdata as $row) {
+        $row->plugin = 'blocks/gapps';
+        if ( $row->name == 'consumer_key' ) {
+            continue;
         }
-        echo $OUTPUT->notification('block_gdata_gapps data transfered.', 'notifysuccess');
-
-        $dbman->drop_table(new xmldb_table('block_gdata_gapps_old'));
-        echo $OUTPUT->notification('block_gdata_gapps_old deleted.', 'notifysuccess');
-
+        $DB->insert_record('config_plugins',$row);
     }
 
-    if ($dbman->table_exists('block_gapps_oauth_consumer_token_old')) {
-        $data = $DB->get_records('block_gapps_oauth_consumer_token_old');
-        foreach ($data as $row) {
-            $DB->insert_record('block_gapps_oauth_consumer_token',$row);
-        }
-        echo $OUTPUT->notification('block_gapps_oauth_consumer_token data transfered.', 'notifysuccess');
-
-        $dbman->drop_table(new xmldb_table('block_gapps_oauth_consumer_token_old'));
-        echo $OUTPUT->notification('block_gapps_oauth_consumer_token_old deleted.', 'notifysuccess');
+    // Delete Old Events
+    try {
+        // Field "component" does not exist in table "events_handlers" is thrown
+        events_uninstall('block/gaccess');
+        events_uninstall('block/gdata');
+        events_uninstall('block/gmail');
+    } catch (Exception $e) {
+        print $e->getMessage();
     }
 
-    // Don't create new and just drop the old
-    if ($dbman->table_exists('block_gapps_old')) {
-        $dbman->drop_table(new xmldb_table('block_gapps_old'));
-        echo $OUTPUT->notification('block_gapps_old deleted.', 'notifysuccess');
+    try {
+        // Delete Old Caps
+        capabilities_cleanup('block/gaccess');
+        capabilities_cleanup('block/gdata');
+        capabilities_cleanup('block/gmail');
+    } catch (Exception $e) {
+        print $e->getMessage();
+    }
+
+    // Delete old settings
+    $DB->delete_records('config_plugins',array('plugin'=>'blocks/gaccess'));
+    $DB->delete_records('config_plugins',array('plugin'=>'blocks/gdata'));
+    $DB->delete_records('config_plugins',array('plugin'=>'blocks/gmail'));
+    // End of 1.9 to 2.0 code
+    ////////////////////////////////////////////////////////////////////////
+
+    // block_gdata_gapps is being renamed to block_gapps_gdata so we collect
+    // it's old data and add to the new block
+    if ($dbman->table_exists('block_gdata_gapps')) {
+        $data = $DB->get_records('block_gdata_gapps');
+        foreach ($data as $row) {
+            $DB->insert_record('block_gapps_gdata',$row);
+        }
+        echo $OUTPUT->notification('block_gdata_gapps data transfered to block_gapps_gdata.', 'notifysuccess');
+
+        $dbman->drop_table(new xmldb_table('block_gdata_gapps'));
+        echo $OUTPUT->notification('block_gdata_gapps deleted.', 'notifysuccess');
+
     }
 
     // Consolidate former block_instances of gmail,gaccess and gdata

@@ -339,7 +339,7 @@ class blocks_gapps_model_gsync {
      */
     public function rename_user($moodleuser, $gappsuser) {
         global $DB;
-        if ($DB->record_exists('block_gdata_gapps', array('username' => $moodleuser->username))) {
+        if ($DB->record_exists('block_gapps_gdata', array('username' => $moodleuser->username))) {
             // Username conflict - keep old data and update status
             $this->moodle_set_status($moodleuser->id, self::STATUS_USERNAME_CONFLICT);
 
@@ -492,7 +492,7 @@ class blocks_gapps_model_gsync {
     }
 
     /**
-     * Create a user in Moodle's block_gdata_gapps table
+     * Create a user in Moodle's block_gapps_gdata table
      *
      * @param object $user Moodle user record from user table
      * @return object
@@ -501,10 +501,10 @@ class blocks_gapps_model_gsync {
     public function moodle_create_user($user) {
         global $DB;
         // Check for existing record first
-        if ($record = $DB->get_record('block_gdata_gapps',array( 'userid'=> $user->id))) {
+        if ($record = $DB->get_record('block_gapps_gdata',array( 'userid'=> $user->id))) {
             if ($record->remove == 1) {
                 // Was set to be removed... enable it and leave other fields unchanged
-                if (!$DB->set_field('block_gdata_gapps', 'remove', 0, array('id'=> $record->id))) {
+                if (!$DB->set_field('block_gapps_gdata', 'remove', 0, array('id'=> $record->id))) {
                     throw new blocks_gapps_exception('setfieldfailed');
                 }
             } else {
@@ -513,7 +513,7 @@ class blocks_gapps_model_gsync {
             }
         } else {
             // Inserting new - don't allow duplicate usernames as Gapps will not allow it anyways
-            if ($DB->record_exists('block_gdata_gapps', array('username'=> $user->username))) {
+            if ($DB->record_exists('block_gapps_gdata', array('username'=> $user->username))) {
                 throw new blocks_gapps_exception('usernamealreadyexists', 'block_gapps', $user->username);
             }
 
@@ -525,14 +525,14 @@ class blocks_gapps_model_gsync {
             $record->lastsync = 0;
             $record->status   = self::STATUS_NEVER;
 
-            if (!$DB->insert_record('block_gdata_gapps', $record)) {
+            if (!$DB->insert_record('block_gapps_gdata', $record)) {
                 throw new blocks_gapps_exception('insertfailed');
             }
         }
     }
 
     /**
-     * Update a user in Moodle's block_gdata_gapps table and
+     * Update a user in Moodle's block_gapps_gdata table and
      * potentially modify the user's email in Moodle's
      * user table
      *
@@ -551,7 +551,7 @@ class blocks_gapps_model_gsync {
         $record->lastsync = time();
         $record->status   = $status;
 
-        if (!$DB->update_record('block_gdata_gapps', $record)) {
+        if (!$DB->update_record('block_gapps_gdata', $record)) {
             throw new blocks_gapps_exception('failedtoupdatesyncrecord', 'block_gapps', $record->id);
         }
 
@@ -575,8 +575,8 @@ class blocks_gapps_model_gsync {
      */
     public function moodle_remove_user($userid) {
         global $DB;
-        if ($id = $DB->get_field('block_gdata_gapps', 'id', array('userid' => $userid))) {
-            if (!$DB->set_field('block_gdata_gapps', 'remove', 1, array('id' => $id))) { 
+        if ($id = $DB->get_field('block_gapps_gdata', 'id', array('userid' => $userid))) {
+            if (!$DB->set_field('block_gapps_gdata', 'remove', 1, array('id' => $id))) { 
                 throw new blocks_gapps_exception('setfieldfailed');
             }
         } else {
@@ -585,14 +585,14 @@ class blocks_gapps_model_gsync {
     }
 
     /**
-     * Delete a user from Moodle's block_gdata_gapps table
+     * Delete a user from Moodle's block_gapps_gdata table
      *
      * @param int $id The record ID
      * @return void
      */
     public function moodle_delete_user($id) {
         global $DB;
-        if (!$DB->delete_records('block_gdata_gapps', array('id' => $id))) {
+        if (!$DB->delete_records('block_gapps_gdata', array('id' => $id))) {
             throw new blocks_gapps_exception('failedtodeletesyncrecord', 'block_gapps', $id);
         }
     }
@@ -601,7 +601,7 @@ class blocks_gapps_model_gsync {
      * Get Moodle user - this object is used
      * by other methods in this class.
      *
-     * @param int $userid ID of the user to grab - must exist in block_gdata_gapps and user tables
+     * @param int $userid ID of the user to grab - must exist in block_gapps_gdata and user tables
      * @return object
      * @throws blocks_gapps_exception
      **/
@@ -614,7 +614,7 @@ class blocks_gapps_model_gsync {
                                              g.status, u.username, u.password, u.firstname,
                                              u.lastname, u.email, u.deleted,u.auth
                                         FROM {user} u,
-                                             {block_gdata_gapps} g
+                                             {block_gapps_gdata} g
                                        WHERE u.id = g.userid
                                          AND g.userid = ?",array($userid));
 
@@ -651,7 +651,7 @@ class blocks_gapps_model_gsync {
                                         g.status, u.username, u.password, u.firstname,
                                         u.lastname, u.email, u.deleted,u.auth
                                    FROM {user} u,
-                                        {block_gdata_gapps} g
+                                        {block_gapps_gdata} g
                                   WHERE u.id = g.userid
                                     AND g.lastsync < ?".$adminfilter,array($timetocheck));
 
@@ -679,7 +679,7 @@ class blocks_gapps_model_gsync {
      **/
     public function moodle_set_status($id, $status) {
         global $DB;
-        if (!$DB->set_field('block_gdata_gapps', 'status', $status, array('id' => $id))) {
+        if (!$DB->set_field('block_gapps_gdata', 'status', $status, array('id' => $id))) {
             throw new blocks_gapps_exception('setfieldfailed');
         }
     }
