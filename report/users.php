@@ -100,7 +100,7 @@ class blocks_gapps_report_users extends mr_report_abstract {
         list($filtersql,$fparams) = $filter->get_sql_filter();  
 
         $select = "SELECT $fields";
-        $from   = "FROM {user} u, {block_gdata_gapps} g";
+        $from   = "FROM {user} u, {block_gapps_gdata} g";
         $where  = "WHERE u.id = g.userid AND g.remove = 0 AND u.deleted = 0";
 
         // SQL gets a little weird here because the filtersql doesn't do field aliases

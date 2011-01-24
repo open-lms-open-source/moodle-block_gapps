@@ -100,7 +100,7 @@ class blocks_gapps_report_addusers extends mr_report_abstract {
         $filter = mr_var::instance()->get('blocks_gdata_filter');
         list($filtersql,$fparams) = $filter->get_sql_filter();  //get_sql_filter($extra='', array $params=null)
 
-        // Get all users that are not in our sync table (block_gdata_gapps) or
+        // Get all users that are not in our sync table (block_gapps_gdata) or
         // users that are in our sync table but are scheduled to be deleted
 
         // or admins that we don't want to sync
@@ -111,10 +111,10 @@ class blocks_gapps_report_addusers extends mr_report_abstract {
 
         if (get_config('blocks/gapps','nosyncadmins')) {
             // filter out admins from syncing
-            $where  = "WHERE id NOT IN (SELECT userid FROM {block_gdata_gapps} WHERE remove = 0) AND deleted = 0 AND username != 'guest'
+            $where  = "WHERE id NOT IN (SELECT userid FROM {block_gapps_gdata} WHERE remove = 0) AND deleted = 0 AND username != 'guest'
                        AND id NOT IN ($adminids)";
         } else { // no admin filtering
-            $where  = "WHERE id NOT IN (SELECT userid FROM {block_gdata_gapps} WHERE remove = 0) AND deleted = 0 AND username != 'guest'";
+            $where  = "WHERE id NOT IN (SELECT userid FROM {block_gapps_gdata} WHERE remove = 0) AND deleted = 0 AND username != 'guest'";
         }
 
         // if filter sql exists..
