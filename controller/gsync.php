@@ -71,7 +71,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
      */
     public function status_action() {
         global $CFG,$OUTPUT;
-        
+
         $this->tabs->set('status');
         $output = '';
 
@@ -86,7 +86,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
             $a->msg = $e->getMessage();
             $output .= $OUTPUT->notification(get_string('gappsconnectiontestfailed','block_gapps',$a));
         }
-       
+
         return $output;
     }
 
@@ -109,7 +109,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
         // and we need to save and process those
         $report = new blocks_gapps_report_users($this->url, $COURSE->id,false);
         $filter =  new user_filtering(NULL, $this->url);
-                                    
+
         mr_var::instance()->set('blocks_gdata_filter', $filter);
         $report->run();
         print $this->mroutput->render($report);
@@ -131,7 +131,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
         $operationstatus = true;
         require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
 
-        if ($userids = optional_param('userids', 0, PARAM_INT) or optional_param('allusers', '', PARAM_RAW)) {
+        if ($userids = optional_param_array('userids', 0, PARAM_INT) or optional_param('allusers', '', PARAM_RAW)) {
             if (!confirm_sesskey()) {
                 throw new blocks_gapps_exception('confirmsesskeybad', 'error');
             }
@@ -188,14 +188,14 @@ class block_gapps_controller_gsync extends mr_controller_block {
 
         require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
 
-        if ($userids = optional_param('userids', 0, PARAM_INT) or optional_param('allusers', '', PARAM_RAW)) {
+        if ($userids = optional_param_array('userids', 0, PARAM_INT) or optional_param('allusers', '', PARAM_RAW)) {
             if (!confirm_sesskey()) {
                 throw new blocks_gapps_exception('confirmsesskeybad', 'error');
             }
 
             $gapps = new blocks_gapps_model_gsync();
 
-            if (optional_param('allusers', '', PARAM_RAW)) { 
+            if (optional_param('allusers', '', PARAM_RAW)) {
                 // Obtain sql from the stored filter
                 if (isset($SESSION->blocks_gapps_report_addusers->fsql)) {
                     $fsql = $SESSION->blocks_gapps_report_addusers->fsql;
@@ -203,7 +203,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
                 } else {
                     throw new blocks_gapps_exception('missingfiltersql');
                 }
-                
+
                 // Bulk processing
                 if ($rs = $DB->get_recordset_sql($fsql,$fparams)) {
                     while ($rs->valid()) {
@@ -222,7 +222,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
                     throw new blocks_gapps_exception('invalidparameter');
                 }
 
-            } else { 
+            } else {
                 // Process selected user IDs
                 foreach ($userids as $userid) {
                     // return a user object with only id,username and password
@@ -267,7 +267,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
         print $this->mroutput->render($report);
         $this->print_footer();
     }
-    
+
 
     /**
      * Testing Interface (to call model/diagnostic.php  you can bring up the dev docs in another tab
@@ -337,9 +337,9 @@ class block_gapps_controller_gsync extends mr_controller_block {
             print "prints out info google has on a user when username is given in post";
         }
         print "</pre>";
-        
+
         print $this->gapps_get_user_form();
- 
+
         print $OUTPUT->box_end();
         $this->print_footer();
     }
@@ -428,14 +428,14 @@ class block_gapps_controller_gsync extends mr_controller_block {
 
             print "<hr>";
             $gapps->sync_moodle_user_to_gapps($moodleuser);
-            
+
             print "</pre>";
 
         } else {
           print $this->gapps_get_syncuser_form();
         }
         // Provides a form to enter a user to preform the sync directly
-        
+
         print $OUTPUT->box_end();
 
         $this->print_footer();
@@ -477,8 +477,8 @@ class block_gapps_controller_gsync extends mr_controller_block {
         $str = '<iframe src="'.$CFG->wwwroot.'/blocks/gapps/docs/index.html'.'" width="100%" height="600" align="center"> </iframe>';
         print $str;
         print $OUTPUT->box_end();
-        
-        
+
+
         $this->print_footer();
     }
 
