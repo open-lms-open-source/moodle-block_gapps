@@ -35,5 +35,24 @@ function xmldb_block_gapps_upgrade($oldversion=0) {
     // in _self_test() in the block definition then db/install.php is
     // used to clean up data
 
-    return $result;
+    if ($oldversion < 2012062401) {
+        // Rename table block_gdata_gapps to block_gapps_gdata
+        $table_incorrect = new xmldb_table('block_gdata_gapps');
+        $table_correct = new xmldb_table('block_gapps_gdata');
+
+        // Conditionally launch rename if correctly named table doesn't exist
+        if ($dbman->table_exists($table_incorrect) && !$dbman->table_exists($table_correct)) {
+            $dbman->rename_table($table_incorrect, 'block_gapps_gdata');
+        }
+        
+        // Drop incorrectly named table, if it exists
+        if ($dbman->table_exists($table_incorrect)) {
+            $dbman->drop_table($table_incorrect);
+        }
+        
+        // gapps savepoint reached
+        upgrade_block_savepoint(true, 2012062401, 'gapps');
+    }
+
+    return true;
 }
