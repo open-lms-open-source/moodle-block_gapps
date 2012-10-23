@@ -3,7 +3,7 @@ include_once('../simplepie.inc');
 include_once('../idn/idna_convert.class.php');
 
 // Parse it
-$feed = new SimplePie();
+$feed = new blocks_gapps_simplepie();
 if (isset($_GET['feed']) && $_GET['feed'] !== '')
 {
 	if (get_magic_quotes_gpc())

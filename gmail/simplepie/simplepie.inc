@@ -51,327 +51,327 @@
 /**
  * SimplePie Name
  */
-define('SIMPLEPIE_NAME', 'SimplePie');
+define('BLOCKS_GAPPS_SIMPLEPIE_NAME', 'SimplePie');
 
 /**
  * SimplePie Version
  */
-define('SIMPLEPIE_VERSION', '1.1.1');
+define('BLOCKS_GAPPS_SIMPLEPIE_VERSION', '1.1.1');
 
 /**
  * SimplePie Build
- * @todo Hardcode for release (there's no need to have to call SimplePie_Misc::parse_date() only every load of simplepie.inc)
+ * @todo Hardcode for release (there's no need to have to call blocks_gapps_simplepie_misc::parse_date() only every load of simplepie.inc)
  */
-define('SIMPLEPIE_BUILD', 20080315205903);
-//define('SIMPLEPIE_BUILD', gmdate('YmdHis', SimplePie_Misc::parse_date(substr('$Date: 2008-03-15 15:28:23 -0700 (Sat, 15 Mar 2008) $', 7, 25)) ? SimplePie_Misc::parse_date(substr('$Date: 2008-03-15 15:28:23 -0700 (Sat, 15 Mar 2008) $', 7, 25)) : filemtime(__FILE__)));
+define('BLOCKS_GAPPS_SIMPLEPIE_BUILD', 20080315205903);
+//define('BLOCKS_GAPPS_SIMPLEPIE_BUILD', gmdate('YmdHis', blocks_gapps_simplepie_misc::parse_date(substr('$Date: 2008-03-15 15:28:23 -0700 (Sat, 15 Mar 2008) $', 7, 25)) ? blocks_gapps_simplepie_misc::parse_date(substr('$Date: 2008-03-15 15:28:23 -0700 (Sat, 15 Mar 2008) $', 7, 25)) : filemtime(__FILE__)));
 
 /**
  * SimplePie Website URL
  */
-define('SIMPLEPIE_URL', 'http://simplepie.org');
+define('BLOCKS_GAPPS_SIMPLEPIE_URL', 'http://simplepie.org');
 
 /**
  * SimplePie Useragent
- * @see SimplePie::set_useragent()
+ * @see blocks_gapps_simplepie::set_useragent()
  */
-define('SIMPLEPIE_USERAGENT', SIMPLEPIE_NAME . '/' . SIMPLEPIE_VERSION . ' (Feed Parser; ' . SIMPLEPIE_URL . '; Allow like Gecko) Build/' . SIMPLEPIE_BUILD);
+define('BLOCKS_GAPPS_SIMPLEPIE_USERAGENT', BLOCKS_GAPPS_SIMPLEPIE_NAME . '/' . BLOCKS_GAPPS_SIMPLEPIE_VERSION . ' (Feed Parser; ' . BLOCKS_GAPPS_SIMPLEPIE_URL . '; Allow like Gecko) Build/' . BLOCKS_GAPPS_SIMPLEPIE_BUILD);
 
 /**
  * SimplePie Linkback
  */
-define('SIMPLEPIE_LINKBACK', '<a href="' . SIMPLEPIE_URL . '" title="' . SIMPLEPIE_NAME . ' ' . SIMPLEPIE_VERSION . '">' . SIMPLEPIE_NAME . '</a>');
+define('BLOCKS_GAPPS_SIMPLEPIE_LINKBACK', '<a href="' . BLOCKS_GAPPS_SIMPLEPIE_URL . '" title="' . BLOCKS_GAPPS_SIMPLEPIE_NAME . ' ' . BLOCKS_GAPPS_SIMPLEPIE_VERSION . '">' . BLOCKS_GAPPS_SIMPLEPIE_NAME . '</a>');
 
 /**
  * No Autodiscovery
- * @see SimplePie::set_autodiscovery_level()
+ * @see blocks_gapps_simplepie::set_autodiscovery_level()
  */
-define('SIMPLEPIE_LOCATOR_NONE', 0);
+define('BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_NONE', 0);
 
 /**
  * Feed Link Element Autodiscovery
- * @see SimplePie::set_autodiscovery_level()
+ * @see blocks_gapps_simplepie::set_autodiscovery_level()
  */
-define('SIMPLEPIE_LOCATOR_AUTODISCOVERY', 1);
+define('BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_AUTODISCOVERY', 1);
 
 /**
  * Local Feed Extension Autodiscovery
- * @see SimplePie::set_autodiscovery_level()
+ * @see blocks_gapps_simplepie::set_autodiscovery_level()
  */
-define('SIMPLEPIE_LOCATOR_LOCAL_EXTENSION', 2);
+define('BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_LOCAL_EXTENSION', 2);
 
 /**
  * Local Feed Body Autodiscovery
- * @see SimplePie::set_autodiscovery_level()
+ * @see blocks_gapps_simplepie::set_autodiscovery_level()
  */
-define('SIMPLEPIE_LOCATOR_LOCAL_BODY', 4);
+define('BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_LOCAL_BODY', 4);
 
 /**
  * Remote Feed Extension Autodiscovery
- * @see SimplePie::set_autodiscovery_level()
+ * @see blocks_gapps_simplepie::set_autodiscovery_level()
  */
-define('SIMPLEPIE_LOCATOR_REMOTE_EXTENSION', 8);
+define('BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_REMOTE_EXTENSION', 8);
 
 /**
  * Remote Feed Body Autodiscovery
- * @see SimplePie::set_autodiscovery_level()
+ * @see blocks_gapps_simplepie::set_autodiscovery_level()
  */
-define('SIMPLEPIE_LOCATOR_REMOTE_BODY', 16);
+define('BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_REMOTE_BODY', 16);
 
 /**
  * All Feed Autodiscovery
- * @see SimplePie::set_autodiscovery_level()
+ * @see blocks_gapps_simplepie::set_autodiscovery_level()
  */
-define('SIMPLEPIE_LOCATOR_ALL', 31);
+define('BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_ALL', 31);
 
 /**
  * No known feed type
  */
-define('SIMPLEPIE_TYPE_NONE', 0);
+define('BLOCKS_GAPPS_SIMPLEPIE_TYPE_NONE', 0);
 
 /**
  * RSS 0.90
  */
-define('SIMPLEPIE_TYPE_RSS_090', 1);
+define('BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_090', 1);
 
 /**
  * RSS 0.91 (Netscape)
  */
-define('SIMPLEPIE_TYPE_RSS_091_NETSCAPE', 2);
+define('BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_091_NETSCAPE', 2);
 
 /**
  * RSS 0.91 (Userland)
  */
-define('SIMPLEPIE_TYPE_RSS_091_USERLAND', 4);
+define('BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_091_USERLAND', 4);
 
 /**
  * RSS 0.91 (both Netscape and Userland)
  */
-define('SIMPLEPIE_TYPE_RSS_091', 6);
+define('BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_091', 6);
 
 /**
  * RSS 0.92
  */
-define('SIMPLEPIE_TYPE_RSS_092', 8);
+define('BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_092', 8);
 
 /**
  * RSS 0.93
  */
-define('SIMPLEPIE_TYPE_RSS_093', 16);
+define('BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_093', 16);
 
 /**
  * RSS 0.94
  */
-define('SIMPLEPIE_TYPE_RSS_094', 32);
+define('BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_094', 32);
 
 /**
  * RSS 1.0
  */
-define('SIMPLEPIE_TYPE_RSS_10', 64);
+define('BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_10', 64);
 
 /**
  * RSS 2.0
  */
-define('SIMPLEPIE_TYPE_RSS_20', 128);
+define('BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_20', 128);
 
 /**
  * RDF-based RSS
  */
-define('SIMPLEPIE_TYPE_RSS_RDF', 65);
+define('BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_RDF', 65);
 
 /**
  * Non-RDF-based RSS (truly intended as syndication format)
  */
-define('SIMPLEPIE_TYPE_RSS_SYNDICATION', 190);
+define('BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_SYNDICATION', 190);
 
 /**
  * All RSS
  */
-define('SIMPLEPIE_TYPE_RSS_ALL', 255);
+define('BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_ALL', 255);
 
 /**
  * Atom 0.3
  */
-define('SIMPLEPIE_TYPE_ATOM_03', 256);
+define('BLOCKS_GAPPS_SIMPLEPIE_TYPE_ATOM_03', 256);
 
 /**
  * Atom 1.0
  */
-define('SIMPLEPIE_TYPE_ATOM_10', 512);
+define('BLOCKS_GAPPS_SIMPLEPIE_TYPE_ATOM_10', 512);
 
 /**
  * All Atom
  */
-define('SIMPLEPIE_TYPE_ATOM_ALL', 768);
+define('BLOCKS_GAPPS_SIMPLEPIE_TYPE_ATOM_ALL', 768);
 
 /**
  * All feed types
  */
-define('SIMPLEPIE_TYPE_ALL', 1023);
+define('BLOCKS_GAPPS_SIMPLEPIE_TYPE_ALL', 1023);
 
 /**
  * No construct
  */
-define('SIMPLEPIE_CONSTRUCT_NONE', 0);
+define('BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_NONE', 0);
 
 /**
  * Text construct
  */
-define('SIMPLEPIE_CONSTRUCT_TEXT', 1);
+define('BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT', 1);
 
 /**
  * HTML construct
  */
-define('SIMPLEPIE_CONSTRUCT_HTML', 2);
+define('BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_HTML', 2);
 
 /**
  * XHTML construct
  */
-define('SIMPLEPIE_CONSTRUCT_XHTML', 4);
+define('BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_XHTML', 4);
 
 /**
  * base64-encoded construct
  */
-define('SIMPLEPIE_CONSTRUCT_BASE64', 8);
+define('BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_BASE64', 8);
 
 /**
  * IRI construct
  */
-define('SIMPLEPIE_CONSTRUCT_IRI', 16);
+define('BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI', 16);
 
 /**
  * A construct that might be HTML
  */
-define('SIMPLEPIE_CONSTRUCT_MAYBE_HTML', 32);
+define('BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_MAYBE_HTML', 32);
 
 /**
  * All constructs
  */
-define('SIMPLEPIE_CONSTRUCT_ALL', 63);
+define('BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_ALL', 63);
 
 /**
  * PCRE for HTML attributes
  */
-define('SIMPLEPIE_PCRE_HTML_ATTRIBUTE', '((?:[\x09\x0A\x0B\x0C\x0D\x20]+[^\x09\x0A\x0B\x0C\x0D\x20\x2F\x3E][^\x09\x0A\x0B\x0C\x0D\x20\x2F\x3D\x3E]*(?:[\x09\x0A\x0B\x0C\x0D\x20]*=[\x09\x0A\x0B\x0C\x0D\x20]*(?:"(?:[^"]*)"|\'(?:[^\']*)\'|(?:[^\x09\x0A\x0B\x0C\x0D\x20\x22\x27\x3E][^\x09\x0A\x0B\x0C\x0D\x20\x3E]*)?))?)*)[\x09\x0A\x0B\x0C\x0D\x20]*');
+define('BLOCKS_GAPPS_SIMPLEPIE_PCRE_HTML_ATTRIBUTE', '((?:[\x09\x0A\x0B\x0C\x0D\x20]+[^\x09\x0A\x0B\x0C\x0D\x20\x2F\x3E][^\x09\x0A\x0B\x0C\x0D\x20\x2F\x3D\x3E]*(?:[\x09\x0A\x0B\x0C\x0D\x20]*=[\x09\x0A\x0B\x0C\x0D\x20]*(?:"(?:[^"]*)"|\'(?:[^\']*)\'|(?:[^\x09\x0A\x0B\x0C\x0D\x20\x22\x27\x3E][^\x09\x0A\x0B\x0C\x0D\x20\x3E]*)?))?)*)[\x09\x0A\x0B\x0C\x0D\x20]*');
 
 /**
  * PCRE for XML attributes
  */
-define('SIMPLEPIE_PCRE_XML_ATTRIBUTE', '((?:\s+(?:(?:[^\s:]+:)?[^\s:]+)\s*=\s*(?:"(?:[^"]*)"|\'(?:[^\']*)\'))*)\s*');
+define('BLOCKS_GAPPS_SIMPLEPIE_PCRE_XML_ATTRIBUTE', '((?:\s+(?:(?:[^\s:]+:)?[^\s:]+)\s*=\s*(?:"(?:[^"]*)"|\'(?:[^\']*)\'))*)\s*');
 
 /**
  * XML Namespace
  */
-define('SIMPLEPIE_NAMESPACE_XML', 'http://www.w3.org/XML/1998/namespace');
+define('BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_XML', 'http://www.w3.org/XML/1998/namespace');
 
 /**
  * Atom 1.0 Namespace
  */
-define('SIMPLEPIE_NAMESPACE_ATOM_10', 'http://www.w3.org/2005/Atom');
+define('BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10', 'http://www.w3.org/2005/Atom');
 
 /**
  * Atom 0.3 Namespace
  */
-define('SIMPLEPIE_NAMESPACE_ATOM_03', 'http://purl.org/atom/ns#');
+define('BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03', 'http://purl.org/atom/ns#');
 
 /**
  * RDF Namespace
  */
-define('SIMPLEPIE_NAMESPACE_RDF', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#');
+define('BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RDF', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#');
 
 /**
  * RSS 0.90 Namespace
  */
-define('SIMPLEPIE_NAMESPACE_RSS_090', 'http://my.netscape.com/rdf/simple/0.9/');
+define('BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_090', 'http://my.netscape.com/rdf/simple/0.9/');
 
 /**
  * RSS 1.0 Namespace
  */
-define('SIMPLEPIE_NAMESPACE_RSS_10', 'http://purl.org/rss/1.0/');
+define('BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_10', 'http://purl.org/rss/1.0/');
 
 /**
  * RSS 1.0 Content Module Namespace
  */
-define('SIMPLEPIE_NAMESPACE_RSS_10_MODULES_CONTENT', 'http://purl.org/rss/1.0/modules/content/');
+define('BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_10_MODULES_CONTENT', 'http://purl.org/rss/1.0/modules/content/');
 
 /**
  * DC 1.0 Namespace
  */
-define('SIMPLEPIE_NAMESPACE_DC_10', 'http://purl.org/dc/elements/1.0/');
+define('BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10', 'http://purl.org/dc/elements/1.0/');
 
 /**
  * DC 1.1 Namespace
  */
-define('SIMPLEPIE_NAMESPACE_DC_11', 'http://purl.org/dc/elements/1.1/');
+define('BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11', 'http://purl.org/dc/elements/1.1/');
 
 /**
  * W3C Basic Geo (WGS84 lat/long) Vocabulary Namespace
  */
-define('SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO', 'http://www.w3.org/2003/01/geo/wgs84_pos#');
+define('BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO', 'http://www.w3.org/2003/01/geo/wgs84_pos#');
 
 /**
  * GeoRSS Namespace
  */
-define('SIMPLEPIE_NAMESPACE_GEORSS', 'http://www.georss.org/georss');
+define('BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_GEORSS', 'http://www.georss.org/georss');
 
 /**
  * Media RSS Namespace
  */
-define('SIMPLEPIE_NAMESPACE_MEDIARSS', 'http://search.yahoo.com/mrss/');
+define('BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS', 'http://search.yahoo.com/mrss/');
 
 /**
  * Wrong Media RSS Namespace
  */
-define('SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG', 'http://search.yahoo.com/mrss');
+define('BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG', 'http://search.yahoo.com/mrss');
 
 /**
  * iTunes RSS Namespace
  */
-define('SIMPLEPIE_NAMESPACE_ITUNES', 'http://www.itunes.com/dtds/podcast-1.0.dtd');
+define('BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES', 'http://www.itunes.com/dtds/podcast-1.0.dtd');
 
 /**
  * XHTML Namespace
  */
-define('SIMPLEPIE_NAMESPACE_XHTML', 'http://www.w3.org/1999/xhtml');
+define('BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_XHTML', 'http://www.w3.org/1999/xhtml');
 
 /**
  * IANA Link Relations Registry
  */
-define('SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY', 'http://www.iana.org/assignments/relation/');
+define('BLOCKS_GAPPS_SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY', 'http://www.iana.org/assignments/relation/');
 
 /**
  * Whether we're running on PHP5
  */
-define('SIMPLEPIE_PHP5', version_compare(PHP_VERSION, '5.0.0', '>='));
+define('BLOCKS_GAPPS_SIMPLEPIE_PHP5', version_compare(PHP_VERSION, '5.0.0', '>='));
 
 /**
  * No file source
  */
-define('SIMPLEPIE_FILE_SOURCE_NONE', 0);
+define('BLOCKS_GAPPS_SIMPLEPIE_FILE_SOURCE_NONE', 0);
 
 /**
  * Remote file source
  */
-define('SIMPLEPIE_FILE_SOURCE_REMOTE', 1);
+define('BLOCKS_GAPPS_SIMPLEPIE_FILE_SOURCE_REMOTE', 1);
 
 /**
  * Local file source
  */
-define('SIMPLEPIE_FILE_SOURCE_LOCAL', 2);
+define('BLOCKS_GAPPS_SIMPLEPIE_FILE_SOURCE_LOCAL', 2);
 
 /**
  * fsockopen() file source
  */
-define('SIMPLEPIE_FILE_SOURCE_FSOCKOPEN', 4);
+define('BLOCKS_GAPPS_SIMPLEPIE_FILE_SOURCE_FSOCKOPEN', 4);
 
 /**
  * cURL file source
  */
-define('SIMPLEPIE_FILE_SOURCE_CURL', 8);
+define('BLOCKS_GAPPS_SIMPLEPIE_FILE_SOURCE_CURL', 8);
 
 /**
  * file_get_contents() file source
  */
-define('SIMPLEPIE_FILE_SOURCE_FILE_GET_CONTENTS', 16);
+define('BLOCKS_GAPPS_SIMPLEPIE_FILE_SOURCE_FILE_GET_CONTENTS', 16);
 
 /**
  * SimplePie
@@ -383,7 +383,7 @@ define('SIMPLEPIE_FILE_SOURCE_FILE_GET_CONTENTS', 16);
  * @author Geoffrey Sneddon
  * @todo Option for type of fetching (cache, not modified header, fetch, etc.)
  */
-class SimplePie
+class blocks_gapps_simplepie
 {
 	/**
 	 * @var array Raw data
@@ -398,43 +398,43 @@ class SimplePie
 	var $error;
 
 	/**
-	 * @var object Instance of SimplePie_Sanitize (or other class)
-	 * @see SimplePie::set_sanitize_class()
+	 * @var object Instance of blocks_gapps_simplepie_sanitize (or other class)
+	 * @see blocks_gapps_simplepie::set_sanitize_class()
 	 * @access private
 	 */
 	var $sanitize;
 
 	/**
-	 * @var string SimplePie Useragent
-	 * @see SimplePie::set_useragent()
+	 * @var string blocks_gapps_simplepie Useragent
+	 * @see blocks_gapps_simplepie::set_useragent()
 	 * @access private
 	 */
-	var $useragent = SIMPLEPIE_USERAGENT;
+	var $useragent = BLOCKS_GAPPS_SIMPLEPIE_USERAGENT;
 
 	/**
 	 * @var string Feed URL
-	 * @see SimplePie::set_feed_url()
+	 * @see blocks_gapps_simplepie::set_feed_url()
 	 * @access private
 	 */
 	var $feed_url;
 
 	/**
-	 * @var object Instance of SimplePie_File to use as a feed
-	 * @see SimplePie::set_file()
+	 * @var object Instance of blocks_gapps_simplepie_file to use as a feed
+	 * @see blocks_gapps_simplepie::set_file()
 	 * @access private
 	 */
 	var $file;
 
 	/**
 	 * @var string Raw feed data
-	 * @see SimplePie::set_raw_data()
+	 * @see blocks_gapps_simplepie::set_raw_data()
 	 * @access private
 	 */
 	var $raw_data;
 
 	/**
 	 * @var int Timeout for fetching remote files
-	 * @see SimplePie::set_timeout()
+	 * @see blocks_gapps_simplepie::set_timeout()
 	 * @access private
 	 */
 	var $timeout = 10;
@@ -442,7 +442,7 @@ class SimplePie
 	/**
 	 * @var bool Forces fsockopen() to be used for remote files instead
 	 * of cURL, even if a new enough version is installed
-	 * @see SimplePie::force_fsockopen()
+	 * @see blocks_gapps_simplepie::force_fsockopen()
 	 * @access private
 	 */
 	var $force_fsockopen = false;
@@ -450,56 +450,56 @@ class SimplePie
 	/**
 	 * @var bool Force the given data/URL to be treated as a feed no matter what
 	 * it appears like
-	 * @see SimplePie::force_feed()
+	 * @see blocks_gapps_simplepie::force_feed()
 	 * @access private
 	 */
 	var $force_feed = false;
 
 	/**
 	 * @var bool Enable/Disable XML dump
-	 * @see SimplePie::enable_xml_dump()
+	 * @see blocks_gapps_simplepie::enable_xml_dump()
 	 * @access private
 	 */
 	var $xml_dump = false;
 
 	/**
 	 * @var bool Enable/Disable Caching
-	 * @see SimplePie::enable_cache()
+	 * @see blocks_gapps_simplepie::enable_cache()
 	 * @access private
 	 */
 	var $cache = true;
 
 	/**
 	 * @var int Cache duration (in seconds)
-	 * @see SimplePie::set_cache_duration()
+	 * @see blocks_gapps_simplepie::set_cache_duration()
 	 * @access private
 	 */
 	var $cache_duration = 3600;
 
 	/**
 	 * @var int Auto-discovery cache duration (in seconds)
-	 * @see SimplePie::set_autodiscovery_cache_duration()
+	 * @see blocks_gapps_simplepie::set_autodiscovery_cache_duration()
 	 * @access private
 	 */
 	var $autodiscovery_cache_duration = 604800; // 7 Days.
 
 	/**
 	 * @var string Cache location (relative to executing script)
-	 * @see SimplePie::set_cache_location()
+	 * @see blocks_gapps_simplepie::set_cache_location()
 	 * @access private
 	 */
 	var $cache_location = './cache';
 
 	/**
 	 * @var string Function that creates the cache filename
-	 * @see SimplePie::set_cache_name_function()
+	 * @see blocks_gapps_simplepie::set_cache_name_function()
 	 * @access private
 	 */
 	var $cache_name_function = 'md5';
 
 	/**
 	 * @var bool Reorder feed by date descending
-	 * @see SimplePie::enable_order_by_date()
+	 * @see blocks_gapps_simplepie::enable_order_by_date()
 	 * @access private
 	 */
 	var $order_by_date = true;
@@ -507,203 +507,203 @@ class SimplePie
 	/**
 	 * @var mixed Force input encoding to be set to the follow value
 	 * (false, or anything type-cast to false, disables this feature)
-	 * @see SimplePie::set_input_encoding()
+	 * @see blocks_gapps_simplepie::set_input_encoding()
 	 * @access private
 	 */
 	var $input_encoding = false;
 
 	/**
 	 * @var int Feed Autodiscovery Level
-	 * @see SimplePie::set_autodiscovery_level()
+	 * @see blocks_gapps_simplepie::set_autodiscovery_level()
 	 * @access private
 	 */
-	var $autodiscovery = SIMPLEPIE_LOCATOR_ALL;
+	var $autodiscovery = BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_ALL;
 
 	/**
 	 * @var string Class used for caching feeds
-	 * @see SimplePie::set_cache_class()
+	 * @see blocks_gapps_simplepie::set_cache_class()
 	 * @access private
 	 */
-	var $cache_class = 'SimplePie_Cache';
+	var $cache_class = 'blocks_gapps_simplepie_cache';
 
 	/**
 	 * @var string Class used for locating feeds
-	 * @see SimplePie::set_locator_class()
+	 * @see blocks_gapps_simplepie::set_locator_class()
 	 * @access private
 	 */
-	var $locator_class = 'SimplePie_Locator';
+	var $locator_class = 'blocks_gapps_simplepie_locator';
 
 	/**
 	 * @var string Class used for parsing feeds
-	 * @see SimplePie::set_parser_class()
+	 * @see blocks_gapps_simplepie::set_parser_class()
 	 * @access private
 	 */
-	var $parser_class = 'SimplePie_Parser';
+	var $parser_class = 'blocks_gapps_simplepie_parser';
 
 	/**
 	 * @var string Class used for fetching feeds
-	 * @see SimplePie::set_file_class()
+	 * @see blocks_gapps_simplepie::set_file_class()
 	 * @access private
 	 */
-	var $file_class = 'SimplePie_File';
+	var $file_class = 'blocks_gapps_simplepie_file';
 
 	/**
 	 * @var string Class used for items
-	 * @see SimplePie::set_item_class()
+	 * @see blocks_gapps_simplepie::set_item_class()
 	 * @access private
 	 */
-	var $item_class = 'SimplePie_Item';
+	var $item_class = 'blocks_gapps_simplepie_item';
 
 	/**
 	 * @var string Class used for authors
-	 * @see SimplePie::set_author_class()
+	 * @see blocks_gapps_simplepie::set_author_class()
 	 * @access private
 	 */
-	var $author_class = 'SimplePie_Author';
+	var $author_class = 'blocks_gapps_simplepie_author';
 
 	/**
 	 * @var string Class used for categories
-	 * @see SimplePie::set_category_class()
+	 * @see blocks_gapps_simplepie::set_category_class()
 	 * @access private
 	 */
-	var $category_class = 'SimplePie_Category';
+	var $category_class = 'blocks_gapps_simplepie_category';
 
 	/**
 	 * @var string Class used for enclosures
-	 * @see SimplePie::set_enclosures_class()
+	 * @see blocks_gapps_simplepie::set_enclosures_class()
 	 * @access private
 	 */
-	var $enclosure_class = 'SimplePie_Enclosure';
+	var $enclosure_class = 'blocks_gapps_simplepie_enclosure';
 
 	/**
 	 * @var string Class used for Media RSS <media:text> captions
-	 * @see SimplePie::set_caption_class()
+	 * @see blocks_gapps_simplepie::set_caption_class()
 	 * @access private
 	 */
-	var $caption_class = 'SimplePie_Caption';
+	var $caption_class = 'blocks_gapps_simplepie_caption';
 
 	/**
 	 * @var string Class used for Media RSS <media:copyright>
-	 * @see SimplePie::set_copyright_class()
+	 * @see blocks_gapps_simplepie::set_copyright_class()
 	 * @access private
 	 */
-	var $copyright_class = 'SimplePie_Copyright';
+	var $copyright_class = 'blocks_gapps_simplepie_copyright';
 
 	/**
 	 * @var string Class used for Media RSS <media:credit>
-	 * @see SimplePie::set_credit_class()
+	 * @see blocks_gapps_simplepie::set_credit_class()
 	 * @access private
 	 */
-	var $credit_class = 'SimplePie_Credit';
+	var $credit_class = 'blocks_gapps_simplepie_credit';
 
 	/**
 	 * @var string Class used for Media RSS <media:rating>
-	 * @see SimplePie::set_rating_class()
+	 * @see blocks_gapps_simplepie::set_rating_class()
 	 * @access private
 	 */
-	var $rating_class = 'SimplePie_Rating';
+	var $rating_class = 'blocks_gapps_simplepie_rating';
 
 	/**
 	 * @var string Class used for Media RSS <media:restriction>
-	 * @see SimplePie::set_restriction_class()
+	 * @see blocks_gapps_simplepie::set_restriction_class()
 	 * @access private
 	 */
-	var $restriction_class = 'SimplePie_Restriction';
+	var $restriction_class = 'blocks_gapps_simplepie_restriction';
 
 	/**
 	 * @var string Class used for content-type sniffing
-	 * @see SimplePie::set_content_type_sniffer_class()
+	 * @see blocks_gapps_simplepie::set_content_type_sniffer_class()
 	 * @access private
 	 */
-	var $content_type_sniffer_class = 'SimplePie_Content_Type_Sniffer';
+	var $content_type_sniffer_class = 'blocks_gapps_simplepie_content_type_sniffer';
 
 	/**
 	 * @var string Class used for item sources.
-	 * @see SimplePie::set_source_class()
+	 * @see blocks_gapps_simplepie::set_source_class()
 	 * @access private
 	 */
-	var $source_class = 'SimplePie_Source';
+	var $source_class = 'blocks_gapps_simplepie_source';
 
 	/**
 	 * @var mixed Set javascript query string parameter (false, or
 	 * anything type-cast to false, disables this feature)
-	 * @see SimplePie::set_javascript()
+	 * @see blocks_gapps_simplepie::set_javascript()
 	 * @access private
 	 */
 	var $javascript = 'js';
 
 	/**
 	 * @var int Maximum number of feeds to check with autodiscovery
-	 * @see SimplePie::set_max_checked_feeds()
+	 * @see blocks_gapps_simplepie::set_max_checked_feeds()
 	 * @access private
 	 */
 	var $max_checked_feeds = 10;
 
 	/**
 	 * @var string Web-accessible path to the handler_favicon.php file.
-	 * @see SimplePie::set_favicon_handler()
+	 * @see blocks_gapps_simplepie::set_favicon_handler()
 	 * @access private
 	 */
 	var $favicon_handler = '';
 
 	/**
 	 * @var string Web-accessible path to the handler_image.php file.
-	 * @see SimplePie::set_image_handler()
+	 * @see blocks_gapps_simplepie::set_image_handler()
 	 * @access private
 	 */
 	var $image_handler = '';
 
 	/**
 	 * @var array Stores the URLs when multiple feeds are being initialized.
-	 * @see SimplePie::set_feed_url()
+	 * @see blocks_gapps_simplepie::set_feed_url()
 	 * @access private
 	 */
 	var $multifeed_url = array();
 
 	/**
-	 * @var array Stores SimplePie objects when multiple feeds initialized.
+	 * @var array Stores blocks_gapps_simplepie objects when multiple feeds initialized.
 	 * @access private
 	 */
 	var $multifeed_objects = array();
 
 	/**
 	 * @var array Stores the get_object_vars() array for use with multifeeds.
-	 * @see SimplePie::set_feed_url()
+	 * @see blocks_gapps_simplepie::set_feed_url()
 	 * @access private
 	 */
 	var $config_settings = null;
 
 	/**
 	 * @var integer Stores the number of items to return per-feed with multifeeds.
-	 * @see SimplePie::set_item_limit()
+	 * @see blocks_gapps_simplepie::set_item_limit()
 	 * @access private
 	 */
 	var $item_limit = 0;
 
 	/**
 	 * @var array Stores the default attributes to be stripped by strip_attributes().
-	 * @see SimplePie::strip_attributes()
+	 * @see blocks_gapps_simplepie::strip_attributes()
 	 * @access private
 	 */
 	var $strip_attributes = array('bgsound', 'class', 'expr', 'id', 'style', 'onclick', 'onerror', 'onfinish', 'onmouseover', 'onmouseout', 'onfocus', 'onblur', 'lowsrc', 'dynsrc');
 
 	/**
 	 * @var array Stores the default tags to be stripped by strip_htmltags().
-	 * @see SimplePie::strip_htmltags()
+	 * @see blocks_gapps_simplepie::strip_htmltags()
 	 * @access private
 	 */
 	var $strip_htmltags = array('base', 'blink', 'body', 'doctype', 'embed', 'font', 'form', 'frame', 'frameset', 'html', 'iframe', 'input', 'marquee', 'meta', 'noscript', 'object', 'param', 'script', 'style');
 
 	/**
-	 * The SimplePie class contains feed level data and options
+	 * The blocks_gapps_simplepie class contains feed level data and options
 	 *
-	 * There are two ways that you can create a new SimplePie object. The first
-	 * is by passing a feed URL as a parameter to the SimplePie constructor
+	 * There are two ways that you can create a new blocks_gapps_simplepie object. The first
+	 * is by passing a feed URL as a parameter to the blocks_gapps_simplepie constructor
 	 * (as well as optionally setting the cache location and cache expiry). This
 	 * will initialise the whole feed with all of the default settings, and you
 	 * can begin accessing methods and properties immediately.
 	 *
-	 * The second way is to create the SimplePie object with no parameters
+	 * The second way is to create the blocks_gapps_simplepie object with no parameters
 	 * at all. This will enable you to set configuration options. After setting
 	 * them, you must initialise the feed using $feed->init(). At that point the
 	 * object's methods and properties will be available to you. This format is
@@ -715,10 +715,10 @@ class SimplePie
 	 * @param string $cache_location This is where you want the cache to be stored.
 	 * @param int $cache_duration This is the number of seconds that you want to store the cache file for.
 	 */
-	function SimplePie($feed_url = null, $cache_location = null, $cache_duration = null)
+	function blocks_gapps_simplepie($feed_url = null, $cache_location = null, $cache_duration = null)
 	{
 		// Other objects, instances created here so we can set options on them
-		$this->sanitize =& new SimplePie_Sanitize;
+		$this->sanitize =& new blocks_gapps_simplepie_sanitize;
 
 		// Set options if they're passed to the constructor
 		if ($cache_location !== null)
@@ -797,7 +797,7 @@ class SimplePie
 	 * @access public
 	 * @since 1.0 Preview Release
 	 * @param mixed $url This is the URL (or array of URLs) that you want to parse.
-	 * @see SimplePie::set_raw_data()
+	 * @see blocks_gapps_simplepie::set_raw_data()
 	 */
 	function set_feed_url($url)
 	{
@@ -806,25 +806,25 @@ class SimplePie
 			$this->multifeed_url = array();
 			foreach ($url as $value)
 			{
-				$this->multifeed_url[] = SimplePie_Misc::fix_protocol($value, 1);
+				$this->multifeed_url[] = blocks_gapps_simplepie_misc::fix_protocol($value, 1);
 			}
 		}
 		else
 		{
-			$this->feed_url = SimplePie_Misc::fix_protocol($url, 1);
+			$this->feed_url = blocks_gapps_simplepie_misc::fix_protocol($url, 1);
 		}
 	}
 
 	/**
-	 * Provides an instance of SimplePie_File to use as a feed
+	 * Provides an instance of blocks_gapps_simplepie_file to use as a feed
 	 *
 	 * @access public
-	 * @param object &$file Instance of SimplePie_File (or subclass)
+	 * @param object &$file Instance of blocks_gapps_simplepie_file (or subclass)
 	 * @return bool True on success, false on failure
 	 */
 	function set_file(&$file)
 	{
-		if (is_a($file, 'SimplePie_File'))
+		if (is_a($file, 'blocks_gapps_simplepie_file'))
 		{
 			$this->feed_url = $file->url;
 			$this->file =& $file;
@@ -843,7 +843,7 @@ class SimplePie
 	 * @access public
 	 * @since 1.0 Beta 3
 	 * @param string $data RSS or Atom data as a string.
-	 * @see SimplePie::set_feed_url()
+	 * @see blocks_gapps_simplepie::set_feed_url()
 	 */
 	function set_raw_data($data)
 	{
@@ -981,17 +981,17 @@ class SimplePie
 	 * Set how much feed autodiscovery to do
 	 *
 	 * @access public
-	 * @see SIMPLEPIE_LOCATOR_NONE
-	 * @see SIMPLEPIE_LOCATOR_AUTODISCOVERY
-	 * @see SIMPLEPIE_LOCATOR_LOCAL_EXTENSION
-	 * @see SIMPLEPIE_LOCATOR_LOCAL_BODY
-	 * @see SIMPLEPIE_LOCATOR_REMOTE_EXTENSION
-	 * @see SIMPLEPIE_LOCATOR_REMOTE_BODY
-	 * @see SIMPLEPIE_LOCATOR_ALL
+	 * @see BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_NONE
+	 * @see BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_AUTODISCOVERY
+	 * @see BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_LOCAL_EXTENSION
+	 * @see BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_LOCAL_BODY
+	 * @see BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_REMOTE_EXTENSION
+	 * @see BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_REMOTE_BODY
+	 * @see BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_ALL
 	 * @param int $level Feed Autodiscovery Level (level can be a
 	 * combination of the above constants, see bitwise OR operator)
 	 */
-	function set_autodiscovery_level($level = SIMPLEPIE_LOCATOR_ALL)
+	function set_autodiscovery_level($level = BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_ALL)
 	{
 		$this->autodiscovery = (int) $level;
 	}
@@ -1005,9 +1005,9 @@ class SimplePie
 	 * @link http://php.net/manual/en/keyword.extends.php PHP4 extends documentation
 	 * @link http://php.net/manual/en/language.oop5.basic.php#language.oop5.basic.extends PHP5 extends documentation
 	 */
-	function set_cache_class($class = 'SimplePie_Cache')
+	function set_cache_class($class = 'blocks_gapps_simplepie_cache')
 	{
-		if (SimplePie_Misc::is_subclass_of($class, 'SimplePie_Cache'))
+		if (blocks_gapps_simplepie_misc::is_subclass_of($class, 'blocks_gapps_simplepie_cache'))
 		{
 			$this->cache_class = $class;
 			return true;
@@ -1024,9 +1024,9 @@ class SimplePie
 	 * @link http://php.net/manual/en/keyword.extends.php PHP4 extends documentation
 	 * @link http://php.net/manual/en/language.oop5.basic.php#language.oop5.basic.extends PHP5 extends documentation
 	 */
-	function set_locator_class($class = 'SimplePie_Locator')
+	function set_locator_class($class = 'blocks_gapps_simplepie_locator')
 	{
-		if (SimplePie_Misc::is_subclass_of($class, 'SimplePie_Locator'))
+		if (blocks_gapps_simplepie_misc::is_subclass_of($class, 'blocks_gapps_simplepie_locator'))
 		{
 			$this->locator_class = $class;
 			return true;
@@ -1043,9 +1043,9 @@ class SimplePie
 	 * @link http://php.net/manual/en/keyword.extends.php PHP4 extends documentation
 	 * @link http://php.net/manual/en/language.oop5.basic.php#language.oop5.basic.extends PHP5 extends documentation
 	 */
-	function set_parser_class($class = 'SimplePie_Parser')
+	function set_parser_class($class = 'blocks_gapps_simplepie_parser')
 	{
-		if (SimplePie_Misc::is_subclass_of($class, 'SimplePie_Parser'))
+		if (blocks_gapps_simplepie_misc::is_subclass_of($class, 'blocks_gapps_simplepie_parser'))
 		{
 			$this->parser_class = $class;
 			return true;
@@ -1062,9 +1062,9 @@ class SimplePie
 	 * @link http://php.net/manual/en/keyword.extends.php PHP4 extends documentation
 	 * @link http://php.net/manual/en/language.oop5.basic.php#language.oop5.basic.extends PHP5 extends documentation
 	 */
-	function set_file_class($class = 'SimplePie_File')
+	function set_file_class($class = 'blocks_gapps_simplepie_file')
 	{
-		if (SimplePie_Misc::is_subclass_of($class, 'SimplePie_File'))
+		if (blocks_gapps_simplepie_misc::is_subclass_of($class, 'blocks_gapps_simplepie_file'))
 		{
 			$this->file_class = $class;
 			return true;
@@ -1081,9 +1081,9 @@ class SimplePie
 	 * @link http://php.net/manual/en/keyword.extends.php PHP4 extends documentation
 	 * @link http://php.net/manual/en/language.oop5.basic.php#language.oop5.basic.extends PHP5 extends documentation
 	 */
-	function set_sanitize_class($class = 'SimplePie_Sanitize')
+	function set_sanitize_class($class = 'blocks_gapps_simplepie_sanitize')
 	{
-		if (SimplePie_Misc::is_subclass_of($class, 'SimplePie_Sanitize'))
+		if (blocks_gapps_simplepie_misc::is_subclass_of($class, 'blocks_gapps_simplepie_sanitize'))
 		{
 			$this->sanitize =& new $class;
 			return true;
@@ -1100,9 +1100,9 @@ class SimplePie
 	 * @link http://php.net/manual/en/keyword.extends.php PHP4 extends documentation
 	 * @link http://php.net/manual/en/language.oop5.basic.php#language.oop5.basic.extends PHP5 extends documentation
 	 */
-	function set_item_class($class = 'SimplePie_Item')
+	function set_item_class($class = 'blocks_gapps_simplepie_item')
 	{
-		if (SimplePie_Misc::is_subclass_of($class, 'SimplePie_Item'))
+		if (blocks_gapps_simplepie_misc::is_subclass_of($class, 'blocks_gapps_simplepie_item'))
 		{
 			$this->item_class = $class;
 			return true;
@@ -1119,9 +1119,9 @@ class SimplePie
 	 * @link http://php.net/manual/en/keyword.extends.php PHP4 extends documentation
 	 * @link http://php.net/manual/en/language.oop5.basic.php#language.oop5.basic.extends PHP5 extends documentation
 	 */
-	function set_author_class($class = 'SimplePie_Author')
+	function set_author_class($class = 'blocks_gapps_simplepie_author')
 	{
-		if (SimplePie_Misc::is_subclass_of($class, 'SimplePie_Author'))
+		if (blocks_gapps_simplepie_misc::is_subclass_of($class, 'blocks_gapps_simplepie_author'))
 		{
 			$this->author_class = $class;
 			return true;
@@ -1138,9 +1138,9 @@ class SimplePie
 	 * @link http://php.net/manual/en/keyword.extends.php PHP4 extends documentation
 	 * @link http://php.net/manual/en/language.oop5.basic.php#language.oop5.basic.extends PHP5 extends documentation
 	 */
-	function set_category_class($class = 'SimplePie_Category')
+	function set_category_class($class = 'blocks_gapps_simplepie_category')
 	{
-		if (SimplePie_Misc::is_subclass_of($class, 'SimplePie_Category'))
+		if (blocks_gapps_simplepie_misc::is_subclass_of($class, 'blocks_gapps_simplepie_category'))
 		{
 			$this->category_class = $class;
 			return true;
@@ -1157,9 +1157,9 @@ class SimplePie
 	 * @link http://php.net/manual/en/keyword.extends.php PHP4 extends documentation
 	 * @link http://php.net/manual/en/language.oop5.basic.php#language.oop5.basic.extends PHP5 extends documentation
 	 */
-	function set_enclosure_class($class = 'SimplePie_Enclosure')
+	function set_enclosure_class($class = 'blocks_gapps_simplepie_enclosure')
 	{
-		if (SimplePie_Misc::is_subclass_of($class, 'SimplePie_Enclosure'))
+		if (blocks_gapps_simplepie_misc::is_subclass_of($class, 'blocks_gapps_simplepie_enclosure'))
 		{
 			$this->enclosure_class = $class;
 			return true;
@@ -1176,9 +1176,9 @@ class SimplePie
 	 * @link http://php.net/manual/en/keyword.extends.php PHP4 extends documentation
 	 * @link http://php.net/manual/en/language.oop5.basic.php#language.oop5.basic.extends PHP5 extends documentation
 	 */
-	function set_caption_class($class = 'SimplePie_Caption')
+	function set_caption_class($class = 'blocks_gapps_simplepie_caption')
 	{
-		if (SimplePie_Misc::is_subclass_of($class, 'SimplePie_Caption'))
+		if (blocks_gapps_simplepie_misc::is_subclass_of($class, 'blocks_gapps_simplepie_caption'))
 		{
 			$this->caption_class = $class;
 			return true;
@@ -1195,9 +1195,9 @@ class SimplePie
 	 * @link http://php.net/manual/en/keyword.extends.php PHP4 extends documentation
 	 * @link http://php.net/manual/en/language.oop5.basic.php#language.oop5.basic.extends PHP5 extends documentation
 	 */
-	function set_copyright_class($class = 'SimplePie_Copyright')
+	function set_copyright_class($class = 'blocks_gapps_simplepie_copyright')
 	{
-		if (SimplePie_Misc::is_subclass_of($class, 'SimplePie_Copyright'))
+		if (blocks_gapps_simplepie_misc::is_subclass_of($class, 'blocks_gapps_simplepie_copyright'))
 		{
 			$this->copyright_class = $class;
 			return true;
@@ -1214,9 +1214,9 @@ class SimplePie
 	 * @link http://php.net/manual/en/keyword.extends.php PHP4 extends documentation
 	 * @link http://php.net/manual/en/language.oop5.basic.php#language.oop5.basic.extends PHP5 extends documentation
 	 */
-	function set_credit_class($class = 'SimplePie_Credit')
+	function set_credit_class($class = 'blocks_gapps_simplepie_credit')
 	{
-		if (SimplePie_Misc::is_subclass_of($class, 'SimplePie_Credit'))
+		if (blocks_gapps_simplepie_misc::is_subclass_of($class, 'blocks_gapps_simplepie_credit'))
 		{
 			$this->credit_class = $class;
 			return true;
@@ -1233,9 +1233,9 @@ class SimplePie
 	 * @link http://php.net/manual/en/keyword.extends.php PHP4 extends documentation
 	 * @link http://php.net/manual/en/language.oop5.basic.php#language.oop5.basic.extends PHP5 extends documentation
 	 */
-	function set_rating_class($class = 'SimplePie_Rating')
+	function set_rating_class($class = 'blocks_gapps_simplepie_rating')
 	{
-		if (SimplePie_Misc::is_subclass_of($class, 'SimplePie_Rating'))
+		if (blocks_gapps_simplepie_misc::is_subclass_of($class, 'blocks_gapps_simplepie_rating'))
 		{
 			$this->rating_class = $class;
 			return true;
@@ -1252,9 +1252,9 @@ class SimplePie
 	 * @link http://php.net/manual/en/keyword.extends.php PHP4 extends documentation
 	 * @link http://php.net/manual/en/language.oop5.basic.php#language.oop5.basic.extends PHP5 extends documentation
 	 */
-	function set_restriction_class($class = 'SimplePie_Restriction')
+	function set_restriction_class($class = 'blocks_gapps_simplepie_restriction')
 	{
-		if (SimplePie_Misc::is_subclass_of($class, 'SimplePie_Restriction'))
+		if (blocks_gapps_simplepie_misc::is_subclass_of($class, 'blocks_gapps_simplepie_restriction'))
 		{
 			$this->restriction_class = $class;
 			return true;
@@ -1271,9 +1271,9 @@ class SimplePie
 	 * @link http://php.net/manual/en/keyword.extends.php PHP4 extends documentation
 	 * @link http://php.net/manual/en/language.oop5.basic.php#language.oop5.basic.extends PHP5 extends documentation
 	 */
-	function set_content_type_sniffer_class($class = 'SimplePie_Content_Type_Sniffer')
+	function set_content_type_sniffer_class($class = 'blocks_gapps_simplepie_content_type_sniffer')
 	{
-		if (SimplePie_Misc::is_subclass_of($class, 'SimplePie_Content_Type_Sniffer'))
+		if (blocks_gapps_simplepie_misc::is_subclass_of($class, 'blocks_gapps_simplepie_content_type_sniffer'))
 		{
 			$this->content_type_sniffer_class = $class;
 			return true;
@@ -1290,9 +1290,9 @@ class SimplePie
 	 * @link http://php.net/manual/en/keyword.extends.php PHP4 extends documentation
 	 * @link http://php.net/manual/en/language.oop5.basic.php#language.oop5.basic.extends PHP5 extends documentation
 	 */
-	function set_source_class($class = 'SimplePie_Source')
+	function set_source_class($class = 'blocks_gapps_simplepie_source')
 	{
-		if (SimplePie_Misc::is_subclass_of($class, 'SimplePie_Source'))
+		if (blocks_gapps_simplepie_misc::is_subclass_of($class, 'blocks_gapps_simplepie_source'))
 		{
 			$this->source_class = $class;
 			return true;
@@ -1306,7 +1306,7 @@ class SimplePie
 	 * @access public
 	 * @param string $ua New user agent string.
 	 */
-	function set_useragent($ua = SIMPLEPIE_USERAGENT)
+	function set_useragent($ua = BLOCKS_GAPPS_SIMPLEPIE_USERAGENT)
 	{
 		$this->useragent = (string) $ua;
 	}
@@ -1534,7 +1534,7 @@ function embed_wmedia(width, height, link) {
 
 			if ($this->feed_url !== null)
 			{
-				$parsed_feed_url = SimplePie_Misc::parse_url($this->feed_url);
+				$parsed_feed_url = blocks_gapps_simplepie_misc::parse_url($this->feed_url);
 				// Decide whether to enable caching
 				if ($this->cache && $parsed_feed_url['scheme'] !== '')
 				{
@@ -1548,7 +1548,7 @@ function embed_wmedia(width, height, link) {
 					if (!empty($this->data))
 					{
 						// If the cache is for an outdated build of SimplePie
-						if (!isset($this->data['build']) || $this->data['build'] != SIMPLEPIE_BUILD)
+						if (!isset($this->data['build']) || $this->data['build'] != BLOCKS_GAPPS_SIMPLEPIE_BUILD)
 						{
 							$cache->unlink();
 							$this->data = array();
@@ -1628,7 +1628,7 @@ function embed_wmedia(width, height, link) {
 				// If we don't already have the file (it'll only exist if we've opened it to check if the cache has been modified), open it.
 				if (!isset($file))
 				{
-					if (is_a($this->file, 'SimplePie_File') && $this->file->url == $this->feed_url)
+					if (is_a($this->file, 'blocks_gapps_simplepie_file') && $this->file->url == $this->feed_url)
 					{
 						$file =& $this->file;
 					}
@@ -1637,7 +1637,7 @@ function embed_wmedia(width, height, link) {
 						$file =& new $this->file_class($this->feed_url, $this->timeout, 5, null, $this->useragent, $this->force_fsockopen);
 					}
 				}
-				// If the file connection has an error, set SimplePie::error to that and quit
+				// If the file connection has an error, set blocks_gapps_simplepie::error to that and quit
 				if (!$file->success)
 				{
 					$this->error = $file->error;
@@ -1657,13 +1657,13 @@ function embed_wmedia(width, height, link) {
 					$locate =& new $this->locator_class($file, $this->timeout, $this->useragent, $this->file_class, $this->max_checked_feeds, $this->content_type_sniffer_class);
 					if (!$locate->is_feed($file))
 					{
-						// We need to unset this so that if SimplePie::set_file() has been called that object is untouched
+						// We need to unset this so that if blocks_gapps_simplepie::set_file() has been called that object is untouched
 						unset($file);
 						if ($file = $locate->find($this->autodiscovery))
 						{
 							if ($cache)
 							{
-								$this->data = array('url' => $this->feed_url, 'feed_url' => $file->url, 'build' => SIMPLEPIE_BUILD);
+								$this->data = array('url' => $this->feed_url, 'feed_url' => $file->url, 'build' => BLOCKS_GAPPS_SIMPLEPIE_BUILD);
 								if (!$cache->save($this))
 								{
 									trigger_error("$cache->name is not writeable", E_USER_WARNING);
@@ -1675,7 +1675,7 @@ function embed_wmedia(width, height, link) {
 						else
 						{
 							$this->error = "A feed could not be found at $this->feed_url";
-							SimplePie_Misc::error($this->error, E_USER_NOTICE, __FILE__, __LINE__);
+							blocks_gapps_simplepie_misc::error($this->error, E_USER_NOTICE, __FILE__, __LINE__);
 							return false;
 						}
 					}
@@ -1713,7 +1713,7 @@ function embed_wmedia(width, height, link) {
 					{
 						$encodings[] = strtoupper($charset[1]);
 					}
-					$encodings = array_merge($encodings, SimplePie_Misc::xml_encoding($data));
+					$encodings = array_merge($encodings, blocks_gapps_simplepie_misc::xml_encoding($data));
 					$encodings[] = 'UTF-8';
 				}
 				elseif (in_array($sniffed, $text_types) || substr($sniffed, 0, 5) === 'text/' && substr($sniffed, -4) === '+xml')
@@ -1732,7 +1732,7 @@ function embed_wmedia(width, height, link) {
 			}
 			
 			// Fallback to XML 1.0 Appendix F.1/UTF-8/ISO-8859-1
-			$encodings = array_merge($encodings, SimplePie_Misc::xml_encoding($data));
+			$encodings = array_merge($encodings, blocks_gapps_simplepie_misc::xml_encoding($data));
 			$encodings[] = 'UTF-8';
 			$encodings[] = 'ISO-8859-1';
 			
@@ -1751,7 +1751,7 @@ function embed_wmedia(width, height, link) {
 			foreach ($encodings as $encoding)
 			{
 				// Change the encoding to UTF-8 (as we always use UTF-8 internally)
-				$utf8_data = SimplePie_Misc::change_encoding($data, $encoding, 'UTF-8');
+				$utf8_data = blocks_gapps_simplepie_misc::change_encoding($data, $encoding, 'UTF-8');
 
 				// Create new parser
 				$parser =& new $this->parser_class();
@@ -1766,7 +1766,7 @@ function embed_wmedia(width, height, link) {
 						{
 							$this->data['headers'] = $headers;
 						}
-						$this->data['build'] = SIMPLEPIE_BUILD;
+						$this->data['build'] = BLOCKS_GAPPS_SIMPLEPIE_BUILD;
 	
 						// Cache the file if caching is enabled
 						if ($cache && !$cache->save($this))
@@ -1778,14 +1778,14 @@ function embed_wmedia(width, height, link) {
 					else
 					{
 						$this->error = "A feed could not be found at $this->feed_url";
-						SimplePie_Misc::error($this->error, E_USER_NOTICE, __FILE__, __LINE__);
+						blocks_gapps_simplepie_misc::error($this->error, E_USER_NOTICE, __FILE__, __LINE__);
 						return false;
 					}
 				}
 			}
-			// We have an error, just set SimplePie::error to it and quit
+			// We have an error, just set blocks_gapps_simplepie::error to it and quit
 			$this->error = sprintf('XML error: %s at line %d, column %d', $parser->get_error_string(), $parser->get_current_line(), $parser->get_current_column());
-			SimplePie_Misc::error($this->error, E_USER_NOTICE, __FILE__, __LINE__);
+			blocks_gapps_simplepie_misc::error($this->error, E_USER_NOTICE, __FILE__, __LINE__);
 			return false;
 		}
 		elseif (!empty($this->multifeed_url))
@@ -1795,7 +1795,7 @@ function embed_wmedia(width, height, link) {
 			$this->multifeed_objects = array();
 			foreach ($this->multifeed_url as $url)
 			{
-				if (SIMPLEPIE_PHP5)
+				if (BLOCKS_GAPPS_SIMPLEPIE_PHP5)
 				{
 					// This keyword needs to defy coding standards for PHP4 compatibility
 					$this->multifeed_objects[$i] = clone($this);
@@ -1853,77 +1853,77 @@ function embed_wmedia(width, height, link) {
 	{
 		if (!isset($this->data['type']))
 		{
-			$this->data['type'] = SIMPLEPIE_TYPE_ALL;
-			if (isset($this->data['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['feed']))
+			$this->data['type'] = BLOCKS_GAPPS_SIMPLEPIE_TYPE_ALL;
+			if (isset($this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['feed']))
 			{
-				$this->data['type'] &= SIMPLEPIE_TYPE_ATOM_10;
+				$this->data['type'] &= BLOCKS_GAPPS_SIMPLEPIE_TYPE_ATOM_10;
 			}
-			elseif (isset($this->data['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['feed']))
+			elseif (isset($this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['feed']))
 			{
-				$this->data['type'] &= SIMPLEPIE_TYPE_ATOM_03;
+				$this->data['type'] &= BLOCKS_GAPPS_SIMPLEPIE_TYPE_ATOM_03;
 			}
-			elseif (isset($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF']))
+			elseif (isset($this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RDF]['RDF']))
 			{
-				if (isset($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][SIMPLEPIE_NAMESPACE_RSS_10]['channel'])
-				|| isset($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][SIMPLEPIE_NAMESPACE_RSS_10]['image'])
-				|| isset($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][SIMPLEPIE_NAMESPACE_RSS_10]['item'])
-				|| isset($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][SIMPLEPIE_NAMESPACE_RSS_10]['textinput']))
+				if (isset($this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_10]['channel'])
+				|| isset($this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_10]['image'])
+				|| isset($this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_10]['item'])
+				|| isset($this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_10]['textinput']))
 				{
-					$this->data['type'] &= SIMPLEPIE_TYPE_RSS_10;
+					$this->data['type'] &= BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_10;
 				}
-				if (isset($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][SIMPLEPIE_NAMESPACE_RSS_090]['channel'])
-				|| isset($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][SIMPLEPIE_NAMESPACE_RSS_090]['image'])
-				|| isset($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][SIMPLEPIE_NAMESPACE_RSS_090]['item'])
-				|| isset($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][SIMPLEPIE_NAMESPACE_RSS_090]['textinput']))
+				if (isset($this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_090]['channel'])
+				|| isset($this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_090]['image'])
+				|| isset($this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_090]['item'])
+				|| isset($this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_090]['textinput']))
 				{
-					$this->data['type'] &= SIMPLEPIE_TYPE_RSS_090;
+					$this->data['type'] &= BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_090;
 				}
 			}
 			elseif (isset($this->data['child']['']['rss']))
 			{
-				$this->data['type'] &= SIMPLEPIE_TYPE_RSS_ALL;
+				$this->data['type'] &= BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_ALL;
 				if (isset($this->data['child']['']['rss'][0]['attribs']['']['version']))
 				{
 					switch (trim($this->data['child']['']['rss'][0]['attribs']['']['version']))
 					{
 						case '0.91':
-							$this->data['type'] &= SIMPLEPIE_TYPE_RSS_091;
+							$this->data['type'] &= BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_091;
 							if (isset($this->data['child']['']['rss'][0]['child']['']['skiphours']['hour'][0]['data']))
 							{
 								switch (trim($this->data['child']['']['rss'][0]['child']['']['skiphours']['hour'][0]['data']))
 								{
 									case '0':
-										$this->data['type'] &= SIMPLEPIE_TYPE_RSS_091_NETSCAPE;
+										$this->data['type'] &= BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_091_NETSCAPE;
 										break;
 
 									case '24':
-										$this->data['type'] &= SIMPLEPIE_TYPE_RSS_091_USERLAND;
+										$this->data['type'] &= BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_091_USERLAND;
 										break;
 								}
 							}
 							break;
 
 						case '0.92':
-							$this->data['type'] &= SIMPLEPIE_TYPE_RSS_092;
+							$this->data['type'] &= BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_092;
 							break;
 
 						case '0.93':
-							$this->data['type'] &= SIMPLEPIE_TYPE_RSS_093;
+							$this->data['type'] &= BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_093;
 							break;
 
 						case '0.94':
-							$this->data['type'] &= SIMPLEPIE_TYPE_RSS_094;
+							$this->data['type'] &= BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_094;
 							break;
 
 						case '2.0':
-							$this->data['type'] &= SIMPLEPIE_TYPE_RSS_20;
+							$this->data['type'] &= BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_20;
 							break;
 					}
 				}
 			}
 			else
 			{
-				$this->data['type'] = SIMPLEPIE_TYPE_NONE;
+				$this->data['type'] = BLOCKS_GAPPS_SIMPLEPIE_TYPE_NONE;
 			}
 		}
 		return $this->data['type'];
@@ -1938,13 +1938,13 @@ function embed_wmedia(width, height, link) {
 	 */
 	function get_favicon()
 	{
-		if ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'icon'))
+		if ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'icon'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($return[0]));
 		}
 		elseif (($url = $this->get_link()) !== null && preg_match('/^http(s)?:\/\//i', $url))
 		{
-			$favicon = SimplePie_Misc::absolutize_url('/favicon.ico', $url);
+			$favicon = blocks_gapps_simplepie_misc::absolutize_url('/favicon.ico', $url);
 
 			if ($this->cache && $this->favicon_handler)
 			{
@@ -1953,7 +1953,7 @@ function embed_wmedia(width, height, link) {
 
 				if ($cache->load())
 				{
-					return $this->sanitize($this->favicon_handler . $favicon_filename, SIMPLEPIE_CONSTRUCT_IRI);
+					return $this->sanitize($this->favicon_handler . $favicon_filename, BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI);
 				}
 				else
 				{
@@ -1966,12 +1966,12 @@ function embed_wmedia(width, height, link) {
 						{
 							if ($cache->save(array('headers' => $file->headers, 'body' => $file->body)))
 							{
-								return $this->sanitize($this->favicon_handler . $favicon_filename, SIMPLEPIE_CONSTRUCT_IRI);
+								return $this->sanitize($this->favicon_handler . $favicon_filename, BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI);
 							}
 							else
 							{
 								trigger_error("$cache->name is not writeable", E_USER_WARNING);
-								return $this->sanitize($favicon, SIMPLEPIE_CONSTRUCT_IRI);
+								return $this->sanitize($favicon, BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI);
 							}
 						}
 					}
@@ -1979,7 +1979,7 @@ function embed_wmedia(width, height, link) {
 			}
 			else
 			{
-				return $this->sanitize($favicon, SIMPLEPIE_CONSTRUCT_IRI);
+				return $this->sanitize($favicon, BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI);
 			}
 		}
 		return false;
@@ -1994,7 +1994,7 @@ function embed_wmedia(width, height, link) {
 	{
 		if ($this->feed_url !== null)
 		{
-			return $this->sanitize($this->feed_url, SIMPLEPIE_CONSTRUCT_IRI);
+			return $this->sanitize($this->feed_url, BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI);
 		}
 		else
 		{
@@ -2006,7 +2006,7 @@ function embed_wmedia(width, height, link) {
 	{
 		if ($this->feed_url !== null)
 		{
-			return $this->sanitize(SimplePie_Misc::fix_protocol($this->feed_url, 2), SIMPLEPIE_CONSTRUCT_IRI);
+			return $this->sanitize(blocks_gapps_simplepie_misc::fix_protocol($this->feed_url, 2), BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI);
 		}
 		else
 		{
@@ -2018,7 +2018,7 @@ function embed_wmedia(width, height, link) {
 	{
 		if ($this->feed_url !== null)
 		{
-			return 'outlook' . $this->sanitize(SimplePie_Misc::fix_protocol($this->feed_url, 2), SIMPLEPIE_CONSTRUCT_IRI);
+			return 'outlook' . $this->sanitize(blocks_gapps_simplepie_misc::fix_protocol($this->feed_url, 2), BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI);
 		}
 		else
 		{
@@ -2030,7 +2030,7 @@ function embed_wmedia(width, height, link) {
 	{
 		if ($this->feed_url !== null)
 		{
-			return $this->sanitize(SimplePie_Misc::fix_protocol($this->feed_url, 3), SIMPLEPIE_CONSTRUCT_IRI);
+			return $this->sanitize(blocks_gapps_simplepie_misc::fix_protocol($this->feed_url, 3), BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI);
 		}
 		else
 		{
@@ -2042,7 +2042,7 @@ function embed_wmedia(width, height, link) {
 	{
 		if ($this->feed_url !== null)
 		{
-			return $this->sanitize(SimplePie_Misc::fix_protocol($this->feed_url, 4), SIMPLEPIE_CONSTRUCT_IRI);
+			return $this->sanitize(blocks_gapps_simplepie_misc::fix_protocol($this->feed_url, 4), BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI);
 		}
 		else
 		{
@@ -2063,10 +2063,10 @@ function embed_wmedia(width, height, link) {
 	{
 		if ($this->subscribe_url())
 		{
-			$return = $this->sanitize($feed_url, SIMPLEPIE_CONSTRUCT_IRI) . rawurlencode($this->feed_url);
+			$return = $this->sanitize($feed_url, BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI) . rawurlencode($this->feed_url);
 			if ($site_url !== null && $this->get_link() !== null)
 			{
-				$return .= $this->sanitize($site_url, SIMPLEPIE_CONSTRUCT_IRI) . rawurlencode($this->get_link());
+				$return .= $this->sanitize($site_url, BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI) . rawurlencode($this->get_link());
 			}
 			return $return;
 		}
@@ -2154,28 +2154,28 @@ function embed_wmedia(width, height, link) {
 	function get_feed_tags($namespace, $tag)
 	{
 		$type = $this->get_type();
-		if ($type & SIMPLEPIE_TYPE_ATOM_10)
+		if ($type & BLOCKS_GAPPS_SIMPLEPIE_TYPE_ATOM_10)
 		{
-			if (isset($this->data['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['feed'][0]['child'][$namespace][$tag]))
+			if (isset($this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['feed'][0]['child'][$namespace][$tag]))
 			{
-				return $this->data['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['feed'][0]['child'][$namespace][$tag];
+				return $this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['feed'][0]['child'][$namespace][$tag];
 			}
 		}
-		if ($type & SIMPLEPIE_TYPE_ATOM_03)
+		if ($type & BLOCKS_GAPPS_SIMPLEPIE_TYPE_ATOM_03)
 		{
-			if (isset($this->data['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['feed'][0]['child'][$namespace][$tag]))
+			if (isset($this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['feed'][0]['child'][$namespace][$tag]))
 			{
-				return $this->data['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['feed'][0]['child'][$namespace][$tag];
+				return $this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['feed'][0]['child'][$namespace][$tag];
 			}
 		}
-		if ($type & SIMPLEPIE_TYPE_RSS_RDF)
+		if ($type & BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_RDF)
 		{
-			if (isset($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][$namespace][$tag]))
+			if (isset($this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][$namespace][$tag]))
 			{
-				return $this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][$namespace][$tag];
+				return $this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][$namespace][$tag];
 			}
 		}
-		if ($type & SIMPLEPIE_TYPE_RSS_SYNDICATION)
+		if ($type & BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_SYNDICATION)
 		{
 			if (isset($this->data['child']['']['rss'][0]['child'][$namespace][$tag]))
 			{
@@ -2188,16 +2188,16 @@ function embed_wmedia(width, height, link) {
 	function get_channel_tags($namespace, $tag)
 	{
 		$type = $this->get_type();
-		if ($type & SIMPLEPIE_TYPE_ATOM_ALL)
+		if ($type & BLOCKS_GAPPS_SIMPLEPIE_TYPE_ATOM_ALL)
 		{
 			if ($return = $this->get_feed_tags($namespace, $tag))
 			{
 				return $return;
 			}
 		}
-		if ($type & SIMPLEPIE_TYPE_RSS_10)
+		if ($type & BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_10)
 		{
-			if ($channel = $this->get_feed_tags(SIMPLEPIE_NAMESPACE_RSS_10, 'channel'))
+			if ($channel = $this->get_feed_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_10, 'channel'))
 			{
 				if (isset($channel[0]['child'][$namespace][$tag]))
 				{
@@ -2205,9 +2205,9 @@ function embed_wmedia(width, height, link) {
 				}
 			}
 		}
-		if ($type & SIMPLEPIE_TYPE_RSS_090)
+		if ($type & BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_090)
 		{
-			if ($channel = $this->get_feed_tags(SIMPLEPIE_NAMESPACE_RSS_090, 'channel'))
+			if ($channel = $this->get_feed_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_090, 'channel'))
 			{
 				if (isset($channel[0]['child'][$namespace][$tag]))
 				{
@@ -2215,7 +2215,7 @@ function embed_wmedia(width, height, link) {
 				}
 			}
 		}
-		if ($type & SIMPLEPIE_TYPE_RSS_SYNDICATION)
+		if ($type & BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_SYNDICATION)
 		{
 			if ($channel = $this->get_feed_tags('', 'channel'))
 			{
@@ -2231,9 +2231,9 @@ function embed_wmedia(width, height, link) {
 	function get_image_tags($namespace, $tag)
 	{
 		$type = $this->get_type();
-		if ($type & SIMPLEPIE_TYPE_RSS_10)
+		if ($type & BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_10)
 		{
-			if ($image = $this->get_feed_tags(SIMPLEPIE_NAMESPACE_RSS_10, 'image'))
+			if ($image = $this->get_feed_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_10, 'image'))
 			{
 				if (isset($image[0]['child'][$namespace][$tag]))
 				{
@@ -2241,9 +2241,9 @@ function embed_wmedia(width, height, link) {
 				}
 			}
 		}
-		if ($type & SIMPLEPIE_TYPE_RSS_090)
+		if ($type & BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_090)
 		{
-			if ($image = $this->get_feed_tags(SIMPLEPIE_NAMESPACE_RSS_090, 'image'))
+			if ($image = $this->get_feed_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_090, 'image'))
 			{
 				if (isset($image[0]['child'][$namespace][$tag]))
 				{
@@ -2251,7 +2251,7 @@ function embed_wmedia(width, height, link) {
 				}
 			}
 		}
-		if ($type & SIMPLEPIE_TYPE_RSS_SYNDICATION)
+		if ($type & BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_SYNDICATION)
 		{
 			if ($image = $this->get_channel_tags('', 'image'))
 			{
@@ -2266,7 +2266,7 @@ function embed_wmedia(width, height, link) {
 
 	function get_base($element = array())
 	{
-		if (!($this->get_type() & SIMPLEPIE_TYPE_RSS_SYNDICATION) && !empty($element['xml_base_explicit']) && isset($element['xml_base']))
+		if (!($this->get_type() & BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_SYNDICATION) && !empty($element['xml_base_explicit']) && isset($element['xml_base']))
 		{
 			return $element['xml_base'];
 		}
@@ -2287,33 +2287,33 @@ function embed_wmedia(width, height, link) {
 
 	function get_title()
 	{
-		if ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'title'))
+		if ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'title'))
 		{
-			return $this->sanitize($return[0]['data'], SimplePie_Misc::atom_10_construct_type($return[0]['attribs']), $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], blocks_gapps_simplepie_misc::atom_10_construct_type($return[0]['attribs']), $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'title'))
+		elseif ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'title'))
 		{
-			return $this->sanitize($return[0]['data'], SimplePie_Misc::atom_03_construct_type($return[0]['attribs']), $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], blocks_gapps_simplepie_misc::atom_03_construct_type($return[0]['attribs']), $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_RSS_10, 'title'))
+		elseif ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_10, 'title'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_RSS_090, 'title'))
+		elseif ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_090, 'title'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
 		}
 		elseif ($return = $this->get_channel_tags('', 'title'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_DC_11, 'title'))
+		elseif ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'title'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_DC_10, 'title'))
+		elseif ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'title'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
 		else
 		{
@@ -2338,41 +2338,41 @@ function embed_wmedia(width, height, link) {
 	{
 		$categories = array();
 
-		foreach ((array) $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'category') as $category)
+		foreach ((array) $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'category') as $category)
 		{
 			$term = null;
 			$scheme = null;
 			$label = null;
 			if (isset($category['attribs']['']['term']))
 			{
-				$term = $this->sanitize($category['attribs']['']['term'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$term = $this->sanitize($category['attribs']['']['term'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			if (isset($category['attribs']['']['scheme']))
 			{
-				$scheme = $this->sanitize($category['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$scheme = $this->sanitize($category['attribs']['']['scheme'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			if (isset($category['attribs']['']['label']))
 			{
-				$label = $this->sanitize($category['attribs']['']['label'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$label = $this->sanitize($category['attribs']['']['label'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			$categories[] =& new $this->category_class($term, $scheme, $label);
 		}
 		foreach ((array) $this->get_channel_tags('', 'category') as $category)
 		{
-			$categories[] =& new $this->category_class($this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$categories[] =& new $this->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
-		foreach ((array) $this->get_channel_tags(SIMPLEPIE_NAMESPACE_DC_11, 'subject') as $category)
+		foreach ((array) $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'subject') as $category)
 		{
-			$categories[] =& new $this->category_class($this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$categories[] =& new $this->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
-		foreach ((array) $this->get_channel_tags(SIMPLEPIE_NAMESPACE_DC_10, 'subject') as $category)
+		foreach ((array) $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'subject') as $category)
 		{
-			$categories[] =& new $this->category_class($this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$categories[] =& new $this->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 
 		if (!empty($categories))
 		{
-			return SimplePie_Misc::array_unique($categories);
+			return blocks_gapps_simplepie_misc::array_unique($categories);
 		}
 		else
 		{
@@ -2396,66 +2396,66 @@ function embed_wmedia(width, height, link) {
 	function get_authors()
 	{
 		$authors = array();
-		foreach ((array) $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'author') as $author)
+		foreach ((array) $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'author') as $author)
 		{
 			$name = null;
 			$uri = null;
 			$email = null;
-			if (isset($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data']))
+			if (isset($author['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data']))
 			{
-				$name = $this->sanitize($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$name = $this->sanitize($author['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
-			if (isset($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data']))
+			if (isset($author['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data']))
 			{
-				$uri = $this->sanitize($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]));
+				$uri = $this->sanitize($author['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($author['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]));
 			}
-			if (isset($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data']))
+			if (isset($author['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data']))
 			{
-				$email = $this->sanitize($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$email = $this->sanitize($author['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			if ($name !== null || $email !== null || $uri !== null)
 			{
 				$authors[] =& new $this->author_class($name, $uri, $email);
 			}
 		}
-		if ($author = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'author'))
+		if ($author = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'author'))
 		{
 			$name = null;
 			$url = null;
 			$email = null;
-			if (isset($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data']))
+			if (isset($author[0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data']))
 			{
-				$name = $this->sanitize($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$name = $this->sanitize($author[0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
-			if (isset($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data']))
+			if (isset($author[0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data']))
 			{
-				$url = $this->sanitize($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]));
+				$url = $this->sanitize($author[0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($author[0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]));
 			}
-			if (isset($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data']))
+			if (isset($author[0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data']))
 			{
-				$email = $this->sanitize($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$email = $this->sanitize($author[0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			if ($name !== null || $email !== null || $url !== null)
 			{
 				$authors[] =& new $this->author_class($name, $url, $email);
 			}
 		}
-		foreach ((array) $this->get_channel_tags(SIMPLEPIE_NAMESPACE_DC_11, 'creator') as $author)
+		foreach ((array) $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'creator') as $author)
 		{
-			$authors[] =& new $this->author_class($this->sanitize($author['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$authors[] =& new $this->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
-		foreach ((array) $this->get_channel_tags(SIMPLEPIE_NAMESPACE_DC_10, 'creator') as $author)
+		foreach ((array) $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'creator') as $author)
 		{
-			$authors[] =& new $this->author_class($this->sanitize($author['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$authors[] =& new $this->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
-		foreach ((array) $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'author') as $author)
+		foreach ((array) $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'author') as $author)
 		{
-			$authors[] =& new $this->author_class($this->sanitize($author['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$authors[] =& new $this->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 
 		if (!empty($authors))
 		{
-			return SimplePie_Misc::array_unique($authors);
+			return blocks_gapps_simplepie_misc::array_unique($authors);
 		}
 		else
 		{
@@ -2479,44 +2479,44 @@ function embed_wmedia(width, height, link) {
 	function get_contributors()
 	{
 		$contributors = array();
-		foreach ((array) $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'contributor') as $contributor)
+		foreach ((array) $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'contributor') as $contributor)
 		{
 			$name = null;
 			$uri = null;
 			$email = null;
-			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data']))
+			if (isset($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data']))
 			{
-				$name = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$name = $this->sanitize($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
-			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data']))
+			if (isset($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data']))
 			{
-				$uri = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]));
+				$uri = $this->sanitize($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]));
 			}
-			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data']))
+			if (isset($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data']))
 			{
-				$email = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$email = $this->sanitize($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			if ($name !== null || $email !== null || $uri !== null)
 			{
 				$contributors[] =& new $this->author_class($name, $uri, $email);
 			}
 		}
-		foreach ((array) $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'contributor') as $contributor)
+		foreach ((array) $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'contributor') as $contributor)
 		{
 			$name = null;
 			$url = null;
 			$email = null;
-			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data']))
+			if (isset($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data']))
 			{
-				$name = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$name = $this->sanitize($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
-			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data']))
+			if (isset($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data']))
 			{
-				$url = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]));
+				$url = $this->sanitize($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]));
 			}
-			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data']))
+			if (isset($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data']))
 			{
-				$email = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$email = $this->sanitize($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			if ($name !== null || $email !== null || $url !== null)
 			{
@@ -2526,7 +2526,7 @@ function embed_wmedia(width, height, link) {
 
 		if (!empty($contributors))
 		{
-			return SimplePie_Misc::array_unique($contributors);
+			return blocks_gapps_simplepie_misc::array_unique($contributors);
 		}
 		else
 		{
@@ -2560,58 +2560,58 @@ function embed_wmedia(width, height, link) {
 		if (!isset($this->data['links']))
 		{
 			$this->data['links'] = array();
-			if ($links = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'link'))
+			if ($links = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'link'))
 			{
 				foreach ($links as $link)
 				{
 					if (isset($link['attribs']['']['href']))
 					{
 						$link_rel = (isset($link['attribs']['']['rel'])) ? $link['attribs']['']['rel'] : 'alternate';
-						$this->data['links'][$link_rel][] = $this->sanitize($link['attribs']['']['href'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($link));
+						$this->data['links'][$link_rel][] = $this->sanitize($link['attribs']['']['href'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($link));
 					}
 				}
 			}
-			if ($links = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'link'))
+			if ($links = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'link'))
 			{
 				foreach ($links as $link)
 				{
 					if (isset($link['attribs']['']['href']))
 					{
 						$link_rel = (isset($link['attribs']['']['rel'])) ? $link['attribs']['']['rel'] : 'alternate';
-						$this->data['links'][$link_rel][] = $this->sanitize($link['attribs']['']['href'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($link));
+						$this->data['links'][$link_rel][] = $this->sanitize($link['attribs']['']['href'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($link));
 
 					}
 				}
 			}
-			if ($links = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_RSS_10, 'link'))
+			if ($links = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_10, 'link'))
 			{
-				$this->data['links']['alternate'][] = $this->sanitize($links[0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($links[0]));
+				$this->data['links']['alternate'][] = $this->sanitize($links[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($links[0]));
 			}
-			if ($links = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_RSS_090, 'link'))
+			if ($links = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_090, 'link'))
 			{
-				$this->data['links']['alternate'][] = $this->sanitize($links[0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($links[0]));
+				$this->data['links']['alternate'][] = $this->sanitize($links[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($links[0]));
 			}
 			if ($links = $this->get_channel_tags('', 'link'))
 			{
-				$this->data['links']['alternate'][] = $this->sanitize($links[0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($links[0]));
+				$this->data['links']['alternate'][] = $this->sanitize($links[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($links[0]));
 			}
 
 			$keys = array_keys($this->data['links']);
 			foreach ($keys as $key)
 			{
-				if (SimplePie_Misc::is_isegment_nz_nc($key))
+				if (blocks_gapps_simplepie_misc::is_isegment_nz_nc($key))
 				{
-					if (isset($this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key]))
+					if (isset($this->data['links'][BLOCKS_GAPPS_SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key]))
 					{
-						$this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key] = array_merge($this->data['links'][$key], $this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key]);
-						$this->data['links'][$key] =& $this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key];
+						$this->data['links'][BLOCKS_GAPPS_SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key] = array_merge($this->data['links'][$key], $this->data['links'][BLOCKS_GAPPS_SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key]);
+						$this->data['links'][$key] =& $this->data['links'][BLOCKS_GAPPS_SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key];
 					}
 					else
 					{
-						$this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key] =& $this->data['links'][$key];
+						$this->data['links'][BLOCKS_GAPPS_SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key] =& $this->data['links'][$key];
 					}
 				}
-				elseif (substr($key, 0, 41) == SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY)
+				elseif (substr($key, 0, 41) == BLOCKS_GAPPS_SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY)
 				{
 					$this->data['links'][substr($key, 41)] =& $this->data['links'][$key];
 				}
@@ -2631,41 +2631,41 @@ function embed_wmedia(width, height, link) {
 
 	function get_description()
 	{
-		if ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'subtitle'))
+		if ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'subtitle'))
 		{
-			return $this->sanitize($return[0]['data'], SimplePie_Misc::atom_10_construct_type($return[0]['attribs']), $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], blocks_gapps_simplepie_misc::atom_10_construct_type($return[0]['attribs']), $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'tagline'))
+		elseif ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'tagline'))
 		{
-			return $this->sanitize($return[0]['data'], SimplePie_Misc::atom_03_construct_type($return[0]['attribs']), $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], blocks_gapps_simplepie_misc::atom_03_construct_type($return[0]['attribs']), $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_RSS_10, 'description'))
+		elseif ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_10, 'description'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_RSS_090, 'description'))
+		elseif ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_090, 'description'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
 		}
 		elseif ($return = $this->get_channel_tags('', 'description'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_DC_11, 'description'))
+		elseif ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'description'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_DC_10, 'description'))
+		elseif ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'description'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'summary'))
+		elseif ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'summary'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_HTML, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_HTML, $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'subtitle'))
+		elseif ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'subtitle'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_HTML, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_HTML, $this->get_base($return[0]));
 		}
 		else
 		{
@@ -2675,25 +2675,25 @@ function embed_wmedia(width, height, link) {
 
 	function get_copyright()
 	{
-		if ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'rights'))
+		if ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'rights'))
 		{
-			return $this->sanitize($return[0]['data'], SimplePie_Misc::atom_10_construct_type($return[0]['attribs']), $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], blocks_gapps_simplepie_misc::atom_10_construct_type($return[0]['attribs']), $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'copyright'))
+		elseif ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'copyright'))
 		{
-			return $this->sanitize($return[0]['data'], SimplePie_Misc::atom_03_construct_type($return[0]['attribs']), $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], blocks_gapps_simplepie_misc::atom_03_construct_type($return[0]['attribs']), $this->get_base($return[0]));
 		}
 		elseif ($return = $this->get_channel_tags('', 'copyright'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_DC_11, 'rights'))
+		elseif ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'rights'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_DC_10, 'rights'))
+		elseif ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'rights'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
 		else
 		{
@@ -2705,31 +2705,31 @@ function embed_wmedia(width, height, link) {
 	{
 		if ($return = $this->get_channel_tags('', 'language'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_DC_11, 'language'))
+		elseif ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'language'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_DC_10, 'language'))
+		elseif ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'language'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif (isset($this->data['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['feed'][0]['xml_lang']))
+		elseif (isset($this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['feed'][0]['xml_lang']))
 		{
-			return $this->sanitize($this->data['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['feed'][0]['xml_lang'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['feed'][0]['xml_lang'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif (isset($this->data['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['feed'][0]['xml_lang']))
+		elseif (isset($this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['feed'][0]['xml_lang']))
 		{
-			return $this->sanitize($this->data['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['feed'][0]['xml_lang'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['feed'][0]['xml_lang'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif (isset($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['xml_lang']))
+		elseif (isset($this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['xml_lang']))
 		{
-			return $this->sanitize($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['xml_lang'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['xml_lang'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
 		elseif (isset($this->data['headers']['content-language']))
 		{
-			return $this->sanitize($this->data['headers']['content-language'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($this->data['headers']['content-language'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
 		else
 		{
@@ -2739,11 +2739,11 @@ function embed_wmedia(width, height, link) {
 
 	function get_latitude()
 	{
-		if ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO, 'lat'))
+		if ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO, 'lat'))
 		{
 			return (float) $return[0]['data'];
 		}
-		elseif (($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_GEORSS, 'point')) && preg_match('/^((?:-)?[0-9]+(?:\.[0-9]+)) ((?:-)?[0-9]+(?:\.[0-9]+))$/', $return[0]['data'], $match))
+		elseif (($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_GEORSS, 'point')) && preg_match('/^((?:-)?[0-9]+(?:\.[0-9]+)) ((?:-)?[0-9]+(?:\.[0-9]+))$/', $return[0]['data'], $match))
 		{
 			return (float) $match[1];
 		}
@@ -2755,15 +2755,15 @@ function embed_wmedia(width, height, link) {
 
 	function get_longitude()
 	{
-		if ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO, 'long'))
+		if ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO, 'long'))
 		{
 			return (float) $return[0]['data'];
 		}
-		elseif ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO, 'lon'))
+		elseif ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO, 'lon'))
 		{
 			return (float) $return[0]['data'];
 		}
-		elseif (($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_GEORSS, 'point')) && preg_match('/^((?:-)?[0-9]+(?:\.[0-9]+)) ((?:-)?[0-9]+(?:\.[0-9]+))$/', $return[0]['data'], $match))
+		elseif (($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_GEORSS, 'point')) && preg_match('/^((?:-)?[0-9]+(?:\.[0-9]+)) ((?:-)?[0-9]+(?:\.[0-9]+))$/', $return[0]['data'], $match))
 		{
 			return (float) $match[2];
 		}
@@ -2775,25 +2775,25 @@ function embed_wmedia(width, height, link) {
 
 	function get_image_title()
 	{
-		if ($return = $this->get_image_tags(SIMPLEPIE_NAMESPACE_RSS_10, 'title'))
+		if ($return = $this->get_image_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_10, 'title'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif ($return = $this->get_image_tags(SIMPLEPIE_NAMESPACE_RSS_090, 'title'))
+		elseif ($return = $this->get_image_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_090, 'title'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
 		elseif ($return = $this->get_image_tags('', 'title'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif ($return = $this->get_image_tags(SIMPLEPIE_NAMESPACE_DC_11, 'title'))
+		elseif ($return = $this->get_image_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'title'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif ($return = $this->get_image_tags(SIMPLEPIE_NAMESPACE_DC_10, 'title'))
+		elseif ($return = $this->get_image_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'title'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
 		else
 		{
@@ -2803,29 +2803,29 @@ function embed_wmedia(width, height, link) {
 
 	function get_image_url()
 	{
-		if ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'image'))
+		if ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'image'))
 		{
-			return $this->sanitize($return[0]['attribs']['']['href'], SIMPLEPIE_CONSTRUCT_IRI);
+			return $this->sanitize($return[0]['attribs']['']['href'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI);
 		}
-		elseif ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'logo'))
+		elseif ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'logo'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'icon'))
+		elseif ($return = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'icon'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_image_tags(SIMPLEPIE_NAMESPACE_RSS_10, 'url'))
+		elseif ($return = $this->get_image_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_10, 'url'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_image_tags(SIMPLEPIE_NAMESPACE_RSS_090, 'url'))
+		elseif ($return = $this->get_image_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_090, 'url'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($return[0]));
 		}
 		elseif ($return = $this->get_image_tags('', 'url'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($return[0]));
 		}
 		else
 		{
@@ -2835,17 +2835,17 @@ function embed_wmedia(width, height, link) {
 
 	function get_image_link()
 	{
-		if ($return = $this->get_image_tags(SIMPLEPIE_NAMESPACE_RSS_10, 'link'))
+		if ($return = $this->get_image_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_10, 'link'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_image_tags(SIMPLEPIE_NAMESPACE_RSS_090, 'link'))
+		elseif ($return = $this->get_image_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_090, 'link'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($return[0]));
 		}
 		elseif ($return = $this->get_image_tags('', 'link'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($return[0]));
 		}
 		else
 		{
@@ -2859,7 +2859,7 @@ function embed_wmedia(width, height, link) {
 		{
 			return round($return[0]['data']);
 		}
-		elseif ($this->get_type() & SIMPLEPIE_TYPE_RSS_SYNDICATION && $this->get_image_tags('', 'url'))
+		elseif ($this->get_type() & BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_SYNDICATION && $this->get_image_tags('', 'url'))
 		{
 			return 88.0;
 		}
@@ -2875,7 +2875,7 @@ function embed_wmedia(width, height, link) {
 		{
 			return round($return[0]['data']);
 		}
-		elseif ($this->get_type() & SIMPLEPIE_TYPE_RSS_SYNDICATION && $this->get_image_tags('', 'url'))
+		elseif ($this->get_type() & BLOCKS_GAPPS_SIMPLEPIE_TYPE_RSS_SYNDICATION && $this->get_image_tags('', 'url'))
 		{
 			return 31.0;
 		}
@@ -2915,11 +2915,11 @@ function embed_wmedia(width, height, link) {
 	{
 		if (!empty($this->multifeed_objects))
 		{
-			return SimplePie::merge_items($this->multifeed_objects, $start, $end, $this->item_limit);
+			return blocks_gapps_simplepie::merge_items($this->multifeed_objects, $start, $end, $this->item_limit);
 		}
 		elseif (!isset($this->data['items']))
 		{
-			if ($items = $this->get_feed_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'entry'))
+			if ($items = $this->get_feed_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'entry'))
 			{
 				$keys = array_keys($items);
 				foreach ($keys as $key)
@@ -2927,7 +2927,7 @@ function embed_wmedia(width, height, link) {
 					$this->data['items'][] =& new $this->item_class($this, $items[$key]);
 				}
 			}
-			if ($items = $this->get_feed_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'entry'))
+			if ($items = $this->get_feed_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'entry'))
 			{
 				$keys = array_keys($items);
 				foreach ($keys as $key)
@@ -2935,7 +2935,7 @@ function embed_wmedia(width, height, link) {
 					$this->data['items'][] =& new $this->item_class($this, $items[$key]);
 				}
 			}
-			if ($items = $this->get_feed_tags(SIMPLEPIE_NAMESPACE_RSS_10, 'item'))
+			if ($items = $this->get_feed_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_10, 'item'))
 			{
 				$keys = array_keys($items);
 				foreach ($keys as $key)
@@ -2943,7 +2943,7 @@ function embed_wmedia(width, height, link) {
 					$this->data['items'][] =& new $this->item_class($this, $items[$key]);
 				}
 			}
-			if ($items = $this->get_feed_tags(SIMPLEPIE_NAMESPACE_RSS_090, 'item'))
+			if ($items = $this->get_feed_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_090, 'item'))
 			{
 				$keys = array_keys($items);
 				foreach ($keys as $key)
@@ -3019,13 +3019,13 @@ function embed_wmedia(width, height, link) {
 			$items = array();
 			foreach ($urls as $arg)
 			{
-				if (is_a($arg, 'SimplePie'))
+				if (is_a($arg, 'blocks_gapps_simplepie'))
 				{
 					$items = array_merge($items, $arg->get_items(0, $limit));
 				}
 				else
 				{
-					trigger_error('Arguments must be SimplePie objects', E_USER_WARNING);
+					trigger_error('Arguments must be blocks_gapps_simplepie objects', E_USER_WARNING);
 				}
 			}
 
@@ -3041,7 +3041,7 @@ function embed_wmedia(width, height, link) {
 			$item = null;
 			if ($do_sort)
 			{
-				usort($items, array('SimplePie', 'sort_items'));
+				usort($items, array('blocks_gapps_simplepie', 'sort_items'));
 			}
 
 			if ($end == 0)
@@ -3055,18 +3055,18 @@ function embed_wmedia(width, height, link) {
 		}
 		else
 		{
-			trigger_error('Cannot merge zero SimplePie objects', E_USER_WARNING);
+			trigger_error('Cannot merge zero blocks_gapps_simplepie objects', E_USER_WARNING);
 			return array();
 		}
 	}
 }
 
-class SimplePie_Item
+class blocks_gapps_simplepie_item
 {
 	var $feed;
 	var $data = array();
 
-	function SimplePie_Item($feed, $data)
+	function blocks_gapps_simplepie_item($feed, $data)
 	{
 		$this->feed = $feed;
 		$this->data = $data;
@@ -3116,25 +3116,25 @@ class SimplePie_Item
 	{
 		if (!$hash)
 		{
-			if ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'id'))
+			if ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'id'))
 			{
-				return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
-			elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'id'))
+			elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'id'))
 			{
-				return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			elseif ($return = $this->get_item_tags('', 'guid'))
 			{
-				return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
-			elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_11, 'identifier'))
+			elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'identifier'))
 			{
-				return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
-			elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_10, 'identifier'))
+			elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'identifier'))
 			{
-				return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			elseif (($return = $this->get_permalink()) !== null)
 			{
@@ -3159,33 +3159,33 @@ class SimplePie_Item
 	{
 		if (!isset($this->data['title']))
 		{
-			if ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'title'))
+			if ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'title'))
 			{
-				$this->data['title'] = $this->sanitize($return[0]['data'], SimplePie_Misc::atom_10_construct_type($return[0]['attribs']), $this->get_base($return[0]));
+				$this->data['title'] = $this->sanitize($return[0]['data'], blocks_gapps_simplepie_misc::atom_10_construct_type($return[0]['attribs']), $this->get_base($return[0]));
 			}
-			elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'title'))
+			elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'title'))
 			{
-				$this->data['title'] = $this->sanitize($return[0]['data'], SimplePie_Misc::atom_03_construct_type($return[0]['attribs']), $this->get_base($return[0]));
+				$this->data['title'] = $this->sanitize($return[0]['data'], blocks_gapps_simplepie_misc::atom_03_construct_type($return[0]['attribs']), $this->get_base($return[0]));
 			}
-			elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_RSS_10, 'title'))
+			elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_10, 'title'))
 			{
-				$this->data['title'] = $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
+				$this->data['title'] = $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
 			}
-			elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_RSS_090, 'title'))
+			elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_090, 'title'))
 			{
-				$this->data['title'] = $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
+				$this->data['title'] = $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
 			}
 			elseif ($return = $this->get_item_tags('', 'title'))
 			{
-				$this->data['title'] = $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
+				$this->data['title'] = $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
 			}
-			elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_11, 'title'))
+			elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'title'))
 			{
-				$this->data['title'] = $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$this->data['title'] = $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
-			elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_10, 'title'))
+			elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'title'))
 			{
-				$this->data['title'] = $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$this->data['title'] = $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			else
 			{
@@ -3197,37 +3197,37 @@ class SimplePie_Item
 
 	function get_description($description_only = false)
 	{
-		if ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'summary'))
+		if ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'summary'))
 		{
-			return $this->sanitize($return[0]['data'], SimplePie_Misc::atom_10_construct_type($return[0]['attribs']), $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], blocks_gapps_simplepie_misc::atom_10_construct_type($return[0]['attribs']), $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'summary'))
+		elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'summary'))
 		{
-			return $this->sanitize($return[0]['data'], SimplePie_Misc::atom_03_construct_type($return[0]['attribs']), $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], blocks_gapps_simplepie_misc::atom_03_construct_type($return[0]['attribs']), $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_RSS_10, 'description'))
+		elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_10, 'description'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
 		}
 		elseif ($return = $this->get_item_tags('', 'description'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_HTML, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_HTML, $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_11, 'description'))
+		elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'description'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_10, 'description'))
+		elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'description'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'summary'))
+		elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'summary'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_HTML, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_HTML, $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'subtitle'))
+		elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'subtitle'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
 		elseif (!$description_only)
 		{
@@ -3241,17 +3241,17 @@ class SimplePie_Item
 
 	function get_content($content_only = false)
 	{
-		if ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'content'))
+		if ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'content'))
 		{
-			return $this->sanitize($return[0]['data'], SimplePie_Misc::atom_10_content_construct_type($return[0]['attribs']), $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], blocks_gapps_simplepie_misc::atom_10_content_construct_type($return[0]['attribs']), $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'content'))
+		elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'content'))
 		{
-			return $this->sanitize($return[0]['data'], SimplePie_Misc::atom_03_construct_type($return[0]['attribs']), $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], blocks_gapps_simplepie_misc::atom_03_construct_type($return[0]['attribs']), $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_RSS_10_MODULES_CONTENT, 'encoded'))
+		elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_10_MODULES_CONTENT, 'encoded'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_HTML, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_HTML, $this->get_base($return[0]));
 		}
 		elseif (!$content_only)
 		{
@@ -3280,41 +3280,41 @@ class SimplePie_Item
 	{
 		$categories = array();
 
-		foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'category') as $category)
+		foreach ((array) $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'category') as $category)
 		{
 			$term = null;
 			$scheme = null;
 			$label = null;
 			if (isset($category['attribs']['']['term']))
 			{
-				$term = $this->sanitize($category['attribs']['']['term'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$term = $this->sanitize($category['attribs']['']['term'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			if (isset($category['attribs']['']['scheme']))
 			{
-				$scheme = $this->sanitize($category['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$scheme = $this->sanitize($category['attribs']['']['scheme'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			if (isset($category['attribs']['']['label']))
 			{
-				$label = $this->sanitize($category['attribs']['']['label'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$label = $this->sanitize($category['attribs']['']['label'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			$categories[] =& new $this->feed->category_class($term, $scheme, $label);
 		}
 		foreach ((array) $this->get_item_tags('', 'category') as $category)
 		{
-			$categories[] =& new $this->feed->category_class($this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$categories[] =& new $this->feed->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
-		foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_11, 'subject') as $category)
+		foreach ((array) $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'subject') as $category)
 		{
-			$categories[] =& new $this->feed->category_class($this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$categories[] =& new $this->feed->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
-		foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_10, 'subject') as $category)
+		foreach ((array) $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'subject') as $category)
 		{
-			$categories[] =& new $this->feed->category_class($this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$categories[] =& new $this->feed->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 
 		if (!empty($categories))
 		{
-			return SimplePie_Misc::array_unique($categories);
+			return blocks_gapps_simplepie_misc::array_unique($categories);
 		}
 		else
 		{
@@ -3351,44 +3351,44 @@ class SimplePie_Item
 	function get_contributors()
 	{
 		$contributors = array();
-		foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'contributor') as $contributor)
+		foreach ((array) $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'contributor') as $contributor)
 		{
 			$name = null;
 			$uri = null;
 			$email = null;
-			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data']))
+			if (isset($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data']))
 			{
-				$name = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$name = $this->sanitize($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
-			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data']))
+			if (isset($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data']))
 			{
-				$uri = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]));
+				$uri = $this->sanitize($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]));
 			}
-			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data']))
+			if (isset($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data']))
 			{
-				$email = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$email = $this->sanitize($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			if ($name !== null || $email !== null || $uri !== null)
 			{
 				$contributors[] =& new $this->feed->author_class($name, $uri, $email);
 			}
 		}
-		foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'contributor') as $contributor)
+		foreach ((array) $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'contributor') as $contributor)
 		{
 			$name = null;
 			$url = null;
 			$email = null;
-			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data']))
+			if (isset($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data']))
 			{
-				$name = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$name = $this->sanitize($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
-			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data']))
+			if (isset($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data']))
 			{
-				$url = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]));
+				$url = $this->sanitize($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]));
 			}
-			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data']))
+			if (isset($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data']))
 			{
-				$email = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$email = $this->sanitize($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			if ($name !== null || $email !== null || $url !== null)
 			{
@@ -3398,7 +3398,7 @@ class SimplePie_Item
 
 		if (!empty($contributors))
 		{
-			return SimplePie_Misc::array_unique($contributors);
+			return blocks_gapps_simplepie_misc::array_unique($contributors);
 		}
 		else
 		{
@@ -3412,44 +3412,44 @@ class SimplePie_Item
 	function get_authors()
 	{
 		$authors = array();
-		foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'author') as $author)
+		foreach ((array) $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'author') as $author)
 		{
 			$name = null;
 			$uri = null;
 			$email = null;
-			if (isset($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data']))
+			if (isset($author['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data']))
 			{
-				$name = $this->sanitize($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$name = $this->sanitize($author['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
-			if (isset($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data']))
+			if (isset($author['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data']))
 			{
-				$uri = $this->sanitize($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]));
+				$uri = $this->sanitize($author['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($author['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]));
 			}
-			if (isset($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data']))
+			if (isset($author['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data']))
 			{
-				$email = $this->sanitize($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$email = $this->sanitize($author['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			if ($name !== null || $email !== null || $uri !== null)
 			{
 				$authors[] =& new $this->feed->author_class($name, $uri, $email);
 			}
 		}
-		if ($author = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'author'))
+		if ($author = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'author'))
 		{
 			$name = null;
 			$url = null;
 			$email = null;
-			if (isset($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data']))
+			if (isset($author[0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data']))
 			{
-				$name = $this->sanitize($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$name = $this->sanitize($author[0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
-			if (isset($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data']))
+			if (isset($author[0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data']))
 			{
-				$url = $this->sanitize($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]));
+				$url = $this->sanitize($author[0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($author[0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]));
 			}
-			if (isset($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data']))
+			if (isset($author[0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data']))
 			{
-				$email = $this->sanitize($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$email = $this->sanitize($author[0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			if ($name !== null || $email !== null || $url !== null)
 			{
@@ -3458,24 +3458,24 @@ class SimplePie_Item
 		}
 		if ($author = $this->get_item_tags('', 'author'))
 		{
-			$authors[] =& new $this->feed->author_class(null, null, $this->sanitize($author[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT));
+			$authors[] =& new $this->feed->author_class(null, null, $this->sanitize($author[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT));
 		}
-		foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_11, 'creator') as $author)
+		foreach ((array) $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'creator') as $author)
 		{
-			$authors[] =& new $this->feed->author_class($this->sanitize($author['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$authors[] =& new $this->feed->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
-		foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_10, 'creator') as $author)
+		foreach ((array) $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'creator') as $author)
 		{
-			$authors[] =& new $this->feed->author_class($this->sanitize($author['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$authors[] =& new $this->feed->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
-		foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'author') as $author)
+		foreach ((array) $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'author') as $author)
 		{
-			$authors[] =& new $this->feed->author_class($this->sanitize($author['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$authors[] =& new $this->feed->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 
 		if (!empty($authors))
 		{
-			return SimplePie_Misc::array_unique($authors);
+			return blocks_gapps_simplepie_misc::array_unique($authors);
 		}
 		elseif (($source = $this->get_source()) && ($authors = $source->get_authors()))
 		{
@@ -3493,17 +3493,17 @@ class SimplePie_Item
 
 	function get_copyright()
 	{
-		if ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'rights'))
+		if ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'rights'))
 		{
-			return $this->sanitize($return[0]['data'], SimplePie_Misc::atom_10_construct_type($return[0]['attribs']), $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], blocks_gapps_simplepie_misc::atom_10_construct_type($return[0]['attribs']), $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_11, 'rights'))
+		elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'rights'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_10, 'rights'))
+		elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'rights'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
 		else
 		{
@@ -3515,23 +3515,23 @@ class SimplePie_Item
 	{
 		if (!isset($this->data['date']))
 		{
-			if ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'published'))
+			if ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'published'))
 			{
 				$this->data['date']['raw'] = $return[0]['data'];
 			}
-			elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'updated'))
+			elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'updated'))
 			{
 				$this->data['date']['raw'] = $return[0]['data'];
 			}
-			elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'issued'))
+			elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'issued'))
 			{
 				$this->data['date']['raw'] = $return[0]['data'];
 			}
-			elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'created'))
+			elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'created'))
 			{
 				$this->data['date']['raw'] = $return[0]['data'];
 			}
-			elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'modified'))
+			elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'modified'))
 			{
 				$this->data['date']['raw'] = $return[0]['data'];
 			}
@@ -3539,18 +3539,18 @@ class SimplePie_Item
 			{
 				$this->data['date']['raw'] = $return[0]['data'];
 			}
-			elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_11, 'date'))
+			elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'date'))
 			{
 				$this->data['date']['raw'] = $return[0]['data'];
 			}
-			elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_10, 'date'))
+			elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'date'))
 			{
 				$this->data['date']['raw'] = $return[0]['data'];
 			}
 
 			if (!empty($this->data['date']['raw']))
 			{
-				$parser = SimplePie_Parse_Date::get();
+				$parser = blocks_gapps_simplepie_parse_date::get();
 				$this->data['date']['parsed'] = $parser->parse($this->data['date']['raw']);
 			}
 			else
@@ -3564,7 +3564,7 @@ class SimplePie_Item
 			switch ($date_format)
 			{
 				case '':
-					return $this->sanitize($this->data['date']['raw'], SIMPLEPIE_CONSTRUCT_TEXT);
+					return $this->sanitize($this->data['date']['raw'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 
 				case 'U':
 					return $this->data['date']['parsed'];
@@ -3583,7 +3583,7 @@ class SimplePie_Item
 	{
 		if (!$date_format)
 		{
-			return $this->sanitize($this->get_date(''), SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($this->get_date(''), BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
 		elseif (($date = $this->get_date('U')) !== null)
 		{
@@ -3631,59 +3631,59 @@ class SimplePie_Item
 		if (!isset($this->data['links']))
 		{
 			$this->data['links'] = array();
-			foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'link') as $link)
+			foreach ((array) $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'link') as $link)
 			{
 				if (isset($link['attribs']['']['href']))
 				{
 					$link_rel = (isset($link['attribs']['']['rel'])) ? $link['attribs']['']['rel'] : 'alternate';
-					$this->data['links'][$link_rel][] = $this->sanitize($link['attribs']['']['href'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($link));
+					$this->data['links'][$link_rel][] = $this->sanitize($link['attribs']['']['href'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($link));
 
 				}
 			}
-			foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'link') as $link)
+			foreach ((array) $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'link') as $link)
 			{
 				if (isset($link['attribs']['']['href']))
 				{
 					$link_rel = (isset($link['attribs']['']['rel'])) ? $link['attribs']['']['rel'] : 'alternate';
-					$this->data['links'][$link_rel][] = $this->sanitize($link['attribs']['']['href'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($link));
+					$this->data['links'][$link_rel][] = $this->sanitize($link['attribs']['']['href'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($link));
 				}
 			}
-			if ($links = $this->get_item_tags(SIMPLEPIE_NAMESPACE_RSS_10, 'link'))
+			if ($links = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_10, 'link'))
 			{
-				$this->data['links']['alternate'][] = $this->sanitize($links[0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($links[0]));
+				$this->data['links']['alternate'][] = $this->sanitize($links[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($links[0]));
 			}
-			if ($links = $this->get_item_tags(SIMPLEPIE_NAMESPACE_RSS_090, 'link'))
+			if ($links = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_090, 'link'))
 			{
-				$this->data['links']['alternate'][] = $this->sanitize($links[0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($links[0]));
+				$this->data['links']['alternate'][] = $this->sanitize($links[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($links[0]));
 			}
 			if ($links = $this->get_item_tags('', 'link'))
 			{
-				$this->data['links']['alternate'][] = $this->sanitize($links[0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($links[0]));
+				$this->data['links']['alternate'][] = $this->sanitize($links[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($links[0]));
 			}
 			if ($links = $this->get_item_tags('', 'guid'))
 			{
 				if (!isset($links[0]['attribs']['']['isPermaLink']) || strtolower(trim($links[0]['attribs']['']['isPermaLink'])) == 'true')
 				{
-					$this->data['links']['alternate'][] = $this->sanitize($links[0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($links[0]));
+					$this->data['links']['alternate'][] = $this->sanitize($links[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($links[0]));
 				}
 			}
 
 			$keys = array_keys($this->data['links']);
 			foreach ($keys as $key)
 			{
-				if (SimplePie_Misc::is_isegment_nz_nc($key))
+				if (blocks_gapps_simplepie_misc::is_isegment_nz_nc($key))
 				{
-					if (isset($this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key]))
+					if (isset($this->data['links'][BLOCKS_GAPPS_SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key]))
 					{
-						$this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key] = array_merge($this->data['links'][$key], $this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key]);
-						$this->data['links'][$key] =& $this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key];
+						$this->data['links'][BLOCKS_GAPPS_SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key] = array_merge($this->data['links'][$key], $this->data['links'][BLOCKS_GAPPS_SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key]);
+						$this->data['links'][$key] =& $this->data['links'][BLOCKS_GAPPS_SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key];
 					}
 					else
 					{
-						$this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key] =& $this->data['links'][$key];
+						$this->data['links'][BLOCKS_GAPPS_SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key] =& $this->data['links'][$key];
 					}
 				}
-				elseif (substr($key, 0, 41) == SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY)
+				elseif (substr($key, 0, 41) == BLOCKS_GAPPS_SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY)
 				{
 					$this->data['links'][substr($key, 41)] =& $this->data['links'][$key];
 				}
@@ -3751,7 +3751,7 @@ class SimplePie_Item
 			$parent = $this->get_feed();
 
 			// CAPTIONS
-			if ($captions = $this->get_item_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'text'))
+			if ($captions = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'text'))
 			{
 				foreach ($captions as $caption)
 				{
@@ -3762,28 +3762,28 @@ class SimplePie_Item
 					$caption_text = null;
 					if (isset($caption['attribs']['']['type']))
 					{
-						$caption_type = $this->sanitize($caption['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$caption_type = $this->sanitize($caption['attribs']['']['type'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					if (isset($caption['attribs']['']['lang']))
 					{
-						$caption_lang = $this->sanitize($caption['attribs']['']['lang'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$caption_lang = $this->sanitize($caption['attribs']['']['lang'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					if (isset($caption['attribs']['']['start']))
 					{
-						$caption_startTime = $this->sanitize($caption['attribs']['']['start'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$caption_startTime = $this->sanitize($caption['attribs']['']['start'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					if (isset($caption['attribs']['']['end']))
 					{
-						$caption_endTime = $this->sanitize($caption['attribs']['']['end'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$caption_endTime = $this->sanitize($caption['attribs']['']['end'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					if (isset($caption['data']))
 					{
-						$caption_text = $this->sanitize($caption['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$caption_text = $this->sanitize($caption['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					$captions_parent[] =& new $this->feed->caption_class($caption_type, $caption_lang, $caption_startTime, $caption_endTime, $caption_text);
 				}
 			}
-			elseif ($captions = $parent->get_channel_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'text'))
+			elseif ($captions = $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'text'))
 			{
 				foreach ($captions as $caption)
 				{
@@ -3794,45 +3794,45 @@ class SimplePie_Item
 					$caption_text = null;
 					if (isset($caption['attribs']['']['type']))
 					{
-						$caption_type = $this->sanitize($caption['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$caption_type = $this->sanitize($caption['attribs']['']['type'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					if (isset($caption['attribs']['']['lang']))
 					{
-						$caption_lang = $this->sanitize($caption['attribs']['']['lang'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$caption_lang = $this->sanitize($caption['attribs']['']['lang'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					if (isset($caption['attribs']['']['start']))
 					{
-						$caption_startTime = $this->sanitize($caption['attribs']['']['start'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$caption_startTime = $this->sanitize($caption['attribs']['']['start'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					if (isset($caption['attribs']['']['end']))
 					{
-						$caption_endTime = $this->sanitize($caption['attribs']['']['end'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$caption_endTime = $this->sanitize($caption['attribs']['']['end'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					if (isset($caption['data']))
 					{
-						$caption_text = $this->sanitize($caption['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$caption_text = $this->sanitize($caption['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					$captions_parent[] =& new $this->feed->caption_class($caption_type, $caption_lang, $caption_startTime, $caption_endTime, $caption_text);
 				}
 			}
 			if (is_array($captions_parent))
 			{
-				$captions_parent = array_values(SimplePie_Misc::array_unique($captions_parent));
+				$captions_parent = array_values(blocks_gapps_simplepie_misc::array_unique($captions_parent));
 			}
 
 			// CATEGORIES
-			foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'category') as $category)
+			foreach ((array) $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'category') as $category)
 			{
 				$term = null;
 				$scheme = null;
 				$label = null;
 				if (isset($category['data']))
 				{
-					$term = $this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+					$term = $this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 				}
 				if (isset($category['attribs']['']['scheme']))
 				{
-					$scheme = $this->sanitize($category['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+					$scheme = $this->sanitize($category['attribs']['']['scheme'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 				}
 				else
 				{
@@ -3840,22 +3840,22 @@ class SimplePie_Item
 				}
 				if (isset($category['attribs']['']['label']))
 				{
-					$label = $this->sanitize($category['attribs']['']['label'], SIMPLEPIE_CONSTRUCT_TEXT);
+					$label = $this->sanitize($category['attribs']['']['label'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 				}
 				$categories_parent[] =& new $this->feed->category_class($term, $scheme, $label);
 			}
-			foreach ((array) $parent->get_channel_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'category') as $category)
+			foreach ((array) $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'category') as $category)
 			{
 				$term = null;
 				$scheme = null;
 				$label = null;
 				if (isset($category['data']))
 				{
-					$term = $this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+					$term = $this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 				}
 				if (isset($category['attribs']['']['scheme']))
 				{
-					$scheme = $this->sanitize($category['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+					$scheme = $this->sanitize($category['attribs']['']['scheme'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 				}
 				else
 				{
@@ -3863,28 +3863,28 @@ class SimplePie_Item
 				}
 				if (isset($category['attribs']['']['label']))
 				{
-					$label = $this->sanitize($category['attribs']['']['label'], SIMPLEPIE_CONSTRUCT_TEXT);
+					$label = $this->sanitize($category['attribs']['']['label'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 				}
 				$categories_parent[] =& new $this->feed->category_class($term, $scheme, $label);
 			}
-			foreach ((array) $parent->get_channel_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'category') as $category)
+			foreach ((array) $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'category') as $category)
 			{
 				$term = null;
 				$scheme = 'http://www.itunes.com/dtds/podcast-1.0.dtd';
 				$label = null;
 				if (isset($category['attribs']['']['text']))
 				{
-					$label = $this->sanitize($category['attribs']['']['text'], SIMPLEPIE_CONSTRUCT_TEXT);
+					$label = $this->sanitize($category['attribs']['']['text'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 				}
 				$categories_parent[] =& new $this->feed->category_class($term, $scheme, $label);
 
-				if (isset($category['child'][SIMPLEPIE_NAMESPACE_ITUNES]['category']))
+				if (isset($category['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES]['category']))
 				{
-					foreach ((array) $category['child'][SIMPLEPIE_NAMESPACE_ITUNES]['category'] as $subcategory)
+					foreach ((array) $category['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES]['category'] as $subcategory)
 					{
 						if (isset($subcategory['attribs']['']['text']))
 						{
-							$label = $this->sanitize($subcategory['attribs']['']['text'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$label = $this->sanitize($subcategory['attribs']['']['text'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						$categories_parent[] =& new $this->feed->category_class($term, $scheme, $label);
 					}
@@ -3892,41 +3892,41 @@ class SimplePie_Item
 			}
 			if (is_array($categories_parent))
 			{
-				$categories_parent = array_values(SimplePie_Misc::array_unique($categories_parent));
+				$categories_parent = array_values(blocks_gapps_simplepie_misc::array_unique($categories_parent));
 			}
 
 			// COPYRIGHT
-			if ($copyright = $this->get_item_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'copyright'))
+			if ($copyright = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'copyright'))
 			{
 				$copyright_url = null;
 				$copyright_label = null;
 				if (isset($copyright[0]['attribs']['']['url']))
 				{
-					$copyright_url = $this->sanitize($copyright[0]['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_TEXT);
+					$copyright_url = $this->sanitize($copyright[0]['attribs']['']['url'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 				}
 				if (isset($copyright[0]['data']))
 				{
-					$copyright_label = $this->sanitize($copyright[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+					$copyright_label = $this->sanitize($copyright[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 				}
 				$copyrights_parent =& new $this->feed->copyright_class($copyright_url, $copyright_label);
 			}
-			elseif ($copyright = $parent->get_channel_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'copyright'))
+			elseif ($copyright = $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'copyright'))
 			{
 				$copyright_url = null;
 				$copyright_label = null;
 				if (isset($copyright[0]['attribs']['']['url']))
 				{
-					$copyright_url = $this->sanitize($copyright[0]['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_TEXT);
+					$copyright_url = $this->sanitize($copyright[0]['attribs']['']['url'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 				}
 				if (isset($copyright[0]['data']))
 				{
-					$copyright_label = $this->sanitize($copyright[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+					$copyright_label = $this->sanitize($copyright[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 				}
 				$copyrights_parent =& new $this->feed->copyright_class($copyright_url, $copyright_label);
 			}
 
 			// CREDITS
-			if ($credits = $this->get_item_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'credit'))
+			if ($credits = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'credit'))
 			{
 				foreach ($credits as $credit)
 				{
@@ -3935,11 +3935,11 @@ class SimplePie_Item
 					$credit_name = null;
 					if (isset($credit['attribs']['']['role']))
 					{
-						$credit_role = $this->sanitize($credit['attribs']['']['role'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$credit_role = $this->sanitize($credit['attribs']['']['role'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					if (isset($credit['attribs']['']['scheme']))
 					{
-						$credit_scheme = $this->sanitize($credit['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$credit_scheme = $this->sanitize($credit['attribs']['']['scheme'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					else
 					{
@@ -3947,12 +3947,12 @@ class SimplePie_Item
 					}
 					if (isset($credit['data']))
 					{
-						$credit_name = $this->sanitize($credit['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$credit_name = $this->sanitize($credit['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					$credits_parent[] =& new $this->feed->credit_class($credit_role, $credit_scheme, $credit_name);
 				}
 			}
-			elseif ($credits = $parent->get_channel_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'credit'))
+			elseif ($credits = $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'credit'))
 			{
 				foreach ($credits as $credit)
 				{
@@ -3961,11 +3961,11 @@ class SimplePie_Item
 					$credit_name = null;
 					if (isset($credit['attribs']['']['role']))
 					{
-						$credit_role = $this->sanitize($credit['attribs']['']['role'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$credit_role = $this->sanitize($credit['attribs']['']['role'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					if (isset($credit['attribs']['']['scheme']))
 					{
-						$credit_scheme = $this->sanitize($credit['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$credit_scheme = $this->sanitize($credit['attribs']['']['scheme'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					else
 					{
@@ -3973,41 +3973,41 @@ class SimplePie_Item
 					}
 					if (isset($credit['data']))
 					{
-						$credit_name = $this->sanitize($credit['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$credit_name = $this->sanitize($credit['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					$credits_parent[] =& new $this->feed->credit_class($credit_role, $credit_scheme, $credit_name);
 				}
 			}
 			if (is_array($credits_parent))
 			{
-				$credits_parent = array_values(SimplePie_Misc::array_unique($credits_parent));
+				$credits_parent = array_values(blocks_gapps_simplepie_misc::array_unique($credits_parent));
 			}
 
 			// DESCRIPTION
-			if ($description_parent = $this->get_item_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'description'))
+			if ($description_parent = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'description'))
 			{
 				if (isset($description_parent[0]['data']))
 				{
-					$description_parent = $this->sanitize($description_parent[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+					$description_parent = $this->sanitize($description_parent[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 				}
 			}
-			elseif ($description_parent = $parent->get_channel_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'description'))
+			elseif ($description_parent = $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'description'))
 			{
 				if (isset($description_parent[0]['data']))
 				{
-					$description_parent = $this->sanitize($description_parent[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+					$description_parent = $this->sanitize($description_parent[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 				}
 			}
 
 			// DURATION
-			if ($duration_parent = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'duration'))
+			if ($duration_parent = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'duration'))
 			{
 				$seconds = null;
 				$minutes = null;
 				$hours = null;
 				if (isset($duration_parent[0]['data']))
 				{
-					$temp = explode(':', $this->sanitize($duration_parent[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT));
+					$temp = explode(':', $this->sanitize($duration_parent[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT));
 					if (sizeof($temp) > 0)
 					{
 						(int) $seconds = array_pop($temp);
@@ -4028,7 +4028,7 @@ class SimplePie_Item
 			}
 
 			// HASHES
-			if ($hashes_iterator = $this->get_item_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'hash'))
+			if ($hashes_iterator = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'hash'))
 			{
 				foreach ($hashes_iterator as $hash)
 				{
@@ -4036,11 +4036,11 @@ class SimplePie_Item
 					$algo = null;
 					if (isset($hash['data']))
 					{
-						$value = $this->sanitize($hash['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$value = $this->sanitize($hash['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					if (isset($hash['attribs']['']['algo']))
 					{
-						$algo = $this->sanitize($hash['attribs']['']['algo'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$algo = $this->sanitize($hash['attribs']['']['algo'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					else
 					{
@@ -4049,7 +4049,7 @@ class SimplePie_Item
 					$hashes_parent[] = $algo.':'.$value;
 				}
 			}
-			elseif ($hashes_iterator = $parent->get_channel_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'hash'))
+			elseif ($hashes_iterator = $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'hash'))
 			{
 				foreach ($hashes_iterator as $hash)
 				{
@@ -4057,11 +4057,11 @@ class SimplePie_Item
 					$algo = null;
 					if (isset($hash['data']))
 					{
-						$value = $this->sanitize($hash['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$value = $this->sanitize($hash['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					if (isset($hash['attribs']['']['algo']))
 					{
-						$algo = $this->sanitize($hash['attribs']['']['algo'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$algo = $this->sanitize($hash['attribs']['']['algo'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					else
 					{
@@ -4072,15 +4072,15 @@ class SimplePie_Item
 			}
 			if (is_array($hashes_parent))
 			{
-				$hashes_parent = array_values(SimplePie_Misc::array_unique($hashes_parent));
+				$hashes_parent = array_values(blocks_gapps_simplepie_misc::array_unique($hashes_parent));
 			}
 
 			// KEYWORDS
-			if ($keywords = $this->get_item_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'keywords'))
+			if ($keywords = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'keywords'))
 			{
 				if (isset($keywords[0]['data']))
 				{
-					$temp = explode(',', $this->sanitize($keywords[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT));
+					$temp = explode(',', $this->sanitize($keywords[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT));
 					foreach ($temp as $word)
 					{
 						$keywords_parent[] = trim($word);
@@ -4088,11 +4088,11 @@ class SimplePie_Item
 				}
 				unset($temp);
 			}
-			elseif ($keywords = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'keywords'))
+			elseif ($keywords = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'keywords'))
 			{
 				if (isset($keywords[0]['data']))
 				{
-					$temp = explode(',', $this->sanitize($keywords[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT));
+					$temp = explode(',', $this->sanitize($keywords[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT));
 					foreach ($temp as $word)
 					{
 						$keywords_parent[] = trim($word);
@@ -4100,11 +4100,11 @@ class SimplePie_Item
 				}
 				unset($temp);
 			}
-			elseif ($keywords = $parent->get_channel_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'keywords'))
+			elseif ($keywords = $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'keywords'))
 			{
 				if (isset($keywords[0]['data']))
 				{
-					$temp = explode(',', $this->sanitize($keywords[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT));
+					$temp = explode(',', $this->sanitize($keywords[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT));
 					foreach ($temp as $word)
 					{
 						$keywords_parent[] = trim($word);
@@ -4112,11 +4112,11 @@ class SimplePie_Item
 				}
 				unset($temp);
 			}
-			elseif ($keywords = $parent->get_channel_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'keywords'))
+			elseif ($keywords = $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'keywords'))
 			{
 				if (isset($keywords[0]['data']))
 				{
-					$temp = explode(',', $this->sanitize($keywords[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT));
+					$temp = explode(',', $this->sanitize($keywords[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT));
 					foreach ($temp as $word)
 					{
 						$keywords_parent[] = trim($word);
@@ -4126,27 +4126,27 @@ class SimplePie_Item
 			}
 			if (is_array($keywords_parent))
 			{
-				$keywords_parent = array_values(SimplePie_Misc::array_unique($keywords_parent));
+				$keywords_parent = array_values(blocks_gapps_simplepie_misc::array_unique($keywords_parent));
 			}
 
 			// PLAYER
-			if ($player_parent = $this->get_item_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'player'))
+			if ($player_parent = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'player'))
 			{
 				if (isset($player_parent[0]['attribs']['']['url']))
 				{
-					$player_parent = $this->sanitize($player_parent[0]['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_IRI);
+					$player_parent = $this->sanitize($player_parent[0]['attribs']['']['url'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI);
 				}
 			}
-			elseif ($player_parent = $parent->get_channel_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'player'))
+			elseif ($player_parent = $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'player'))
 			{
 				if (isset($player_parent[0]['attribs']['']['url']))
 				{
-					$player_parent = $this->sanitize($player_parent[0]['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_IRI);
+					$player_parent = $this->sanitize($player_parent[0]['attribs']['']['url'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI);
 				}
 			}
 
 			// RATINGS
-			if ($ratings = $this->get_item_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'rating'))
+			if ($ratings = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'rating'))
 			{
 				foreach ($ratings as $rating)
 				{
@@ -4154,7 +4154,7 @@ class SimplePie_Item
 					$rating_value = null;
 					if (isset($rating['attribs']['']['scheme']))
 					{
-						$rating_scheme = $this->sanitize($rating['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$rating_scheme = $this->sanitize($rating['attribs']['']['scheme'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					else
 					{
@@ -4162,12 +4162,12 @@ class SimplePie_Item
 					}
 					if (isset($rating['data']))
 					{
-						$rating_value = $this->sanitize($rating['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$rating_value = $this->sanitize($rating['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					$ratings_parent[] =& new $this->feed->rating_class($rating_scheme, $rating_value);
 				}
 			}
-			elseif ($ratings = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'explicit'))
+			elseif ($ratings = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'explicit'))
 			{
 				foreach ($ratings as $rating)
 				{
@@ -4175,12 +4175,12 @@ class SimplePie_Item
 					$rating_value = null;
 					if (isset($rating['data']))
 					{
-						$rating_value = $this->sanitize($rating['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$rating_value = $this->sanitize($rating['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					$ratings_parent[] =& new $this->feed->rating_class($rating_scheme, $rating_value);
 				}
 			}
-			elseif ($ratings = $parent->get_channel_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'rating'))
+			elseif ($ratings = $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'rating'))
 			{
 				foreach ($ratings as $rating)
 				{
@@ -4188,7 +4188,7 @@ class SimplePie_Item
 					$rating_value = null;
 					if (isset($rating['attribs']['']['scheme']))
 					{
-						$rating_scheme = $this->sanitize($rating['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$rating_scheme = $this->sanitize($rating['attribs']['']['scheme'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					else
 					{
@@ -4196,12 +4196,12 @@ class SimplePie_Item
 					}
 					if (isset($rating['data']))
 					{
-						$rating_value = $this->sanitize($rating['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$rating_value = $this->sanitize($rating['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					$ratings_parent[] =& new $this->feed->rating_class($rating_scheme, $rating_value);
 				}
 			}
-			elseif ($ratings = $parent->get_channel_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'explicit'))
+			elseif ($ratings = $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'explicit'))
 			{
 				foreach ($ratings as $rating)
 				{
@@ -4209,18 +4209,18 @@ class SimplePie_Item
 					$rating_value = null;
 					if (isset($rating['data']))
 					{
-						$rating_value = $this->sanitize($rating['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$rating_value = $this->sanitize($rating['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					$ratings_parent[] =& new $this->feed->rating_class($rating_scheme, $rating_value);
 				}
 			}
 			if (is_array($ratings_parent))
 			{
-				$ratings_parent = array_values(SimplePie_Misc::array_unique($ratings_parent));
+				$ratings_parent = array_values(blocks_gapps_simplepie_misc::array_unique($ratings_parent));
 			}
 
 			// RESTRICTIONS
-			if ($restrictions = $this->get_item_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'restriction'))
+			if ($restrictions = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'restriction'))
 			{
 				foreach ($restrictions as $restriction)
 				{
@@ -4229,20 +4229,20 @@ class SimplePie_Item
 					$restriction_value = null;
 					if (isset($restriction['attribs']['']['relationship']))
 					{
-						$restriction_relationship = $this->sanitize($restriction['attribs']['']['relationship'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$restriction_relationship = $this->sanitize($restriction['attribs']['']['relationship'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					if (isset($restriction['attribs']['']['type']))
 					{
-						$restriction_type = $this->sanitize($restriction['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$restriction_type = $this->sanitize($restriction['attribs']['']['type'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					if (isset($restriction['data']))
 					{
-						$restriction_value = $this->sanitize($restriction['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$restriction_value = $this->sanitize($restriction['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					$restrictions_parent[] =& new $this->feed->restriction_class($restriction_relationship, $restriction_type, $restriction_value);
 				}
 			}
-			elseif ($restrictions = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'block'))
+			elseif ($restrictions = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'block'))
 			{
 				foreach ($restrictions as $restriction)
 				{
@@ -4256,7 +4256,7 @@ class SimplePie_Item
 					$restrictions_parent[] =& new $this->feed->restriction_class($restriction_relationship, $restriction_type, $restriction_value);
 				}
 			}
-			elseif ($restrictions = $parent->get_channel_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'restriction'))
+			elseif ($restrictions = $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'restriction'))
 			{
 				foreach ($restrictions as $restriction)
 				{
@@ -4265,20 +4265,20 @@ class SimplePie_Item
 					$restriction_value = null;
 					if (isset($restriction['attribs']['']['relationship']))
 					{
-						$restriction_relationship = $this->sanitize($restriction['attribs']['']['relationship'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$restriction_relationship = $this->sanitize($restriction['attribs']['']['relationship'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					if (isset($restriction['attribs']['']['type']))
 					{
-						$restriction_type = $this->sanitize($restriction['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$restriction_type = $this->sanitize($restriction['attribs']['']['type'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					if (isset($restriction['data']))
 					{
-						$restriction_value = $this->sanitize($restriction['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$restriction_value = $this->sanitize($restriction['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					$restrictions_parent[] =& new $this->feed->restriction_class($restriction_relationship, $restriction_type, $restriction_value);
 				}
 			}
-			elseif ($restrictions = $parent->get_channel_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'block'))
+			elseif ($restrictions = $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'block'))
 			{
 				foreach ($restrictions as $restriction)
 				{
@@ -4294,44 +4294,44 @@ class SimplePie_Item
 			}
 			if (is_array($restrictions_parent))
 			{
-				$restrictions_parent = array_values(SimplePie_Misc::array_unique($restrictions_parent));
+				$restrictions_parent = array_values(blocks_gapps_simplepie_misc::array_unique($restrictions_parent));
 			}
 
 			// THUMBNAILS
-			if ($thumbnails = $this->get_item_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'thumbnail'))
+			if ($thumbnails = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'thumbnail'))
 			{
 				foreach ($thumbnails as $thumbnail)
 				{
 					if (isset($thumbnail['attribs']['']['url']))
 					{
-						$thumbnails_parent[] = $this->sanitize($thumbnail['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_IRI);
+						$thumbnails_parent[] = $this->sanitize($thumbnail['attribs']['']['url'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI);
 					}
 				}
 			}
-			elseif ($thumbnails = $parent->get_channel_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'thumbnail'))
+			elseif ($thumbnails = $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'thumbnail'))
 			{
 				foreach ($thumbnails as $thumbnail)
 				{
 					if (isset($thumbnail['attribs']['']['url']))
 					{
-						$thumbnails_parent[] = $this->sanitize($thumbnail['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_IRI);
+						$thumbnails_parent[] = $this->sanitize($thumbnail['attribs']['']['url'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI);
 					}
 				}
 			}
 
 			// TITLES
-			if ($title_parent = $this->get_item_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'title'))
+			if ($title_parent = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'title'))
 			{
 				if (isset($title_parent[0]['data']))
 				{
-					$title_parent = $this->sanitize($title_parent[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+					$title_parent = $this->sanitize($title_parent[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 				}
 			}
-			elseif ($title_parent = $parent->get_channel_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'title'))
+			elseif ($title_parent = $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'title'))
 			{
 				if (isset($title_parent[0]['data']))
 				{
-					$title_parent = $this->sanitize($title_parent[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+					$title_parent = $this->sanitize($title_parent[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 				}
 			}
 
@@ -4369,10 +4369,10 @@ class SimplePie_Item
 			$title = null;
 
 			// If we have media:group tags, loop through them.
-			foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'group') as $group)
+			foreach ((array) $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'group') as $group)
 			{
 				// If we have media:content tags, loop through them.
-				foreach ((array) $group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['content'] as $content)
+				foreach ((array) $group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['content'] as $content)
 				{
 					if (isset($content['attribs']['']['url']))
 					{
@@ -4409,15 +4409,15 @@ class SimplePie_Item
 						// Start checking the attributes of media:content
 						if (isset($content['attribs']['']['bitrate']))
 						{
-							$bitrate = $this->sanitize($content['attribs']['']['bitrate'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$bitrate = $this->sanitize($content['attribs']['']['bitrate'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						if (isset($content['attribs']['']['channels']))
 						{
-							$channels = $this->sanitize($content['attribs']['']['channels'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$channels = $this->sanitize($content['attribs']['']['channels'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						if (isset($content['attribs']['']['duration']))
 						{
-							$duration = $this->sanitize($content['attribs']['']['duration'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$duration = $this->sanitize($content['attribs']['']['duration'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						else
 						{
@@ -4425,19 +4425,19 @@ class SimplePie_Item
 						}
 						if (isset($content['attribs']['']['expression']))
 						{
-							$expression = $this->sanitize($content['attribs']['']['expression'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$expression = $this->sanitize($content['attribs']['']['expression'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						if (isset($content['attribs']['']['framerate']))
 						{
-							$framerate = $this->sanitize($content['attribs']['']['framerate'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$framerate = $this->sanitize($content['attribs']['']['framerate'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						if (isset($content['attribs']['']['height']))
 						{
-							$height = $this->sanitize($content['attribs']['']['height'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$height = $this->sanitize($content['attribs']['']['height'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						if (isset($content['attribs']['']['lang']))
 						{
-							$lang = $this->sanitize($content['attribs']['']['lang'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$lang = $this->sanitize($content['attribs']['']['lang'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						if (isset($content['attribs']['']['fileSize']))
 						{
@@ -4445,28 +4445,28 @@ class SimplePie_Item
 						}
 						if (isset($content['attribs']['']['medium']))
 						{
-							$medium = $this->sanitize($content['attribs']['']['medium'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$medium = $this->sanitize($content['attribs']['']['medium'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						if (isset($content['attribs']['']['samplingrate']))
 						{
-							$samplingrate = $this->sanitize($content['attribs']['']['samplingrate'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$samplingrate = $this->sanitize($content['attribs']['']['samplingrate'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						if (isset($content['attribs']['']['type']))
 						{
-							$type = $this->sanitize($content['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$type = $this->sanitize($content['attribs']['']['type'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						if (isset($content['attribs']['']['width']))
 						{
-							$width = $this->sanitize($content['attribs']['']['width'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$width = $this->sanitize($content['attribs']['']['width'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
-						$url = $this->sanitize($content['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_IRI);
+						$url = $this->sanitize($content['attribs']['']['url'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI);
 
 						// Checking the other optional media: elements. Priority: media:content, media:group, item, channel
 
 						// CAPTIONS
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['text']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['text']))
 						{
-							foreach ($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['text'] as $caption)
+							foreach ($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['text'] as $caption)
 							{
 								$caption_type = null;
 								$caption_lang = null;
@@ -4475,34 +4475,34 @@ class SimplePie_Item
 								$caption_text = null;
 								if (isset($caption['attribs']['']['type']))
 								{
-									$caption_type = $this->sanitize($caption['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$caption_type = $this->sanitize($caption['attribs']['']['type'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($caption['attribs']['']['lang']))
 								{
-									$caption_lang = $this->sanitize($caption['attribs']['']['lang'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$caption_lang = $this->sanitize($caption['attribs']['']['lang'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($caption['attribs']['']['start']))
 								{
-									$caption_startTime = $this->sanitize($caption['attribs']['']['start'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$caption_startTime = $this->sanitize($caption['attribs']['']['start'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($caption['attribs']['']['end']))
 								{
-									$caption_endTime = $this->sanitize($caption['attribs']['']['end'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$caption_endTime = $this->sanitize($caption['attribs']['']['end'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($caption['data']))
 								{
-									$caption_text = $this->sanitize($caption['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$caption_text = $this->sanitize($caption['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								$captions[] =& new $this->feed->caption_class($caption_type, $caption_lang, $caption_startTime, $caption_endTime, $caption_text);
 							}
 							if (is_array($captions))
 							{
-								$captions = array_values(SimplePie_Misc::array_unique($captions));
+								$captions = array_values(blocks_gapps_simplepie_misc::array_unique($captions));
 							}
 						}
-						elseif (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['text']))
+						elseif (isset($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['text']))
 						{
-							foreach ($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['text'] as $caption)
+							foreach ($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['text'] as $caption)
 							{
 								$caption_type = null;
 								$caption_lang = null;
@@ -4511,29 +4511,29 @@ class SimplePie_Item
 								$caption_text = null;
 								if (isset($caption['attribs']['']['type']))
 								{
-									$caption_type = $this->sanitize($caption['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$caption_type = $this->sanitize($caption['attribs']['']['type'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($caption['attribs']['']['lang']))
 								{
-									$caption_lang = $this->sanitize($caption['attribs']['']['lang'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$caption_lang = $this->sanitize($caption['attribs']['']['lang'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($caption['attribs']['']['start']))
 								{
-									$caption_startTime = $this->sanitize($caption['attribs']['']['start'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$caption_startTime = $this->sanitize($caption['attribs']['']['start'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($caption['attribs']['']['end']))
 								{
-									$caption_endTime = $this->sanitize($caption['attribs']['']['end'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$caption_endTime = $this->sanitize($caption['attribs']['']['end'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($caption['data']))
 								{
-									$caption_text = $this->sanitize($caption['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$caption_text = $this->sanitize($caption['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								$captions[] =& new $this->feed->caption_class($caption_type, $caption_lang, $caption_startTime, $caption_endTime, $caption_text);
 							}
 							if (is_array($captions))
 							{
-								$captions = array_values(SimplePie_Misc::array_unique($captions));
+								$captions = array_values(blocks_gapps_simplepie_misc::array_unique($captions));
 							}
 						}
 						else
@@ -4542,20 +4542,20 @@ class SimplePie_Item
 						}
 
 						// CATEGORIES
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['category']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['category']))
 						{
-							foreach ((array) $content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['category'] as $category)
+							foreach ((array) $content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['category'] as $category)
 							{
 								$term = null;
 								$scheme = null;
 								$label = null;
 								if (isset($category['data']))
 								{
-									$term = $this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$term = $this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($category['attribs']['']['scheme']))
 								{
-									$scheme = $this->sanitize($category['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$scheme = $this->sanitize($category['attribs']['']['scheme'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								else
 								{
@@ -4563,25 +4563,25 @@ class SimplePie_Item
 								}
 								if (isset($category['attribs']['']['label']))
 								{
-									$label = $this->sanitize($category['attribs']['']['label'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$label = $this->sanitize($category['attribs']['']['label'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								$categories[] =& new $this->feed->category_class($term, $scheme, $label);
 							}
 						}
-						if (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['category']))
+						if (isset($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['category']))
 						{
-							foreach ((array) $group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['category'] as $category)
+							foreach ((array) $group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['category'] as $category)
 							{
 								$term = null;
 								$scheme = null;
 								$label = null;
 								if (isset($category['data']))
 								{
-									$term = $this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$term = $this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($category['attribs']['']['scheme']))
 								{
-									$scheme = $this->sanitize($category['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$scheme = $this->sanitize($category['attribs']['']['scheme'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								else
 								{
@@ -4589,50 +4589,50 @@ class SimplePie_Item
 								}
 								if (isset($category['attribs']['']['label']))
 								{
-									$label = $this->sanitize($category['attribs']['']['label'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$label = $this->sanitize($category['attribs']['']['label'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								$categories[] =& new $this->feed->category_class($term, $scheme, $label);
 							}
 						}
 						if (is_array($categories) && is_array($categories_parent))
 						{
-							$categories = array_values(SimplePie_Misc::array_unique(array_merge($categories, $categories_parent)));
+							$categories = array_values(blocks_gapps_simplepie_misc::array_unique(array_merge($categories, $categories_parent)));
 						}
 						elseif (is_array($categories))
 						{
-							$categories = array_values(SimplePie_Misc::array_unique($categories));
+							$categories = array_values(blocks_gapps_simplepie_misc::array_unique($categories));
 						}
 						elseif (is_array($categories_parent))
 						{
-							$categories = array_values(SimplePie_Misc::array_unique($categories_parent));
+							$categories = array_values(blocks_gapps_simplepie_misc::array_unique($categories_parent));
 						}
 
 						// COPYRIGHTS
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright']))
 						{
 							$copyright_url = null;
 							$copyright_label = null;
-							if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['attribs']['']['url']))
+							if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['attribs']['']['url']))
 							{
-								$copyright_url = $this->sanitize($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_TEXT);
+								$copyright_url = $this->sanitize($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['attribs']['']['url'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 							}
-							if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['data']))
+							if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['data']))
 							{
-								$copyright_label = $this->sanitize($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+								$copyright_label = $this->sanitize($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 							}
 							$copyrights =& new $this->feed->copyright_class($copyright_url, $copyright_label);
 						}
-						elseif (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright']))
+						elseif (isset($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright']))
 						{
 							$copyright_url = null;
 							$copyright_label = null;
-							if (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['attribs']['']['url']))
+							if (isset($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['attribs']['']['url']))
 							{
-								$copyright_url = $this->sanitize($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_TEXT);
+								$copyright_url = $this->sanitize($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['attribs']['']['url'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 							}
-							if (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['data']))
+							if (isset($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['data']))
 							{
-								$copyright_label = $this->sanitize($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+								$copyright_label = $this->sanitize($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 							}
 							$copyrights =& new $this->feed->copyright_class($copyright_url, $copyright_label);
 						}
@@ -4642,20 +4642,20 @@ class SimplePie_Item
 						}
 
 						// CREDITS
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['credit']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['credit']))
 						{
-							foreach ($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['credit'] as $credit)
+							foreach ($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['credit'] as $credit)
 							{
 								$credit_role = null;
 								$credit_scheme = null;
 								$credit_name = null;
 								if (isset($credit['attribs']['']['role']))
 								{
-									$credit_role = $this->sanitize($credit['attribs']['']['role'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$credit_role = $this->sanitize($credit['attribs']['']['role'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($credit['attribs']['']['scheme']))
 								{
-									$credit_scheme = $this->sanitize($credit['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$credit_scheme = $this->sanitize($credit['attribs']['']['scheme'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								else
 								{
@@ -4663,29 +4663,29 @@ class SimplePie_Item
 								}
 								if (isset($credit['data']))
 								{
-									$credit_name = $this->sanitize($credit['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$credit_name = $this->sanitize($credit['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								$credits[] =& new $this->feed->credit_class($credit_role, $credit_scheme, $credit_name);
 							}
 							if (is_array($credits))
 							{
-								$credits = array_values(SimplePie_Misc::array_unique($credits));
+								$credits = array_values(blocks_gapps_simplepie_misc::array_unique($credits));
 							}
 						}
-						elseif (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['credit']))
+						elseif (isset($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['credit']))
 						{
-							foreach ($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['credit'] as $credit)
+							foreach ($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['credit'] as $credit)
 							{
 								$credit_role = null;
 								$credit_scheme = null;
 								$credit_name = null;
 								if (isset($credit['attribs']['']['role']))
 								{
-									$credit_role = $this->sanitize($credit['attribs']['']['role'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$credit_role = $this->sanitize($credit['attribs']['']['role'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($credit['attribs']['']['scheme']))
 								{
-									$credit_scheme = $this->sanitize($credit['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$credit_scheme = $this->sanitize($credit['attribs']['']['scheme'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								else
 								{
@@ -4693,13 +4693,13 @@ class SimplePie_Item
 								}
 								if (isset($credit['data']))
 								{
-									$credit_name = $this->sanitize($credit['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$credit_name = $this->sanitize($credit['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								$credits[] =& new $this->feed->credit_class($credit_role, $credit_scheme, $credit_name);
 							}
 							if (is_array($credits))
 							{
-								$credits = array_values(SimplePie_Misc::array_unique($credits));
+								$credits = array_values(blocks_gapps_simplepie_misc::array_unique($credits));
 							}
 						}
 						else
@@ -4708,13 +4708,13 @@ class SimplePie_Item
 						}
 
 						// DESCRIPTION
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['description']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['description']))
 						{
-							$description = $this->sanitize($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['description'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$description = $this->sanitize($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['description'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
-						elseif (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['description']))
+						elseif (isset($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['description']))
 						{
-							$description = $this->sanitize($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['description'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$description = $this->sanitize($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['description'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						else
 						{
@@ -4722,19 +4722,19 @@ class SimplePie_Item
 						}
 
 						// HASHES
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['hash']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['hash']))
 						{
-							foreach ($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['hash'] as $hash)
+							foreach ($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['hash'] as $hash)
 							{
 								$value = null;
 								$algo = null;
 								if (isset($hash['data']))
 								{
-									$value = $this->sanitize($hash['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$value = $this->sanitize($hash['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($hash['attribs']['']['algo']))
 								{
-									$algo = $this->sanitize($hash['attribs']['']['algo'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$algo = $this->sanitize($hash['attribs']['']['algo'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								else
 								{
@@ -4744,22 +4744,22 @@ class SimplePie_Item
 							}
 							if (is_array($hashes))
 							{
-								$hashes = array_values(SimplePie_Misc::array_unique($hashes));
+								$hashes = array_values(blocks_gapps_simplepie_misc::array_unique($hashes));
 							}
 						}
-						elseif (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['hash']))
+						elseif (isset($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['hash']))
 						{
-							foreach ($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['hash'] as $hash)
+							foreach ($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['hash'] as $hash)
 							{
 								$value = null;
 								$algo = null;
 								if (isset($hash['data']))
 								{
-									$value = $this->sanitize($hash['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$value = $this->sanitize($hash['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($hash['attribs']['']['algo']))
 								{
-									$algo = $this->sanitize($hash['attribs']['']['algo'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$algo = $this->sanitize($hash['attribs']['']['algo'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								else
 								{
@@ -4769,7 +4769,7 @@ class SimplePie_Item
 							}
 							if (is_array($hashes))
 							{
-								$hashes = array_values(SimplePie_Misc::array_unique($hashes));
+								$hashes = array_values(blocks_gapps_simplepie_misc::array_unique($hashes));
 							}
 						}
 						else
@@ -4778,11 +4778,11 @@ class SimplePie_Item
 						}
 
 						// KEYWORDS
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['keywords']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['keywords']))
 						{
-							if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['keywords'][0]['data']))
+							if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['keywords'][0]['data']))
 							{
-								$temp = explode(',', $this->sanitize($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['keywords'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT));
+								$temp = explode(',', $this->sanitize($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['keywords'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT));
 								foreach ($temp as $word)
 								{
 									$keywords[] = trim($word);
@@ -4791,14 +4791,14 @@ class SimplePie_Item
 							}
 							if (is_array($keywords))
 							{
-								$keywords = array_values(SimplePie_Misc::array_unique($keywords));
+								$keywords = array_values(blocks_gapps_simplepie_misc::array_unique($keywords));
 							}
 						}
-						elseif (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['keywords']))
+						elseif (isset($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['keywords']))
 						{
-							if (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['keywords'][0]['data']))
+							if (isset($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['keywords'][0]['data']))
 							{
-								$temp = explode(',', $this->sanitize($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['keywords'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT));
+								$temp = explode(',', $this->sanitize($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['keywords'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT));
 								foreach ($temp as $word)
 								{
 									$keywords[] = trim($word);
@@ -4807,7 +4807,7 @@ class SimplePie_Item
 							}
 							if (is_array($keywords))
 							{
-								$keywords = array_values(SimplePie_Misc::array_unique($keywords));
+								$keywords = array_values(blocks_gapps_simplepie_misc::array_unique($keywords));
 							}
 						}
 						else
@@ -4816,13 +4816,13 @@ class SimplePie_Item
 						}
 
 						// PLAYER
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['player']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['player']))
 						{
-							$player = $this->sanitize($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['player'][0]['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_IRI);
+							$player = $this->sanitize($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['player'][0]['attribs']['']['url'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI);
 						}
-						elseif (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['player']))
+						elseif (isset($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['player']))
 						{
-							$player = $this->sanitize($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['player'][0]['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_IRI);
+							$player = $this->sanitize($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['player'][0]['attribs']['']['url'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI);
 						}
 						else
 						{
@@ -4830,15 +4830,15 @@ class SimplePie_Item
 						}
 
 						// RATINGS
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['rating']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['rating']))
 						{
-							foreach ($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['rating'] as $rating)
+							foreach ($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['rating'] as $rating)
 							{
 								$rating_scheme = null;
 								$rating_value = null;
 								if (isset($rating['attribs']['']['scheme']))
 								{
-									$rating_scheme = $this->sanitize($rating['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$rating_scheme = $this->sanitize($rating['attribs']['']['scheme'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								else
 								{
@@ -4846,24 +4846,24 @@ class SimplePie_Item
 								}
 								if (isset($rating['data']))
 								{
-									$rating_value = $this->sanitize($rating['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$rating_value = $this->sanitize($rating['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								$ratings[] =& new $this->feed->rating_class($rating_scheme, $rating_value);
 							}
 							if (is_array($ratings))
 							{
-								$ratings = array_values(SimplePie_Misc::array_unique($ratings));
+								$ratings = array_values(blocks_gapps_simplepie_misc::array_unique($ratings));
 							}
 						}
-						elseif (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['rating']))
+						elseif (isset($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['rating']))
 						{
-							foreach ($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['rating'] as $rating)
+							foreach ($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['rating'] as $rating)
 							{
 								$rating_scheme = null;
 								$rating_value = null;
 								if (isset($rating['attribs']['']['scheme']))
 								{
-									$rating_scheme = $this->sanitize($rating['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$rating_scheme = $this->sanitize($rating['attribs']['']['scheme'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								else
 								{
@@ -4871,13 +4871,13 @@ class SimplePie_Item
 								}
 								if (isset($rating['data']))
 								{
-									$rating_value = $this->sanitize($rating['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$rating_value = $this->sanitize($rating['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								$ratings[] =& new $this->feed->rating_class($rating_scheme, $rating_value);
 							}
 							if (is_array($ratings))
 							{
-								$ratings = array_values(SimplePie_Misc::array_unique($ratings));
+								$ratings = array_values(blocks_gapps_simplepie_misc::array_unique($ratings));
 							}
 						}
 						else
@@ -4886,56 +4886,56 @@ class SimplePie_Item
 						}
 
 						// RESTRICTIONS
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['restriction']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['restriction']))
 						{
-							foreach ($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['restriction'] as $restriction)
+							foreach ($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['restriction'] as $restriction)
 							{
 								$restriction_relationship = null;
 								$restriction_type = null;
 								$restriction_value = null;
 								if (isset($restriction['attribs']['']['relationship']))
 								{
-									$restriction_relationship = $this->sanitize($restriction['attribs']['']['relationship'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$restriction_relationship = $this->sanitize($restriction['attribs']['']['relationship'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($restriction['attribs']['']['type']))
 								{
-									$restriction_type = $this->sanitize($restriction['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$restriction_type = $this->sanitize($restriction['attribs']['']['type'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($restriction['data']))
 								{
-									$restriction_value = $this->sanitize($restriction['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$restriction_value = $this->sanitize($restriction['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								$restrictions[] =& new $this->feed->restriction_class($restriction_relationship, $restriction_type, $restriction_value);
 							}
 							if (is_array($restrictions))
 							{
-								$restrictions = array_values(SimplePie_Misc::array_unique($restrictions));
+								$restrictions = array_values(blocks_gapps_simplepie_misc::array_unique($restrictions));
 							}
 						}
-						elseif (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['restriction']))
+						elseif (isset($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['restriction']))
 						{
-							foreach ($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['restriction'] as $restriction)
+							foreach ($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['restriction'] as $restriction)
 							{
 								$restriction_relationship = null;
 								$restriction_type = null;
 								$restriction_value = null;
 								if (isset($restriction['attribs']['']['relationship']))
 								{
-									$restriction_relationship = $this->sanitize($restriction['attribs']['']['relationship'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$restriction_relationship = $this->sanitize($restriction['attribs']['']['relationship'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($restriction['attribs']['']['type']))
 								{
-									$restriction_type = $this->sanitize($restriction['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$restriction_type = $this->sanitize($restriction['attribs']['']['type'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($restriction['data']))
 								{
-									$restriction_value = $this->sanitize($restriction['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$restriction_value = $this->sanitize($restriction['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								$restrictions[] =& new $this->feed->restriction_class($restriction_relationship, $restriction_type, $restriction_value);
 							}
 							if (is_array($restrictions))
 							{
-								$restrictions = array_values(SimplePie_Misc::array_unique($restrictions));
+								$restrictions = array_values(blocks_gapps_simplepie_misc::array_unique($restrictions));
 							}
 						}
 						else
@@ -4944,26 +4944,26 @@ class SimplePie_Item
 						}
 
 						// THUMBNAILS
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['thumbnail']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['thumbnail']))
 						{
-							foreach ($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['thumbnail'] as $thumbnail)
+							foreach ($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['thumbnail'] as $thumbnail)
 							{
-								$thumbnails[] = $this->sanitize($thumbnail['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_IRI);
+								$thumbnails[] = $this->sanitize($thumbnail['attribs']['']['url'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI);
 							}
 							if (is_array($thumbnails))
 							{
-								$thumbnails = array_values(SimplePie_Misc::array_unique($thumbnails));
+								$thumbnails = array_values(blocks_gapps_simplepie_misc::array_unique($thumbnails));
 							}
 						}
-						elseif (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['thumbnail']))
+						elseif (isset($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['thumbnail']))
 						{
-							foreach ($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['thumbnail'] as $thumbnail)
+							foreach ($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['thumbnail'] as $thumbnail)
 							{
-								$thumbnails[] = $this->sanitize($thumbnail['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_IRI);
+								$thumbnails[] = $this->sanitize($thumbnail['attribs']['']['url'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI);
 							}
 							if (is_array($thumbnails))
 							{
-								$thumbnails = array_values(SimplePie_Misc::array_unique($thumbnails));
+								$thumbnails = array_values(blocks_gapps_simplepie_misc::array_unique($thumbnails));
 							}
 						}
 						else
@@ -4972,13 +4972,13 @@ class SimplePie_Item
 						}
 
 						// TITLES
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['title']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['title']))
 						{
-							$title = $this->sanitize($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['title'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$title = $this->sanitize($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['title'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
-						elseif (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['title']))
+						elseif (isset($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['title']))
 						{
-							$title = $this->sanitize($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['title'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$title = $this->sanitize($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['title'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						else
 						{
@@ -4991,9 +4991,9 @@ class SimplePie_Item
 			}
 
 			// If we have standalone media:content tags, loop through them.
-			if (isset($this->data['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['content']))
+			if (isset($this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['content']))
 			{
-				foreach ((array) $this->data['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['content'] as $content)
+				foreach ((array) $this->data['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['content'] as $content)
 				{
 					if (isset($content['attribs']['']['url']))
 					{
@@ -5030,15 +5030,15 @@ class SimplePie_Item
 						// Start checking the attributes of media:content
 						if (isset($content['attribs']['']['bitrate']))
 						{
-							$bitrate = $this->sanitize($content['attribs']['']['bitrate'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$bitrate = $this->sanitize($content['attribs']['']['bitrate'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						if (isset($content['attribs']['']['channels']))
 						{
-							$channels = $this->sanitize($content['attribs']['']['channels'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$channels = $this->sanitize($content['attribs']['']['channels'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						if (isset($content['attribs']['']['duration']))
 						{
-							$duration = $this->sanitize($content['attribs']['']['duration'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$duration = $this->sanitize($content['attribs']['']['duration'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						else
 						{
@@ -5046,19 +5046,19 @@ class SimplePie_Item
 						}
 						if (isset($content['attribs']['']['expression']))
 						{
-							$expression = $this->sanitize($content['attribs']['']['expression'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$expression = $this->sanitize($content['attribs']['']['expression'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						if (isset($content['attribs']['']['framerate']))
 						{
-							$framerate = $this->sanitize($content['attribs']['']['framerate'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$framerate = $this->sanitize($content['attribs']['']['framerate'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						if (isset($content['attribs']['']['height']))
 						{
-							$height = $this->sanitize($content['attribs']['']['height'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$height = $this->sanitize($content['attribs']['']['height'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						if (isset($content['attribs']['']['lang']))
 						{
-							$lang = $this->sanitize($content['attribs']['']['lang'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$lang = $this->sanitize($content['attribs']['']['lang'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						if (isset($content['attribs']['']['fileSize']))
 						{
@@ -5066,28 +5066,28 @@ class SimplePie_Item
 						}
 						if (isset($content['attribs']['']['medium']))
 						{
-							$medium = $this->sanitize($content['attribs']['']['medium'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$medium = $this->sanitize($content['attribs']['']['medium'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						if (isset($content['attribs']['']['samplingrate']))
 						{
-							$samplingrate = $this->sanitize($content['attribs']['']['samplingrate'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$samplingrate = $this->sanitize($content['attribs']['']['samplingrate'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						if (isset($content['attribs']['']['type']))
 						{
-							$type = $this->sanitize($content['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$type = $this->sanitize($content['attribs']['']['type'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						if (isset($content['attribs']['']['width']))
 						{
-							$width = $this->sanitize($content['attribs']['']['width'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$width = $this->sanitize($content['attribs']['']['width'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
-						$url = $this->sanitize($content['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_IRI);
+						$url = $this->sanitize($content['attribs']['']['url'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI);
 
 						// Checking the other optional media: elements. Priority: media:content, media:group, item, channel
 
 						// CAPTIONS
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['text']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['text']))
 						{
-							foreach ($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['text'] as $caption)
+							foreach ($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['text'] as $caption)
 							{
 								$caption_type = null;
 								$caption_lang = null;
@@ -5096,29 +5096,29 @@ class SimplePie_Item
 								$caption_text = null;
 								if (isset($caption['attribs']['']['type']))
 								{
-									$caption_type = $this->sanitize($caption['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$caption_type = $this->sanitize($caption['attribs']['']['type'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($caption['attribs']['']['lang']))
 								{
-									$caption_lang = $this->sanitize($caption['attribs']['']['lang'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$caption_lang = $this->sanitize($caption['attribs']['']['lang'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($caption['attribs']['']['start']))
 								{
-									$caption_startTime = $this->sanitize($caption['attribs']['']['start'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$caption_startTime = $this->sanitize($caption['attribs']['']['start'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($caption['attribs']['']['end']))
 								{
-									$caption_endTime = $this->sanitize($caption['attribs']['']['end'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$caption_endTime = $this->sanitize($caption['attribs']['']['end'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($caption['data']))
 								{
-									$caption_text = $this->sanitize($caption['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$caption_text = $this->sanitize($caption['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								$captions[] =& new $this->feed->caption_class($caption_type, $caption_lang, $caption_startTime, $caption_endTime, $caption_text);
 							}
 							if (is_array($captions))
 							{
-								$captions = array_values(SimplePie_Misc::array_unique($captions));
+								$captions = array_values(blocks_gapps_simplepie_misc::array_unique($captions));
 							}
 						}
 						else
@@ -5127,20 +5127,20 @@ class SimplePie_Item
 						}
 
 						// CATEGORIES
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['category']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['category']))
 						{
-							foreach ((array) $content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['category'] as $category)
+							foreach ((array) $content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['category'] as $category)
 							{
 								$term = null;
 								$scheme = null;
 								$label = null;
 								if (isset($category['data']))
 								{
-									$term = $this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$term = $this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($category['attribs']['']['scheme']))
 								{
-									$scheme = $this->sanitize($category['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$scheme = $this->sanitize($category['attribs']['']['scheme'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								else
 								{
@@ -5148,22 +5148,22 @@ class SimplePie_Item
 								}
 								if (isset($category['attribs']['']['label']))
 								{
-									$label = $this->sanitize($category['attribs']['']['label'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$label = $this->sanitize($category['attribs']['']['label'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								$categories[] =& new $this->feed->category_class($term, $scheme, $label);
 							}
 						}
 						if (is_array($categories) && is_array($categories_parent))
 						{
-							$categories = array_values(SimplePie_Misc::array_unique(array_merge($categories, $categories_parent)));
+							$categories = array_values(blocks_gapps_simplepie_misc::array_unique(array_merge($categories, $categories_parent)));
 						}
 						elseif (is_array($categories))
 						{
-							$categories = array_values(SimplePie_Misc::array_unique($categories));
+							$categories = array_values(blocks_gapps_simplepie_misc::array_unique($categories));
 						}
 						elseif (is_array($categories_parent))
 						{
-							$categories = array_values(SimplePie_Misc::array_unique($categories_parent));
+							$categories = array_values(blocks_gapps_simplepie_misc::array_unique($categories_parent));
 						}
 						else
 						{
@@ -5171,17 +5171,17 @@ class SimplePie_Item
 						}
 
 						// COPYRIGHTS
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright']))
 						{
 							$copyright_url = null;
 							$copyright_label = null;
-							if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['attribs']['']['url']))
+							if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['attribs']['']['url']))
 							{
-								$copyright_url = $this->sanitize($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_TEXT);
+								$copyright_url = $this->sanitize($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['attribs']['']['url'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 							}
-							if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['data']))
+							if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['data']))
 							{
-								$copyright_label = $this->sanitize($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+								$copyright_label = $this->sanitize($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 							}
 							$copyrights =& new $this->feed->copyright_class($copyright_url, $copyright_label);
 						}
@@ -5191,20 +5191,20 @@ class SimplePie_Item
 						}
 
 						// CREDITS
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['credit']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['credit']))
 						{
-							foreach ($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['credit'] as $credit)
+							foreach ($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['credit'] as $credit)
 							{
 								$credit_role = null;
 								$credit_scheme = null;
 								$credit_name = null;
 								if (isset($credit['attribs']['']['role']))
 								{
-									$credit_role = $this->sanitize($credit['attribs']['']['role'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$credit_role = $this->sanitize($credit['attribs']['']['role'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($credit['attribs']['']['scheme']))
 								{
-									$credit_scheme = $this->sanitize($credit['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$credit_scheme = $this->sanitize($credit['attribs']['']['scheme'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								else
 								{
@@ -5212,13 +5212,13 @@ class SimplePie_Item
 								}
 								if (isset($credit['data']))
 								{
-									$credit_name = $this->sanitize($credit['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$credit_name = $this->sanitize($credit['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								$credits[] =& new $this->feed->credit_class($credit_role, $credit_scheme, $credit_name);
 							}
 							if (is_array($credits))
 							{
-								$credits = array_values(SimplePie_Misc::array_unique($credits));
+								$credits = array_values(blocks_gapps_simplepie_misc::array_unique($credits));
 							}
 						}
 						else
@@ -5227,9 +5227,9 @@ class SimplePie_Item
 						}
 
 						// DESCRIPTION
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['description']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['description']))
 						{
-							$description = $this->sanitize($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['description'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$description = $this->sanitize($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['description'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						else
 						{
@@ -5237,19 +5237,19 @@ class SimplePie_Item
 						}
 
 						// HASHES
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['hash']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['hash']))
 						{
-							foreach ($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['hash'] as $hash)
+							foreach ($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['hash'] as $hash)
 							{
 								$value = null;
 								$algo = null;
 								if (isset($hash['data']))
 								{
-									$value = $this->sanitize($hash['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$value = $this->sanitize($hash['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($hash['attribs']['']['algo']))
 								{
-									$algo = $this->sanitize($hash['attribs']['']['algo'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$algo = $this->sanitize($hash['attribs']['']['algo'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								else
 								{
@@ -5259,7 +5259,7 @@ class SimplePie_Item
 							}
 							if (is_array($hashes))
 							{
-								$hashes = array_values(SimplePie_Misc::array_unique($hashes));
+								$hashes = array_values(blocks_gapps_simplepie_misc::array_unique($hashes));
 							}
 						}
 						else
@@ -5268,11 +5268,11 @@ class SimplePie_Item
 						}
 
 						// KEYWORDS
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['keywords']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['keywords']))
 						{
-							if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['keywords'][0]['data']))
+							if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['keywords'][0]['data']))
 							{
-								$temp = explode(',', $this->sanitize($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['keywords'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT));
+								$temp = explode(',', $this->sanitize($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['keywords'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT));
 								foreach ($temp as $word)
 								{
 									$keywords[] = trim($word);
@@ -5281,7 +5281,7 @@ class SimplePie_Item
 							}
 							if (is_array($keywords))
 							{
-								$keywords = array_values(SimplePie_Misc::array_unique($keywords));
+								$keywords = array_values(blocks_gapps_simplepie_misc::array_unique($keywords));
 							}
 						}
 						else
@@ -5290,9 +5290,9 @@ class SimplePie_Item
 						}
 
 						// PLAYER
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['player']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['player']))
 						{
-							$player = $this->sanitize($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['player'][0]['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_IRI);
+							$player = $this->sanitize($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['player'][0]['attribs']['']['url'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI);
 						}
 						else
 						{
@@ -5300,15 +5300,15 @@ class SimplePie_Item
 						}
 
 						// RATINGS
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['rating']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['rating']))
 						{
-							foreach ($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['rating'] as $rating)
+							foreach ($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['rating'] as $rating)
 							{
 								$rating_scheme = null;
 								$rating_value = null;
 								if (isset($rating['attribs']['']['scheme']))
 								{
-									$rating_scheme = $this->sanitize($rating['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$rating_scheme = $this->sanitize($rating['attribs']['']['scheme'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								else
 								{
@@ -5316,13 +5316,13 @@ class SimplePie_Item
 								}
 								if (isset($rating['data']))
 								{
-									$rating_value = $this->sanitize($rating['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$rating_value = $this->sanitize($rating['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								$ratings[] =& new $this->feed->rating_class($rating_scheme, $rating_value);
 							}
 							if (is_array($ratings))
 							{
-								$ratings = array_values(SimplePie_Misc::array_unique($ratings));
+								$ratings = array_values(blocks_gapps_simplepie_misc::array_unique($ratings));
 							}
 						}
 						else
@@ -5331,30 +5331,30 @@ class SimplePie_Item
 						}
 
 						// RESTRICTIONS
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['restriction']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['restriction']))
 						{
-							foreach ($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['restriction'] as $restriction)
+							foreach ($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['restriction'] as $restriction)
 							{
 								$restriction_relationship = null;
 								$restriction_type = null;
 								$restriction_value = null;
 								if (isset($restriction['attribs']['']['relationship']))
 								{
-									$restriction_relationship = $this->sanitize($restriction['attribs']['']['relationship'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$restriction_relationship = $this->sanitize($restriction['attribs']['']['relationship'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($restriction['attribs']['']['type']))
 								{
-									$restriction_type = $this->sanitize($restriction['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$restriction_type = $this->sanitize($restriction['attribs']['']['type'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								if (isset($restriction['data']))
 								{
-									$restriction_value = $this->sanitize($restriction['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+									$restriction_value = $this->sanitize($restriction['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
 								$restrictions[] =& new $this->feed->restriction_class($restriction_relationship, $restriction_type, $restriction_value);
 							}
 							if (is_array($restrictions))
 							{
-								$restrictions = array_values(SimplePie_Misc::array_unique($restrictions));
+								$restrictions = array_values(blocks_gapps_simplepie_misc::array_unique($restrictions));
 							}
 						}
 						else
@@ -5363,15 +5363,15 @@ class SimplePie_Item
 						}
 
 						// THUMBNAILS
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['thumbnail']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['thumbnail']))
 						{
-							foreach ($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['thumbnail'] as $thumbnail)
+							foreach ($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['thumbnail'] as $thumbnail)
 							{
-								$thumbnails[] = $this->sanitize($thumbnail['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_IRI);
+								$thumbnails[] = $this->sanitize($thumbnail['attribs']['']['url'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI);
 							}
 							if (is_array($thumbnails))
 							{
-								$thumbnails = array_values(SimplePie_Misc::array_unique($thumbnails));
+								$thumbnails = array_values(blocks_gapps_simplepie_misc::array_unique($thumbnails));
 							}
 						}
 						else
@@ -5380,9 +5380,9 @@ class SimplePie_Item
 						}
 
 						// TITLES
-						if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['title']))
+						if (isset($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['title']))
 						{
-							$title = $this->sanitize($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['title'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+							$title = $this->sanitize($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['title'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
 						else
 						{
@@ -5394,7 +5394,7 @@ class SimplePie_Item
 				}
 			}
 
-			foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'link') as $link)
+			foreach ((array) $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'link') as $link)
 			{
 				if (isset($link['attribs']['']['href']) && !empty($link['attribs']['']['rel']) && $link['attribs']['']['rel'] == 'enclosure')
 				{
@@ -5414,10 +5414,10 @@ class SimplePie_Item
 					$url = null;
 					$width = null;
 
-					$url = $this->sanitize($link['attribs']['']['href'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($link));
+					$url = $this->sanitize($link['attribs']['']['href'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($link));
 					if (isset($link['attribs']['']['type']))
 					{
-						$type = $this->sanitize($link['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$type = $this->sanitize($link['attribs']['']['type'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					if (isset($link['attribs']['']['length']))
 					{
@@ -5429,7 +5429,7 @@ class SimplePie_Item
 				}
 			}
 
-			foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'link') as $link)
+			foreach ((array) $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'link') as $link)
 			{
 				if (isset($link['attribs']['']['href']) && !empty($link['attribs']['']['rel']) && $link['attribs']['']['rel'] == 'enclosure')
 				{
@@ -5449,10 +5449,10 @@ class SimplePie_Item
 					$url = null;
 					$width = null;
 
-					$url = $this->sanitize($link['attribs']['']['href'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($link));
+					$url = $this->sanitize($link['attribs']['']['href'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($link));
 					if (isset($link['attribs']['']['type']))
 					{
-						$type = $this->sanitize($link['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$type = $this->sanitize($link['attribs']['']['type'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					if (isset($link['attribs']['']['length']))
 					{
@@ -5484,10 +5484,10 @@ class SimplePie_Item
 					$url = null;
 					$width = null;
 
-					$url = $this->sanitize($enclosure[0]['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($enclosure[0]));
+					$url = $this->sanitize($enclosure[0]['attribs']['']['url'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($enclosure[0]));
 					if (isset($enclosure[0]['attribs']['']['type']))
 					{
-						$type = $this->sanitize($enclosure[0]['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+						$type = $this->sanitize($enclosure[0]['attribs']['']['type'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
 					if (isset($enclosure[0]['attribs']['']['length']))
 					{
@@ -5505,7 +5505,7 @@ class SimplePie_Item
 				$this->data['enclosures'][] =& new $this->feed->enclosure_class($url, $type, $length, $this->feed->javascript, $bitrate, $captions_parent, $categories_parent, $channels, $copyrights_parent, $credits_parent, $description_parent, $duration_parent, $expression, $framerate, $hashes_parent, $height, $keywords_parent, $lang, $medium, $player_parent, $ratings_parent, $restrictions_parent, $samplingrate, $thumbnails_parent, $title_parent, $width);
 			}
 
-			$this->data['enclosures'] = array_values(SimplePie_Misc::array_unique($this->data['enclosures']));
+			$this->data['enclosures'] = array_values(blocks_gapps_simplepie_misc::array_unique($this->data['enclosures']));
 		}
 		if (!empty($this->data['enclosures']))
 		{
@@ -5519,11 +5519,11 @@ class SimplePie_Item
 
 	function get_latitude()
 	{
-		if ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO, 'lat'))
+		if ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO, 'lat'))
 		{
 			return (float) $return[0]['data'];
 		}
-		elseif (($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_GEORSS, 'point')) && preg_match('/^((?:-)?[0-9]+(?:\.[0-9]+)) ((?:-)?[0-9]+(?:\.[0-9]+))$/', $return[0]['data'], $match))
+		elseif (($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_GEORSS, 'point')) && preg_match('/^((?:-)?[0-9]+(?:\.[0-9]+)) ((?:-)?[0-9]+(?:\.[0-9]+))$/', $return[0]['data'], $match))
 		{
 			return (float) $match[1];
 		}
@@ -5535,15 +5535,15 @@ class SimplePie_Item
 
 	function get_longitude()
 	{
-		if ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO, 'long'))
+		if ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO, 'long'))
 		{
 			return (float) $return[0]['data'];
 		}
-		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO, 'lon'))
+		elseif ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO, 'lon'))
 		{
 			return (float) $return[0]['data'];
 		}
-		elseif (($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_GEORSS, 'point')) && preg_match('/^((?:-)?[0-9]+(?:\.[0-9]+)) ((?:-)?[0-9]+(?:\.[0-9]+))$/', $return[0]['data'], $match))
+		elseif (($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_GEORSS, 'point')) && preg_match('/^((?:-)?[0-9]+(?:\.[0-9]+)) ((?:-)?[0-9]+(?:\.[0-9]+))$/', $return[0]['data'], $match))
 		{
 			return (float) $match[2];
 		}
@@ -5555,7 +5555,7 @@ class SimplePie_Item
 	
 	function get_source()
 	{
-		if ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'source'))
+		if ($return = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'source'))
 		{
 			return new $this->feed->source_class($this, $return[0]);
 		}
@@ -5578,14 +5578,14 @@ class SimplePie_Item
 	{
 		if ($this->get_permalink() !== null)
 		{
-			$return = $this->sanitize($item_url, SIMPLEPIE_CONSTRUCT_IRI) . rawurlencode($this->get_permalink());
+			$return = $this->sanitize($item_url, BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI) . rawurlencode($this->get_permalink());
 			if ($title_url !== null && $this->get_title() !== null)
 			{
-				$return .= $this->sanitize($title_url, SIMPLEPIE_CONSTRUCT_IRI) . rawurlencode($this->get_title());
+				$return .= $this->sanitize($title_url, BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI) . rawurlencode($this->get_title());
 			}
 			if ($summary_url !== null && $this->get_description() !== null)
 			{
-				$return .= $this->sanitize($summary_url, SIMPLEPIE_CONSTRUCT_IRI) . rawurlencode($this->get_description());
+				$return .= $this->sanitize($summary_url, BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI) . rawurlencode($this->get_description());
 			}
 			return $return;
 		}
@@ -5666,12 +5666,12 @@ class SimplePie_Item
 	}
 }
 
-class SimplePie_Source
+class blocks_gapps_simplepie_source
 {
 	var $item;
 	var $data = array();
 
-	function SimplePie_Source($item, $data)
+	function blocks_gapps_simplepie_source($item, $data)
 	{
 		$this->item = $item;
 		$this->data = $data;
@@ -5719,33 +5719,33 @@ class SimplePie_Source
 
 	function get_title()
 	{
-		if ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'title'))
+		if ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'title'))
 		{
-			return $this->sanitize($return[0]['data'], SimplePie_Misc::atom_10_construct_type($return[0]['attribs']), $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], blocks_gapps_simplepie_misc::atom_10_construct_type($return[0]['attribs']), $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'title'))
+		elseif ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'title'))
 		{
-			return $this->sanitize($return[0]['data'], SimplePie_Misc::atom_03_construct_type($return[0]['attribs']), $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], blocks_gapps_simplepie_misc::atom_03_construct_type($return[0]['attribs']), $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_RSS_10, 'title'))
+		elseif ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_10, 'title'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_RSS_090, 'title'))
+		elseif ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_090, 'title'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
 		}
 		elseif ($return = $this->get_source_tags('', 'title'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_DC_11, 'title'))
+		elseif ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'title'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_DC_10, 'title'))
+		elseif ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'title'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
 		else
 		{
@@ -5770,41 +5770,41 @@ class SimplePie_Source
 	{
 		$categories = array();
 
-		foreach ((array) $this->get_source_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'category') as $category)
+		foreach ((array) $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'category') as $category)
 		{
 			$term = null;
 			$scheme = null;
 			$label = null;
 			if (isset($category['attribs']['']['term']))
 			{
-				$term = $this->sanitize($category['attribs']['']['term'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$term = $this->sanitize($category['attribs']['']['term'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			if (isset($category['attribs']['']['scheme']))
 			{
-				$scheme = $this->sanitize($category['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$scheme = $this->sanitize($category['attribs']['']['scheme'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			if (isset($category['attribs']['']['label']))
 			{
-				$label = $this->sanitize($category['attribs']['']['label'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$label = $this->sanitize($category['attribs']['']['label'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			$categories[] =& new $this->item->feed->category_class($term, $scheme, $label);
 		}
 		foreach ((array) $this->get_source_tags('', 'category') as $category)
 		{
-			$categories[] =& new $this->item->feed->category_class($this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$categories[] =& new $this->item->feed->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
-		foreach ((array) $this->get_source_tags(SIMPLEPIE_NAMESPACE_DC_11, 'subject') as $category)
+		foreach ((array) $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'subject') as $category)
 		{
-			$categories[] =& new $this->item->feed->category_class($this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$categories[] =& new $this->item->feed->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
-		foreach ((array) $this->get_source_tags(SIMPLEPIE_NAMESPACE_DC_10, 'subject') as $category)
+		foreach ((array) $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'subject') as $category)
 		{
-			$categories[] =& new $this->item->feed->category_class($this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$categories[] =& new $this->item->feed->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 
 		if (!empty($categories))
 		{
-			return SimplePie_Misc::array_unique($categories);
+			return blocks_gapps_simplepie_misc::array_unique($categories);
 		}
 		else
 		{
@@ -5828,66 +5828,66 @@ class SimplePie_Source
 	function get_authors()
 	{
 		$authors = array();
-		foreach ((array) $this->get_source_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'author') as $author)
+		foreach ((array) $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'author') as $author)
 		{
 			$name = null;
 			$uri = null;
 			$email = null;
-			if (isset($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data']))
+			if (isset($author['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data']))
 			{
-				$name = $this->sanitize($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$name = $this->sanitize($author['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
-			if (isset($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data']))
+			if (isset($author['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data']))
 			{
-				$uri = $this->sanitize($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]));
+				$uri = $this->sanitize($author['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($author['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]));
 			}
-			if (isset($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data']))
+			if (isset($author['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data']))
 			{
-				$email = $this->sanitize($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$email = $this->sanitize($author['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			if ($name !== null || $email !== null || $uri !== null)
 			{
 				$authors[] =& new $this->item->feed->author_class($name, $uri, $email);
 			}
 		}
-		if ($author = $this->get_source_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'author'))
+		if ($author = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'author'))
 		{
 			$name = null;
 			$url = null;
 			$email = null;
-			if (isset($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data']))
+			if (isset($author[0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data']))
 			{
-				$name = $this->sanitize($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$name = $this->sanitize($author[0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
-			if (isset($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data']))
+			if (isset($author[0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data']))
 			{
-				$url = $this->sanitize($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]));
+				$url = $this->sanitize($author[0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($author[0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]));
 			}
-			if (isset($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data']))
+			if (isset($author[0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data']))
 			{
-				$email = $this->sanitize($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$email = $this->sanitize($author[0]['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			if ($name !== null || $email !== null || $url !== null)
 			{
 				$authors[] =& new $this->item->feed->author_class($name, $url, $email);
 			}
 		}
-		foreach ((array) $this->get_source_tags(SIMPLEPIE_NAMESPACE_DC_11, 'creator') as $author)
+		foreach ((array) $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'creator') as $author)
 		{
-			$authors[] =& new $this->item->feed->author_class($this->sanitize($author['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$authors[] =& new $this->item->feed->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
-		foreach ((array) $this->get_source_tags(SIMPLEPIE_NAMESPACE_DC_10, 'creator') as $author)
+		foreach ((array) $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'creator') as $author)
 		{
-			$authors[] =& new $this->item->feed->author_class($this->sanitize($author['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$authors[] =& new $this->item->feed->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
-		foreach ((array) $this->get_source_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'author') as $author)
+		foreach ((array) $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'author') as $author)
 		{
-			$authors[] =& new $this->item->feed->author_class($this->sanitize($author['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$authors[] =& new $this->item->feed->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 
 		if (!empty($authors))
 		{
-			return SimplePie_Misc::array_unique($authors);
+			return blocks_gapps_simplepie_misc::array_unique($authors);
 		}
 		else
 		{
@@ -5911,44 +5911,44 @@ class SimplePie_Source
 	function get_contributors()
 	{
 		$contributors = array();
-		foreach ((array) $this->get_source_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'contributor') as $contributor)
+		foreach ((array) $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'contributor') as $contributor)
 		{
 			$name = null;
 			$uri = null;
 			$email = null;
-			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data']))
+			if (isset($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data']))
 			{
-				$name = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$name = $this->sanitize($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
-			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data']))
+			if (isset($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data']))
 			{
-				$uri = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]));
+				$uri = $this->sanitize($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]));
 			}
-			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data']))
+			if (isset($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data']))
 			{
-				$email = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$email = $this->sanitize($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			if ($name !== null || $email !== null || $uri !== null)
 			{
 				$contributors[] =& new $this->item->feed->author_class($name, $uri, $email);
 			}
 		}
-		foreach ((array) $this->get_source_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'contributor') as $contributor)
+		foreach ((array) $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'contributor') as $contributor)
 		{
 			$name = null;
 			$url = null;
 			$email = null;
-			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data']))
+			if (isset($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data']))
 			{
-				$name = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$name = $this->sanitize($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
-			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data']))
+			if (isset($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data']))
 			{
-				$url = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]));
+				$url = $this->sanitize($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]));
 			}
-			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data']))
+			if (isset($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data']))
 			{
-				$email = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$email = $this->sanitize($contributor['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			if ($name !== null || $email !== null || $url !== null)
 			{
@@ -5958,7 +5958,7 @@ class SimplePie_Source
 
 		if (!empty($contributors))
 		{
-			return SimplePie_Misc::array_unique($contributors);
+			return blocks_gapps_simplepie_misc::array_unique($contributors);
 		}
 		else
 		{
@@ -5992,58 +5992,58 @@ class SimplePie_Source
 		if (!isset($this->data['links']))
 		{
 			$this->data['links'] = array();
-			if ($links = $this->get_source_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'link'))
+			if ($links = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'link'))
 			{
 				foreach ($links as $link)
 				{
 					if (isset($link['attribs']['']['href']))
 					{
 						$link_rel = (isset($link['attribs']['']['rel'])) ? $link['attribs']['']['rel'] : 'alternate';
-						$this->data['links'][$link_rel][] = $this->sanitize($link['attribs']['']['href'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($link));
+						$this->data['links'][$link_rel][] = $this->sanitize($link['attribs']['']['href'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($link));
 					}
 				}
 			}
-			if ($links = $this->get_source_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'link'))
+			if ($links = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'link'))
 			{
 				foreach ($links as $link)
 				{
 					if (isset($link['attribs']['']['href']))
 					{
 						$link_rel = (isset($link['attribs']['']['rel'])) ? $link['attribs']['']['rel'] : 'alternate';
-						$this->data['links'][$link_rel][] = $this->sanitize($link['attribs']['']['href'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($link));
+						$this->data['links'][$link_rel][] = $this->sanitize($link['attribs']['']['href'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($link));
 
 					}
 				}
 			}
-			if ($links = $this->get_source_tags(SIMPLEPIE_NAMESPACE_RSS_10, 'link'))
+			if ($links = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_10, 'link'))
 			{
-				$this->data['links']['alternate'][] = $this->sanitize($links[0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($links[0]));
+				$this->data['links']['alternate'][] = $this->sanitize($links[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($links[0]));
 			}
-			if ($links = $this->get_source_tags(SIMPLEPIE_NAMESPACE_RSS_090, 'link'))
+			if ($links = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_090, 'link'))
 			{
-				$this->data['links']['alternate'][] = $this->sanitize($links[0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($links[0]));
+				$this->data['links']['alternate'][] = $this->sanitize($links[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($links[0]));
 			}
 			if ($links = $this->get_source_tags('', 'link'))
 			{
-				$this->data['links']['alternate'][] = $this->sanitize($links[0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($links[0]));
+				$this->data['links']['alternate'][] = $this->sanitize($links[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($links[0]));
 			}
 
 			$keys = array_keys($this->data['links']);
 			foreach ($keys as $key)
 			{
-				if (SimplePie_Misc::is_isegment_nz_nc($key))
+				if (blocks_gapps_simplepie_misc::is_isegment_nz_nc($key))
 				{
-					if (isset($this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key]))
+					if (isset($this->data['links'][BLOCKS_GAPPS_SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key]))
 					{
-						$this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key] = array_merge($this->data['links'][$key], $this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key]);
-						$this->data['links'][$key] =& $this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key];
+						$this->data['links'][BLOCKS_GAPPS_SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key] = array_merge($this->data['links'][$key], $this->data['links'][BLOCKS_GAPPS_SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key]);
+						$this->data['links'][$key] =& $this->data['links'][BLOCKS_GAPPS_SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key];
 					}
 					else
 					{
-						$this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key] =& $this->data['links'][$key];
+						$this->data['links'][BLOCKS_GAPPS_SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key] =& $this->data['links'][$key];
 					}
 				}
-				elseif (substr($key, 0, 41) == SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY)
+				elseif (substr($key, 0, 41) == BLOCKS_GAPPS_SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY)
 				{
 					$this->data['links'][substr($key, 41)] =& $this->data['links'][$key];
 				}
@@ -6063,41 +6063,41 @@ class SimplePie_Source
 
 	function get_description()
 	{
-		if ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'subtitle'))
+		if ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'subtitle'))
 		{
-			return $this->sanitize($return[0]['data'], SimplePie_Misc::atom_10_construct_type($return[0]['attribs']), $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], blocks_gapps_simplepie_misc::atom_10_construct_type($return[0]['attribs']), $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'tagline'))
+		elseif ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'tagline'))
 		{
-			return $this->sanitize($return[0]['data'], SimplePie_Misc::atom_03_construct_type($return[0]['attribs']), $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], blocks_gapps_simplepie_misc::atom_03_construct_type($return[0]['attribs']), $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_RSS_10, 'description'))
+		elseif ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_10, 'description'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_RSS_090, 'description'))
+		elseif ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_090, 'description'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
 		}
 		elseif ($return = $this->get_source_tags('', 'description'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_DC_11, 'description'))
+		elseif ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'description'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_DC_10, 'description'))
+		elseif ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'description'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'summary'))
+		elseif ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'summary'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_HTML, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_HTML, $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'subtitle'))
+		elseif ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'subtitle'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_HTML, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_HTML, $this->get_base($return[0]));
 		}
 		else
 		{
@@ -6107,25 +6107,25 @@ class SimplePie_Source
 
 	function get_copyright()
 	{
-		if ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'rights'))
+		if ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'rights'))
 		{
-			return $this->sanitize($return[0]['data'], SimplePie_Misc::atom_10_construct_type($return[0]['attribs']), $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], blocks_gapps_simplepie_misc::atom_10_construct_type($return[0]['attribs']), $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'copyright'))
+		elseif ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'copyright'))
 		{
-			return $this->sanitize($return[0]['data'], SimplePie_Misc::atom_03_construct_type($return[0]['attribs']), $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], blocks_gapps_simplepie_misc::atom_03_construct_type($return[0]['attribs']), $this->get_base($return[0]));
 		}
 		elseif ($return = $this->get_source_tags('', 'copyright'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_DC_11, 'rights'))
+		elseif ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'rights'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_DC_10, 'rights'))
+		elseif ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'rights'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
 		else
 		{
@@ -6137,19 +6137,19 @@ class SimplePie_Source
 	{
 		if ($return = $this->get_source_tags('', 'language'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_DC_11, 'language'))
+		elseif ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'language'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_DC_10, 'language'))
+		elseif ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'language'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
 		elseif (isset($this->data['xml_lang']))
 		{
-			return $this->sanitize($this->data['xml_lang'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($this->data['xml_lang'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 		}
 		else
 		{
@@ -6159,11 +6159,11 @@ class SimplePie_Source
 
 	function get_latitude()
 	{
-		if ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO, 'lat'))
+		if ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO, 'lat'))
 		{
 			return (float) $return[0]['data'];
 		}
-		elseif (($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_GEORSS, 'point')) && preg_match('/^((?:-)?[0-9]+(?:\.[0-9]+)) ((?:-)?[0-9]+(?:\.[0-9]+))$/', $return[0]['data'], $match))
+		elseif (($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_GEORSS, 'point')) && preg_match('/^((?:-)?[0-9]+(?:\.[0-9]+)) ((?:-)?[0-9]+(?:\.[0-9]+))$/', $return[0]['data'], $match))
 		{
 			return (float) $match[1];
 		}
@@ -6175,15 +6175,15 @@ class SimplePie_Source
 
 	function get_longitude()
 	{
-		if ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO, 'long'))
+		if ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO, 'long'))
 		{
 			return (float) $return[0]['data'];
 		}
-		elseif ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO, 'lon'))
+		elseif ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO, 'lon'))
 		{
 			return (float) $return[0]['data'];
 		}
-		elseif (($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_GEORSS, 'point')) && preg_match('/^((?:-)?[0-9]+(?:\.[0-9]+)) ((?:-)?[0-9]+(?:\.[0-9]+))$/', $return[0]['data'], $match))
+		elseif (($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_GEORSS, 'point')) && preg_match('/^((?:-)?[0-9]+(?:\.[0-9]+)) ((?:-)?[0-9]+(?:\.[0-9]+))$/', $return[0]['data'], $match))
 		{
 			return (float) $match[2];
 		}
@@ -6195,17 +6195,17 @@ class SimplePie_Source
 
 	function get_image_url()
 	{
-		if ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'image'))
+		if ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'image'))
 		{
-			return $this->sanitize($return[0]['attribs']['']['href'], SIMPLEPIE_CONSTRUCT_IRI);
+			return $this->sanitize($return[0]['attribs']['']['href'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI);
 		}
-		elseif ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'logo'))
+		elseif ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'logo'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($return[0]));
 		}
-		elseif ($return = $this->get_source_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'icon'))
+		elseif ($return = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10, 'icon'))
 		{
-			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($return[0]));
+			return $this->sanitize($return[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($return[0]));
 		}
 		else
 		{
@@ -6214,14 +6214,14 @@ class SimplePie_Source
 	}
 }
 
-class SimplePie_Author
+class blocks_gapps_simplepie_author
 {
 	var $name;
 	var $link;
 	var $email;
 
 	// Constructor, used to input the data
-	function SimplePie_Author($name = null, $link = null, $email = null)
+	function blocks_gapps_simplepie_author($name = null, $link = null, $email = null)
 	{
 		$this->name = $name;
 		$this->link = $link;
@@ -6271,14 +6271,14 @@ class SimplePie_Author
 	}
 }
 
-class SimplePie_Category
+class blocks_gapps_simplepie_category
 {
 	var $term;
 	var $scheme;
 	var $label;
 
 	// Constructor, used to input the data
-	function SimplePie_Category($term = null, $scheme = null, $label = null)
+	function blocks_gapps_simplepie_category($term = null, $scheme = null, $label = null)
 	{
 		$this->term = $term;
 		$this->scheme = $scheme;
@@ -6328,7 +6328,7 @@ class SimplePie_Category
 	}
 }
 
-class SimplePie_Enclosure
+class blocks_gapps_simplepie_enclosure
 {
 	var $bitrate;
 	var $captions;
@@ -6359,7 +6359,7 @@ class SimplePie_Enclosure
 	var $width;
 
 	// Constructor, used to input the data
-	function SimplePie_Enclosure($link = null, $type = null, $length = null, $javascript = null, $bitrate = null, $captions = null, $categories = null, $channels = null, $copyright = null, $credits = null, $description = null, $duration = null, $expression = null, $framerate = null, $hashes = null, $height = null, $keywords = null, $lang = null, $medium = null, $player = null, $ratings = null, $restrictions = null, $samplingrate = null, $thumbnails = null, $title = null, $width = null)
+	function blocks_gapps_simplepie_enclosure($link = null, $type = null, $length = null, $javascript = null, $bitrate = null, $captions = null, $categories = null, $channels = null, $copyright = null, $credits = null, $description = null, $duration = null, $expression = null, $framerate = null, $hashes = null, $height = null, $keywords = null, $lang = null, $medium = null, $player = null, $ratings = null, $restrictions = null, $samplingrate = null, $thumbnails = null, $title = null, $width = null)
 	{
 		$this->bitrate = $bitrate;
 		$this->captions = $captions;
@@ -6390,8 +6390,8 @@ class SimplePie_Enclosure
 		if (class_exists('idna_convert'))
 		{
 			$idn =& new idna_convert;
-			$parsed = SimplePie_Misc::parse_url($link);
-			$this->link = SimplePie_Misc::compress_parse_url($parsed['scheme'], $idn->encode($parsed['authority']), $parsed['path'], $parsed['query'], $parsed['fragment']);
+			$parsed = blocks_gapps_simplepie_misc::parse_url($link);
+			$this->link = blocks_gapps_simplepie_misc::compress_parse_url($parsed['scheme'], $idn->encode($parsed['authority']), $parsed['path'], $parsed['query'], $parsed['fragment']);
 		}
 		$this->handler = $this->get_handler(); // Needs to load last
 	}
@@ -6531,7 +6531,7 @@ class SimplePie_Enclosure
 		{
 			if ($convert)
 			{
-				$time = SimplePie_Misc::time_hms($this->duration);
+				$time = blocks_gapps_simplepie_misc::time_hms($this->duration);
 				return $time;
 			}
 			else
@@ -6561,7 +6561,7 @@ class SimplePie_Enclosure
 	{
 		if ($this->link !== null)
 		{
-			$url = SimplePie_Misc::parse_url($this->link);
+			$url = blocks_gapps_simplepie_misc::parse_url($this->link);
 			if ($url['path'] !== '')
 			{
 				return pathinfo($url['path'], PATHINFO_EXTENSION);
@@ -7281,7 +7281,7 @@ class SimplePie_Enclosure
 	}
 }
 
-class SimplePie_Caption
+class blocks_gapps_simplepie_caption
 {
 	var $type;
 	var $lang;
@@ -7290,7 +7290,7 @@ class SimplePie_Caption
 	var $text;
 
 	// Constructor, used to input the data
-	function SimplePie_Caption($type = null, $lang = null, $startTime = null, $endTime = null, $text = null)
+	function blocks_gapps_simplepie_caption($type = null, $lang = null, $startTime = null, $endTime = null, $text = null)
 	{
 		$this->type = $type;
 		$this->lang = $lang;
@@ -7366,14 +7366,14 @@ class SimplePie_Caption
 	}
 }
 
-class SimplePie_Credit
+class blocks_gapps_simplepie_credit
 {
 	var $role;
 	var $scheme;
 	var $name;
 
 	// Constructor, used to input the data
-	function SimplePie_Credit($role = null, $scheme = null, $name = null)
+	function blocks_gapps_simplepie_credit($role = null, $scheme = null, $name = null)
 	{
 		$this->role = $role;
 		$this->scheme = $scheme;
@@ -7423,13 +7423,13 @@ class SimplePie_Credit
 	}
 }
 
-class SimplePie_Copyright
+class blocks_gapps_simplepie_copyright
 {
 	var $url;
 	var $label;
 
 	// Constructor, used to input the data
-	function SimplePie_Copyright($url = null, $label = null)
+	function blocks_gapps_simplepie_copyright($url = null, $label = null)
 	{
 		$this->url = $url;
 		$this->label = $label;
@@ -7466,13 +7466,13 @@ class SimplePie_Copyright
 	}
 }
 
-class SimplePie_Rating
+class blocks_gapps_simplepie_rating
 {
 	var $scheme;
 	var $value;
 
 	// Constructor, used to input the data
-	function SimplePie_Rating($scheme = null, $value = null)
+	function blocks_gapps_simplepie_rating($scheme = null, $value = null)
 	{
 		$this->scheme = $scheme;
 		$this->value = $value;
@@ -7509,14 +7509,14 @@ class SimplePie_Rating
 	}
 }
 
-class SimplePie_Restriction
+class blocks_gapps_simplepie_restriction
 {
 	var $relationship;
 	var $type;
 	var $value;
 
 	// Constructor, used to input the data
-	function SimplePie_Restriction($relationship = null, $type = null, $value = null)
+	function blocks_gapps_simplepie_restriction($relationship = null, $type = null, $value = null)
 	{
 		$this->relationship = $relationship;
 		$this->type = $type;
@@ -7569,7 +7569,7 @@ class SimplePie_Restriction
 /**
  * @todo Move to properly supporting RFC2616 (HTTP/1.1)
  */
-class SimplePie_File
+class blocks_gapps_simplepie_file
 {
 	var $url;
 	var $useragent;
@@ -7579,15 +7579,15 @@ class SimplePie_File
 	var $status_code;
 	var $redirects = 0;
 	var $error;
-	var $method = SIMPLEPIE_FILE_SOURCE_NONE;
+	var $method = BLOCKS_GAPPS_SIMPLEPIE_FILE_SOURCE_NONE;
 
-	function SimplePie_File($url, $timeout = 10, $redirects = 5, $headers = null, $useragent = null, $force_fsockopen = false)
+	function blocks_gapps_simplepie_file($url, $timeout = 10, $redirects = 5, $headers = null, $useragent = null, $force_fsockopen = false)
 	{
 		if (class_exists('idna_convert'))
 		{
 			$idn =& new idna_convert;
-			$parsed = SimplePie_Misc::parse_url($url);
-			$url = SimplePie_Misc::compress_parse_url($parsed['scheme'], $idn->encode($parsed['authority']), $parsed['path'], $parsed['query'], $parsed['fragment']);
+			$parsed = blocks_gapps_simplepie_misc::parse_url($url);
+			$url = blocks_gapps_simplepie_misc::compress_parse_url($parsed['scheme'], $idn->encode($parsed['authority']), $parsed['path'], $parsed['query'], $parsed['fragment']);
 		}
 		$this->url = $url;
 		$this->useragent = $useragent;
@@ -7604,14 +7604,14 @@ class SimplePie_File
 			}
 			if (!$force_fsockopen && function_exists('curl_exec'))
 			{
-				$this->method = SIMPLEPIE_FILE_SOURCE_REMOTE | SIMPLEPIE_FILE_SOURCE_CURL;
+				$this->method = BLOCKS_GAPPS_SIMPLEPIE_FILE_SOURCE_REMOTE | BLOCKS_GAPPS_SIMPLEPIE_FILE_SOURCE_CURL;
 				$fp = curl_init();
 				$headers2 = array();
 				foreach ($headers as $key => $value)
 				{
 					$headers2[] = "$key: $value";
 				}
-				if (version_compare(SimplePie_Misc::get_curl_version(), '7.10.5', '>='))
+				if (version_compare(blocks_gapps_simplepie_misc::get_curl_version(), '7.10.5', '>='))
 				{
 					curl_setopt($fp, CURLOPT_ENCODING, '');
 				}
@@ -7625,7 +7625,7 @@ class SimplePie_File
 				curl_setopt($fp, CURLOPT_REFERER, $url);
 				curl_setopt($fp, CURLOPT_USERAGENT, $useragent);
 				curl_setopt($fp, CURLOPT_HTTPHEADER, $headers2);
-				if (!ini_get('open_basedir') && !ini_get('safe_mode') && version_compare(SimplePie_Misc::get_curl_version(), '7.15.2', '>='))
+				if (!ini_get('open_basedir') && !ini_get('safe_mode') && version_compare(blocks_gapps_simplepie_misc::get_curl_version(), '7.15.2', '>='))
 				{
 					curl_setopt($fp, CURLOPT_FOLLOWLOCATION, 1);
 					curl_setopt($fp, CURLOPT_MAXREDIRS, $redirects);
@@ -7648,7 +7648,7 @@ class SimplePie_File
 					curl_close($fp);
 					$this->headers = explode("\r\n\r\n", $this->headers, $info['redirect_count'] + 1);
 					$this->headers = array_pop($this->headers);
-					$parser =& new SimplePie_HTTP_Parser($this->headers);
+					$parser =& new blocks_gapps_simplepie_http_parser($this->headers);
 					if ($parser->parse())
 					{
 						$this->headers = $parser->headers;
@@ -7657,15 +7657,15 @@ class SimplePie_File
 						if (($this->status_code == 300 || $this->status_code == 301 || $this->status_code == 302 || $this->status_code == 303 || $this->status_code == 307 || $this->status_code > 307 && $this->status_code < 400) && isset($this->headers['location']) && $this->redirects < $redirects)
 						{
 							$this->redirects++;
-							$location = SimplePie_Misc::absolutize_url($this->headers['location'], $url);
-							return $this->SimplePie_File($location, $timeout, $redirects, $headers, $useragent, $force_fsockopen);
+							$location = blocks_gapps_simplepie_misc::absolutize_url($this->headers['location'], $url);
+							return $this->blocks_gapps_simplepie_file($location, $timeout, $redirects, $headers, $useragent, $force_fsockopen);
 						}
 					}
 				}
 			}
 			else
 			{
-				$this->method = SIMPLEPIE_FILE_SOURCE_REMOTE | SIMPLEPIE_FILE_SOURCE_FSOCKOPEN;
+				$this->method = BLOCKS_GAPPS_SIMPLEPIE_FILE_SOURCE_REMOTE | BLOCKS_GAPPS_SIMPLEPIE_FILE_SOURCE_FSOCKOPEN;
 				$url_parts = parse_url($url);
 				if (isset($url_parts['scheme']) && strtolower($url_parts['scheme']) == 'https')
 				{
@@ -7729,7 +7729,7 @@ class SimplePie_File
 					}
 					if (!$info['timed_out'])
 					{
-						$parser =& new SimplePie_HTTP_Parser($this->headers);
+						$parser =& new blocks_gapps_simplepie_http_parser($this->headers);
 						if ($parser->parse())
 						{
 							$this->headers = $parser->headers;
@@ -7738,8 +7738,8 @@ class SimplePie_File
 							if (($this->status_code == 300 || $this->status_code == 301 || $this->status_code == 302 || $this->status_code == 303 || $this->status_code == 307 || $this->status_code > 307 && $this->status_code < 400) && isset($this->headers['location']) && $this->redirects < $redirects)
 							{
 								$this->redirects++;
-								$location = SimplePie_Misc::absolutize_url($this->headers['location'], $url);
-								return $this->SimplePie_File($location, $timeout, $redirects, $headers, $useragent, $force_fsockopen);
+								$location = blocks_gapps_simplepie_misc::absolutize_url($this->headers['location'], $url);
+								return $this->blocks_gapps_simplepie_file($location, $timeout, $redirects, $headers, $useragent, $force_fsockopen);
 							}
 							if (isset($this->headers['content-encoding']) && ($this->headers['content-encoding'] == 'gzip' || $this->headers['content-encoding'] == 'deflate'))
 							{
@@ -7762,7 +7762,7 @@ class SimplePie_File
 		}
 		else
 		{
-			$this->method = SIMPLEPIE_FILE_SOURCE_LOCAL | SIMPLEPIE_FILE_SOURCE_FILE_GET_CONTENTS;
+			$this->method = BLOCKS_GAPPS_SIMPLEPIE_FILE_SOURCE_LOCAL | BLOCKS_GAPPS_SIMPLEPIE_FILE_SOURCE_FILE_GET_CONTENTS;
 			if (!$this->body = file_get_contents($url))
 			{
 				$this->error = 'file_get_contents could not read the file';
@@ -7777,7 +7777,7 @@ class SimplePie_File
  *
  * @package SimplePie
  */
-class SimplePie_HTTP_Parser
+class blocks_gapps_simplepie_http_parser
 {
 	/**
 	 * HTTP Version
@@ -7873,7 +7873,7 @@ class SimplePie_HTTP_Parser
 	 * @access public
 	 * @param string $data Input data
 	 */
-	function SimplePie_HTTP_Parser($data)
+	function blocks_gapps_simplepie_http_parser($data)
 	{
 		$this->data = $data;
 		$this->data_length = strlen($this->data);
@@ -8202,38 +8202,38 @@ class SimplePie_HTTP_Parser
 	}
 }
 
-class SimplePie_Cache
+class blocks_gapps_simplepie_cache
 {
 	/**
 	 * Don't call the constructor. Please.
 	 *
 	 * @access private
 	 */
-	function SimplePie_Cache()
+	function blocks_gapps_simplepie_cache()
 	{
-		trigger_error('Please call SimplePie_Cache::create() instead of the constructor', E_USER_ERROR);
+		trigger_error('Please call blocks_gapps_simplepie_cache::create() instead of the constructor', E_USER_ERROR);
 	}
 
 	/**
-	 * Create a new SimplePie_Cache object
+	 * Create a new blocks_gapps_simplepie_cache object
 	 *
 	 * @static
 	 * @access public
 	 */
 	function create($location, $filename, $extension)
 	{
-		return new SimplePie_Cache_File($location, $filename, $extension);
+		return new blocks_gapps_simplepie_cache_file($location, $filename, $extension);
 	}
 }
 
-class SimplePie_Cache_File
+class blocks_gapps_simplepie_cache_file
 {
 	var $location;
 	var $filename;
 	var $extension;
 	var $name;
 
-	function SimplePie_Cache_File($location, $filename, $extension)
+	function blocks_gapps_simplepie_cache_file($location, $filename, $extension)
 	{
 		$this->location = $location;
 		$this->filename = rawurlencode($filename);
@@ -8307,7 +8307,7 @@ class SimplePie_Cache_File
 	}
 }
 
-class SimplePie_Misc
+class blocks_gapps_simplepie_misc
 {
 	function time_hms($seconds)
 	{
@@ -8341,15 +8341,15 @@ class SimplePie_Misc
 	{
 		if ($relative !== '')
 		{
-			$relative = SimplePie_Misc::parse_url($relative);
+			$relative = blocks_gapps_simplepie_misc::parse_url($relative);
 			if ($relative['scheme'] !== '')
 			{
 				$target = $relative;
 			}
 			elseif ($base !== '')
 			{
-				$base = SimplePie_Misc::parse_url($base);
-				$target = SimplePie_Misc::parse_url('');
+				$base = blocks_gapps_simplepie_misc::parse_url($base);
+				$target = blocks_gapps_simplepie_misc::parse_url('');
 				if ($relative['authority'] !== '')
 				{
 					$target = $relative;
@@ -8399,13 +8399,13 @@ class SimplePie_Misc
 				// No base URL, just return the relative URL
 				$target = $relative;
 			}
-			$return = SimplePie_Misc::compress_parse_url($target['scheme'], $target['authority'], $target['path'], $target['query'], $target['fragment']);
+			$return = blocks_gapps_simplepie_misc::compress_parse_url($target['scheme'], $target['authority'], $target['path'], $target['query'], $target['fragment']);
 		}
 		else
 		{
 			$return = $base;
 		}
-		$return = SimplePie_Misc::normalize_url($return);
+		$return = blocks_gapps_simplepie_misc::normalize_url($return);
 		return $return;
 	}
 
@@ -8467,7 +8467,7 @@ class SimplePie_Misc
 	{
 		$return = array();
 		$name = preg_quote($realname, '/');
-		if (preg_match_all("/<($name)" . SIMPLEPIE_PCRE_HTML_ATTRIBUTE . "(>(.*)<\/$name>|(\/)?>)/siU", $string, $matches, PREG_SET_ORDER | PREG_OFFSET_CAPTURE))
+		if (preg_match_all("/<($name)" . BLOCKS_GAPPS_SIMPLEPIE_PCRE_HTML_ATTRIBUTE . "(>(.*)<\/$name>|(\/)?>)/siU", $string, $matches, PREG_SET_ORDER | PREG_OFFSET_CAPTURE))
 		{
 			for ($i = 0, $total_matches = count($matches); $i < $total_matches; $i++)
 			{
@@ -8492,7 +8492,7 @@ class SimplePie_Misc
 						{
 							$attribs[$j][2] = $attribs[$j][1];
 						}
-						$return[$i]['attribs'][strtolower($attribs[$j][1])]['data'] = SimplePie_Misc::entities_decode(end($attribs[$j]), 'UTF-8');
+						$return[$i]['attribs'][strtolower($attribs[$j][1])]['data'] = blocks_gapps_simplepie_misc::entities_decode(end($attribs[$j]), 'UTF-8');
 					}
 				}
 			}
@@ -8549,7 +8549,7 @@ class SimplePie_Misc
 	 * been cached by SimplePie.
 	 *
 	 * @access public
-	 * @see SimplePie::get_favicon()
+	 * @see blocks_gapps_simplepie::get_favicon()
 	 * @param str $identifier_url URL that is used to identify the content.
 	 * This may or may not be the actual URL of the live content.
 	 * @param str $cache_location Location of SimplePie's cache.  Defaults
@@ -8557,12 +8557,12 @@ class SimplePie_Misc
 	 * @param str $cache_extension The file extension that the file was
 	 * cached with.  Defaults to 'spc'.
 	 * @param str $cache_class Name of the cache-handling class being used
-	 * in SimplePie.  Defaults to 'SimplePie_Cache', and should be left
+	 * in SimplePie.  Defaults to 'blocks_gapps_simplepie_cache', and should be left
 	 * as-is unless you've overloaded the class.
 	 * @param str $cache_name_function Obsolete. Exists for backwards
 	 * compatibility reasons only.
 	 */
-	function display_cached_file($identifier_url, $cache_location = './cache', $cache_extension = 'spc', $cache_class = 'SimplePie_Cache', $cache_name_function = 'md5')
+	function display_cached_file($identifier_url, $cache_location = './cache', $cache_extension = 'spc', $cache_class = 'blocks_gapps_simplepie_cache', $cache_name_function = 'md5')
 	{
 		$cache = call_user_func(array($cache_class, 'create'), $cache_location, $identifier_url, $cache_extension);
 
@@ -8586,16 +8586,16 @@ class SimplePie_Misc
 
 	function fix_protocol($url, $http = 1)
 	{
-		$url = SimplePie_Misc::normalize_url($url);
-		$parsed = SimplePie_Misc::parse_url($url);
+		$url = blocks_gapps_simplepie_misc::normalize_url($url);
+		$parsed = blocks_gapps_simplepie_misc::parse_url($url);
 		if ($parsed['scheme'] !== '' && $parsed['scheme'] != 'http' && $parsed['scheme'] != 'https')
 		{
-			return SimplePie_Misc::fix_protocol(SimplePie_Misc::compress_parse_url('http', $parsed['authority'], $parsed['path'], $parsed['query'], $parsed['fragment']), $http);
+			return blocks_gapps_simplepie_misc::fix_protocol(blocks_gapps_simplepie_misc::compress_parse_url('http', $parsed['authority'], $parsed['path'], $parsed['query'], $parsed['fragment']), $http);
 		}
 
 		if ($parsed['scheme'] === '' && $parsed['authority'] === '' && !file_exists($url))
 		{
-			return SimplePie_Misc::fix_protocol(SimplePie_Misc::compress_parse_url('http', $parsed['path'], '', $parsed['query'], $parsed['fragment']), $http);
+			return blocks_gapps_simplepie_misc::fix_protocol(blocks_gapps_simplepie_misc::compress_parse_url('http', $parsed['path'], '', $parsed['query'], $parsed['fragment']), $http);
 		}
 
 		if ($http == 2 && $parsed['scheme'] !== '')
@@ -8665,15 +8665,15 @@ class SimplePie_Misc
 
 	function normalize_url($url)
 	{
-		$url = preg_replace_callback('/%([0-9A-Fa-f]{2})/', array('SimplePie_Misc', 'percent_encoding_normalization'), $url);
-		$url = SimplePie_Misc::parse_url($url);
+		$url = preg_replace_callback('/%([0-9A-Fa-f]{2})/', array('blocks_gapps_simplepie_misc', 'percent_encoding_normalization'), $url);
+		$url = blocks_gapps_simplepie_misc::parse_url($url);
 		$url['scheme'] = strtolower($url['scheme']);
 		if ($url['authority'] !== '')
 		{
 			$url['authority'] = strtolower($url['authority']);
-			$url['path'] = SimplePie_Misc::remove_dot_segments($url['path']);
+			$url['path'] = blocks_gapps_simplepie_misc::remove_dot_segments($url['path']);
 		}
-		return SimplePie_Misc::compress_parse_url($url['scheme'], $url['authority'], $url['path'], $url['query'], $url['fragment']);
+		return blocks_gapps_simplepie_misc::compress_parse_url($url['scheme'], $url['authority'], $url['path'], $url['query'], $url['fragment']);
 	}
 
 	function percent_encoding_normalization($match)
@@ -8741,8 +8741,8 @@ class SimplePie_Misc
 
 	function change_encoding($data, $input, $output)
 	{
-		$input = SimplePie_Misc::encoding($input);
-		$output = SimplePie_Misc::encoding($output);
+		$input = blocks_gapps_simplepie_misc::encoding($input);
+		$output = blocks_gapps_simplepie_misc::encoding($output);
 		
 		// We fail to fail on non US-ASCII bytes
 		if ($input === 'US-ASCII')
@@ -8768,7 +8768,7 @@ class SimplePie_Misc
 		}
 		elseif ($input == 'windows-1252' && $output == 'UTF-8')
 		{
-			return SimplePie_Misc::windows_1252_to_utf8($data);
+			return blocks_gapps_simplepie_misc::windows_1252_to_utf8($data);
 		}
 		elseif ($input == 'UTF-8' && $output == 'windows-1252')
 		{
@@ -10142,7 +10142,7 @@ class SimplePie_Misc
 	{
 		if (func_num_args() != 2)
 		{
-			trigger_error('Wrong parameter count for SimplePie_Misc::is_subclass_of()', E_USER_WARNING);
+			trigger_error('Wrong parameter count for blocks_gapps_simplepie_misc::is_subclass_of()', E_USER_WARNING);
 		}
 		elseif (version_compare(PHP_VERSION, '5.0.3', '>=') || is_object($class1))
 		{
@@ -10199,7 +10199,7 @@ class SimplePie_Misc
 
 	function parse_date($dt)
 	{
-		$parser = SimplePie_Parse_Date::get();
+		$parser = blocks_gapps_simplepie_parse_date::get();
 		return $parser->parse($dt);
 	}
 
@@ -10213,7 +10213,7 @@ class SimplePie_Misc
 	 */
 	function entities_decode($data)
 	{
-		$decoder = new SimplePie_Decode_HTML_Entities($data);
+		$decoder = new blocks_gapps_simplepie_decode_html_entities($data);
 		return $decoder->parse();
 	}
 
@@ -10306,11 +10306,11 @@ class SimplePie_Misc
 	{
 		if (isset($attribs['']['mode']) && strtolower(trim($attribs['']['mode']) == 'base64'))
 		{
-			$mode = SIMPLEPIE_CONSTRUCT_BASE64;
+			$mode = BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_BASE64;
 		}
 		else
 		{
-			$mode = SIMPLEPIE_CONSTRUCT_NONE;
+			$mode = BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_NONE;
 		}
 		if (isset($attribs['']['type']))
 		{
@@ -10318,23 +10318,23 @@ class SimplePie_Misc
 			{
 				case 'text':
 				case 'text/plain':
-					return SIMPLEPIE_CONSTRUCT_TEXT | $mode;
+					return BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT | $mode;
 
 				case 'html':
 				case 'text/html':
-					return SIMPLEPIE_CONSTRUCT_HTML | $mode;
+					return BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_HTML | $mode;
 
 				case 'xhtml':
 				case 'application/xhtml+xml':
-					return SIMPLEPIE_CONSTRUCT_XHTML | $mode;
+					return BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_XHTML | $mode;
 
 				default:
-					return SIMPLEPIE_CONSTRUCT_NONE | $mode;
+					return BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_NONE | $mode;
 			}
 		}
 		else
 		{
-			return SIMPLEPIE_CONSTRUCT_TEXT | $mode;
+			return BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT | $mode;
 		}
 	}
 
@@ -10345,19 +10345,19 @@ class SimplePie_Misc
 			switch (strtolower(trim($attribs['']['type'])))
 			{
 				case 'text':
-					return SIMPLEPIE_CONSTRUCT_TEXT;
+					return BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT;
 
 				case 'html':
-					return SIMPLEPIE_CONSTRUCT_HTML;
+					return BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_HTML;
 
 				case 'xhtml':
-					return SIMPLEPIE_CONSTRUCT_XHTML;
+					return BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_XHTML;
 
 				default:
-					return SIMPLEPIE_CONSTRUCT_NONE;
+					return BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_NONE;
 			}
 		}
-		return SIMPLEPIE_CONSTRUCT_TEXT;
+		return BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT;
 	}
 
 	function atom_10_content_construct_type($attribs)
@@ -10368,26 +10368,26 @@ class SimplePie_Misc
 			switch ($type)
 			{
 				case 'text':
-					return SIMPLEPIE_CONSTRUCT_TEXT;
+					return BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT;
 
 				case 'html':
-					return SIMPLEPIE_CONSTRUCT_HTML;
+					return BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_HTML;
 
 				case 'xhtml':
-					return SIMPLEPIE_CONSTRUCT_XHTML;
+					return BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_XHTML;
 			}
 			if (in_array(substr($type, -4), array('+xml', '/xml')) || substr($type, 0, 5) == 'text/')
 			{
-				return SIMPLEPIE_CONSTRUCT_NONE;
+				return BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_NONE;
 			}
 			else
 			{
-				return SIMPLEPIE_CONSTRUCT_BASE64;
+				return BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_BASE64;
 			}
 		}
 		else
 		{
-			return SIMPLEPIE_CONSTRUCT_TEXT;
+			return BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT;
 		}
 	}
 
@@ -10614,7 +10614,7 @@ class SimplePie_Misc
 		{
 			if ($pos = strpos($data, "\x00\x00\x00\x3F\x00\x00\x00\x3E"))
 			{
-				$parser = new SimplePie_XML_Declaration_Parser(SimplePie_Misc::change_encoding(substr($data, 20, $pos - 20), 'UTF-32BE', 'UTF-8'));
+				$parser = new blocks_gapps_simplepie_xml_declaration_parser(blocks_gapps_simplepie_misc::change_encoding(substr($data, 20, $pos - 20), 'UTF-32BE', 'UTF-8'));
 				if ($parser->parse())
 				{
 					$encoding[] = $parser->encoding;
@@ -10627,7 +10627,7 @@ class SimplePie_Misc
 		{
 			if ($pos = strpos($data, "\x3F\x00\x00\x00\x3E\x00\x00\x00"))
 			{
-				$parser = new SimplePie_XML_Declaration_Parser(SimplePie_Misc::change_encoding(substr($data, 20, $pos - 20), 'UTF-32LE', 'UTF-8'));
+				$parser = new blocks_gapps_simplepie_xml_declaration_parser(blocks_gapps_simplepie_misc::change_encoding(substr($data, 20, $pos - 20), 'UTF-32LE', 'UTF-8'));
 				if ($parser->parse())
 				{
 					$encoding[] = $parser->encoding;
@@ -10640,7 +10640,7 @@ class SimplePie_Misc
 		{
 			if ($pos = strpos($data, "\x00\x3F\x00\x3E"))
 			{
-				$parser = new SimplePie_XML_Declaration_Parser(SimplePie_Misc::change_encoding(substr($data, 20, $pos - 10), 'UTF-16BE', 'UTF-8'));
+				$parser = new blocks_gapps_simplepie_xml_declaration_parser(blocks_gapps_simplepie_misc::change_encoding(substr($data, 20, $pos - 10), 'UTF-16BE', 'UTF-8'));
 				if ($parser->parse())
 				{
 					$encoding[] = $parser->encoding;
@@ -10653,7 +10653,7 @@ class SimplePie_Misc
 		{
 			if ($pos = strpos($data, "\x3F\x00\x3E\x00"))
 			{
-				$parser = new SimplePie_XML_Declaration_Parser(SimplePie_Misc::change_encoding(substr($data, 20, $pos - 10), 'UTF-16LE', 'UTF-8'));
+				$parser = new blocks_gapps_simplepie_xml_declaration_parser(blocks_gapps_simplepie_misc::change_encoding(substr($data, 20, $pos - 10), 'UTF-16LE', 'UTF-8'));
 				if ($parser->parse())
 				{
 					$encoding[] = $parser->encoding;
@@ -10666,7 +10666,7 @@ class SimplePie_Misc
 		{
 			if ($pos = strpos($data, "\x3F\x3E"))
 			{
-				$parser = new SimplePie_XML_Declaration_Parser(substr($data, 5, $pos - 5));
+				$parser = new blocks_gapps_simplepie_xml_declaration_parser(substr($data, 5, $pos - 5));
 				if ($parser->parse())
 				{
 					$encoding[] = $parser->encoding;
@@ -10690,7 +10690,7 @@ class SimplePie_Misc
  *
  * @package SimplePie
  */
-class SimplePie_Decode_HTML_Entities
+class blocks_gapps_simplepie_decode_html_entities
 {
 	/**
 	 * Data to be parsed
@@ -10722,7 +10722,7 @@ class SimplePie_Decode_HTML_Entities
 	 * @access public
 	 * @param string $data Input data
 	 */
-	function SimplePie_Decode_HTML_Entities($data)
+	function blocks_gapps_simplepie_decode_html_entities($data)
 	{
 		$this->data = $data;
 	}
@@ -10853,7 +10853,7 @@ class SimplePie_Decode_HTML_Entities
 					}
 					else
 					{
-						$replacement = SimplePie_Misc::codepoint_to_utf8($codepoint);
+						$replacement = blocks_gapps_simplepie_misc::codepoint_to_utf8($codepoint);
 					}
 
 					if ($this->consume() != ';')
@@ -10894,7 +10894,7 @@ class SimplePie_Decode_HTML_Entities
  *
  * @package SimplePie
  */
-class SimplePie_Parse_Date
+class blocks_gapps_simplepie_parse_date
 {
 	/**
 	 * Input data
@@ -11347,7 +11347,7 @@ class SimplePie_Parse_Date
 	);
 
 	/**
-	 * Cached PCRE for SimplePie_Parse_Date::$day
+	 * Cached PCRE for blocks_gapps_simplepie_parse_date::$day
 	 *
 	 * @access protected
 	 * @var string
@@ -11355,7 +11355,7 @@ class SimplePie_Parse_Date
 	var $day_pcre;
 
 	/**
-	 * Cached PCRE for SimplePie_Parse_Date::$month
+	 * Cached PCRE for blocks_gapps_simplepie_parse_date::$month
 	 *
 	 * @access protected
 	 * @var string
@@ -11379,12 +11379,12 @@ class SimplePie_Parse_Date
 	var $user = array();
 
 	/**
-	 * Create new SimplePie_Parse_Date object, and set self::day_pcre,
+	 * Create new blocks_gapps_simplepie_parse_date object, and set self::day_pcre,
 	 * self::month_pcre, and self::built_in
 	 *
 	 * @access private
 	 */
-	function SimplePie_Parse_Date()
+	function blocks_gapps_simplepie_parse_date()
 	{
 		$this->day_pcre = '(' . implode(array_keys($this->day), '|') . ')';
 		$this->month_pcre = '(' . implode(array_keys($this->month), '|') . ')';
@@ -11432,7 +11432,7 @@ class SimplePie_Parse_Date
 		static $object;
 		if (!$object)
 		{
-			$object = new SimplePie_Parse_Date;
+			$object = new blocks_gapps_simplepie_parse_date;
 		}
 		return $object;
 	}
@@ -11844,12 +11844,12 @@ class SimplePie_Parse_Date
  *
  * @package SimplePie
  */
-class SimplePie_Content_Type_Sniffer
+class blocks_gapps_simplepie_content_type_sniffer
 {
 	/**
 	 * File object
 	 *
-	 * @var SimplePie_File
+	 * @var blocks_gapps_simplepie_file
 	 * @access private
 	 */
 	var $file;
@@ -11858,9 +11858,9 @@ class SimplePie_Content_Type_Sniffer
 	 * Create an instance of the class with the input file
 	 *
 	 * @access public
-	 * @param SimplePie_Content_Type_Sniffer $file Input file
+	 * @param blocks_gapps_simplepie_content_type_sniffer $file Input file
 	 */
-	function SimplePie_Content_Type_Sniffer($file)
+	function blocks_gapps_simplepie_content_type_sniffer($file)
 	{
 		$this->file = $file;
 	}
@@ -12120,7 +12120,7 @@ class SimplePie_Content_Type_Sniffer
  *
  * @package SimplePie
  */
-class SimplePie_XML_Declaration_Parser
+class blocks_gapps_simplepie_xml_declaration_parser
 {
 	/**
 	 * XML Version
@@ -12184,7 +12184,7 @@ class SimplePie_XML_Declaration_Parser
 	 * @access public
 	 * @param string $data Input data
 	 */
-	function SimplePie_XML_Declaration_Parser($data)
+	function blocks_gapps_simplepie_xml_declaration_parser($data)
 	{
 		$this->data = $data;
 		$this->data_length = strlen($this->data);
@@ -12432,23 +12432,23 @@ class SimplePie_XML_Declaration_Parser
 	}
 }
 
-class SimplePie_Locator
+class blocks_gapps_simplepie_locator
 {
 	var $useragent;
 	var $timeout;
 	var $file;
 	var $local = array();
 	var $elsewhere = array();
-	var $file_class = 'SimplePie_File';
+	var $file_class = 'blocks_gapps_simplepie_file';
 	var $cached_entities = array();
 	var $http_base;
 	var $base;
 	var $base_location = 0;
 	var $checked_feeds = 0;
 	var $max_checked_feeds = 10;
-	var $content_type_sniffer_class = 'SimplePie_Content_Type_Sniffer';
+	var $content_type_sniffer_class = 'blocks_gapps_simplepie_content_type_sniffer';
 
-	function SimplePie_Locator(&$file, $timeout = 10, $useragent = null, $file_class = 'SimplePie_File', $max_checked_feeds = 10, $content_type_sniffer_class = 'SimplePie_Content_Type_Sniffer')
+	function blocks_gapps_simplepie_locator(&$file, $timeout = 10, $useragent = null, $file_class = 'blocks_gapps_simplepie_file', $max_checked_feeds = 10, $content_type_sniffer_class = 'blocks_gapps_simplepie_content_type_sniffer')
 	{
 		$this->file =& $file;
 		$this->file_class = $file_class;
@@ -12458,14 +12458,14 @@ class SimplePie_Locator
 		$this->content_type_sniffer_class = $content_type_sniffer_class;
 	}
 
-	function find($type = SIMPLEPIE_LOCATOR_ALL)
+	function find($type = BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_ALL)
 	{
 		if ($this->is_feed($this->file))
 		{
 			return $this->file;
 		}
 		
-		if ($this->file->method & SIMPLEPIE_FILE_SOURCE_REMOTE)
+		if ($this->file->method & BLOCKS_GAPPS_SIMPLEPIE_FILE_SOURCE_REMOTE)
 		{
 			$sniffer = new $this->content_type_sniffer_class($this->file);
 			if ($sniffer->get_type() !== 'text/html')
@@ -12474,34 +12474,34 @@ class SimplePie_Locator
 			}
 		}
 
-		if ($type & ~SIMPLEPIE_LOCATOR_NONE)
+		if ($type & ~BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_NONE)
 		{
 			$this->get_base();
 		}
 
-		if ($type & SIMPLEPIE_LOCATOR_AUTODISCOVERY && $working = $this->autodiscovery())
+		if ($type & BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_AUTODISCOVERY && $working = $this->autodiscovery())
 		{
 			return $working;
 		}
 
-		if ($type & (SIMPLEPIE_LOCATOR_LOCAL_EXTENSION | SIMPLEPIE_LOCATOR_LOCAL_BODY | SIMPLEPIE_LOCATOR_REMOTE_EXTENSION | SIMPLEPIE_LOCATOR_REMOTE_BODY) && $this->get_links())
+		if ($type & (BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_LOCAL_EXTENSION | BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_LOCAL_BODY | BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_REMOTE_EXTENSION | BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_REMOTE_BODY) && $this->get_links())
 		{
-			if ($type & SIMPLEPIE_LOCATOR_LOCAL_EXTENSION && $working = $this->extension($this->local))
+			if ($type & BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_LOCAL_EXTENSION && $working = $this->extension($this->local))
 			{
 				return $working;
 			}
 
-			if ($type & SIMPLEPIE_LOCATOR_LOCAL_BODY && $working = $this->body($this->local))
+			if ($type & BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_LOCAL_BODY && $working = $this->body($this->local))
 			{
 				return $working;
 			}
 
-			if ($type & SIMPLEPIE_LOCATOR_REMOTE_EXTENSION && $working = $this->extension($this->elsewhere))
+			if ($type & BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_REMOTE_EXTENSION && $working = $this->extension($this->elsewhere))
 			{
 				return $working;
 			}
 
-			if ($type & SIMPLEPIE_LOCATOR_REMOTE_BODY && $working = $this->body($this->elsewhere))
+			if ($type & BLOCKS_GAPPS_SIMPLEPIE_LOCATOR_REMOTE_BODY && $working = $this->body($this->elsewhere))
 			{
 				return $working;
 			}
@@ -12511,7 +12511,7 @@ class SimplePie_Locator
 
 	function is_feed(&$file)
 	{
-		if ($file->method & SIMPLEPIE_FILE_SOURCE_REMOTE)
+		if ($file->method & BLOCKS_GAPPS_SIMPLEPIE_FILE_SOURCE_REMOTE)
 		{
 			$sniffer = new $this->content_type_sniffer_class($file);
 			$sniffed = $sniffer->get_type();
@@ -12524,7 +12524,7 @@ class SimplePie_Locator
 				return false;
 			}
 		}
-		elseif ($file->method & SIMPLEPIE_FILE_SOURCE_LOCAL)
+		elseif ($file->method & BLOCKS_GAPPS_SIMPLEPIE_FILE_SOURCE_LOCAL)
 		{
 			return true;
 		}
@@ -12538,12 +12538,12 @@ class SimplePie_Locator
 	{
 		$this->http_base = $this->file->url;
 		$this->base = $this->http_base;
-		$elements = SimplePie_Misc::get_element('base', $this->file->body);
+		$elements = blocks_gapps_simplepie_misc::get_element('base', $this->file->body);
 		foreach ($elements as $element)
 		{
 			if ($element['attribs']['href']['data'] !== '')
 			{
-				$this->base = SimplePie_Misc::absolutize_url(trim($element['attribs']['href']['data']), $this->http_base);
+				$this->base = blocks_gapps_simplepie_misc::absolutize_url(trim($element['attribs']['href']['data']), $this->http_base);
 				$this->base_location = $element['offset'];
 				break;
 			}
@@ -12552,7 +12552,7 @@ class SimplePie_Locator
 
 	function autodiscovery()
 	{
-		$links = array_merge(SimplePie_Misc::get_element('link', $this->file->body), SimplePie_Misc::get_element('a', $this->file->body), SimplePie_Misc::get_element('area', $this->file->body));
+		$links = array_merge(blocks_gapps_simplepie_misc::get_element('link', $this->file->body), blocks_gapps_simplepie_misc::get_element('a', $this->file->body), blocks_gapps_simplepie_misc::get_element('area', $this->file->body));
 		$done = array();
 		foreach ($links as $link)
 		{
@@ -12562,18 +12562,18 @@ class SimplePie_Locator
 			}
 			if (isset($link['attribs']['href']['data']) && isset($link['attribs']['rel']['data']))
 			{
-				$rel = array_unique(SimplePie_Misc::space_seperated_tokens(strtolower($link['attribs']['rel']['data'])));
+				$rel = array_unique(blocks_gapps_simplepie_misc::space_seperated_tokens(strtolower($link['attribs']['rel']['data'])));
 
 				if ($this->base_location < $link['offset'])
 				{
-					$href = SimplePie_Misc::absolutize_url(trim($link['attribs']['href']['data']), $this->base);
+					$href = blocks_gapps_simplepie_misc::absolutize_url(trim($link['attribs']['href']['data']), $this->base);
 				}
 				else
 				{
-					$href = SimplePie_Misc::absolutize_url(trim($link['attribs']['href']['data']), $this->http_base);
+					$href = blocks_gapps_simplepie_misc::absolutize_url(trim($link['attribs']['href']['data']), $this->http_base);
 				}
 
-				if (!in_array($href, $done) && in_array('feed', $rel) || (in_array('alternate', $rel) && !empty($link['attribs']['type']['data']) && in_array(strtolower(SimplePie_Misc::parse_mime($link['attribs']['type']['data'])), array('application/rss+xml', 'application/atom+xml'))))
+				if (!in_array($href, $done) && in_array('feed', $rel) || (in_array('alternate', $rel) && !empty($link['attribs']['type']['data']) && in_array(strtolower(blocks_gapps_simplepie_misc::parse_mime($link['attribs']['type']['data'])), array('application/rss+xml', 'application/atom+xml'))))
 				{
 					$this->checked_feeds++;
 					$feed =& new $this->file_class($href, $this->timeout, 5, null, $this->useragent);
@@ -12590,25 +12590,25 @@ class SimplePie_Locator
 
 	function get_links()
 	{
-		$links = SimplePie_Misc::get_element('a', $this->file->body);
+		$links = blocks_gapps_simplepie_misc::get_element('a', $this->file->body);
 		foreach ($links as $link)
 		{
 			if (isset($link['attribs']['href']['data']))
 			{
 				$href = trim($link['attribs']['href']['data']);
-				$parsed = SimplePie_Misc::parse_url($href);
+				$parsed = blocks_gapps_simplepie_misc::parse_url($href);
 				if ($parsed['scheme'] === '' || preg_match('/^(http(s)|feed)?$/i', $parsed['scheme']))
 				{
 					if ($this->base_location < $link['offset'])
 					{
-						$href = SimplePie_Misc::absolutize_url(trim($link['attribs']['href']['data']), $this->base);
+						$href = blocks_gapps_simplepie_misc::absolutize_url(trim($link['attribs']['href']['data']), $this->base);
 					}
 					else
 					{
-						$href = SimplePie_Misc::absolutize_url(trim($link['attribs']['href']['data']), $this->http_base);
+						$href = blocks_gapps_simplepie_misc::absolutize_url(trim($link['attribs']['href']['data']), $this->http_base);
 					}
 
-					$current = SimplePie_Misc::parse_url($this->file->url);
+					$current = blocks_gapps_simplepie_misc::parse_url($this->file->url);
 
 					if ($parsed['authority'] === '' || $parsed['authority'] == $current['authority'])
 					{
@@ -12681,7 +12681,7 @@ class SimplePie_Locator
 	}
 }
 
-class SimplePie_Parser
+class blocks_gapps_simplepie_parser
 {
 	var $error_code;
 	var $error_string;
@@ -12741,7 +12741,7 @@ class SimplePie_Parser
 		
 		if (substr($data, 0, 5) === '<?xml' && strspn(substr($data, 5, 1), "\x09\x0A\x0D\x20") && ($pos = strpos($data, '?>')) !== false)
 		{
-			$declaration = new SimplePie_XML_Declaration_Parser(substr($data, 5, $pos - 5));
+			$declaration = new blocks_gapps_simplepie_xml_declaration_parser(substr($data, 5, $pos - 5));
 			if ($declaration->parse())
 			{
 				$data = substr($data, $pos + 2);
@@ -12817,10 +12817,10 @@ class SimplePie_Parser
 		elseif ($this->feed == false)
 		{
 			if (in_array($tag, array(
-				SIMPLEPIE_NAMESPACE_ATOM_10 . $this->separator . 'feed',
-				SIMPLEPIE_NAMESPACE_ATOM_03 . $this->separator . 'feed',
+				BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10 . $this->separator . 'feed',
+				BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03 . $this->separator . 'feed',
 				'rss',
-				SIMPLEPIE_NAMESPACE_RDF . $this->separator . 'RDF'
+				BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RDF . $this->separator . 'RDF'
 			)))
 			{
 					$this->feed = 1;
@@ -12840,9 +12840,9 @@ class SimplePie_Parser
 			$attribs[$attrib_namespace][$attribute] = $value;
 		}
 
-		if (isset($attribs[SIMPLEPIE_NAMESPACE_XML]['base']))
+		if (isset($attribs[BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_XML]['base']))
 		{
-			$this->xml_base[] = SimplePie_Misc::absolutize_url($attribs[SIMPLEPIE_NAMESPACE_XML]['base'], end($this->xml_base));
+			$this->xml_base[] = blocks_gapps_simplepie_misc::absolutize_url($attribs[BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_XML]['base'], end($this->xml_base));
 			$this->xml_base_explicit[] = true;
 		}
 		else
@@ -12851,9 +12851,9 @@ class SimplePie_Parser
 			$this->xml_base_explicit[] = end($this->xml_base_explicit);
 		}
 
-		if (isset($attribs[SIMPLEPIE_NAMESPACE_XML]['lang']))
+		if (isset($attribs[BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_XML]['lang']))
 		{
-			$this->xml_lang[] = $attribs[SIMPLEPIE_NAMESPACE_XML]['lang'];
+			$this->xml_lang[] = $attribs[BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_XML]['lang'];
 		}
 		else
 		{
@@ -12863,7 +12863,7 @@ class SimplePie_Parser
 		if ($this->current_xhtml_construct >= 0)
 		{
 			$this->current_xhtml_construct++;
-			if (end($this->namespace) == SIMPLEPIE_NAMESPACE_XHTML)
+			if (end($this->namespace) == BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_XHTML)
 			{
 				$this->data['data'] .= '<' . end($this->element);
 				if (isset($attribs['']))
@@ -12881,8 +12881,8 @@ class SimplePie_Parser
 			$this->datas[] =& $this->data;
 			$this->data =& $this->data['child'][end($this->namespace)][end($this->element)][];
 			$this->data = array('data' => '', 'attribs' => $attribs, 'xml_base' => end($this->xml_base), 'xml_base_explicit' => end($this->xml_base_explicit), 'xml_lang' => end($this->xml_lang));
-			if ((end($this->namespace) == SIMPLEPIE_NAMESPACE_ATOM_03 && in_array(end($this->element), array('title', 'tagline', 'copyright', 'info', 'summary', 'content')) && isset($attribs['']['mode']) && $attribs['']['mode'] == 'xml')
-			|| (end($this->namespace) == SIMPLEPIE_NAMESPACE_ATOM_10 && in_array(end($this->element), array('rights', 'subtitle', 'summary', 'info', 'title', 'content')) && isset($attribs['']['type']) && $attribs['']['type'] == 'xhtml'))
+			if ((end($this->namespace) == BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03 && in_array(end($this->element), array('title', 'tagline', 'copyright', 'info', 'summary', 'content')) && isset($attribs['']['mode']) && $attribs['']['mode'] == 'xml')
+			|| (end($this->namespace) == BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_10 && in_array(end($this->element), array('rights', 'subtitle', 'summary', 'info', 'title', 'content')) && isset($attribs['']['type']) && $attribs['']['type'] == 'xhtml'))
 			{
 				$this->current_xhtml_construct = 0;
 			}
@@ -12911,7 +12911,7 @@ class SimplePie_Parser
 		if ($this->current_xhtml_construct >= 0)
 		{
 			$this->current_xhtml_construct--;
-			if (end($this->namespace) == SIMPLEPIE_NAMESPACE_XHTML && !in_array(end($this->element), array('area', 'base', 'basefont', 'br', 'col', 'frame', 'hr', 'img', 'input', 'isindex', 'link', 'meta', 'param')))
+			if (end($this->namespace) == BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_XHTML && !in_array(end($this->element), array('area', 'base', 'basefont', 'br', 'col', 'frame', 'hr', 'img', 'input', 'isindex', 'link', 'meta', 'param')))
 			{
 				$this->data['data'] .= '</' . end($this->element) . '>';
 			}
@@ -12944,15 +12944,15 @@ class SimplePie_Parser
 				}
 				$namespace = substr($string, 0, $pos);
 				$local_name = substr($string, $pos + $separator_length);
-				if (strtolower($namespace) === SIMPLEPIE_NAMESPACE_ITUNES)
+				if (strtolower($namespace) === BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES)
 				{
-					$namespace = SIMPLEPIE_NAMESPACE_ITUNES;
+					$namespace = BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES;
 				}
 
 				// Normalize the Media RSS namespaces
-				if ($namespace === SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG)
+				if ($namespace === BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG)
 				{
-					$namespace = SIMPLEPIE_NAMESPACE_MEDIARSS;
+					$namespace = BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS;
 				}
 				$cache[$string] = array($namespace, $local_name);
 			}
@@ -12968,7 +12968,7 @@ class SimplePie_Parser
 /**
  * @todo Move to using an actual HTML parser (this will allow tags to be properly stripped, and to switch between HTML and XHTML), this will also make it easier to shorten a string while preserving HTML tags
  */
-class SimplePie_Sanitize
+class blocks_gapps_simplepie_sanitize
 {
 	// Private vars
 	var $base;
@@ -12984,8 +12984,8 @@ class SimplePie_Sanitize
 	var $enable_cache = true;
 	var $cache_location = './cache';
 	var $cache_name_function = 'md5';
-	var $cache_class = 'SimplePie_Cache';
-	var $file_class = 'SimplePie_File';
+	var $cache_class = 'blocks_gapps_simplepie_cache';
+	var $file_class = 'blocks_gapps_simplepie_file';
 	var $timeout = 10;
 	var $useragent = '';
 	var $force_fsockopen = false;
@@ -13019,7 +13019,7 @@ class SimplePie_Sanitize
 		}
 	}
 
-	function pass_cache_data($enable_cache = true, $cache_location = './cache', $cache_name_function = 'md5', $cache_class = 'SimplePie_Cache')
+	function pass_cache_data($enable_cache = true, $cache_location = './cache', $cache_name_function = 'md5', $cache_class = 'blocks_gapps_simplepie_cache')
 	{
 		if (isset($enable_cache))
 		{
@@ -13042,7 +13042,7 @@ class SimplePie_Sanitize
 		}
 	}
 
-	function pass_file_data($file_class = 'SimplePie_File', $timeout = 10, $useragent = '', $force_fsockopen = false)
+	function pass_file_data($file_class = 'blocks_gapps_simplepie_file', $timeout = 10, $useragent = '', $force_fsockopen = false)
 	{
 		if ($file_class)
 		{
@@ -13134,44 +13134,44 @@ class SimplePie_Sanitize
 	function sanitize($data, $type, $base = '')
 	{
 		$data = trim($data);
-		if ($data !== '' || $type & SIMPLEPIE_CONSTRUCT_IRI)
+		if ($data !== '' || $type & BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI)
 		{
-			if ($type & SIMPLEPIE_CONSTRUCT_MAYBE_HTML)
+			if ($type & BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_MAYBE_HTML)
 			{
-				if (preg_match('/(&(#(x[0-9a-fA-F]+|[0-9]+)|[a-zA-Z0-9]+)|<\/[A-Za-z][^\x09\x0A\x0B\x0C\x0D\x20\x2F\x3E]*' . SIMPLEPIE_PCRE_HTML_ATTRIBUTE . '>)/', $data))
+				if (preg_match('/(&(#(x[0-9a-fA-F]+|[0-9]+)|[a-zA-Z0-9]+)|<\/[A-Za-z][^\x09\x0A\x0B\x0C\x0D\x20\x2F\x3E]*' . BLOCKS_GAPPS_SIMPLEPIE_PCRE_HTML_ATTRIBUTE . '>)/', $data))
 				{
-					$type |= SIMPLEPIE_CONSTRUCT_HTML;
+					$type |= BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_HTML;
 				}
 				else
 				{
-					$type |= SIMPLEPIE_CONSTRUCT_TEXT;
+					$type |= BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT;
 				}
 			}
 
-			if ($type & SIMPLEPIE_CONSTRUCT_BASE64)
+			if ($type & BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_BASE64)
 			{
 				$data = base64_decode($data);
 			}
 
-			if ($type & SIMPLEPIE_CONSTRUCT_XHTML)
+			if ($type & BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_XHTML)
 			{
 				if ($this->remove_div)
 				{
-					$data = preg_replace('/^<div' . SIMPLEPIE_PCRE_XML_ATTRIBUTE . '>/', '', $data);
+					$data = preg_replace('/^<div' . BLOCKS_GAPPS_SIMPLEPIE_PCRE_XML_ATTRIBUTE . '>/', '', $data);
 					$data = preg_replace('/<\/div>$/', '', $data);
 				}
 				else
 				{
-					$data = preg_replace('/^<div' . SIMPLEPIE_PCRE_XML_ATTRIBUTE . '>/', '<div>', $data);
+					$data = preg_replace('/^<div' . BLOCKS_GAPPS_SIMPLEPIE_PCRE_XML_ATTRIBUTE . '>/', '<div>', $data);
 				}
 			}
 
-			if ($type & (SIMPLEPIE_CONSTRUCT_HTML | SIMPLEPIE_CONSTRUCT_XHTML))
+			if ($type & (BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_HTML | BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_XHTML))
 			{
 				// Strip comments
 				if ($this->strip_comments)
 				{
-					$data = SimplePie_Misc::strip_comments($data);
+					$data = blocks_gapps_simplepie_misc::strip_comments($data);
 				}
 
 				// Strip out HTML tags and attributes that might cause various security problems.
@@ -13181,7 +13181,7 @@ class SimplePie_Sanitize
 				{
 					foreach ($this->strip_htmltags as $tag)
 					{
-						$pcre = "/<($tag)" . SIMPLEPIE_PCRE_HTML_ATTRIBUTE . "(>(.*)<\/$tag" . SIMPLEPIE_PCRE_HTML_ATTRIBUTE . '>|(\/)?>)/siU';
+						$pcre = "/<($tag)" . BLOCKS_GAPPS_SIMPLEPIE_PCRE_HTML_ATTRIBUTE . "(>(.*)<\/$tag" . BLOCKS_GAPPS_SIMPLEPIE_PCRE_HTML_ATTRIBUTE . '>|(\/)?>)/siU';
 						while (preg_match($pcre, $data))
 						{
 							$data = preg_replace_callback($pcre, array(&$this, 'do_strip_htmltags'), $data);
@@ -13193,7 +13193,7 @@ class SimplePie_Sanitize
 				{
 					foreach ($this->strip_attributes as $attrib)
 					{
-						$data = preg_replace('/(<[A-Za-z][^\x09\x0A\x0B\x0C\x0D\x20\x2F\x3E]*)' . SIMPLEPIE_PCRE_HTML_ATTRIBUTE . trim($attrib) . '(?:\s*=\s*(?:"(?:[^"]*)"|\'(?:[^\']*)\'|(?:[^\x09\x0A\x0B\x0C\x0D\x20\x22\x27\x3E][^\x09\x0A\x0B\x0C\x0D\x20\x3E]*)?))?' . SIMPLEPIE_PCRE_HTML_ATTRIBUTE . '>/', '\1\2\3>', $data);
+						$data = preg_replace('/(<[A-Za-z][^\x09\x0A\x0B\x0C\x0D\x20\x2F\x3E]*)' . BLOCKS_GAPPS_SIMPLEPIE_PCRE_HTML_ATTRIBUTE . trim($attrib) . '(?:\s*=\s*(?:"(?:[^"]*)"|\'(?:[^\']*)\'|(?:[^\x09\x0A\x0B\x0C\x0D\x20\x22\x27\x3E][^\x09\x0A\x0B\x0C\x0D\x20\x3E]*)?))?' . BLOCKS_GAPPS_SIMPLEPIE_PCRE_HTML_ATTRIBUTE . '>/', '\1\2\3>', $data);
 					}
 				}
 
@@ -13207,7 +13207,7 @@ class SimplePie_Sanitize
 				// If image handling (caching, etc.) is enabled, cache and rewrite all the image tags.
 				if (isset($this->image_handler) && ((string) $this->image_handler) !== '' && $this->enable_cache)
 				{
-					$images = SimplePie_Misc::get_element('img', $data);
+					$images = blocks_gapps_simplepie_misc::get_element('img', $data);
 					foreach ($images as $img)
 					{
 						if (isset($img['attribs']['src']['data']))
@@ -13218,7 +13218,7 @@ class SimplePie_Sanitize
 							if ($cache->load())
 							{
 								$img['attribs']['src']['data'] = $this->image_handler . $image_url;
-								$data = str_replace($img['full'], SimplePie_Misc::element_implode($img), $data);
+								$data = str_replace($img['full'], blocks_gapps_simplepie_misc::element_implode($img), $data);
 							}
 							else
 							{
@@ -13230,7 +13230,7 @@ class SimplePie_Sanitize
 									if ($cache->save(array('headers' => $file->headers, 'body' => $file->body)))
 									{
 										$img['attribs']['src']['data'] = $this->image_handler . $image_url;
-										$data = str_replace($img['full'], SimplePie_Misc::element_implode($img), $data);
+										$data = str_replace($img['full'], blocks_gapps_simplepie_misc::element_implode($img), $data);
 									}
 									else
 									{
@@ -13246,19 +13246,19 @@ class SimplePie_Sanitize
 				$data = trim($data);
 			}
 
-			if ($type & SIMPLEPIE_CONSTRUCT_IRI)
+			if ($type & BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI)
 			{
-				$data = SimplePie_Misc::absolutize_url($data, $base);
+				$data = blocks_gapps_simplepie_misc::absolutize_url($data, $base);
 			}
 
-			if ($type & (SIMPLEPIE_CONSTRUCT_TEXT | SIMPLEPIE_CONSTRUCT_IRI))
+			if ($type & (BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT | BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_IRI))
 			{
 				$data = htmlspecialchars($data, ENT_COMPAT, 'UTF-8');
 			}
 
 			if ($this->output_encoding != 'UTF-8')
 			{
-				$data = SimplePie_Misc::change_encoding($data, 'UTF-8', $this->output_encoding);
+				$data = blocks_gapps_simplepie_misc::change_encoding($data, 'UTF-8', $this->output_encoding);
 			}
 		}
 		return $data;
@@ -13268,7 +13268,7 @@ class SimplePie_Sanitize
 	{
 		if (!is_array($this->strip_htmltags) || !in_array($tag, $this->strip_htmltags))
 		{
-			$elements = SimplePie_Misc::get_element($tag, $data);
+			$elements = blocks_gapps_simplepie_misc::get_element($tag, $data);
 			foreach ($elements as $element)
 			{
 				if (is_array($attributes))
@@ -13277,8 +13277,8 @@ class SimplePie_Sanitize
 					{
 						if (isset($element['attribs'][$attribute]['data']))
 						{
-							$element['attribs'][$attribute]['data'] = SimplePie_Misc::absolutize_url($element['attribs'][$attribute]['data'], $this->base);
-							$new_element = SimplePie_Misc::element_implode($element);
+							$element['attribs'][$attribute]['data'] = blocks_gapps_simplepie_misc::absolutize_url($element['attribs'][$attribute]['data'], $this->base);
+							$new_element = blocks_gapps_simplepie_misc::element_implode($element);
 							$data = str_replace($element['full'], $new_element, $data);
 							$element['full'] = $new_element;
 						}
@@ -13286,8 +13286,8 @@ class SimplePie_Sanitize
 				}
 				elseif (isset($element['attribs'][$attributes]['data']))
 				{
-					$element['attribs'][$attributes]['data'] = SimplePie_Misc::absolutize_url($element['attribs'][$attributes]['data'], $this->base);
-					$data = str_replace($element['full'], SimplePie_Misc::element_implode($element), $data);
+					$element['attribs'][$attributes]['data'] = blocks_gapps_simplepie_misc::absolutize_url($element['attribs'][$attributes]['data'], $this->base);
+					$data = str_replace($element['full'], blocks_gapps_simplepie_misc::element_implode($element), $data);
 				}
 			}
 		}

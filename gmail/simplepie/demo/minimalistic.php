@@ -18,7 +18,7 @@ $start = microtime_float();
 include('../simplepie.inc');
 
 // Parse it
-$feed = new SimplePie();
+$feed = new blocks_gapps_simplepie();
 if (!empty($_GET['feed']))
 {
 	if (get_magic_quotes_gpc())
@@ -130,7 +130,7 @@ form#sp_form input.text {
 	</div>
 
 	<div id="footer">
-		Powered by <?php echo SIMPLEPIE_LINKBACK; ?>, a product of <a href="http://www.skyzyx.com">Skyzyx Technologies</a>.<br />
+		Powered by <?php echo BLOCKS_GAPPS_SIMPLEPIE_LINKBACK; ?>, a product of <a href="http://www.skyzyx.com">Skyzyx Technologies</a>.<br />
 		Page created in <?php echo round(microtime_float()-$start, 3); ?> seconds.
 	</div>
 </body>
