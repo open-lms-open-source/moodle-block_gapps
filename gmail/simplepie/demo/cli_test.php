@@ -3,7 +3,7 @@
 include_once('../simplepie.inc');
 
 // Parse it
-$feed = new SimplePie();
+$feed = new blocks_gapps_simplepie();
 if (isset($argv[1]) && $argv[1] !== '')
 {
 	$feed->set_feed_url($argv[1]);

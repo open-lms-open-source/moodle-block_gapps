@@ -190,7 +190,7 @@ class blocks_gapps_model_gmail {
         }
 
         // Parse google atom feed
-        $feed = new SimplePie();
+        $feed = new blocks_gapps_simplepie();
         $feed->set_raw_data($feeddata);
         $status = $feed->init();
         $msgs = $feed->get_items();

@@ -17,7 +17,7 @@ require_once('../simplepie.inc');
 require_once('../idn/idna_convert.class.php');
 
 // Initialize some feeds for use.
-$feed = new SimplePie();
+$feed = new blocks_gapps_simplepie();
 $feed->set_feed_url(array(
 	'http://rss.news.yahoo.com/rss/topstories',
 	'http://news.google.com/?output=atom',
