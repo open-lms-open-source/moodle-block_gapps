@@ -919,8 +919,8 @@ class blocks_gapps_model_gsync {
     private static function event_handler($event, $eventdata) {
         global $DB;
 
-        // Don't allow gapps to handle events if the block is not enabled in Control Panel and it is not visible site-wide.
-        $blockenabled = (!function_exists('mr_on') || mr_on('gapps', 'block')) && $DB->get_field('block', 'visible', array('name' => 'gapps'));
+        // Don't allow gapps to handle events if the block is not visible site-wide.
+        $blockenabled = $DB->get_field('block', 'visible', array('name' => 'gapps'));
         // Check first to see if events are allowed
         if ($blockenabled && get_config('blocks/gapps', 'allowevents')) {
             add_to_log(SITEID, 'block_gapps', 'model:event_handler','', $event.' eventdata->id='.$eventdata->id, 0,0);
