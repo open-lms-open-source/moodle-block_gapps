@@ -917,8 +917,24 @@ class blocks_gapps_model_gsync {
      * @return boolean
      **/
     private static function event_handler($event, $eventdata) {
-        // Check first to see if events are allowed
-        if (get_config('blocks/gapps', 'allowevents')) {
+        global $DB;
+
+        static $blockenabled = null;
+        static $allowevents = null;
+
+        // Set the blockenabled static first call only.
+        if (is_null($blockenabled)) {
+            $blockenabled = $DB->get_field('block', 'visible', array('name' => 'gapps'));
+        }
+
+        // Set allowedevents static first call only.
+        if (is_null($allowevents)) {
+            $allowevents = get_config('blocks/gapps', 'allowevents');
+        }
+
+        // Don't allow gapps to handle events if the block is not visible site-wide.
+        // Check to see if events are allowed
+        if ($blockenabled && $allowevents) {
             add_to_log(SITEID, 'block_gapps', 'model:event_handler','', $event.' eventdata->id='.$eventdata->id, 0,0);
             switch ($event) {
                 case 'auth_gsaml_user_authenticated':
