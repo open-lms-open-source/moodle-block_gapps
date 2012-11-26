@@ -3,21 +3,21 @@
 /**
  * This is the sample google OAuth Demo Code
  * @author Chris B Stones based off Marc Worrell's code
- * 
+ *
  * The MIT License
- * 
+ *
  * Copyright (c) 2007-2008 Mediamatic Lab
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -43,7 +43,7 @@ $PAGE->set_url('/blocks/gapps/gmail/service/request_token.php');
 $refresh = optional_param('id', 0, PARAM_INT);
 if ( $refresh == 1) {
     // Delete Token
-    if( !$result = $DB->delete_records('block_gapps_oauth_consumer_token',array('user_id'=>$USER->id)) ) {
+    if( !$result = $DB->delete_records('block_gapps_oauth_token',array('user_id'=>$USER->id)) ) {
         redirect($CFG->wwwroot,get_string('refreshfailed','block_gapps'),3);
     }
 }
@@ -104,9 +104,9 @@ if (!empty($token['authorize_uri']))
 {
 	// Redirect to the server, add a callback to our server
 	if (strpos($token['authorize_uri'], '?')) {
-		$uri = $token['authorize_uri'] . '&'; 
+		$uri = $token['authorize_uri'] . '&';
 	} else {
-		$uri = $token['authorize_uri'] . '?'; 
+		$uri = $token['authorize_uri'] . '?';
 	}
     // WARNING: google specific code
     // hd parameter tells us we want access to THIS domain's email

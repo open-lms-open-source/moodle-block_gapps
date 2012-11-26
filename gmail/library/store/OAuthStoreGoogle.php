@@ -2,8 +2,8 @@
  * Use a Moodle Table to manage the user tokens
  * requires upgrade to be run
  *
- */ //require_once dirname(__FILE__) . '/OAuthStoreAbstract.class.php'; // can you include this after the reqular include? 
-//require_once('../../../../../config.php'); // depends where this is included from :/ :( //$CFG->prefix global $CFG; require_once 
+ */ //require_once dirname(__FILE__) . '/OAuthStoreAbstract.class.php'; // can you include this after the reqular include?
+//require_once('../../../../../config.php'); // depends where this is included from :/ :( //$CFG->prefix global $CFG; require_once
 
 global $CFG;
 require_once($CFG->dirroot.'/blocks/gapps/gmail/library/store/OAuthStoreAbstract.class.php');
@@ -20,8 +20,8 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
      * Unit is seconds, default max skew is 10 minutes.
      */
     protected $max_timestamp_skew = 600;
-    
-    
+
+
     // TODO: make all links draw from these settings.. but make sure you pull from moodle
     protected $server = array(
                 'server_uri'        => 'https://mail.google.com/mail/feed/atom',
@@ -41,26 +41,26 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
      */
     function __construct ( $options = array() )
     {
-       
+
        /*
           The ONLY store functions we SHOULD need for the Google Gmail block
           So the rest are copied from mysql object AND then these are modified only
-         
+
            Should not need to call updateServer
            updateServer left alone
-         
+
            // should be only the google server
            $store->getServer($consumer_key, $usr_id);
-            
+
             // written
             $store->addServerToken(
-            
+
             // written
             $store->getServerTokenSecrets(
-            
+
             // written
             $store->deleteServerToken(
-            
+
             // written
             $secrets = $this->store->getSecretsForSignature($url, $usr_id);
         */
@@ -92,7 +92,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
                           AND osr_enabled = 1
                         ',
                         $consumer_key);
-            
+
             if ($rs)
             {
                 $rs['token'] = false;
@@ -121,7 +121,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
                         ',
                         $token_type, $consumer_key, $token);
         }
-        
+
         if (empty($rs))
         {
             throw new OAuthException2('The consumer_key "'.$consumer_key.'" token "'.$token.'" combination does not exist or is not enabled.');
@@ -157,14 +157,14 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
         $ps = parse_url($uri);
         $host = isset($ps['host']) ? $ps['host'] : 'localhost';
         $path = isset($ps['path']) ? $ps['path'] : '';
-        
+
         if (empty($path) || substr($path, -1) != '/')
         {
             $path .= '/';
         }
-                
+
         $secrets = array();
-        if ( !$rec = $DB->get_record('block_gapps_oauth_consumer_token',array('user_id'=>$user_id)) ) {
+        if ( !$rec = $DB->get_record('block_gapps_oauth_token',array('user_id'=>$user_id)) ) {
             throw new OAuthException2('User not in token table.');
         }
         $secrets['consumer_key'] = get_config('blocks/gapps','domain'); // ocr_consumer_key
@@ -172,7 +172,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
         $secrets['token'] = $rec->token; //oct_token as token,
         $secrets['token_secret'] = $rec->token_secret; //oct_token_secret as token_secret,
         $secrets['signature_methods'] = array('HMAC-SHA1'); //ocr_signature_methods as signature_methods,
-     
+
         if (empty($secrets))
         {
             throw new OAuthException2('No server tokens available for '.$uri);
@@ -201,10 +201,10 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
         }
 
         $r = array();
-        if( !$rec = $DB->get_record('block_gapps_oauth_consumer_token',array('user_id'=>$user_id))) {
+        if( !$rec = $DB->get_record('block_gapps_oauth_token',array('user_id'=>$user_id))) {
             throw new OAuthException2('Problem calling record from function getServerTokenSecrets.'."'token_type',$token_type,'token',$token,'user_id',$user_id");
         }
-    
+
         $r['consumer_key'] = get_config('blocks/gapps','domain');                    // ocr_consumer_key
         $r['consumer_secret'] = get_config('blocks/gapps','oauthsecret');                  //ocr_consumer_secret as consumer_secret, aka oauth secret
         $r['token'] = $rec->token;                                                         //oct_token as token,
@@ -217,7 +217,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
         // WARNING: These settings show in 2 places
 
 
-                            
+
         if (empty($r))
         {
             throw new OAuthException2('Could not find a "'.$token_type.'" token for consumer "'.$consumer_key.'" and user'.$user_id);
@@ -255,13 +255,13 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
         $data->token_secret = $token_secret;
         $data->token_type = strtolower($token_type); // need to set lower
         $data->timestamp = time(); // WARNING: timestamp is expecting 2009-05-26 14:01:02 // sql NOW() commands
-     
+
         // IF user has a token
-        if ( $rec = $DB->get_record('block_gapps_oauth_consumer_token', array( 'user_id'=> $user_id)) ) {
+        if ( $rec = $DB->get_record('block_gapps_oauth_token', array( 'user_id'=> $user_id)) ) {
             $data->id = $rec->id;
-            $DB->update_record('block_gapps_oauth_consumer_token', $data);
+            $DB->update_record('block_gapps_oauth_token', $data);
         } else {
-            $DB->insert_record('block_gapps_oauth_consumer_token', $data);
+            $DB->insert_record('block_gapps_oauth_token', $data);
         }
     }
 
@@ -292,8 +292,8 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
                     ', $consumer_key, $user_id);
         }
     }
-    
-    
+
+
     /**
      * Get a server from the consumer registry using the consumer key
      *
@@ -305,7 +305,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
      */
     public function getServer ( $consumer_key, $user_id, $user_is_admin = false )
     {
- 
+
         $r = array();
         $r['id'] = 1; // the only server we refrence ALL users must use this server
         $r['user_id']           = $user_id;
@@ -317,7 +317,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
         $r['authorize_uri']     = 'https://www.google.com/accounts/OAuthAuthorizeToken';
         $r['access_token_uri']  = 'https://www.google.com/accounts/OAuthGetAccessToken';
         // when you change settings here also change settings in the other location
-      
+
         if (empty($r))
         {
             throw new OAuthException2('No server with consumer_key "'.$consumer_key.'" has been registered (for this user)');
@@ -343,7 +343,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
         $ps = parse_url($uri);
         $host = isset($ps['host']) ? $ps['host'] : 'localhost';
         $path = isset($ps['path']) ? $ps['path'] : '';
-        
+
         if (empty($path) || substr($path, -1) != '/')
         {
             $path .= '/';
@@ -368,7 +368,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
                     LIMIT 0,1
                     ', $host, $path, $user_id
                     );
-        
+
         if (empty($server))
         {
             throw new OAuthException2('No server available for '.$uri);
@@ -428,7 +428,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
                     WHERE oct_token_type = \'access\'
                       AND ocr_consumer_key = \'%s\'
                     ', $consumer_key);
-        
+
         return $count;
     }
 
@@ -466,7 +466,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
                       AND oct_token_type = \'access\'
                       AND oct_token = \'%s\'
                     ', $consumer_key, $user_id, $token);
-        
+
         if (empty($ts))
         {
             throw new OAuthException2('No such consumer key ('.$consumer_key.') and token ('.$token.') combination for user "'.$user_id.'"');
@@ -487,7 +487,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
     {
         global $DB;
         $where = 'token = "'.$token.'" AND user_id = '.$user_id;
-        $DB->delete_records_select('block_gapps_oauth_consumer_token', $where);
+        $DB->delete_records_select('block_gapps_oauth_token', $where);
     }
 
 
@@ -512,7 +512,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
                              OR ocr_server_uri_path like \'%%%s%%\')
                          AND (ocr_usa_id_ref = %d OR ocr_usa_id_ref IS NULL)
                     ';
-            
+
             $args[] = $q;
             $args[] = $q;
             $args[] = $q;
@@ -565,7 +565,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
                 throw new OAuthException2('The field "'.$f.'" must be set and non empty');
             }
         }
-        
+
         if (!empty($server['id']))
         {
             $exists = $this->query_one('
@@ -601,7 +601,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
             {
                 $server['signature_methods'] = strtoupper(implode(',', $server['signature_methods']));
             }
-        }   
+        }
         else
         {
             $server['signature_methods'] = '';
@@ -623,7 +623,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
         {
             $update_user = '';
         }
-        
+
         if (!empty($server['id']))
         {
             // Check if the current user can update this server definition
@@ -634,13 +634,13 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
                                     FROM oauth_consumer_registry
                                     WHERE ocr_id = %d
                                     ', $server['id']);
-                
+
                 if ($ocr_usa_id_ref != $user_id)
                 {
                     throw new OAuthException2('The user "'.$user_id.'" is not allowed to update this server');
                 }
             }
-            
+
             // Update the consumer registration
             $this->query('
                     UPDATE oauth_consumer_registry
@@ -700,7 +700,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
                     isset($server['access_token_uri']) ? $server['access_token_uri'] : '',
                     $server['signature_methods']
                     );
-        
+
             $ocr_id = $this->query_insert_id();
         }
         return $server['consumer_key'];
@@ -733,7 +733,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
                 }
             }
         }
-        
+
         if (!empty($consumer['id']))
         {
             if (empty($consumer['consumer_key']))
@@ -753,7 +753,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
                                     FROM oauth_server_registry
                                     WHERE osr_id = %d
                                     ', $consumer['id']);
-                
+
                 if ($osr_usa_id_ref != $user_id)
                 {
                     throw new OAuthException2('The user "'.$user_id.'" is not allowed to update this consumer');
@@ -782,7 +782,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
                     }
                 }
             }
-            
+
             $this->query('
                 UPDATE oauth_server_registry
                 SET osr_requester_name = \'%s\',
@@ -812,7 +812,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
                 $consumer['consumer_key'],
                 $consumer['consumer_secret']
                 );
-                
+
 
             $consumer_key = $consumer['consumer_key'];
         }
@@ -903,10 +903,10 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
                       AND osr_usa_id_ref = %d
                     ', $consumer_key, $user_id);
         }
-    }   
-    
-    
-    
+    }
+
+
+
     /**
      * Fetch a consumer of this server, by consumer_key.
      *
@@ -923,7 +923,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
                         FROM oauth_server_registry
                         WHERE osr_consumer_key = \'%s\'
                         ', $consumer_key);
-        
+
         if (!is_array($consumer))
         {
             throw new OAuthException2('No consumer with consumer_key "'.$consumer_key.'"');
@@ -983,7 +983,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
                 ',
                 $consumer_key
                 );
-            
+
             // Just make sure that if the consumer key is truncated that we get the truncated string
             $consumer = $this->getConsumerStatic();
         }
@@ -1011,7 +1011,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
         if (!$osr_id)
         {
             throw new OAuthException2('No server with consumer_key "'.$consumer_key.'" or consumer_key is disabled');
-        }   
+        }
 
         $this->query('
                 INSERT INTO oauth_server_token
@@ -1028,11 +1028,11 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
                     ost_token_type = VALUES(ost_token_type),
                     ost_timestamp = NOW()
                 ', $osr_id, $token, $secret);
-        
+
         return array('token'=>$token, 'token_secret'=>$secret);
     }
-    
-    
+
+
     /**
      * Fetch the consumer request token, by request token.
      *
@@ -1053,10 +1053,10 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
                 WHERE ost_token_type = \'request\'
                   AND ost_token = \'%s\'
                 ', $token);
-        
+
         return $rs;
     }
-    
+
 
     /**
      * Delete a consumer token.  The token must be a request or authorized token.
@@ -1071,7 +1071,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
                       AND ost_token_type = \'request\'
                     ', $token);
     }
-    
+
 
     /**
      * Upgrade a request token to be an authorized request token.
@@ -1110,7 +1110,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
                     WHERE ost_token_type = \'access\'
                       AND osr_consumer_key = \'%s\'
                     ', $consumer_key);
-        
+
         return $count;
     }
 
@@ -1138,7 +1138,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
                       AND ost_token_type = \'request\'
                       AND ost_authorized = 1
                     ', $new_token, $new_secret, $token);
-        
+
         if ($this->query_affected_rows() != 1)
         {
             throw new OAuthException2('Can\'t exchange request token "'.$token.'" for access token. No such token or not
@@ -1174,7 +1174,7 @@ authorized');
                   AND ost_token = \'%s\'
                   AND ost_usa_id_ref = %d
                 ', $token, $user_id);
-        
+
         if (empty($rs))
         {
             throw new OAuthException2('No server_token "'.$token.'" for user "'.$user_id.'"');
@@ -1297,7 +1297,7 @@ authorized');
             throw new OAuthException2('Timestamp is out of sequence. Request rejected. Got '.$timestamp.' last max is '.$r[0].'
 allowed skew is '.$this->max_timestamp_skew);
         }
-        
+
         // Insert the new combination
         $this->query('
                 INSERT IGNORE INTO oauth_server_nonce
@@ -1306,7 +1306,7 @@ allowed skew is '.$this->max_timestamp_skew);
                     osn_timestamp = %d,
                     osn_nonce = \'%s\'
                 ', $consumer_key, $token, $timestamp, $nonce);
-        
+
         if ($this->query_affected_rows() == 0)
         {
             throw new OAuthException2('Duplicate timestamp/nonce combination, possible replay attack.  Request rejected.');
@@ -1345,7 +1345,7 @@ allowed skew is '.$this->max_timestamp_skew);
         if (!empty($_SERVER['REMOTE_ADDR']))
         {
             $remote_ip = $_SERVER['REMOTE_ADDR'];
-        }   
+        }
         else if (!empty($_SERVER['REMOTE_IP']))
         {
             $remote_ip = $_SERVER['REMOTE_IP'];
@@ -1365,8 +1365,8 @@ allowed skew is '.$this->max_timestamp_skew);
 
         $this->query('INSERT INTO oauth_log SET '.implode(',', $ps), $args);
     }
-    
-    
+
+
     /**
      * Get a page of entries from the log.  Returns the last 100 records
      * matching the options given.
@@ -1402,7 +1402,7 @@ allowed skew is '.$this->max_timestamp_skew);
                     }
                 }
             }
-            
+
             $where[] = '(olg_usa_id_ref IS NULL OR olg_usa_id_ref = %d)';
             $args[] = $user_id;
         }
@@ -1437,8 +1437,8 @@ allowed skew is '.$this->max_timestamp_skew);
     {
         require_once dirname(__FILE__) . '/mysql/install.php';
     }
-    
-    
+
+
     /* ** Some simple helper functions for querying the mysql db ** */
 
     /**
@@ -1450,10 +1450,10 @@ allowed skew is '.$this->max_timestamp_skew);
     protected function query ( $sql )
     {
         $sql = $this->sql_printf(func_get_args());
-        
+
         // Add Moodle Prefix to all tables
         //$sql = str_replace('oauth_',$CFG->prefix.'oauth_',$sql);
-        
+
         if (!($res = mysql_query($sql, $this->conn)))
         {
             $this->sql_errcheck($sql);
@@ -1463,7 +1463,7 @@ allowed skew is '.$this->max_timestamp_skew);
             mysql_free_result($res);
         }
     }
-    
+
 
     /**
      * Perform a query, ignore the results
@@ -1475,10 +1475,10 @@ allowed skew is '.$this->max_timestamp_skew);
     protected function query_all_assoc ( $sql )
     {
         $sql = $this->sql_printf(func_get_args());
-        
+
         $sql = str_replace('oauth_',$CFG->prefix.'oauth_',$sql); // ADD moodle prefix to all queries
-        
-        
+
+
         if (!($res = mysql_query($sql, $this->conn)))
         {
             $this->sql_errcheck($sql);
@@ -1491,8 +1491,8 @@ allowed skew is '.$this->max_timestamp_skew);
         mysql_free_result($res);
         return $rs;
     }
-    
-    
+
+
     /**
      * Perform a query, return the first row
      *
@@ -1504,7 +1504,7 @@ allowed skew is '.$this->max_timestamp_skew);
     {
         $sql = $this->sql_printf(func_get_args());
         $sql = str_replace('oauth_',$CFG->prefix.'oauth_',$sql); // ADD moodle prefix to all queries
-        
+
         if (!($res = mysql_query($sql, $this->conn)))
         {
             $this->sql_errcheck($sql);
@@ -1521,7 +1521,7 @@ allowed skew is '.$this->max_timestamp_skew);
         return $rs;
     }
 
-    
+
     /**
      * Perform a query, return the first row
      *
@@ -1533,7 +1533,7 @@ allowed skew is '.$this->max_timestamp_skew);
     {
         $sql = $this->sql_printf(func_get_args());
         $sql = str_replace('oauth_',$CFG->prefix.'oauth_',$sql); // ADD moodle prefix to all queries
-        
+
         if (!($res = mysql_query($sql, $this->conn)))
         {
             $this->sql_errcheck($sql);
@@ -1549,8 +1549,8 @@ allowed skew is '.$this->max_timestamp_skew);
         mysql_free_result($res);
         return $rs;
     }
-    
-        
+
+
     /**
      * Perform a query, return the first column of the first row
      *
@@ -1562,7 +1562,7 @@ allowed skew is '.$this->max_timestamp_skew);
     {
         $sql = $this->sql_printf(func_get_args());
         $sql = str_replace('oauth_',$CFG->prefix.'oauth_',$sql); // ADD moodle prefix to all queries
-        
+
         if (!($res = mysql_query($sql, $this->conn)))
         {
             $this->sql_errcheck($sql);
@@ -1571,8 +1571,8 @@ allowed skew is '.$this->max_timestamp_skew);
         mysql_free_result($res);
         return $val;
     }
-    
-    
+
+
     /**
      * Return the number of rows affected in the last query
      */
@@ -1591,13 +1591,13 @@ allowed skew is '.$this->max_timestamp_skew);
     {
         return mysql_insert_id($this->conn);
     }
-    
-    
+
+
     protected function sql_printf ( $args )
     {
         $sql = array_shift($args);
         $sql = str_replace('oauth_',$CFG->prefix.'oauth_',$sql); // ADD moodle prefix to all queries
-        
+
         if (count($args) == 1 && is_array($args[0]))
         {
             $args = $args[0];
@@ -1605,8 +1605,8 @@ allowed skew is '.$this->max_timestamp_skew);
         $args = array_map(array($this, 'sql_escape_string'), $args);
         return vsprintf($sql, $args);
     }
-    
-    
+
+
     protected function sql_escape_string ( $s )
     {
         if (is_string($s))
@@ -1630,12 +1630,12 @@ allowed skew is '.$this->max_timestamp_skew);
             return mysql_real_escape_string(strval($s), $this->conn);
         }
     }
-    
-    
+
+
     protected function sql_errcheck ( $sql )
     {
         $sql = str_replace('oauth_',$CFG->prefix.'oauth_',$sql); // ADD moodle prefix to all queries
-        
+
         if (mysql_errno($this->conn))
         {
             echo "SQL Error in OAuthStoreMySQL: ".mysql_error($this->conn)."\n\n";

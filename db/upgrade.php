@@ -44,14 +44,26 @@ function xmldb_block_gapps_upgrade($oldversion=0) {
         if ($dbman->table_exists($table_incorrect) && !$dbman->table_exists($table_correct)) {
             $dbman->rename_table($table_incorrect, 'block_gapps_gdata');
         }
-        
+
         // Drop incorrectly named table, if it exists
         if ($dbman->table_exists($table_incorrect)) {
             $dbman->drop_table($table_incorrect);
         }
-        
+
         // gapps savepoint reached
         upgrade_block_savepoint(true, 2012062401, 'gapps');
+    }
+
+    if ($oldversion < 2012112600) {
+
+        // Define table block_gapps_oauth_consumer_token to be renamed to block_gapps_oauth_token
+        $table = new xmldb_table('block_gapps_oauth_consumer_token');
+
+        // Launch rename table for block_gapps_oauth_consumer_token
+        $dbman->rename_table($table, 'block_gapps_oauth_token');
+
+        // gapps savepoint reached
+        upgrade_block_savepoint(true, 2012112600, 'gapps');
     }
 
     return true;
