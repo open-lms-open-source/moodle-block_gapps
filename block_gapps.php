@@ -316,11 +316,11 @@ class block_gapps extends block_base {
             $items[] = "<a ".$target.". title=\"".$gs['service']."\"  href=\"".$gs['relayurl']."\">".$gs['service']."</a>";
 
             if ( !empty($gs['icon_name']) ) {
-        		$icons[] = "<img src=\"$CFG->wwwroot/blocks/gapps/imgs/".$gs['icon_name']."\" alt=\"".$gs['service']."\" />";
+        		$icons[] = "<img src=\"$CFG->wwwroot/blocks/gapps/imgs/".$gs['icon_name']."\" />";
 	        } else {
 	        	// Default to a check graphic
                         // ".$OUTPUT->pix_url('/i/tick_green_small')."
-	        	$icons[] = "<img src=\"$CFG->pixpath/i/tick_green_small.gif\" alt=\"$service\" />";
+	        	$icons[] = "<img src=\"$CFG->pixpath/i/tick_green_small.gif\" />";
 	        }
         }
 
@@ -345,19 +345,19 @@ class block_gapps extends block_base {
 
         $title = get_string('settings', 'block_gapps');
         $items[] = "<a title=\"$title\" href=\"$CFG->wwwroot/$CFG->admin/settings.php?section=blocksettinggapps\">$title</a>";
-        $icons[] = "<img src=\"".$OUTPUT->pix_url('/i/settings')."\" alt=\"$title\" />";
+        $icons[] = "<img src=\"".$OUTPUT->pix_url('/i/settings')."\" />";
 
         $title = get_string('status', 'block_gapps');
         $items[] = "<a title=\"$title\" href=\"$CFG->wwwroot/blocks/gapps/view.php?controller=gsync&action=status\">$title</a>";
-        $icons[] = "<img src=\"".$OUTPUT->pix_url('/i/tick_green_small')."\" alt=\"$title\" />";
+        $icons[] = "<img src=\"".$OUTPUT->pix_url('/i/tick_green_small')."\" />";
 
         $title = get_string('userssynced', 'block_gapps');
         $items[] = "<a title=\"$title\" href=\"$CFG->wwwroot/blocks/gapps/view.php?controller=gsync&action=usersview\">$title</a>";
-        $icons[] = "<img src=\"".$OUTPUT->pix_url('/i/users')."\" alt=\"$title\" />";
+        $icons[] = "<img src=\"".$OUTPUT->pix_url('/i/users')."\" />";
 
         $title = get_string('addusers', 'block_gapps');
         $items[] = "<a title=\"$title\" href=\"$CFG->wwwroot/blocks/gapps/view.php?controller=gsync&action=addusersview\">$title</a>";
-        $icons[] = "<img src=\"".$OUTPUT->pix_url('/i/users')."\" alt=\"$title\" />";
+        $icons[] = "<img src=\"".$OUTPUT->pix_url('/i/users')."\" />";
 
         return $this->list_block_contents($icons, $items);
     }
