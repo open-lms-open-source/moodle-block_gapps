@@ -107,8 +107,9 @@ class block_gapps_controller_gsync extends mr_controller_block {
 
         // don't auto run because moodle's userfilter clears the _POST global
         // and we need to save and process those
-        $report = new blocks_gapps_report_users($this->url, $COURSE->id,false);
-        $filter =  new user_filtering(NULL, $this->url);
+        $actionurl = $this->new_url(array('action' => 'usersview'));
+        $report = new blocks_gapps_report_users($actionurl, $COURSE->id, false);
+        $filter =  new user_filtering(NULL, $actionurl);
 
         mr_var::instance()->set('blocks_gdata_filter', $filter);
         $report->run();
@@ -258,9 +259,10 @@ class block_gapps_controller_gsync extends mr_controller_block {
 
         // don't auto run because moodle's userfilter clears
         // the _POST global and we need to save and process those
-        $report = new blocks_gapps_report_addusers($this->url, $COURSE->id,false);
+        $actionurl = $this->new_url(array('action' => 'addusersview'));
+        $report = new blocks_gapps_report_addusers($actionurl, $COURSE->id, false);
 
-        $filter =  new user_filtering(NULL, $this->url);
+        $filter =  new user_filtering(NULL, $actionurl);
 
         mr_var::instance()->set('blocks_gdata_filter', $filter);
         $report->run();
