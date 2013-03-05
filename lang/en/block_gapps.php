@@ -18,7 +18,7 @@
  * @copyright  Copyright (c) 2009 Moodlerooms Inc. (http://www.moodlerooms.com)
  * @license    http://opensource.org/licenses/gpl-3.0.html     GNU Public License
  */
- 
+
 /**
  * Language string
  *
@@ -29,6 +29,7 @@
 
 $string['bad'] = 'Bad!';
 $string['blockname'] = 'Google Apps';
+$string['gapps:addinstance'] = 'Add a new Google Apps block';
 
 $string['blocks_helloworld_report_users'] = 'Report Title';
 $string['blocks_helloworld_report_users_description'] = 'Report Description';
