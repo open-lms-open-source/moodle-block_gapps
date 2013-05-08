@@ -13,6 +13,6 @@ M.block_gapps.tabs = {
      * Initial setup
      **/
     init: function(Y) {
-        var tabView = new YAHOO.widget.TabView('demo');
+        var tabView = new Y.YUI2.widget.TabView('demo');
     }
 }
