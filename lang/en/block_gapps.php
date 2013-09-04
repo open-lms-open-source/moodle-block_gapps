@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see http://opensource.org/licenses/gpl-3.0.html.
  *
- * @copyright  Copyright (c) 2009 Moodlerooms Inc. (http://www.moodlerooms.com)
+ * @copyright  Copyright (c) 2009 Moodlerooms Inc. (http://www.Moodlerooms.com)
  * @license    http://opensource.org/licenses/gpl-3.0.html     GNU Public License
  */
 
@@ -74,11 +74,11 @@ $string['confirmaddusers'] = 'Are you sure you want to add all {$a} users in you
 $string['confirmusers'] = 'Are you sure you want to remove all {$a} users from the sync list?';
 $string['connectionsuccess'] = 'Authentication with Google Apps was successful.';
 $string['cronexpiresetting'] = 'Cron expire (hours)';
-$string['cronexpiresettingdesc'] = 'When the synchronization runs, it locks the cron from being excecuted again until it has finnished.  This setting is used to determine when that lock has expired.  Consider setting this to a high value especially on first runs with a lot of users.';
+$string['cronexpiresettingdesc'] = 'When the synchronization runs, it locks the cron from being executed again until it has finished.  This setting is used to determine when that lock has expired.  Consider setting this to a high value especially on first runs with a lot of users.';
 $string['cronintervalsetting'] = 'Cron interval (minutes)';
-$string['cronintervalsettingdesc'] = 'Enter in how often the Moodle to Google Apps synchronization should be executed on the cron.  Enter zero to stop running the synchronization.';
+$string['cronintervalsettingdesc'] = 'Enter how often the Moodle to Google Apps synchronization should be executed on the cron.  Enter zero to stop running the synchronization.';
 $string['domainsetting'] = 'Google Apps domain';
-$string['domainsettingdesc'] = 'This is the domain associated with your Google Apps account. For example, if you login to Google Apps as \'foo@bar.com\', your domain is \'bar.com\'.';
+$string['domainsettingdesc'] = 'This is the domain associated with your Google Apps account. For example, if you log in to Google Apps as \'foo@bar.com\', your domain is \'bar.com\'.';
 $string['failedtodeletesyncrecord'] = 'Failed to delete block_gapps_gdata record with id = {$a}';
 $string['failedtoupdateemail'] = 'Failed to update user\'s email with the one from Google Apps';
 $string['failedtoupdatesyncrecord'] = 'Failed to update block_gapps_gdata record with id = {$a}';
@@ -111,7 +111,7 @@ $string['usedomainemailsetting'] = 'Use Google Apps email';
 $string['usedomainemailsettingdesc'] = 'Update Moodle\'s user record with the email from the Google Apps domain.  The update will occur during the Moodle to Google Apps synchronization.';
 $string['useralreadyexists'] = 'User already exists in the block_gapps_gdata table';
 $string['useralreadyexists'] = 'User already exists';
-$string['usernameconflict'] = 'Username conflict: Moodle changed username from {$a->oldusername} to {$a->username}.  {$a->username} is already being synced to Goodle Apps';
+$string['usernameconflict'] = 'Username conflict: Moodle changed username from {$a->oldusername} to {$a->username}.  {$a->username} is already being synced to Google Apps';
 $string['usernamesetting'] = 'Google Apps username';
 $string['usernamesettingdesc'] = 'This is the username (without domain) used to administer your Google Apps account. For example, if you login to Google Apps as \'foo@bar.com\', your username is \'foo\'.';
 $string['userssynced'] = 'Users being synced';
@@ -124,7 +124,7 @@ $string['hdlgusersync'] = 'Action on Sync Removal';
 $string['hdlgusersyncdesc'] = 'Google apps user accounts can be either disabled or deleted or left alone upon removal from Moodle sync.';
 $string['donothing'] = 'Do nothing';
 $string['disableacc'] = 'Disable Google Apps Account';
-$string['deleteacc'] = 'Delete the google apps account permanently';
+$string['deleteacc'] = 'Delete the Google Apps account permanently';
 $string['handlegappsyncvalueerror'] = 'The Action on Sync Removal setting (handlegusersync) returned an unknown value.';
 $string['gappsconnectiontestfailed'] = 'Gapps Connection Error: {$a->msg}';
 $string['blocks_gapps_report_users'] = 'Users being synced';
@@ -158,7 +158,7 @@ $string['info']   = 'Information';
 
 /* Gmail Strings formerly from (gmail) */
 $string['gmailhelp'] = 'Gmail Help';
-$string['gmailhelp_help'] = 'The following settings control how moodle handles the Google RSS Atom Feed.';
+$string['gmailhelp_help'] = 'The following settings control how Moodle handles the Google RSS Atom Feed.';
 
 $string['gmailblockname'] = 'Gmail';
 //$string['gmail'] = 'gmail';
@@ -166,7 +166,8 @@ $string['domainnotset'] = 'Gapps Domain not set.';
 $string['oauthsecretstr'] = 'OAuth Consumer Secret';
 $string['oauthsecretinfo'] = 'This is the same value you find on Google\'s Manage OAuth Access page under Advanced tools.';
 $string['msgnumberunread'] = "Unread Message Count";
-$string['msgnumberunreadinfo'] = "The number of unread messages you would like displayed in the gmail block. Leave as zero for no limit.";
+$string['msgnumberunreadinfo'] = "The number of unread messages you would like displayed in the Gmail block. Leave as zero for no
+ limit.";
 $string['sorrycannotgetmail'] = 'Sorry, could not obtain mail.';
 $string['compose'] = 'Compose';
 $string['inbox'] = 'Inbox';
