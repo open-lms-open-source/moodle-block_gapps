@@ -93,19 +93,18 @@ class blocks_gapps_model_gsync {
     const STATUS_ERROR = 'error';
 
     /**
-     * Max number of HTTP clients that can
-     * be ran at once
+     * Max number of processes
      *
      * @var int
      */
-    const MAX_CLIENTS = 5;
+    const MAX_PROCESSES = 5;
 
     /**
-     * HTTP client config
+     * Process timeout
      *
      * @var array
      */
-    protected $httpconfig = array('timeout' => 15);
+    protected $timeout = 15;
 
     /**
      * Counters for counting account actions made by
@@ -113,7 +112,7 @@ class blocks_gapps_model_gsync {
      *
      * @var string
      */
-    public $counts = array('created' => 0, 'updated' => 0, 'deleted' => 0, 'errors' => 0,'disabled' => 0, 'restored' => 0);
+    public $counts = array('created' => 0, 'updated' => 0, 'deleted' => 0, 'errors' => 0, 'disabled' => 0, 'restored' => 0);
 
     /**
      * Required values from the config
@@ -784,16 +783,22 @@ class blocks_gapps_model_gsync {
     public function sync_moodle_to_gapps($expire = 0, $feedback = true) {
         global $CFG,$DB;
 
+        require_once(dirname(__DIR__).'/vendor/autoload.php');
+
         $feedback and mtrace('Starting Moodle to Google Apps synchronization');
 
-        // Save authorization header to share with HTTP clients
+        // Save authorization header to share with HTTP clients.
         $auth = $this->service->getStaticHttpClient()->getHeader('authorization');
         set_config('authorization', $auth, 'blocks/gapps');
 
-        $expired = false;   // Flag for when we reached or max execution time
-        $clients = array(); // Our HTTP clients
+        $expired   = false;   // Flag for when we reached or max execution time.
+        $processes = array();
 
-        // Loop through our users from Moodle
+        $finder = new \Symfony\Component\Process\PhpExecutableFinder();
+        $php    = $finder->find();
+        $script = dirname(__DIR__).'/cli/syncuser.php';
+
+        // Loop through our users from Moodle.
         $rs = $this->moodle_get_users();
         while ($rs->valid()) {
             $moodleuser = $rs->current();
@@ -804,25 +809,22 @@ class blocks_gapps_model_gsync {
                 break;
             }
 
-            // Setup a new http client to process the user
-            require_once($CFG->dirroot.'/blocks/gapps/model/http.php');
+            $process = new \Symfony\Component\Process\Process($php.' '.$script.' --userid='.escapeshellarg($moodleuser->userid));
+            $process->setTimeout($this->timeout);
+            $process->start();
 
-            $client = new blocks_gdata_http($CFG->wwwroot.'/blocks/gapps/rest.php', $this->httpconfig);
-            $client->setParameterPost('userid',$moodleuser->userid);
-            $client->request('POST');
+            $processes[] = $process;
 
-            $clients[] = $client;
-
-            if (count($clients) >= self::MAX_CLIENTS) {
-                $this->process_clients($clients, $feedback);
+            if (count($processes) >= self::MAX_PROCESSES) {
+                $this->finish_processes($processes, $feedback);
             }
             $rs->next();
         }
         $rs->close();
 
-        // Process any left overs if we have time
-        if (!$expired and !empty($clients)) {
-            $this->process_clients($clients, $feedback);
+        // Process any left overs.
+        if (!empty($processes)) {
+            $this->finish_processes($processes, $feedback);
         }
 
         // Want to use a new one next round
@@ -1027,71 +1029,58 @@ class blocks_gapps_model_gsync {
     }
 
     /**
-     * Processes the response of an array
-     * of HTTP clients. Calling this method
-     * will cause the script to stall until
-     * all clients are done.
+     * Finish all of the passed processes and
+     * handle the output.
      *
-     * @param array $clients Array of blocks_gdata_http clients
+     * @param \Symfony\Component\Process\Process[] $processes
      * @param boolean $feedback Provide feedback or not
      * @return void
      **/
-    private function process_clients(&$clients, $feedback = true) {
-        foreach ($clients as $client) {
-            try {
-                $response = $client->getResponse();
-            } catch (Zend_Exception $e) {
-                $feedback and mtrace('Failed to get HTTP client response: '.$e->getMessage());
+    private function finish_processes(&$processes, $feedback = true) {
+        foreach ($processes as $process) {
+            $process->wait();
+
+            if (!$process->isSuccessful()) {
+                $feedback and mtrace('Process was not successfully excecuted.  Error output: '.$process->getOutput());
                 $this->counts['errors']++;
                 continue;
             }
+            $output = $process->getOutput();
+            $output = trim($output);
 
-            if ($response->isError()) {
-                $feedback and mtrace('Client response error: '.$response->getStatus().' '.$response->getMessage());
-                $this->counts['errors']++;
-            } else {
-                $body = $response->getBody();
-                $body = trim($body);
-
-                if (!empty($body) and $body = @unserialize($body)) {
-                    // Validate and process counts
-                    if (!empty($body['counts']) and is_array($body['counts'])) {
-                        foreach ($body['counts'] as $name => $count) {
-                            if (array_key_exists($name, $this->counts) and is_numeric($count)) {
-                                $this->counts[$name] += $count;
-                            }
+            if (!empty($output) and $info = @unserialize($output)) {
+                // Validate and process counts
+                if (!empty($info['counts']) and is_array($info['counts'])) {
+                    foreach ($info['counts'] as $name => $count) {
+                        if (array_key_exists($name, $this->counts) and is_numeric($count)) {
+                            $this->counts[$name] += $count;
                         }
                     }
-                    // Validate and process message
-                    if ($feedback and !empty($body['message']) and
-                        $message = clean_param($body['message'], PARAM_TEXT)) {
-
-                        mtrace($message);
-                    }
-                } else {
-                    $feedback and mtrace('Client response body invalid');
-                    $this->counts['errors']++;
                 }
+                // Validate and process message
+                if ($feedback and !empty($info['message']) and
+                    $message = clean_param($info['message'], PARAM_TEXT)) {
+
+                    mtrace($message);
+                }
+            } else {
+                $feedback and mtrace('Process output invalid: '.$output);
+                $this->counts['errors']++;
             }
         }
-        // Clear out clients array
-        $clients = array();
+        // Clear out array
+        $processes = array();
     }
-
-
 
     /**
      * Rest function that emulates the rest page for accepting user accounts to sync
      **/
-    function rest() {
+    function sync_user_cli($userid) {
         global $CFG;
-        // Only accept POST requests
-        $nomoodlecookie = true;
-        require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
 
         $response = array('counts' => array('errors' => 1), 'message' => '');
 
-        if ($userid = optional_param('userid', 0, PARAM_INT)) {
+        if (!empty($userid)) {
             try {
                 // Want to capture output so we
                 // can return it properly

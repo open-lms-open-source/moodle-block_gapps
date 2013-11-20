@@ -142,18 +142,18 @@ class block_gapps extends block_base {
 
         $tabstorender = array();
 
-        $gapps_tab = NULL;
+        $gapps_tab = new stdClass();
         $gapps_tab->title = $gapps_tab_title;
         $gapps_tab->content = $gapps;
         $tabstorender[] = $gapps_tab;
 
-        $gmail_tab = NULL;
+        $gmail_tab = new stdClass();
         $gmail_tab->title = $gmail_tab_title;
         $gmail_tab->content = $gmail;
         $tabstorender[] = $gmail_tab;
 
 
-        $gsync_tab = NULL;
+        $gsync_tab = new stdClass();
         $gsync_tab->title = $gsync_tab_title;
         $gsync_tab->content = $gsync;
         $tabstorender[] = $gsync_tab;
@@ -417,5 +417,3 @@ class block_gapps extends block_base {
 
 
 }
-
-?>

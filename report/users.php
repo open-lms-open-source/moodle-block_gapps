@@ -111,6 +111,9 @@ class blocks_gapps_report_users extends mr_report_abstract {
         $sql = $select .' '. $from .' '. $where;
 
         if (!substr_count($fields,'COUNT') ) {
+            if (!property_exists($SESSION, 'blocks_gapps_report_users')) {
+                $SESSION->blocks_gapps_report_users = new stdClass();
+            }
             $SESSION->blocks_gapps_report_users->fsql = $sql; // store for later option to submit all selected users
             $SESSION->blocks_gapps_report_users->fparams = $fparams;
         }

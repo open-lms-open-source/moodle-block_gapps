@@ -126,6 +126,9 @@ class blocks_gapps_report_addusers extends mr_report_abstract {
 
         // Can't find a better way to preserve this safely for passing to the controller handler
         if (!substr_count($fields,'COUNT') ) {
+            if (!property_exists($SESSION, 'blocks_gapps_report_addusers')) {
+                $SESSION->blocks_gapps_report_addusers = new stdClass();
+            }
             $SESSION->blocks_gapps_report_addusers->fsql = $sql; // store for later option to submit all selected users
             $SESSION->blocks_gapps_report_addusers->fparams = $fparams;
         }
