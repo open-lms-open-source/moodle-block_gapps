@@ -100,6 +100,11 @@ class blocks_gapps_model_gsync {
     const MAX_PROCESSES = 5;
 
     /**
+     * This is a token that separates the messages from the serialized data.
+     */
+    const CLI_SEPARATOR = '========================';
+
+    /**
      * Process timeout
      *
      * @var array
@@ -1045,10 +1050,19 @@ class blocks_gapps_model_gsync {
                 $this->counts['errors']++;
                 continue;
             }
-            $output = $process->getOutput();
-            $output = trim($output);
+            $output  = $process->getOutput();
+            $output  = trim($output);
+            $message = '';
+            $data    = null;
 
-            if (!empty($output) and $info = @unserialize($output)) {
+            if (!empty($output)) {
+                $parts = explode(self::CLI_SEPARATOR, $output);
+                if (count($parts) == 2) {
+                    $message = trim($parts[0]);
+                    $data    = trim($parts[1]);
+                }
+            }
+            if (!empty($data) and $info = @unserialize($data)) {
                 // Validate and process counts
                 if (!empty($info['counts']) and is_array($info['counts'])) {
                     foreach ($info['counts'] as $name => $count) {
@@ -1058,8 +1072,8 @@ class blocks_gapps_model_gsync {
                     }
                 }
                 // Validate and process message
-                if ($feedback and !empty($info['message']) and
-                    $message = clean_param($info['message'], PARAM_TEXT)) {
+                if ($feedback and !empty($message) and
+                    $message = clean_param($message, PARAM_TEXT)) {
 
                     mtrace($message);
                 }
@@ -1078,38 +1092,27 @@ class blocks_gapps_model_gsync {
     function sync_user_cli($userid) {
         global $CFG;
 
-        $response = array('counts' => array('errors' => 1), 'message' => '');
+        $response = array('counts' => array('errors' => 1));
 
         if (!empty($userid)) {
             try {
-                // Want to capture output so we
-                // can return it properly
-                ob_start();
-
                 $gapps = new blocks_gapps_model_gsync(); /// the $gapps makes the code easier to read so leaving as gapps and not $this
 
                 $moodleuser = $gapps->moodle_get_user($userid);
                 $gapps->sync_moodle_user_to_gapps($moodleuser);
 
-                $output = ob_get_contents();
-                $output = trim($output);
-                ob_end_clean();
-
-                if (!empty($output)) {
-                    $response['message'] = $output;
-                }
                 $response['counts'] = $gapps->counts;
 
             } catch (blocks_gapps_exception $e) {
-                $response['message'] = $e->getMessage();
+                mtrace($e->getMessage());
             } catch (Zend_Exception $e) {
                 // Catch Zend_Exception just in case it happens
-                $response['message'] = $e->getMessage();
+                mtrace($e->getMessage());
             }
         } else {
-            $response['message'] = 'Invalid userid passed';
+            mtrace('Invalid userid passed');
         }
-
+        mtrace(self::CLI_SEPARATOR);
         echo serialize($response);
     }
 
