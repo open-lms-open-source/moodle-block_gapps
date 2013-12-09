@@ -107,7 +107,7 @@ class blocks_gapps_model_gsync {
     /**
      * Process timeout
      *
-     * @var array
+     * @var int
      */
     protected $timeout = 15;
 
@@ -122,7 +122,7 @@ class blocks_gapps_model_gsync {
     /**
      * Required values from the config
      *
-     * @var string
+     * @var array
      */
     protected $requiredconfig = array('username', 'password', 'domain', 'usedomainemail', 'croninterval');
 
@@ -205,8 +205,13 @@ class blocks_gapps_model_gsync {
      */
     public function create_user($moodleuser, $checkexists = true) {
         try {
-            // Add account to Google Apps
-            $this->gapps_create_user($moodleuser->username, $moodleuser->firstname, $moodleuser->lastname, $moodleuser->password, $checkexists);
+            // Add account to Google Apps.
+            if (property_exists($moodleuser, 'plainpassword')) {
+                $password = md5($moodleuser->plainpassword);
+            } else {
+                $password = md5(random_string(15));
+            }
+            $this->gapps_create_user($moodleuser->username, $moodleuser->firstname, $moodleuser->lastname, $password, $checkexists);
 
             // Update sync table
             $this->moodle_update_user($moodleuser);
@@ -413,8 +418,8 @@ class blocks_gapps_model_gsync {
             $gappsuser->name->familyName = $moodleuser->lastname;
             $save = true;
         }
-        if ($moodleuser->oldpassword != $moodleuser->password) {
-            $gappsuser->login->password = $moodleuser->password;
+        if ($moodleuser->oldpassword != $moodleuser->password && !empty($moodleuser->plainpassword)) {
+            $gappsuser->login->password = md5($moodleuser->plainpassword);
             $gappsuser->login->hashFunctionName = self::PASSWORD_HASH_FUNCTION;
             $save = true;
         }
@@ -551,10 +556,13 @@ class blocks_gapps_model_gsync {
         $record           = new stdClass;
         $record->id       = $moodleuser->id;
         $record->username = $moodleuser->username;
-        $record->password = $moodleuser->password;
         $record->lastsync = time();
         $record->status   = $status;
 
+        if (property_exists($moodleuser, 'plainpassword')) {
+            // We have updated the password in Google, so update ours to reflect current password.
+            $record->password = $moodleuser->password;
+        }
         if (!$DB->update_record('block_gapps_gdata', $record)) {
             throw new blocks_gapps_exception('failedtoupdatesyncrecord', 'block_gapps', $record->id);
         }
@@ -606,10 +614,11 @@ class blocks_gapps_model_gsync {
      * by other methods in this class.
      *
      * @param int $userid ID of the user to grab - must exist in block_gapps_gdata and user tables
-     * @return object
+     * @param int $strictness
      * @throws blocks_gapps_exception
-     **/
-    public function moodle_get_user($userid) {
+     * @return object|boolean
+     */
+    public function moodle_get_user($userid, $strictness = MUST_EXIST) {
         global $CFG,$DB;
 
         // TODO: Moodle lacks a clean upgrade path for sql code that used the AS ($as = sql_as();)
@@ -622,7 +631,7 @@ class blocks_gapps_model_gsync {
                                        WHERE u.id = g.userid
                                          AND g.userid = ?",array($userid));
 
-        if ($moodleuser === false) {
+        if ($moodleuser === false && $strictness == MUST_EXIST) {
             throw new blocks_gapps_exception('nouserfound');
         }
         return $moodleuser;
@@ -632,7 +641,7 @@ class blocks_gapps_model_gsync {
      * Get all Moodle users that need to be synced - the
      * objects returned are used by other methods in this class
      *
-     * @return ADODB RecordSet
+     * @return moodle_recordset RecordSet
      * @throws blocks_gapps_exception
      **/
     public function moodle_get_users() {
@@ -707,7 +716,7 @@ class blocks_gapps_model_gsync {
      *   - Do not allow duplicate usernames to be used for
      *     users in Google Apps and in Moodle's block_apps table
      *   - Default, the user has an account in Google Apps
-     *     check first name, last name and password for changes
+     *     check first name and last name for changes
      *     in Moodle, then update if necessary.
      *
      * @param object $moodleuser Object from {@link moodle_get_user} or {@link moodle_get_users}
@@ -941,13 +950,13 @@ class blocks_gapps_model_gsync {
 
         // Don't allow gapps to handle events if the block is not visible site-wide.
         // Check to see if events are allowed
-        if ($blockenabled && $allowevents) {
+        if ($blockenabled && ($allowevents || $event == 'auth_gsaml_user_authenticated')) {
             add_to_log(SITEID, 'block_gapps', 'model:event_handler','', $event.' eventdata->id='.$eventdata->id, 0,0);
             switch ($event) {
                 case 'auth_gsaml_user_authenticated':
                     try {
                         $gapps = new blocks_gapps_model_gsync();
-                        $gapps->handle_gsaml_user_auth_event($eventdata);
+                        $gapps->handle_gsaml_user_auth_event($eventdata, $allowevents);
                     } catch (blocks_gapps_exception $e) {
                         add_to_log(SITEID, 'block_gapps', 'auth_gsaml_user_authenticated','', 'ERROR:'.substr($e->getMessage(),0,190).' usr='.$eventdata->id, 0,0);
                     }
@@ -1001,27 +1010,39 @@ class blocks_gapps_model_gsync {
      *  This function handles the event fired from the auth/gsaml plugin via this
      *  function trigger_gsaml_user_auth_event($user, $username);
      */
-    function handle_gsaml_user_auth_event($eventdata) {
+    function handle_gsaml_user_auth_event($eventdata, $allowevents) {
         $username = $eventdata->username;
         $user = $eventdata->user;
 
         try {
-            // obtain object and test connect to service
-            $g_user = $this->gapps_get_user($username);
-            if (empty($g_user)) {
+            $moodleuser = $this->moodle_get_user($user->id, IGNORE_MISSING);
+            $googleuser = null;
+            $autoadd    = get_config('blocks/gapps', 'autoadd');
 
+            if ($moodleuser || ($allowevents && $autoadd)) {
+                $googleuser = $this->gapps_get_user($username);
+            }
+            if (empty($googleuser) && $allowevents && $autoadd) {
                   // Admins are excluded from this syncing procedure
                  $admins = get_admins();
                  if (!array_key_exists($user->id,$admins) ) {
                      // Create Moodle User in the Gsync system
-                     $this->moodle_create_user($user);
+                     if (empty($moodleuser)) {
+                         $this->moodle_create_user($user);
+                         $moodleuser = $this->moodle_get_user($user->id);
+                     }
+                     $moodleuser->plainpassword = $eventdata->plainpassword;
 
                      // Create google user
-                     $m_user = $this->moodle_get_user($user->id);
-                     $this->create_user($m_user);
+                     $this->create_user($moodleuser);
 
                      add_to_log(SITEID, 'block_gapps', 'gsaml create usr','', $user->username, 0,0);
                  }
+            } else if (!empty($moodleuser) && !empty($googleuser)) {
+                $moodleuser->plainpassword = $eventdata->plainpassword;
+                $this->update_user($moodleuser, $googleuser);
+
+                add_to_log(SITEID, 'block_gapps', 'gsaml update usr', '', $user->username);
             }
 
         } catch (blocks_gapps_exception $e) {

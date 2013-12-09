@@ -315,8 +315,8 @@ class block_gapps_controller_gsync extends mr_controller_block {
                     print ($login->getAdmin()) ? "Is Admin" : "not Admin";
                     print "<br>";
 
-                    print "gapps password: ".$login->getPassword();
-                    print "<br>";
+                    // print "gapps password: ".$login->getPassword();
+                    // print "<br>";
 
                     print ($login->getSuspended()) ? "Is Suspended":"Not suspended" ;
                     print "<br>";
