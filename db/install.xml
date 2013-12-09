@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="blocks/gapps/db" VERSION="20100224" COMMENT="XMLDB file for gapps block"
+<XMLDB PATH="blocks/gapps/db" VERSION="20131216" COMMENT="XMLDB file for gapps block"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
 >
   <TABLES>
-    <TABLE NAME="block_gapps_oauth_token" COMMENT="block_gapps_oauth_token for token management" NEXT="block_gapps_gdata">
+    <TABLE NAME="block_gapps_oauth_token" COMMENT="block_gapps_oauth_token for token management">
       <FIELDS>
-        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="user_id"/>
-        <FIELD NAME="user_id" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false" PREVIOUS="id" NEXT="token"/>
-        <FIELD NAME="token" TYPE="char" LENGTH="64" NOTNULL="true" SEQUENCE="false" PREVIOUS="user_id" NEXT="token_secret"/>
-        <FIELD NAME="token_secret" TYPE="char" LENGTH="64" NOTNULL="true" SEQUENCE="false" PREVIOUS="token" NEXT="token_type"/>
-        <FIELD NAME="token_type" TYPE="char" LENGTH="64" NOTNULL="false" SEQUENCE="false" PREVIOUS="token_secret" NEXT="timestamp"/>
-        <FIELD NAME="timestamp" TYPE="int" LENGTH="12" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="token_type"/>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="user_id" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="token" TYPE="char" LENGTH="64" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="token_secret" TYPE="char" LENGTH="64" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="token_type" TYPE="char" LENGTH="64" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="timestamp" TYPE="int" LENGTH="12" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
       </KEYS>
     </TABLE>
-    <TABLE NAME="block_gapps_gdata" COMMENT="Moodle to Google Apps sync data" PREVIOUS="block_gapps_oauth_token">
+    <TABLE NAME="block_gapps_gdata" COMMENT="Moodle to Google Apps sync data">
       <FIELDS>
-        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="userid"/>
-        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="The Moodle user ID of the user being synced to Google Apps" PREVIOUS="id" NEXT="username"/>
-        <FIELD NAME="username" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false" COMMENT="The last username sent to Google Apps for this user" PREVIOUS="userid" NEXT="password"/>
-        <FIELD NAME="password" TYPE="char" LENGTH="32" NOTNULL="false" SEQUENCE="false" COMMENT="The last password sent to Google Apps for this user" PREVIOUS="username" NEXT="remove"/>
-        <FIELD NAME="remove" TYPE="int" LENGTH="3" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="This is a flag to indicate that this user should be deleted from Google Apps on the next sync" PREVIOUS="password" NEXT="lastsync"/>
-        <FIELD NAME="lastsync" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="The timestamp of the last time this user was synced to Google Apps" PREVIOUS="remove" NEXT="status"/>
-        <FIELD NAME="status" TYPE="char" LENGTH="30" NOTNULL="false" SEQUENCE="false" COMMENT="The status of the users sync with Google Apps" PREVIOUS="lastsync"/>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="The Moodle user ID of the user being synced to Google Apps"/>
+        <FIELD NAME="username" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false" COMMENT="The last username sent to Google Apps for this user"/>
+        <FIELD NAME="password" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="The last password sent to Google Apps for this user"/>
+        <FIELD NAME="remove" TYPE="int" LENGTH="3" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="This is a flag to indicate that this user should be deleted from Google Apps on the next sync"/>
+        <FIELD NAME="lastsync" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="The timestamp of the last time this user was synced to Google Apps"/>
+        <FIELD NAME="status" TYPE="char" LENGTH="30" NOTNULL="false" SEQUENCE="false" COMMENT="The status of the users sync with Google Apps"/>
       </FIELDS>
       <KEYS>
-        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for block_gapps_gdata" NEXT="userid"/>
-        <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id" PREVIOUS="primary"/>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for block_gapps_gdata"/>
+        <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
       </KEYS>
     </TABLE>
   </TABLES>

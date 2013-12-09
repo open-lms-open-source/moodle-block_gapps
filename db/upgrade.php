@@ -26,10 +26,9 @@
  * @package block_gapps
  **/
 function xmldb_block_gapps_upgrade($oldversion=0) {
-    global $CFG, $DB, $OUTPUT;
+    global $DB;
 
     $dbman = $DB->get_manager();
-    $result = true;
 
     // Checks required for upgrading between 1.9 and 2.0 are found
     // in _self_test() in the block definition then db/install.php is
@@ -64,6 +63,19 @@ function xmldb_block_gapps_upgrade($oldversion=0) {
 
         // gapps savepoint reached
         upgrade_block_savepoint(true, 2012112600, 'gapps');
+    }
+
+    if ($oldversion < 2013121600) {
+
+        // Changing precision of field password on table block_gapps_gdata to (255).
+        $table = new xmldb_table('block_gapps_gdata');
+        $field = new xmldb_field('password', XMLDB_TYPE_CHAR, '255', null, null, null, null, 'username');
+
+        // Launch change of precision for field password.
+        $dbman->change_field_precision($table, $field);
+
+        // Gapps savepoint reached.
+        upgrade_block_savepoint(true, 2013121600, 'gapps');
     }
 
     return true;
