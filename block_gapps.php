@@ -394,9 +394,12 @@ class block_gapps extends block_base {
         global $CFG;
         mtrace("");
         $status = true;
-        
-        // Run crons...
-        
+
+        if (!CLI_SCRIPT) {
+            mtrace('gsync: Google User Sync cron can only run on the CLI');
+            return $status;
+        }
+
         // gsync cron
         try {
             mtrace("gsync: Cron Running....");

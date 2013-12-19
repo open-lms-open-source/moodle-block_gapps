@@ -51,7 +51,6 @@ class block_gapps_controller_default extends mr_controller_block {
              ->toptab('users',      array('controller' => 'gsync','action' => 'usersview'))
              ->toptab('addusers',   array('controller' => 'gsync','action' => 'addusersview'))
              ->toptab('diagnostic', array('controller' => 'gsync','action' => 'viewdiagnostics'),has_capability('moodle/site:config', $controller->get_context()))
-               ->subtab('runcron',    array('controller' => 'gsync','action' => 'runcron'))
                ->subtab('syncuser',   array('controller' => 'gsync','action' => 'syncuser')) //syncuser
                ->subtab('viewdocs',   array('controller' => 'gsync','action' => 'viewdocs'))
                ->subtab('gappslogs',   array('controller' => 'gsync','action' => 'gappslogs'));

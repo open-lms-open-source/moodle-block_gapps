@@ -365,36 +365,6 @@ class block_gapps_controller_gsync extends mr_controller_block {
     }
 
     /**
-     * Force GSync cron to run
-     *
-     * @global object $CFG
-     * @global object $DB
-     * @global object $OUTPUT
-     */
-    public function runcron_action() {
-        global $CFG,$DB,$OUTPUT;
-
-        $this->tabs->set('diagnostic');
-        $output = '';
-
-        // now set up and run the gapps cron
-        require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
-        $gapps = new blocks_gapps_model_gsync();
-
-        $output .= $OUTPUT->box_start('generalbox boxaligncenter boxwidthnormal');
-        $output .= "<pre>";
-        ob_start();
-        $gapps->cron(true); // force run option to true
-        $output .= ob_get_contents();
-        ob_end_clean();
-        $output .= "</pre>";
-        $output .= $OUTPUT->box_end();
-
-        add_to_log(SITEID, 'block_gapps', 'gsync:runcron_act','', '', 0,0);
-        return $output;
-    }
-
-    /**
      * Force Sync a Given User
      *
      * @global object $CFG
