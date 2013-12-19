@@ -497,7 +497,6 @@ class blocks_gapps_model_gsync {
         } catch (Zend_Gdata_App_Exception $e) {
             throw new blocks_gapps_exception('gappserror', 'block_gapps', $e->getMessage());
         }
-        return $gappsusers;
     }
 
     /**
@@ -529,11 +528,15 @@ class blocks_gapps_model_gsync {
             $record           = new stdClass;
             $record->userid   = $user->id;
             $record->username = $user->username;
-            $record->password = $user->password;
+            $record->password = null;
             $record->remove   = 0;
             $record->lastsync = 0;
             $record->status   = self::STATUS_NEVER;
 
+            if (property_exists($user, 'plainpassword')) {
+                // We have updated the password in Google, so update ours to reflect current password.
+                $record->password = $user->password;
+            }
             if (!$DB->insert_record('block_gapps_gdata', $record)) {
                 throw new blocks_gapps_exception('insertfailed');
             }
