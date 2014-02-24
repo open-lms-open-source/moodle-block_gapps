@@ -77,9 +77,9 @@ class block_gapps extends block_base {
      */
     function has_capability_for_sync($required = false) {
         if ($required) {
-            require_capability('moodle/site:config', get_context_instance(CONTEXT_SYSTEM));
+            require_capability('moodle/site:config', context_system::instance());
         }
-        return has_capability('moodle/site:config', get_context_instance(CONTEXT_SYSTEM));
+        return has_capability('moodle/site:config', context_system::instance());
     }
 
 
