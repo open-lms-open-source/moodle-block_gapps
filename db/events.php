@@ -28,38 +28,25 @@
  * @package block_gapps
  **/
 
-$handlers = array(
-    'user_updated' => array(
-        'handlerfile'     => '/blocks/gapps/model/gsync.php',
-        'handlerfunction' => array('blocks_gapps_model_gsync', 'user_updated_event'),
-        'schedule'        => 'instant'
+$observers = array(
+    array(
+        'eventname' => '\core\event\user_updated',
+        'includefile' => '/blocks/gapps/model/gsync.php',
+        'callback' => 'blocks_gapps_model_gsync::user_updated_event',
     ),
-
-    'user_deleted' => array(
-        'handlerfile'     => '/blocks/gapps/model/gsync.php',
-        'handlerfunction' => array('blocks_gapps_model_gsync', 'user_deleted_event'),
-        'schedule'        => 'instant'
+    array(
+        'eventname' => '\core\event\user_deleted',
+        'includefile' => '/blocks/gapps/model/gsync.php',
+        'callback' => 'blocks_gapps_model_gsync::user_deleted_event',
     ),
-
-    'auth_gsaml_user_authenticated' => array(
-        'handlerfile'     => '/blocks/gapps/model/gsync.php',
-        'handlerfunction' => array('blocks_gapps_model_gsync', 'user_authenticated_event'),
-        'schedule'        => 'instant'
+    array(
+        'eventname' => '\auth_gsaml\event\user_authenticated',
+        'includefile' => '/blocks/gapps/model/gsync.php',
+        'callback' => 'blocks_gapps_model_gsync::user_authenticated_event',
     ),
-
-    // not necessarily since google sends the users HASH anyway but we leave it here in case
-    // moodle implements what is says it does in the docs
-    'password_changed' => array(
-        'handlerfile'     => '/blocks/gapps/model/gsync.php',
-        'handlerfunction' => array('blocks_gapps_model_gsync', 'password_changed_event'),
-        'schedule'        => 'instant' 
+    array(
+        'eventname' => '\core\event\user_created',
+        'includefile' => '/blocks/gapps/model/gsync.php',
+        'callback' => 'blocks_gapps_model_gsync::user_created_event',
     ),
-
-    'user_created' => array(
-        'handlerfile'     => '/blocks/gapps/model/gsync.php',
-        'handlerfunction' => array('blocks_gapps_model_gsync', 'user_created_event'),
-        'schedule'        => 'instant' 
-    )
 );
-
-?>
