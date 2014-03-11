@@ -35,6 +35,10 @@
  * @package block_gapps
  */
 
+use core\event\user_created;
+use core\event\user_updated;
+use core\event\user_deleted;
+use auth_gsaml\event\user_authenticated;
 
 require($CFG->dirroot.'/local/mr/bootstrap.php');
 require_once($CFG->dirroot.'/blocks/gapps/exception.php');
@@ -869,10 +873,11 @@ class blocks_gapps_model_gsync {
      * their account in Google Apps whenever
      * they edit their account.
      *
-     * @param object $user Moodle user record object
+     * @param user_updated $event
      * @return boolean
      **/
-    public static function user_updated_event($user) {
+    public static function user_updated_event(user_updated $event) {
+        $user = $event->get_record_snapshot('user', $event->objectid);
         return self::event_handler('user_updated', $user);
     }
 
@@ -884,47 +889,37 @@ class blocks_gapps_model_gsync {
      * account and their sync record when
      * their account is deleted.
      *
-     * @param object $user Moodle user record object
+     * @param user_deleted $event
      * @return boolean
      **/
-    public static function user_deleted_event($user) {
+    public static function user_deleted_event(user_deleted $event) {
+        $user = $event->get_record_snapshot('user', $event->objectid);
         return self::event_handler('user_deleted', $user);
-    }
-
-    /**
-     * Events API Hook for event 'password_changed'
-     *
-     * If the user is currently being synced to
-     * Google Apps, then update their password
-     * for the Google Apps account
-     *
-     * At the moment, core Moodle doesn't trigger
-     * this event, but docs say it exists.  So
-     * keep this incase core implements it.
-     *
-     * @param object $user Moodle user record object
-     * @return boolean
-     **/
-    public static function password_changed_event($user) {
-        return self::event_handler('password_changed', $user);
     }
 
     /**
      * Events API Hook for event 'user_created'
      *
-     * @param object $user moodle user object
+     * @param user_created $event
      * @return boolean
      */
-    public static function user_created_event($user) {
+    public static function user_created_event(user_created $event) {
+        $user = $event->get_record_snapshot('user', $event->objectid);
         return self::event_handler('user_created', $user);
     }
 
     /**
      * Custom auth/gsaml event handler
-     * @param object $eventdata contains a user object and a username
+     * @param user_authenticated $event
      * @return boolean
      */
-    public static function user_authenticated_event($eventdata) {
+    public static function user_authenticated_event(user_authenticated $event) {
+        $eventdata = $event->get_data();
+        $eventdata = (object) $eventdata['other'];
+        $eventdata->id = $event->objectid;
+        $eventdata->user = $event->get_record_snapshot('user', $event->objectid);
+        $eventdata->username = $eventdata->user->username;
+
         return self::event_handler('auth_gsaml_user_authenticated', $eventdata);
     }
     
