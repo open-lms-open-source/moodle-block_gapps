@@ -336,7 +336,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
             }
 
         } else {
-            print "prints out info google has on a user when username is given in post";
+            print "prints out info Google has on a user when username is given in post";
         }
         print "</pre>";
 
