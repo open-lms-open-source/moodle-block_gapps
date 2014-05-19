@@ -30,6 +30,7 @@
 $string['bad'] = 'Bad!';
 $string['blockname'] = 'Google Apps';
 $string['gapps:addinstance'] = 'Add a new Google Apps block';
+$string['gapps:myaddinstance'] = 'Add a new Google Apps block to My home';
 
 $string['blocks_helloworld_report_users'] = 'Report Title';
 $string['blocks_helloworld_report_users_description'] = 'Report Description';
