@@ -182,12 +182,12 @@ class blocks_gapps_model_gmail {
      * @param string $feeddata
      */
     function parse_feed_data($feeddata) {
-        global $USER,$CFG;
+        global $CFG;
 
-        if ($USER->id !== 0) {
-            // simplepie lib breaks if included on top level only include when necessary
-            require_once($CFG->dirroot.'/blocks/gapps/gmail/simplepie/simplepie.inc');
+        if (!isloggedin()) {
+            return;
         }
+        require_once($CFG->dirroot.'/blocks/gapps/gmail/simplepie/simplepie.inc');
 
         // Parse google atom feed
         $feed = new blocks_gapps_simplepie();
@@ -197,7 +197,6 @@ class blocks_gapps_model_gmail {
 
         $domain = get_config('blocks/gapps','domain');
 
-        
         $unreadmsgsstr = get_string('unreadmsgs','block_gapps');
         $composestr    = get_string('compose','block_gapps');
         $inboxstr      = get_string('inbox','block_gapps');
@@ -234,7 +233,14 @@ class blocks_gapps_model_gmail {
 
 
             // To Save Space given them option to show first and last or just last name
-            @list($author_first,$author_last) = split(" ",$author->get_name());
+            $nameparts = explode(" ",$author->get_name());
+            if (count($nameparts) === 1) {
+                $author_first = $author->get_name();
+                $author_last  = '';
+            } else {
+                $author_last  = array_pop($nameparts);
+                $author_first = implode(' ', $nameparts);
+            }
 
             // Show first Name
             if( !$showfirstname = get_config('blocks/gapps','showfirstname')) {

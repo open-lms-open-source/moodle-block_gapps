@@ -248,7 +248,7 @@ class OAuthStoreGoogle extends OAuthStoreAbstract {
 
         // using the mdl_block_gmail_oauth_consumer_token table
         // form data object
-        $data = NULL;
+        $data = new stdClass();
 
         $data->user_id = $user_id; // was oct_usa_id_ref
         $data->token = $token;

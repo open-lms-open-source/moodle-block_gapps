@@ -338,7 +338,7 @@ class block_gapps extends block_base {
      * @return string gsync html content
      */
     function gsync_get_content() {
-        global $CFG, $USER, $COURSE,$OUTPUT;
+        global $CFG, $OUTPUT;
 
         $items = array();
         $icons = array();
@@ -349,7 +349,7 @@ class block_gapps extends block_base {
 
         $title = get_string('status', 'block_gapps');
         $items[] = "<a title=\"$title\" href=\"$CFG->wwwroot/blocks/gapps/view.php?controller=gsync&action=status\">$title</a>";
-        $icons[] = "<img src=\"".$OUTPUT->pix_url('/i/tick_green_small')."\" />";
+        $icons[] = "<img src=\"".$OUTPUT->pix_url('/i/settings')."\" />";
 
         $title = get_string('userssynced', 'block_gapps');
         $items[] = "<a title=\"$title\" href=\"$CFG->wwwroot/blocks/gapps/view.php?controller=gsync&action=usersview\">$title</a>";
