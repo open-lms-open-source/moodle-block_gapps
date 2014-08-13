@@ -718,7 +718,7 @@ class blocks_gapps_simplepie
 	function blocks_gapps_simplepie($feed_url = null, $cache_location = null, $cache_duration = null)
 	{
 		// Other objects, instances created here so we can set options on them
-		$this->sanitize =& new blocks_gapps_simplepie_sanitize;
+		$this->sanitize = new blocks_gapps_simplepie_sanitize;
 
 		// Set options if they're passed to the constructor
 		if ($cache_location !== null)
@@ -746,30 +746,7 @@ class blocks_gapps_simplepie
 	{
 		return md5(serialize($this->data));
 	}
-	
-	/**
-	 * Remove items that link back to this before destroying this object
-	 */
-	function __destruct()
-	{
-		if (!empty($this->data['items']))
-		{
-			foreach ($this->data['items'] as $item)
-			{
-				$item->__destruct();
-			}
-			unset($this->data['items']);
-		}
-		if (!empty($this->data['ordered_items']))
-		{
-			foreach ($this->data['ordered_items'] as $item)
-			{
-				$item->__destruct();
-			}
-			unset($this->data['ordered_items']);
-		}
-	}
-	
+
 	/**
 	 * Force the given data/URL to be treated as a feed no matter what it
 	 * appears like
@@ -827,7 +804,7 @@ class blocks_gapps_simplepie
 		if (is_a($file, 'blocks_gapps_simplepie_file'))
 		{
 			$this->feed_url = $file->url;
-			$this->file =& $file;
+			$this->file = $file;
 			return true;
 		}
 		return false;
@@ -1085,7 +1062,7 @@ class blocks_gapps_simplepie
 	{
 		if (blocks_gapps_simplepie_misc::is_subclass_of($class, 'blocks_gapps_simplepie_sanitize'))
 		{
-			$this->sanitize =& new $class;
+			$this->sanitize = new $class();
 			return true;
 		}
 		return false;
@@ -1593,7 +1570,7 @@ function embed_wmedia(width, height, link) {
 								{
 									$headers['if-none-match'] = '"' . $this->data['headers']['etag'] . '"';
 								}
-								$file =& new $this->file_class($this->feed_url, $this->timeout/10, 5, $headers, $this->useragent, $this->force_fsockopen);
+								$file = new $this->file_class($this->feed_url, $this->timeout/10, 5, $headers, $this->useragent, $this->force_fsockopen);
 								if ($file->success)
 								{
 									if ($file->status_code == 304)
@@ -1634,7 +1611,7 @@ function embed_wmedia(width, height, link) {
 					}
 					else
 					{
-						$file =& new $this->file_class($this->feed_url, $this->timeout, 5, null, $this->useragent, $this->force_fsockopen);
+						$file = new $this->file_class($this->feed_url, $this->timeout, 5, null, $this->useragent, $this->force_fsockopen);
 					}
 				}
 				// If the file connection has an error, set blocks_gapps_simplepie::error to that and quit
@@ -1654,7 +1631,7 @@ function embed_wmedia(width, height, link) {
 				if (!$this->force_feed)
 				{
 					// Check if the supplied URL is a feed, if it isn't, look for it.
-					$locate =& new $this->locator_class($file, $this->timeout, $this->useragent, $this->file_class, $this->max_checked_feeds, $this->content_type_sniffer_class);
+					$locate = new $this->locator_class($file, $this->timeout, $this->useragent, $this->file_class, $this->max_checked_feeds, $this->content_type_sniffer_class);
 					if (!$locate->is_feed($file))
 					{
 						// We need to unset this so that if blocks_gapps_simplepie::set_file() has been called that object is untouched
@@ -1754,7 +1731,7 @@ function embed_wmedia(width, height, link) {
 				$utf8_data = blocks_gapps_simplepie_misc::change_encoding($data, $encoding, 'UTF-8');
 
 				// Create new parser
-				$parser =& new $this->parser_class();
+				$parser = new $this->parser_class();
 				
 				// If it's parsed fine
 				if ($parser->parse($utf8_data, 'UTF-8'))
@@ -1957,7 +1934,7 @@ function embed_wmedia(width, height, link) {
 				}
 				else
 				{
-					$file =& new $this->file_class($favicon, $this->timeout / 10, 5, array('X-FORWARDED-FOR' => $_SERVER['REMOTE_ADDR']), $this->useragent, $this->force_fsockopen);
+					$file = new $this->file_class($favicon, $this->timeout / 10, 5, array('X-FORWARDED-FOR' => $_SERVER['REMOTE_ADDR']), $this->useragent, $this->force_fsockopen);
 
 					if ($file->success && ($file->status_code == 200 || ($file->status_code > 206 && $file->status_code < 300)) && strlen($file->body) > 0)
 					{
@@ -2355,19 +2332,19 @@ function embed_wmedia(width, height, link) {
 			{
 				$label = $this->sanitize($category['attribs']['']['label'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
-			$categories[] =& new $this->category_class($term, $scheme, $label);
+			$categories[] = new $this->category_class($term, $scheme, $label);
 		}
 		foreach ((array) $this->get_channel_tags('', 'category') as $category)
 		{
-			$categories[] =& new $this->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$categories[] = new $this->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 		foreach ((array) $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'subject') as $category)
 		{
-			$categories[] =& new $this->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$categories[] = new $this->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 		foreach ((array) $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'subject') as $category)
 		{
-			$categories[] =& new $this->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$categories[] = new $this->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 
 		if (!empty($categories))
@@ -2415,7 +2392,7 @@ function embed_wmedia(width, height, link) {
 			}
 			if ($name !== null || $email !== null || $uri !== null)
 			{
-				$authors[] =& new $this->author_class($name, $uri, $email);
+				$authors[] = new $this->author_class($name, $uri, $email);
 			}
 		}
 		if ($author = $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'author'))
@@ -2437,20 +2414,20 @@ function embed_wmedia(width, height, link) {
 			}
 			if ($name !== null || $email !== null || $url !== null)
 			{
-				$authors[] =& new $this->author_class($name, $url, $email);
+				$authors[] = new $this->author_class($name, $url, $email);
 			}
 		}
 		foreach ((array) $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'creator') as $author)
 		{
-			$authors[] =& new $this->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$authors[] = new $this->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 		foreach ((array) $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'creator') as $author)
 		{
-			$authors[] =& new $this->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$authors[] = new $this->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 		foreach ((array) $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'author') as $author)
 		{
-			$authors[] =& new $this->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$authors[] = new $this->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 
 		if (!empty($authors))
@@ -2498,7 +2475,7 @@ function embed_wmedia(width, height, link) {
 			}
 			if ($name !== null || $email !== null || $uri !== null)
 			{
-				$contributors[] =& new $this->author_class($name, $uri, $email);
+				$contributors[] = new $this->author_class($name, $uri, $email);
 			}
 		}
 		foreach ((array) $this->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'contributor') as $contributor)
@@ -2520,7 +2497,7 @@ function embed_wmedia(width, height, link) {
 			}
 			if ($name !== null || $email !== null || $url !== null)
 			{
-				$contributors[] =& new $this->author_class($name, $url, $email);
+				$contributors[] = new $this->author_class($name, $url, $email);
 			}
 		}
 
@@ -2924,7 +2901,7 @@ function embed_wmedia(width, height, link) {
 				$keys = array_keys($items);
 				foreach ($keys as $key)
 				{
-					$this->data['items'][] =& new $this->item_class($this, $items[$key]);
+					$this->data['items'][] = new $this->item_class($this, $items[$key]);
 				}
 			}
 			if ($items = $this->get_feed_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'entry'))
@@ -2932,7 +2909,7 @@ function embed_wmedia(width, height, link) {
 				$keys = array_keys($items);
 				foreach ($keys as $key)
 				{
-					$this->data['items'][] =& new $this->item_class($this, $items[$key]);
+					$this->data['items'][] = new $this->item_class($this, $items[$key]);
 				}
 			}
 			if ($items = $this->get_feed_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_10, 'item'))
@@ -2940,7 +2917,7 @@ function embed_wmedia(width, height, link) {
 				$keys = array_keys($items);
 				foreach ($keys as $key)
 				{
-					$this->data['items'][] =& new $this->item_class($this, $items[$key]);
+					$this->data['items'][] = new $this->item_class($this, $items[$key]);
 				}
 			}
 			if ($items = $this->get_feed_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_RSS_090, 'item'))
@@ -2948,7 +2925,7 @@ function embed_wmedia(width, height, link) {
 				$keys = array_keys($items);
 				foreach ($keys as $key)
 				{
-					$this->data['items'][] =& new $this->item_class($this, $items[$key]);
+					$this->data['items'][] = new $this->item_class($this, $items[$key]);
 				}
 			}
 			if ($items = $this->get_channel_tags('', 'item'))
@@ -2956,7 +2933,7 @@ function embed_wmedia(width, height, link) {
 				$keys = array_keys($items);
 				foreach ($keys as $key)
 				{
-					$this->data['items'][] =& new $this->item_class($this, $items[$key]);
+					$this->data['items'][] = new $this->item_class($this, $items[$key]);
 				}
 			}
 		}
@@ -3075,14 +3052,6 @@ class blocks_gapps_simplepie_item
 	function __toString()
 	{
 		return md5(serialize($this->data));
-	}
-	
-	/**
-	 * Remove items that link back to this before destroying this object
-	 */
-	function __destruct()
-	{
-		unset($this->feed);
 	}
 
 	function get_item_tags($namespace, $tag)
@@ -3297,19 +3266,19 @@ class blocks_gapps_simplepie_item
 			{
 				$label = $this->sanitize($category['attribs']['']['label'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
-			$categories[] =& new $this->feed->category_class($term, $scheme, $label);
+			$categories[] = new $this->feed->category_class($term, $scheme, $label);
 		}
 		foreach ((array) $this->get_item_tags('', 'category') as $category)
 		{
-			$categories[] =& new $this->feed->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$categories[] = new $this->feed->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 		foreach ((array) $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'subject') as $category)
 		{
-			$categories[] =& new $this->feed->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$categories[] = new $this->feed->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 		foreach ((array) $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'subject') as $category)
 		{
-			$categories[] =& new $this->feed->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$categories[] = new $this->feed->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 
 		if (!empty($categories))
@@ -3370,7 +3339,7 @@ class blocks_gapps_simplepie_item
 			}
 			if ($name !== null || $email !== null || $uri !== null)
 			{
-				$contributors[] =& new $this->feed->author_class($name, $uri, $email);
+				$contributors[] = new $this->feed->author_class($name, $uri, $email);
 			}
 		}
 		foreach ((array) $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'contributor') as $contributor)
@@ -3392,7 +3361,7 @@ class blocks_gapps_simplepie_item
 			}
 			if ($name !== null || $email !== null || $url !== null)
 			{
-				$contributors[] =& new $this->feed->author_class($name, $url, $email);
+				$contributors[] = new $this->feed->author_class($name, $url, $email);
 			}
 		}
 
@@ -3431,7 +3400,7 @@ class blocks_gapps_simplepie_item
 			}
 			if ($name !== null || $email !== null || $uri !== null)
 			{
-				$authors[] =& new $this->feed->author_class($name, $uri, $email);
+				$authors[] = new $this->feed->author_class($name, $uri, $email);
 			}
 		}
 		if ($author = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'author'))
@@ -3453,24 +3422,24 @@ class blocks_gapps_simplepie_item
 			}
 			if ($name !== null || $email !== null || $url !== null)
 			{
-				$authors[] =& new $this->feed->author_class($name, $url, $email);
+				$authors[] = new $this->feed->author_class($name, $url, $email);
 			}
 		}
 		if ($author = $this->get_item_tags('', 'author'))
 		{
-			$authors[] =& new $this->feed->author_class(null, null, $this->sanitize($author[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT));
+			$authors[] = new $this->feed->author_class(null, null, $this->sanitize($author[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT));
 		}
 		foreach ((array) $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'creator') as $author)
 		{
-			$authors[] =& new $this->feed->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$authors[] = new $this->feed->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 		foreach ((array) $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'creator') as $author)
 		{
-			$authors[] =& new $this->feed->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$authors[] = new $this->feed->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 		foreach ((array) $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'author') as $author)
 		{
-			$authors[] =& new $this->feed->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$authors[] = new $this->feed->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 
 		if (!empty($authors))
@@ -3780,7 +3749,7 @@ class blocks_gapps_simplepie_item
 					{
 						$caption_text = $this->sanitize($caption['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
-					$captions_parent[] =& new $this->feed->caption_class($caption_type, $caption_lang, $caption_startTime, $caption_endTime, $caption_text);
+					$captions_parent[] = new $this->feed->caption_class($caption_type, $caption_lang, $caption_startTime, $caption_endTime, $caption_text);
 				}
 			}
 			elseif ($captions = $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'text'))
@@ -3812,7 +3781,7 @@ class blocks_gapps_simplepie_item
 					{
 						$caption_text = $this->sanitize($caption['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
-					$captions_parent[] =& new $this->feed->caption_class($caption_type, $caption_lang, $caption_startTime, $caption_endTime, $caption_text);
+					$captions_parent[] = new $this->feed->caption_class($caption_type, $caption_lang, $caption_startTime, $caption_endTime, $caption_text);
 				}
 			}
 			if (is_array($captions_parent))
@@ -3842,7 +3811,7 @@ class blocks_gapps_simplepie_item
 				{
 					$label = $this->sanitize($category['attribs']['']['label'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 				}
-				$categories_parent[] =& new $this->feed->category_class($term, $scheme, $label);
+				$categories_parent[] = new $this->feed->category_class($term, $scheme, $label);
 			}
 			foreach ((array) $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'category') as $category)
 			{
@@ -3865,7 +3834,7 @@ class blocks_gapps_simplepie_item
 				{
 					$label = $this->sanitize($category['attribs']['']['label'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 				}
-				$categories_parent[] =& new $this->feed->category_class($term, $scheme, $label);
+				$categories_parent[] = new $this->feed->category_class($term, $scheme, $label);
 			}
 			foreach ((array) $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'category') as $category)
 			{
@@ -3876,7 +3845,7 @@ class blocks_gapps_simplepie_item
 				{
 					$label = $this->sanitize($category['attribs']['']['text'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 				}
-				$categories_parent[] =& new $this->feed->category_class($term, $scheme, $label);
+				$categories_parent[] = new $this->feed->category_class($term, $scheme, $label);
 
 				if (isset($category['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES]['category']))
 				{
@@ -3886,7 +3855,7 @@ class blocks_gapps_simplepie_item
 						{
 							$label = $this->sanitize($subcategory['attribs']['']['text'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 						}
-						$categories_parent[] =& new $this->feed->category_class($term, $scheme, $label);
+						$categories_parent[] = new $this->feed->category_class($term, $scheme, $label);
 					}
 				}
 			}
@@ -3908,7 +3877,7 @@ class blocks_gapps_simplepie_item
 				{
 					$copyright_label = $this->sanitize($copyright[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 				}
-				$copyrights_parent =& new $this->feed->copyright_class($copyright_url, $copyright_label);
+				$copyrights_parent = new $this->feed->copyright_class($copyright_url, $copyright_label);
 			}
 			elseif ($copyright = $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'copyright'))
 			{
@@ -3922,7 +3891,7 @@ class blocks_gapps_simplepie_item
 				{
 					$copyright_label = $this->sanitize($copyright[0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 				}
-				$copyrights_parent =& new $this->feed->copyright_class($copyright_url, $copyright_label);
+				$copyrights_parent = new $this->feed->copyright_class($copyright_url, $copyright_label);
 			}
 
 			// CREDITS
@@ -3949,7 +3918,7 @@ class blocks_gapps_simplepie_item
 					{
 						$credit_name = $this->sanitize($credit['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
-					$credits_parent[] =& new $this->feed->credit_class($credit_role, $credit_scheme, $credit_name);
+					$credits_parent[] = new $this->feed->credit_class($credit_role, $credit_scheme, $credit_name);
 				}
 			}
 			elseif ($credits = $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'credit'))
@@ -3975,7 +3944,7 @@ class blocks_gapps_simplepie_item
 					{
 						$credit_name = $this->sanitize($credit['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
-					$credits_parent[] =& new $this->feed->credit_class($credit_role, $credit_scheme, $credit_name);
+					$credits_parent[] = new $this->feed->credit_class($credit_role, $credit_scheme, $credit_name);
 				}
 			}
 			if (is_array($credits_parent))
@@ -4164,7 +4133,7 @@ class blocks_gapps_simplepie_item
 					{
 						$rating_value = $this->sanitize($rating['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
-					$ratings_parent[] =& new $this->feed->rating_class($rating_scheme, $rating_value);
+					$ratings_parent[] = new $this->feed->rating_class($rating_scheme, $rating_value);
 				}
 			}
 			elseif ($ratings = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'explicit'))
@@ -4177,7 +4146,7 @@ class blocks_gapps_simplepie_item
 					{
 						$rating_value = $this->sanitize($rating['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
-					$ratings_parent[] =& new $this->feed->rating_class($rating_scheme, $rating_value);
+					$ratings_parent[] = new $this->feed->rating_class($rating_scheme, $rating_value);
 				}
 			}
 			elseif ($ratings = $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'rating'))
@@ -4198,7 +4167,7 @@ class blocks_gapps_simplepie_item
 					{
 						$rating_value = $this->sanitize($rating['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
-					$ratings_parent[] =& new $this->feed->rating_class($rating_scheme, $rating_value);
+					$ratings_parent[] = new $this->feed->rating_class($rating_scheme, $rating_value);
 				}
 			}
 			elseif ($ratings = $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'explicit'))
@@ -4211,7 +4180,7 @@ class blocks_gapps_simplepie_item
 					{
 						$rating_value = $this->sanitize($rating['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
-					$ratings_parent[] =& new $this->feed->rating_class($rating_scheme, $rating_value);
+					$ratings_parent[] = new $this->feed->rating_class($rating_scheme, $rating_value);
 				}
 			}
 			if (is_array($ratings_parent))
@@ -4239,7 +4208,7 @@ class blocks_gapps_simplepie_item
 					{
 						$restriction_value = $this->sanitize($restriction['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
-					$restrictions_parent[] =& new $this->feed->restriction_class($restriction_relationship, $restriction_type, $restriction_value);
+					$restrictions_parent[] = new $this->feed->restriction_class($restriction_relationship, $restriction_type, $restriction_value);
 				}
 			}
 			elseif ($restrictions = $this->get_item_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'block'))
@@ -4253,7 +4222,7 @@ class blocks_gapps_simplepie_item
 					{
 						$restriction_relationship = 'deny';
 					}
-					$restrictions_parent[] =& new $this->feed->restriction_class($restriction_relationship, $restriction_type, $restriction_value);
+					$restrictions_parent[] = new $this->feed->restriction_class($restriction_relationship, $restriction_type, $restriction_value);
 				}
 			}
 			elseif ($restrictions = $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS, 'restriction'))
@@ -4275,7 +4244,7 @@ class blocks_gapps_simplepie_item
 					{
 						$restriction_value = $this->sanitize($restriction['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 					}
-					$restrictions_parent[] =& new $this->feed->restriction_class($restriction_relationship, $restriction_type, $restriction_value);
+					$restrictions_parent[] = new $this->feed->restriction_class($restriction_relationship, $restriction_type, $restriction_value);
 				}
 			}
 			elseif ($restrictions = $parent->get_channel_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'block'))
@@ -4289,7 +4258,7 @@ class blocks_gapps_simplepie_item
 					{
 						$restriction_relationship = 'deny';
 					}
-					$restrictions_parent[] =& new $this->feed->restriction_class($restriction_relationship, $restriction_type, $restriction_value);
+					$restrictions_parent[] = new $this->feed->restriction_class($restriction_relationship, $restriction_type, $restriction_value);
 				}
 			}
 			if (is_array($restrictions_parent))
@@ -4493,7 +4462,7 @@ class blocks_gapps_simplepie_item
 								{
 									$caption_text = $this->sanitize($caption['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
-								$captions[] =& new $this->feed->caption_class($caption_type, $caption_lang, $caption_startTime, $caption_endTime, $caption_text);
+								$captions[] = new $this->feed->caption_class($caption_type, $caption_lang, $caption_startTime, $caption_endTime, $caption_text);
 							}
 							if (is_array($captions))
 							{
@@ -4529,7 +4498,7 @@ class blocks_gapps_simplepie_item
 								{
 									$caption_text = $this->sanitize($caption['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
-								$captions[] =& new $this->feed->caption_class($caption_type, $caption_lang, $caption_startTime, $caption_endTime, $caption_text);
+								$captions[] = new $this->feed->caption_class($caption_type, $caption_lang, $caption_startTime, $caption_endTime, $caption_text);
 							}
 							if (is_array($captions))
 							{
@@ -4565,7 +4534,7 @@ class blocks_gapps_simplepie_item
 								{
 									$label = $this->sanitize($category['attribs']['']['label'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
-								$categories[] =& new $this->feed->category_class($term, $scheme, $label);
+								$categories[] = new $this->feed->category_class($term, $scheme, $label);
 							}
 						}
 						if (isset($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['category']))
@@ -4591,7 +4560,7 @@ class blocks_gapps_simplepie_item
 								{
 									$label = $this->sanitize($category['attribs']['']['label'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
-								$categories[] =& new $this->feed->category_class($term, $scheme, $label);
+								$categories[] = new $this->feed->category_class($term, $scheme, $label);
 							}
 						}
 						if (is_array($categories) && is_array($categories_parent))
@@ -4620,7 +4589,7 @@ class blocks_gapps_simplepie_item
 							{
 								$copyright_label = $this->sanitize($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 							}
-							$copyrights =& new $this->feed->copyright_class($copyright_url, $copyright_label);
+							$copyrights = new $this->feed->copyright_class($copyright_url, $copyright_label);
 						}
 						elseif (isset($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright']))
 						{
@@ -4634,7 +4603,7 @@ class blocks_gapps_simplepie_item
 							{
 								$copyright_label = $this->sanitize($group['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 							}
-							$copyrights =& new $this->feed->copyright_class($copyright_url, $copyright_label);
+							$copyrights = new $this->feed->copyright_class($copyright_url, $copyright_label);
 						}
 						else
 						{
@@ -4665,7 +4634,7 @@ class blocks_gapps_simplepie_item
 								{
 									$credit_name = $this->sanitize($credit['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
-								$credits[] =& new $this->feed->credit_class($credit_role, $credit_scheme, $credit_name);
+								$credits[] = new $this->feed->credit_class($credit_role, $credit_scheme, $credit_name);
 							}
 							if (is_array($credits))
 							{
@@ -4695,7 +4664,7 @@ class blocks_gapps_simplepie_item
 								{
 									$credit_name = $this->sanitize($credit['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
-								$credits[] =& new $this->feed->credit_class($credit_role, $credit_scheme, $credit_name);
+								$credits[] = new $this->feed->credit_class($credit_role, $credit_scheme, $credit_name);
 							}
 							if (is_array($credits))
 							{
@@ -4848,7 +4817,7 @@ class blocks_gapps_simplepie_item
 								{
 									$rating_value = $this->sanitize($rating['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
-								$ratings[] =& new $this->feed->rating_class($rating_scheme, $rating_value);
+								$ratings[] = new $this->feed->rating_class($rating_scheme, $rating_value);
 							}
 							if (is_array($ratings))
 							{
@@ -4873,7 +4842,7 @@ class blocks_gapps_simplepie_item
 								{
 									$rating_value = $this->sanitize($rating['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
-								$ratings[] =& new $this->feed->rating_class($rating_scheme, $rating_value);
+								$ratings[] = new $this->feed->rating_class($rating_scheme, $rating_value);
 							}
 							if (is_array($ratings))
 							{
@@ -4905,7 +4874,7 @@ class blocks_gapps_simplepie_item
 								{
 									$restriction_value = $this->sanitize($restriction['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
-								$restrictions[] =& new $this->feed->restriction_class($restriction_relationship, $restriction_type, $restriction_value);
+								$restrictions[] = new $this->feed->restriction_class($restriction_relationship, $restriction_type, $restriction_value);
 							}
 							if (is_array($restrictions))
 							{
@@ -4931,7 +4900,7 @@ class blocks_gapps_simplepie_item
 								{
 									$restriction_value = $this->sanitize($restriction['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
-								$restrictions[] =& new $this->feed->restriction_class($restriction_relationship, $restriction_type, $restriction_value);
+								$restrictions[] = new $this->feed->restriction_class($restriction_relationship, $restriction_type, $restriction_value);
 							}
 							if (is_array($restrictions))
 							{
@@ -4985,7 +4954,7 @@ class blocks_gapps_simplepie_item
 							$title = $title_parent;
 						}
 
-						$this->data['enclosures'][] =& new $this->feed->enclosure_class($url, $type, $length, $this->feed->javascript, $bitrate, $captions, $categories, $channels, $copyrights, $credits, $description, $duration, $expression, $framerate, $hashes, $height, $keywords, $lang, $medium, $player, $ratings, $restrictions, $samplingrate, $thumbnails, $title, $width);
+						$this->data['enclosures'][] = new $this->feed->enclosure_class($url, $type, $length, $this->feed->javascript, $bitrate, $captions, $categories, $channels, $copyrights, $credits, $description, $duration, $expression, $framerate, $hashes, $height, $keywords, $lang, $medium, $player, $ratings, $restrictions, $samplingrate, $thumbnails, $title, $width);
 					}
 				}
 			}
@@ -5114,7 +5083,7 @@ class blocks_gapps_simplepie_item
 								{
 									$caption_text = $this->sanitize($caption['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
-								$captions[] =& new $this->feed->caption_class($caption_type, $caption_lang, $caption_startTime, $caption_endTime, $caption_text);
+								$captions[] = new $this->feed->caption_class($caption_type, $caption_lang, $caption_startTime, $caption_endTime, $caption_text);
 							}
 							if (is_array($captions))
 							{
@@ -5150,7 +5119,7 @@ class blocks_gapps_simplepie_item
 								{
 									$label = $this->sanitize($category['attribs']['']['label'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
-								$categories[] =& new $this->feed->category_class($term, $scheme, $label);
+								$categories[] = new $this->feed->category_class($term, $scheme, $label);
 							}
 						}
 						if (is_array($categories) && is_array($categories_parent))
@@ -5183,7 +5152,7 @@ class blocks_gapps_simplepie_item
 							{
 								$copyright_label = $this->sanitize($content['child'][BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 							}
-							$copyrights =& new $this->feed->copyright_class($copyright_url, $copyright_label);
+							$copyrights = new $this->feed->copyright_class($copyright_url, $copyright_label);
 						}
 						else
 						{
@@ -5214,7 +5183,7 @@ class blocks_gapps_simplepie_item
 								{
 									$credit_name = $this->sanitize($credit['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
-								$credits[] =& new $this->feed->credit_class($credit_role, $credit_scheme, $credit_name);
+								$credits[] = new $this->feed->credit_class($credit_role, $credit_scheme, $credit_name);
 							}
 							if (is_array($credits))
 							{
@@ -5318,7 +5287,7 @@ class blocks_gapps_simplepie_item
 								{
 									$rating_value = $this->sanitize($rating['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
-								$ratings[] =& new $this->feed->rating_class($rating_scheme, $rating_value);
+								$ratings[] = new $this->feed->rating_class($rating_scheme, $rating_value);
 							}
 							if (is_array($ratings))
 							{
@@ -5350,7 +5319,7 @@ class blocks_gapps_simplepie_item
 								{
 									$restriction_value = $this->sanitize($restriction['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 								}
-								$restrictions[] =& new $this->feed->restriction_class($restriction_relationship, $restriction_type, $restriction_value);
+								$restrictions[] = new $this->feed->restriction_class($restriction_relationship, $restriction_type, $restriction_value);
 							}
 							if (is_array($restrictions))
 							{
@@ -5389,7 +5358,7 @@ class blocks_gapps_simplepie_item
 							$title = $title_parent;
 						}
 
-						$this->data['enclosures'][] =& new $this->feed->enclosure_class($url, $type, $length, $this->feed->javascript, $bitrate, $captions, $categories, $channels, $copyrights, $credits, $description, $duration, $expression, $framerate, $hashes, $height, $keywords, $lang, $medium, $player, $ratings, $restrictions, $samplingrate, $thumbnails, $title, $width);
+						$this->data['enclosures'][] = new $this->feed->enclosure_class($url, $type, $length, $this->feed->javascript, $bitrate, $captions, $categories, $channels, $copyrights, $credits, $description, $duration, $expression, $framerate, $hashes, $height, $keywords, $lang, $medium, $player, $ratings, $restrictions, $samplingrate, $thumbnails, $title, $width);
 					}
 				}
 			}
@@ -5425,7 +5394,7 @@ class blocks_gapps_simplepie_item
 					}
 
 					// Since we don't have group or content for these, we'll just pass the '*_parent' variables directly to the constructor
-					$this->data['enclosures'][] =& new $this->feed->enclosure_class($url, $type, $length, $this->feed->javascript, $bitrate, $captions_parent, $categories_parent, $channels, $copyrights_parent, $credits_parent, $description_parent, $duration_parent, $expression, $framerate, $hashes_parent, $height, $keywords_parent, $lang, $medium, $player_parent, $ratings_parent, $restrictions_parent, $samplingrate, $thumbnails_parent, $title_parent, $width);
+					$this->data['enclosures'][] = new $this->feed->enclosure_class($url, $type, $length, $this->feed->javascript, $bitrate, $captions_parent, $categories_parent, $channels, $copyrights_parent, $credits_parent, $description_parent, $duration_parent, $expression, $framerate, $hashes_parent, $height, $keywords_parent, $lang, $medium, $player_parent, $ratings_parent, $restrictions_parent, $samplingrate, $thumbnails_parent, $title_parent, $width);
 				}
 			}
 
@@ -5460,7 +5429,7 @@ class blocks_gapps_simplepie_item
 					}
 
 					// Since we don't have group or content for these, we'll just pass the '*_parent' variables directly to the constructor
-					$this->data['enclosures'][] =& new $this->feed->enclosure_class($url, $type, $length, $this->feed->javascript, $bitrate, $captions_parent, $categories_parent, $channels, $copyrights_parent, $credits_parent, $description_parent, $duration_parent, $expression, $framerate, $hashes_parent, $height, $keywords_parent, $lang, $medium, $player_parent, $ratings_parent, $restrictions_parent, $samplingrate, $thumbnails_parent, $title_parent, $width);
+					$this->data['enclosures'][] = new $this->feed->enclosure_class($url, $type, $length, $this->feed->javascript, $bitrate, $captions_parent, $categories_parent, $channels, $copyrights_parent, $credits_parent, $description_parent, $duration_parent, $expression, $framerate, $hashes_parent, $height, $keywords_parent, $lang, $medium, $player_parent, $ratings_parent, $restrictions_parent, $samplingrate, $thumbnails_parent, $title_parent, $width);
 				}
 			}
 
@@ -5495,14 +5464,14 @@ class blocks_gapps_simplepie_item
 					}
 
 					// Since we don't have group or content for these, we'll just pass the '*_parent' variables directly to the constructor
-					$this->data['enclosures'][] =& new $this->feed->enclosure_class($url, $type, $length, $this->feed->javascript, $bitrate, $captions_parent, $categories_parent, $channels, $copyrights_parent, $credits_parent, $description_parent, $duration_parent, $expression, $framerate, $hashes_parent, $height, $keywords_parent, $lang, $medium, $player_parent, $ratings_parent, $restrictions_parent, $samplingrate, $thumbnails_parent, $title_parent, $width);
+					$this->data['enclosures'][] = new $this->feed->enclosure_class($url, $type, $length, $this->feed->javascript, $bitrate, $captions_parent, $categories_parent, $channels, $copyrights_parent, $credits_parent, $description_parent, $duration_parent, $expression, $framerate, $hashes_parent, $height, $keywords_parent, $lang, $medium, $player_parent, $ratings_parent, $restrictions_parent, $samplingrate, $thumbnails_parent, $title_parent, $width);
 				}
 			}
 
 			if (sizeof($this->data['enclosures']) == 0 && ($url || $type || $length || $bitrate || $captions_parent || $categories_parent || $channels || $copyrights_parent || $credits_parent || $description_parent || $duration_parent || $expression || $framerate || $hashes_parent || $height || $keywords_parent || $lang || $medium || $player_parent || $ratings_parent || $restrictions_parent || $samplingrate || $thumbnails_parent || $title_parent || $width))
 			{
 				// Since we don't have group or content for these, we'll just pass the '*_parent' variables directly to the constructor
-				$this->data['enclosures'][] =& new $this->feed->enclosure_class($url, $type, $length, $this->feed->javascript, $bitrate, $captions_parent, $categories_parent, $channels, $copyrights_parent, $credits_parent, $description_parent, $duration_parent, $expression, $framerate, $hashes_parent, $height, $keywords_parent, $lang, $medium, $player_parent, $ratings_parent, $restrictions_parent, $samplingrate, $thumbnails_parent, $title_parent, $width);
+				$this->data['enclosures'][] = new $this->feed->enclosure_class($url, $type, $length, $this->feed->javascript, $bitrate, $captions_parent, $categories_parent, $channels, $copyrights_parent, $credits_parent, $description_parent, $duration_parent, $expression, $framerate, $hashes_parent, $height, $keywords_parent, $lang, $medium, $player_parent, $ratings_parent, $restrictions_parent, $samplingrate, $thumbnails_parent, $title_parent, $width);
 			}
 
 			$this->data['enclosures'] = array_values(blocks_gapps_simplepie_misc::array_unique($this->data['enclosures']));
@@ -5681,14 +5650,6 @@ class blocks_gapps_simplepie_source
 	{
 		return md5(serialize($this->data));
 	}
-	
-	/**
-	 * Remove items that link back to this before destroying this object
-	 */
-	function __destruct()
-	{
-		unset($this->item);
-	}
 
 	function get_source_tags($namespace, $tag)
 	{
@@ -5787,19 +5748,19 @@ class blocks_gapps_simplepie_source
 			{
 				$label = $this->sanitize($category['attribs']['']['label'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT);
 			}
-			$categories[] =& new $this->item->feed->category_class($term, $scheme, $label);
+			$categories[] = new $this->item->feed->category_class($term, $scheme, $label);
 		}
 		foreach ((array) $this->get_source_tags('', 'category') as $category)
 		{
-			$categories[] =& new $this->item->feed->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$categories[] = new $this->item->feed->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 		foreach ((array) $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'subject') as $category)
 		{
-			$categories[] =& new $this->item->feed->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$categories[] = new $this->item->feed->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 		foreach ((array) $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'subject') as $category)
 		{
-			$categories[] =& new $this->item->feed->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$categories[] = new $this->item->feed->category_class($this->sanitize($category['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 
 		if (!empty($categories))
@@ -5847,7 +5808,7 @@ class blocks_gapps_simplepie_source
 			}
 			if ($name !== null || $email !== null || $uri !== null)
 			{
-				$authors[] =& new $this->item->feed->author_class($name, $uri, $email);
+				$authors[] = new $this->item->feed->author_class($name, $uri, $email);
 			}
 		}
 		if ($author = $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'author'))
@@ -5869,20 +5830,20 @@ class blocks_gapps_simplepie_source
 			}
 			if ($name !== null || $email !== null || $url !== null)
 			{
-				$authors[] =& new $this->item->feed->author_class($name, $url, $email);
+				$authors[] = new $this->item->feed->author_class($name, $url, $email);
 			}
 		}
 		foreach ((array) $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_11, 'creator') as $author)
 		{
-			$authors[] =& new $this->item->feed->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$authors[] = new $this->item->feed->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 		foreach ((array) $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_DC_10, 'creator') as $author)
 		{
-			$authors[] =& new $this->item->feed->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$authors[] = new $this->item->feed->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 		foreach ((array) $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ITUNES, 'author') as $author)
 		{
-			$authors[] =& new $this->item->feed->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
+			$authors[] = new $this->item->feed->author_class($this->sanitize($author['data'], BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
 
 		if (!empty($authors))
@@ -5930,7 +5891,7 @@ class blocks_gapps_simplepie_source
 			}
 			if ($name !== null || $email !== null || $uri !== null)
 			{
-				$contributors[] =& new $this->item->feed->author_class($name, $uri, $email);
+				$contributors[] = new $this->item->feed->author_class($name, $uri, $email);
 			}
 		}
 		foreach ((array) $this->get_source_tags(BLOCKS_GAPPS_SIMPLEPIE_NAMESPACE_ATOM_03, 'contributor') as $contributor)
@@ -5952,7 +5913,7 @@ class blocks_gapps_simplepie_source
 			}
 			if ($name !== null || $email !== null || $url !== null)
 			{
-				$contributors[] =& new $this->item->feed->author_class($name, $url, $email);
+				$contributors[] = new $this->item->feed->author_class($name, $url, $email);
 			}
 		}
 
@@ -6389,7 +6350,7 @@ class blocks_gapps_simplepie_enclosure
 		$this->width = $width;
 		if (class_exists('idna_convert'))
 		{
-			$idn =& new idna_convert;
+			$idn = new idna_convert;
 			$parsed = blocks_gapps_simplepie_misc::parse_url($link);
 			$this->link = blocks_gapps_simplepie_misc::compress_parse_url($parsed['scheme'], $idn->encode($parsed['authority']), $parsed['path'], $parsed['query'], $parsed['fragment']);
 		}
@@ -7585,7 +7546,7 @@ class blocks_gapps_simplepie_file
 	{
 		if (class_exists('idna_convert'))
 		{
-			$idn =& new idna_convert;
+			$idn = new idna_convert;
 			$parsed = blocks_gapps_simplepie_misc::parse_url($url);
 			$url = blocks_gapps_simplepie_misc::compress_parse_url($parsed['scheme'], $idn->encode($parsed['authority']), $parsed['path'], $parsed['query'], $parsed['fragment']);
 		}
@@ -7648,7 +7609,7 @@ class blocks_gapps_simplepie_file
 					curl_close($fp);
 					$this->headers = explode("\r\n\r\n", $this->headers, $info['redirect_count'] + 1);
 					$this->headers = array_pop($this->headers);
-					$parser =& new blocks_gapps_simplepie_http_parser($this->headers);
+					$parser = new blocks_gapps_simplepie_http_parser($this->headers);
 					if ($parser->parse())
 					{
 						$this->headers = $parser->headers;
@@ -7729,7 +7690,7 @@ class blocks_gapps_simplepie_file
 					}
 					if (!$info['timed_out'])
 					{
-						$parser =& new blocks_gapps_simplepie_http_parser($this->headers);
+						$parser = new blocks_gapps_simplepie_http_parser($this->headers);
 						if ($parser->parse())
 						{
 							$this->headers = $parser->headers;
@@ -8309,7 +8270,7 @@ class blocks_gapps_simplepie_cache_file
 
 class blocks_gapps_simplepie_misc
 {
-	function time_hms($seconds)
+    public static function time_hms($seconds)
 	{
 		$time = '';
 
@@ -8337,7 +8298,7 @@ class blocks_gapps_simplepie_misc
 		return $time;
 	}
 
-	function absolutize_url($relative, $base)
+    public static function absolutize_url($relative, $base)
 	{
 		if ($relative !== '')
 		{
@@ -8409,7 +8370,7 @@ class blocks_gapps_simplepie_misc
 		return $return;
 	}
 
-	function remove_dot_segments($input)
+    public static function remove_dot_segments($input)
 	{
 		$output = '';
 		while (strpos($input, './') !== false || strpos($input, '/.') !== false || $input == '.' || $input == '..')
@@ -8463,7 +8424,7 @@ class blocks_gapps_simplepie_misc
 		return $output . $input;
 	}
 
-	function get_element($realname, $string)
+    public static function get_element($realname, $string)
 	{
 		$return = array();
 		$name = preg_quote($realname, '/');
@@ -8500,7 +8461,7 @@ class blocks_gapps_simplepie_misc
 		return $return;
 	}
 
-	function element_implode($element)
+    public static function element_implode($element)
 	{
 		$full = "<$element[tag]";
 		foreach ($element['attribs'] as $key => $value)
@@ -8519,7 +8480,7 @@ class blocks_gapps_simplepie_misc
 		return $full;
 	}
 
-	function error($message, $level, $file, $line)
+    public static function error($message, $level, $file, $line)
 	{
 		switch ($level)
 		{
@@ -8584,7 +8545,7 @@ class blocks_gapps_simplepie_misc
 		die('Cached file for ' . $identifier_url . ' cannot be found.');
 	}
 
-	function fix_protocol($url, $http = 1)
+    public static function fix_protocol($url, $http = 1)
 	{
 		$url = blocks_gapps_simplepie_misc::normalize_url($url);
 		$parsed = blocks_gapps_simplepie_misc::parse_url($url);
@@ -8616,7 +8577,7 @@ class blocks_gapps_simplepie_misc
 		}
 	}
 
-	function parse_url($url)
+	public static function parse_url($url)
 	{
 		static $cache = array();
 		if (isset($cache[$url]))
@@ -8637,7 +8598,7 @@ class blocks_gapps_simplepie_misc
 		}
 	}
 
-	function compress_parse_url($scheme = '', $authority = '', $path = '', $query = '', $fragment = '')
+    public static function compress_parse_url($scheme = '', $authority = '', $path = '', $query = '', $fragment = '')
 	{
 		$return = '';
 		if ($scheme !== '')
@@ -8663,7 +8624,7 @@ class blocks_gapps_simplepie_misc
 		return $return;
 	}
 
-	function normalize_url($url)
+    public static function normalize_url($url)
 	{
 		$url = preg_replace_callback('/%([0-9A-Fa-f]{2})/', array('blocks_gapps_simplepie_misc', 'percent_encoding_normalization'), $url);
 		$url = blocks_gapps_simplepie_misc::parse_url($url);
@@ -8676,7 +8637,7 @@ class blocks_gapps_simplepie_misc
 		return blocks_gapps_simplepie_misc::compress_parse_url($url['scheme'], $url['authority'], $url['path'], $url['query'], $url['fragment']);
 	}
 
-	function percent_encoding_normalization($match)
+    public static function percent_encoding_normalization($match)
 	{
 		$integer = hexdec($match[1]);
 		if ($integer >= 0x41 && $integer <= 0x5A || $integer >= 0x61 && $integer <= 0x7A || $integer >= 0x30 && $integer <= 0x39 || $integer == 0x2D || $integer == 0x2E || $integer == 0x5F || $integer == 0x7E)
@@ -8739,7 +8700,7 @@ class blocks_gapps_simplepie_misc
 		return strtr($string, $convert_table);
 	}
 
-	function change_encoding($data, $input, $output)
+    public static function change_encoding($data, $input, $output)
 	{
 		$input = blocks_gapps_simplepie_misc::encoding($input);
 		$output = blocks_gapps_simplepie_misc::encoding($output);
@@ -8777,7 +8738,7 @@ class blocks_gapps_simplepie_misc
 		return $data;
 	}
 
-	function encoding($encoding)
+    public static function encoding($encoding)
 	{
 		// Character sets are case-insensitive (though we'll return them in the form given in their registration)
 		switch (strtoupper($encoding))
@@ -10117,7 +10078,7 @@ class blocks_gapps_simplepie_misc
 		}
 	}
 
-	function get_curl_version()
+    public static function get_curl_version()
 	{
 		if (is_array($curl = curl_version()))
 		{
@@ -10138,7 +10099,7 @@ class blocks_gapps_simplepie_misc
 		return $curl;
 	}
 
-	function is_subclass_of($class1, $class2)
+    public static function is_subclass_of($class1, $class2)
 	{
 		if (func_num_args() != 2)
 		{
@@ -10179,7 +10140,7 @@ class blocks_gapps_simplepie_misc
 	 * @param string $data Data to strip comments from
 	 * @return string Comment stripped string
 	 */
-	function strip_comments($data)
+    public static function strip_comments($data)
 	{
 		$output = '';
 		while (($start = strpos($data, '<!--')) !== false)
@@ -10278,7 +10239,7 @@ class blocks_gapps_simplepie_misc
 		return $output;
 	}
 
-	function parse_mime($mime)
+    public static function parse_mime($mime)
 	{
 		if (($pos = strpos($mime, ';')) === false)
 		{
@@ -10302,7 +10263,7 @@ class blocks_gapps_simplepie_misc
 		}
 	}
 
-	function atom_03_construct_type($attribs)
+    public static function atom_03_construct_type($attribs)
 	{
 		if (isset($attribs['']['mode']) && strtolower(trim($attribs['']['mode']) == 'base64'))
 		{
@@ -10338,7 +10299,7 @@ class blocks_gapps_simplepie_misc
 		}
 	}
 
-	function atom_10_construct_type($attribs)
+    public static function atom_10_construct_type($attribs)
 	{
 		if (isset($attribs['']['type']))
 		{
@@ -10360,7 +10321,7 @@ class blocks_gapps_simplepie_misc
 		return BLOCKS_GAPPS_SIMPLEPIE_CONSTRUCT_TEXT;
 	}
 
-	function atom_10_content_construct_type($attribs)
+    public static function atom_10_content_construct_type($attribs)
 	{
 		if (isset($attribs['']['type']))
 		{
@@ -10391,12 +10352,12 @@ class blocks_gapps_simplepie_misc
 		}
 	}
 
-	function is_isegment_nz_nc($string)
+    public static function is_isegment_nz_nc($string)
 	{
 		return (bool) preg_match('/^([A-Za-z0-9\-._~\x{A0}-\x{D7FF}\x{F900}-\x{FDCF}\x{FDF0}-\x{FFEF}\x{10000}-\x{1FFFD}\x{20000}-\x{2FFFD}\x{30000}-\x{3FFFD}\x{40000}-\x{4FFFD}\x{50000}-\x{5FFFD}\x{60000}-\x{6FFFD}\x{70000}-\x{7FFFD}\x{80000}-\x{8FFFD}\x{90000}-\x{9FFFD}\x{A0000}-\x{AFFFD}\x{B0000}-\x{BFFFD}\x{C0000}-\x{CFFFD}\x{D0000}-\x{DFFFD}\x{E1000}-\x{EFFFD}!$&\'()*+,;=@]|(%[0-9ABCDEF]{2}))+$/u', $string);
 	}
 
-	function space_seperated_tokens($string)
+    public static function space_seperated_tokens($string)
 	{
 		$space_characters = "\x20\x09\x0A\x0B\x0C\x0D";
 		$string_length = strlen($string);
@@ -10415,7 +10376,7 @@ class blocks_gapps_simplepie_misc
 		return $tokens;
 	}
 
-	function array_unique($array)
+    public static function array_unique($array)
 	{
 		if (version_compare(PHP_VERSION, '5.2', '>='))
 		{
@@ -10465,7 +10426,7 @@ class blocks_gapps_simplepie_misc
 	 * @param int $codepoint Unicode codepoint
 	 * @return string UTF-8 character
 	 */
-	function codepoint_to_utf8($codepoint)
+    public static function codepoint_to_utf8($codepoint)
 	{
 		static $cache = array();
 		$codepoint = (int) $codepoint;
@@ -10582,7 +10543,7 @@ class blocks_gapps_simplepie_misc
 	 * @param string $data XML data
 	 * @return array Possible encodings
 	 */
-	function xml_encoding($data)
+    public static function xml_encoding($data)
 	{
 		// UTF-32 Big Endian BOM
 		if (substr($data, 0, 4) === "\x00\x00\xFE\xFF")
@@ -11427,7 +11388,7 @@ class blocks_gapps_simplepie_parse_date
 	 *
 	 * @access public
 	 */
-	function get()
+    public static function get()
 	{
 		static $object;
 		if (!$object)
@@ -12450,7 +12411,7 @@ class blocks_gapps_simplepie_locator
 
 	function blocks_gapps_simplepie_locator(&$file, $timeout = 10, $useragent = null, $file_class = 'blocks_gapps_simplepie_file', $max_checked_feeds = 10, $content_type_sniffer_class = 'blocks_gapps_simplepie_content_type_sniffer')
 	{
-		$this->file =& $file;
+		$this->file = $file;
 		$this->file_class = $file_class;
 		$this->useragent = $useragent;
 		$this->timeout = $timeout;
@@ -12576,7 +12537,7 @@ class blocks_gapps_simplepie_locator
 				if (!in_array($href, $done) && in_array('feed', $rel) || (in_array('alternate', $rel) && !empty($link['attribs']['type']['data']) && in_array(strtolower(blocks_gapps_simplepie_misc::parse_mime($link['attribs']['type']['data'])), array('application/rss+xml', 'application/atom+xml'))))
 				{
 					$this->checked_feeds++;
-					$feed =& new $this->file_class($href, $this->timeout, 5, null, $this->useragent);
+					$feed = new $this->file_class($href, $this->timeout, 5, null, $this->useragent);
 					if ($this->is_feed($feed))
 					{
 						return $feed;
@@ -12641,7 +12602,7 @@ class blocks_gapps_simplepie_locator
 			if (in_array(strtolower(strrchr($value, '.')), array('.rss', '.rdf', '.atom', '.xml')))
 			{
 				$this->checked_feeds++;
-				$feed =& new $this->file_class($value, $this->timeout, 5, null, $this->useragent);
+				$feed = new $this->file_class($value, $this->timeout, 5, null, $this->useragent);
 				if ($this->is_feed($feed))
 				{
 					return $feed;
@@ -12666,7 +12627,7 @@ class blocks_gapps_simplepie_locator
 			if (preg_match('/(rss|rdf|atom|xml)/i', $value))
 			{
 				$this->checked_feeds++;
-				$feed =& new $this->file_class($value, $this->timeout, 5, null, $this->useragent);
+				$feed = new $this->file_class($value, $this->timeout, 5, null, $this->useragent);
 				if ($this->is_feed($feed))
 				{
 					return $feed;
@@ -13222,7 +13183,7 @@ class blocks_gapps_simplepie_sanitize
 							}
 							else
 							{
-								$file =& new $this->file_class($img['attribs']['src']['data'], $this->timeout, 5, array('X-FORWARDED-FOR' => $_SERVER['REMOTE_ADDR']), $this->useragent, $this->force_fsockopen);
+								$file = new $this->file_class($img['attribs']['src']['data'], $this->timeout, 5, array('X-FORWARDED-FOR' => $_SERVER['REMOTE_ADDR']), $this->useragent, $this->force_fsockopen);
 								$headers = $file->headers;
 
 								if ($file->success && ($file->status_code == 200 || ($file->status_code > 206 && $file->status_code < 300)))

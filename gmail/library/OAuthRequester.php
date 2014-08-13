@@ -406,10 +406,10 @@ class OAuthRequester extends OAuthRequestSigner
                 // Moodlerooms Changes to this file to support https
                 // for blocks/gapps
                 global $CFG;
-                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, TRUE);
-                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 2);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
                 curl_setopt($ch, CURLOPT_CAINFO,$CFG->dirroot."/blocks/gapps/gmail/cacert.pem");// when set ot false grant access works
-              
+
                 foreach ($opts as $k => $v)
 		{
 			if ($k != CURLOPT_HTTPHEADER)

@@ -80,9 +80,9 @@ $params = array('scope'=>'https://mail.google.com/mail/feed/atom');
 // Disable SSL security for debugging only
 $curlopts = array();
 if ( debugging('',DEBUG_DEVELOPER) ) {
-    $curlopts = array('CURLOPT_SSL_VERIFYHOST' => FALSE,
-                      'CURLOPT_SSL_VERIFYPEER' => FALSE,
-                      'CURLOPT_FTP_SSL' => 'CURLFTPSSL_TRY' );
+    $curlopts = array(CURLOPT_SSL_VERIFYHOST => 2,
+                      CURLOPT_SSL_VERIFYPEER => false,
+                      CURLOPT_FTP_SSL => 'CURLFTPSSL_TRY');
 }
 
 try {
