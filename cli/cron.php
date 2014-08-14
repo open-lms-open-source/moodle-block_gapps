@@ -38,6 +38,6 @@ Example:
 }
 
 $gapps = new blocks_gapps_model_gsync();
-$gapps->cron(true);
+$gapps->cron();
 
 exit(0);

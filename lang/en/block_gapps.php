@@ -190,6 +190,9 @@ $string['refreshtoken'] = 'Refresh Access Token';
 $string['refreshfailed'] = 'Failed to delete token record.';
 $string['googlesynchelp_help'] = 'Google Sync Help';
 $string['googlesynchelp'] = '';
+$string['authorizationtokenfail'] = 'Failed to get an authorization header token after logging into Google Apps.';
+$string['noauthorizationtokenset'] = 'The authorization token was not found in configuration.  The token must exist before connecting in this way.';
+
 //$string['googlesynchelp'] = <<<EOD
 //<h3>Google Apps</h3>
 //

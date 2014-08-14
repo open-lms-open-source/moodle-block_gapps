@@ -47,6 +47,10 @@ require_once($CFG->dirroot.'/blocks/gapps/exception.php');
  * Main Gapps Sync Class. Nearly all the functionality is wrapped in here.
  */
 class blocks_gapps_model_gsync {
+    /**
+     * Used for HTTP clients that talk to Google Apps
+     */
+    const APPLICATION_ID = 'moodle-block_gapps-1.0';
 
     /**
      * Password hash function to send
@@ -109,11 +113,18 @@ class blocks_gapps_model_gsync {
     const CLI_SEPARATOR = '========================';
 
     /**
+     * How long to keep the authorization token for API
+     * calls (20 hours).  Google automatically invalidates
+     * this token in 24 hours.
+     */
+    const AUTHORIZATION_TIMEOUT = 72000;
+
+    /**
      * Process timeout
      *
      * @var int
      */
-    protected $timeout = 15;
+    protected $timeout = 45;
 
     /**
      * Counters for counting account actions made by
@@ -138,22 +149,21 @@ class blocks_gapps_model_gsync {
     protected $config;
 
     /**
+     * @var Zend_Gdata_Gapps
+     */
+    protected $service;
+
+    /**
      * Constructor - makes sure our
      * configs are in place and can
      * connect to Google Apps for us
-     *
-     * @param boolean $autoconnect Automatically connect to Google Apps
-     * @return void
      */
-    public function __construct($autoconnect = true) {
-        global $CFG;
-        mr_bootstrap::zend(); // set php search paths to find our zend lib
-        // now make the zend includes
-        require_once($CFG->dirroot.'/blocks/gapps/exception.php');
+    public function __construct() {
+        mr_bootstrap::zend();
+
+        require_once(__DIR__.'/../exception.php');
         require_once('Zend/Gdata/Gapps.php');
         require_once('Zend/Gdata/ClientLogin.php');
-
-
 
         if (!$config = get_config('blocks/gapps')) {
             throw new blocks_gapps_exception('notconfigured');
@@ -164,38 +174,100 @@ class blocks_gapps_model_gsync {
             }
         }
         $this->config = $config;
-
-        $autoconnect and $this->gapps_connect();
     }
 
     /**
-     * Connect to Google Apps using
-     * our config credentials
+     * Connect to Gapps by only using the authorization token.
      *
-     * @return void
      * @throws blocks_gapps_exception
      */
-    public function gapps_connect() { 
+    public function gapps_connect_via_authorization() {
+        if (empty($this->config->authorization)) {
+            throw new blocks_gapps_exception('noauthorizationtokenset');
+        }
         try {
-            if (!empty($this->config->authorization)) {
-                // Mimic what Zend_Gdata_ClientLogin::getHttpClient returns
-                $headers['authorization'] = $this->config->authorization;
-                $client = new Zend_Http_Client();
-                $useragent = Zend_Gdata_ClientLogin::DEFAULT_SOURCE . ' Zend_Framework_Gdata/' . Zend_Version::VERSION;
-                $client->setConfig(array(
-                        'strictredirects' => true,
-                        'useragent' => $useragent
-                    )
-                );
-                $client->setHeaders($headers);
-            } else {
-                $client = Zend_Gdata_ClientLogin::getHttpClient("{$this->config->username}@{$this->config->domain}", $this->config->password, Zend_Gdata_Gapps::AUTH_SERVICE_NAME);
-            }
-            $this->service = new Zend_Gdata_Gapps($client, $this->config->domain);
+            $client = new Zend_Gdata_HttpClient();
+            $client->setClientLoginToken($this->config->authorization);
+            $this->service = new Zend_Gdata_Gapps($client, $this->config->domain, self::APPLICATION_ID);
         } catch (Zend_Gdata_App_AuthException $e) {
             throw new blocks_gapps_exception('authfailed');
         } catch (Zend_Gdata_App_Exception $e) {
             throw new blocks_gapps_exception('gappserror', 'block_gapps', $e->getMessage());
+        }
+    }
+
+    /**
+     * Connect to Gapps by only using the admin credentials.
+     *
+     * @throws blocks_gapps_exception
+     */
+    public function gapps_connect_via_credentials() {
+        try {
+            $client = Zend_Gdata_ClientLogin::getHttpClient("{$this->config->username}@{$this->config->domain}", $this->config->password, Zend_Gdata_Gapps::AUTH_SERVICE_NAME);
+            $this->service = new Zend_Gdata_Gapps($client, $this->config->domain, self::APPLICATION_ID);
+        } catch (Zend_Gdata_App_AuthException $e) {
+            throw new blocks_gapps_exception('authfailed');
+        } catch (Zend_Gdata_App_Exception $e) {
+            throw new blocks_gapps_exception('gappserror', 'block_gapps', $e->getMessage());
+        }
+    }
+
+    /**
+     * Connect to Gapps using the most efficient means possible.
+     *
+     * @return void
+     * @throws blocks_gapps_exception
+     */
+    public function gapps_connect() {
+        $this->verify_authorization_token();
+
+        // Sometimes verifying authorization can setup the service.
+        if (!$this->service instanceof Zend_Gdata_Gapps) {
+            $this->gapps_connect_via_authorization();
+        }
+    }
+
+    /**
+     * Verify the authorization token and fetch
+     * a new one if necessary.
+     *
+     * @throws blocks_gapps_exception
+     */
+    public function verify_authorization_token() {
+        $timenow = time();
+        $timeout = 0;
+        if (!empty($this->config->authorization_timeout)) {
+            $timeout = (int) $this->config->authorization_timeout;
+        }
+        $authorization = '';
+        if (!empty($this->config->authorization)) {
+            $authorization = $this->config->authorization;
+        }
+
+        // Fetch new authorization token if:
+        //  the timeout doesn't exist or
+        //  the timeout has expired or
+        //  the authorization token doesn't exist.
+        if (empty($authorization) || empty($timeout) || ($timenow - $timeout) >= self::AUTHORIZATION_TIMEOUT) {
+            if (!empty($authorization)) {
+                // Incase of errors, make sure this is invalidated.
+                set_config('authorization', '', 'blocks/gapps');
+            }
+            $this->gapps_connect_via_credentials();
+
+            /** @var Zend_Gdata_HttpClient $client */
+            $client = $this->service->getStaticHttpClient();
+            $authorization = $client->getClientLoginToken();
+            if (empty($authorization)) {
+                // This is possible if max login attempts has been exceeded.
+                throw new blocks_gapps_exception('authorizationtokenfail');
+            }
+            set_config('authorization', $authorization, 'blocks/gapps');
+            set_config('authorization_timeout', $timenow, 'blocks/gapps');
+
+            // Update config.
+            $this->config->authorization = $authorization;
+            $this->config->authorization_timeout = $timenow;
         }
     }
 
@@ -802,15 +874,12 @@ class blocks_gapps_model_gsync {
      * @throws blocks_gapps_exception
      **/
     public function sync_moodle_to_gapps($expire = 0, $feedback = true) {
-        global $CFG,$DB;
 
-        require_once(dirname(__DIR__).'/vendor/autoload.php');
+        require_once(__DIR__.'/../vendor/autoload.php');
 
         $feedback and mtrace('Starting Moodle to Google Apps synchronization');
 
-        // Save authorization header to share with HTTP clients.
-        $auth = $this->service->getStaticHttpClient()->getHeader('authorization');
-        set_config('authorization', $auth, 'blocks/gapps');
+        $this->verify_authorization_token();
 
         $expired   = false;   // Flag for when we reached or max execution time.
         $processes = array();
@@ -847,9 +916,6 @@ class blocks_gapps_model_gsync {
         if (!empty($processes)) {
             $this->finish_processes($processes, $feedback);
         }
-
-        // Want to use a new one next round
-        unset_config('authorization', 'blocks/gapps');
 
         $feedback and mtrace('Number of Google Apps accounts deleted: '.$this->counts['deleted']);
         $feedback and mtrace('Number of Google Apps accounts disabled: '.$this->counts['disabled']);
@@ -954,6 +1020,7 @@ class blocks_gapps_model_gsync {
                 case 'auth_gsaml_user_authenticated':
                     try {
                         $gapps = new blocks_gapps_model_gsync();
+                        $gapps->gapps_connect();
                         $gapps->handle_gsaml_user_auth_event($eventdata, $allowevents);
                     } catch (blocks_gapps_exception $e) {
                         add_to_log(SITEID, 'block_gapps', 'auth_gsaml_user_authenticated','', 'ERROR:'.substr($e->getMessage(),0,190).' usr='.$eventdata->id, 0,0);
@@ -963,6 +1030,7 @@ class blocks_gapps_model_gsync {
                     $user = $eventdata;
                     try {
                         $gapps = new blocks_gapps_model_gsync();
+                        $gapps->gapps_connect();
                         $gapps->moodle_create_user($user);
                         $moodleuser = $gapps->moodle_get_user($eventdata->id);
                         $gappsuser  = $gapps->gapps_get_user($moodleuser->oldusername);
@@ -980,7 +1048,9 @@ class blocks_gapps_model_gsync {
                 case 'user_updated':
                 case 'password_changed':
                     try {
-                        $gapps      = new blocks_gapps_model_gsync();
+                        $gapps = new blocks_gapps_model_gsync();
+                        $gapps->gapps_connect();
+
                         $moodleuser = $gapps->moodle_get_user($eventdata->id);
                         $gappsuser  = $gapps->gapps_get_user($moodleuser->oldusername);
 
@@ -1101,26 +1171,26 @@ class blocks_gapps_model_gsync {
                 $this->counts['errors']++;
             }
         }
+        // Do this outside the processes so they don't step on each other.
+        $this->verify_authorization_token();
+
         // Clear out array
         $processes = array();
     }
 
     /**
-     * Rest function that emulates the rest page for accepting user accounts to sync
+     * Sync a single user on the CLI
      **/
     function sync_user_cli($userid) {
-        global $CFG;
 
         $response = array('counts' => array('errors' => 1));
 
         if (!empty($userid)) {
             try {
-                $gapps = new blocks_gapps_model_gsync(); /// the $gapps makes the code easier to read so leaving as gapps and not $this
+                $moodleuser = $this->moodle_get_user($userid);
+                $this->sync_moodle_user_to_gapps($moodleuser);
 
-                $moodleuser = $gapps->moodle_get_user($userid);
-                $gapps->sync_moodle_user_to_gapps($moodleuser);
-
-                $response['counts'] = $gapps->counts;
+                $response['counts'] = $this->counts;
 
             } catch (blocks_gapps_exception $e) {
                 mtrace($e->getMessage());
@@ -1138,40 +1208,28 @@ class blocks_gapps_model_gsync {
     /**
      * Gsync Cron
      *
-     * @param boolean $testrun a parameter to define if we are debugging our code or not
      * @return boolean true always true so we don't halt the main cron
      */
-    function cron($forcerun = false) {
-        global $CFG;
-
-        require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
-
-        // Make sure this is not set
-        unset_config('authorization', 'blocks/gapps');
-
+    function cron() {
         // The following code prevents the cron method
         // from being ran multiple times when the first
         // is still being executed
         $expire  = get_config('blocks/gapps', 'cronexpire');
         $started = get_config('blocks/gapps', 'cronstarted');
 
-        if (!$forcerun) {
-            if (empty($expire) or !is_numeric($expire)) {
-                // Not set properly - go to default
-                $expire = HOURSECS * 24;
-            } else {
-                $expire = HOURSECS * $expire;
-            }
-            if (!empty($started)) {
-                $timetocheck = time() - $expire;
-
-                if ($started > $timetocheck) {
-                    mtrace('gapps cron haulted: cron is either still running or has not yet expired.  The cron will expire at '.userdate($started + $expire));
-                    return true; // Still return true to prevent us from hitting this message every 5 minutes or so
-                }
-            }
+        if (empty($expire) or !is_numeric($expire)) {
+            // Not set properly - go to default
+            $expire = HOURSECS * 24;
         } else {
-            $expire = HOURSECS * 1; // for testing small number of users only
+            $expire = HOURSECS * $expire;
+        }
+        if (!empty($started)) {
+            $timetocheck = time() - $expire;
+
+            if ($started > $timetocheck) {
+                mtrace('gapps cron haulted: cron is either still running or has not yet expired.  The cron will expire at '.userdate($started + $expire));
+                return true; // Still return true to prevent us from hitting this message every 5 minutes or so
+            }
         }
 
         // Be user to use the same time...
@@ -1191,9 +1249,6 @@ class blocks_gapps_model_gsync {
 
         // Zero out our start time to free up the cron
         set_config('cronstarted', 0, 'blocks/gapps');
-
-        // Always remove
-        unset_config('authorization', 'blocks/gapps');
 
         // Always return true
         return true;
