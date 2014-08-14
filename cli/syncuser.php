@@ -37,5 +37,6 @@ Example:
 }
 
 $gapps = new blocks_gapps_model_gsync();
+$gapps->gapps_connect_via_authorization();
 $gapps->sync_user_cli($options['userid']);
 exit(0);

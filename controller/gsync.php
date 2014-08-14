@@ -77,9 +77,9 @@ class block_gapps_controller_gsync extends mr_controller_block {
 
         require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
 
-
         try {
             $gapps = new blocks_gapps_model_gsync();
+            $gapps->gapps_connect_via_credentials();
             $output .= $OUTPUT->notification(get_string('connectionsuccess','block_gapps'),'notifysuccess');
         } catch (blocks_gapps_exception $e) {
             $a = NULL;
@@ -275,13 +275,12 @@ class block_gapps_controller_gsync extends mr_controller_block {
      * Testing Interface (to call model/diagnostic.php  you can bring up the dev docs in another tab
      */
     public function viewdiagnostics_action() {
-        global $CFG,$COURSE,$OUTPUT,$DB;
+        global $CFG,$OUTPUT,$DB;
         $this->tabs->set('diagnostic');
         $this->print_header();
 
         $gname = optional_param('gappsname','',PARAM_TEXT);
         require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
-        $gapps = new blocks_gapps_model_gsync();
 
         $out = '';
         echo $this->output->heading('Gapps User Data');
@@ -291,6 +290,9 @@ class block_gapps_controller_gsync extends mr_controller_block {
         print "<pre>";
         if (!empty($gname) ) {
             try {
+                $gapps = new blocks_gapps_model_gsync();
+                $gapps->gapps_connect();
+
                 // http://code.google.com/googleapps/domain/gdata_provisioning_api_v2.0_reference.html
                 $guser = $gapps->gapps_get_user($gname); // Zend_Gdata_Gapps_UserEntry
 
@@ -326,10 +328,14 @@ class block_gapps_controller_gsync extends mr_controller_block {
                 }
 
                 // Data moodle has about this user
-                $userid = $DB->get_field('user','id',array('username'=> $gname));
-                print "Moodle Data for the user<br>";
-                print_object($gapps->moodle_get_user($userid));
+                $userid     = $DB->get_field('user','id',array('username'=> $gname));
+                $moodleuser = $gapps->moodle_get_user($userid);
 
+                // Hide these.
+                unset($moodleuser->password, $moodleuser->oldpassword);
+
+                print "Moodle Data for the user<br>";
+                print_object($moodleuser);
 
             } catch (blocks_gapps_exception $e) {
                 print $e->getMessage();
@@ -374,9 +380,7 @@ class block_gapps_controller_gsync extends mr_controller_block {
      * @global object $DB
      */
     public function syncuser_action() {
-        global $CFG;
-
-        global $CFG,$COURSE,$OUTPUT,$DB;
+        global $CFG, $OUTPUT, $DB;
         $this->tabs->set('diagnostic');
         $this->print_header();
 
@@ -389,14 +393,19 @@ class block_gapps_controller_gsync extends mr_controller_block {
             print "<pre>";
             require_once($CFG->dirroot.'/blocks/gapps/model/gsync.php');
             $gapps = new blocks_gapps_model_gsync(); /// the $gapps makes the code easier to read so leaving as gapps and not $this
+            $gapps->gapps_connect();
 
             $userid = $DB->get_field('user','id',array('username'=> $gname));
             print "userid: $userid <br>";
 
             $moodleuser = $gapps->moodle_get_user($userid);
+            $printuser  = clone($moodleuser);
+
+            // Hide these.
+            unset($printuser->password, $printuser->oldpassword);
 
             print "moodleuser data object: <br>";
-            print_object($moodleuser);
+            print_object($printuser);
 
             print "<hr>";
             $gapps->sync_moodle_user_to_gapps($moodleuser);
