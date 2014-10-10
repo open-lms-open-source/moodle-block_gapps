@@ -1002,6 +1002,11 @@ class blocks_gapps_model_gsync {
         static $blockenabled = null;
         static $allowevents = null;
 
+        if (time() > 1429426800) { // If after April 19, 2015.
+            // Disabled: provisioning API expires on April 20, 2015
+            return true;
+        }
+
         // Set the blockenabled static first call only.
         if (is_null($blockenabled)) {
             $blockenabled = $DB->get_field('block', 'visible', array('name' => 'gapps'));
