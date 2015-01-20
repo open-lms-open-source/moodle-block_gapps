@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class OAuthStoreMySQLi</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class OAuthStoreMySQLi</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-vars">Vars</a>
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Abstract base class for OAuthStore implementations</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> <p>Marc Worrell &lt;<a href="mailto:marcw@pobox.com">marcw@pobox.com</a>&gt;</p><p>The MIT License</p><p>Copyright (c) 2007-2008 Mediamatic Lab</p><p>Permission is hereby granted, free of charge, to any person obtaining a copy  of this software and associated documentation files (the &quot;Software&quot;), to deal  in the Software without restriction, including without limitation the rights  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell  copies of the Software, and to permit persons to whom the Software is  furnished to do so, subject to the following conditions:</p><p>The above copyright notice and this permission notice shall be included in  all copies or substantial portions of the Software.</p><p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN  THE SOFTWARE.</p></li>
+				<li><span class="field">version:</span> $Id$</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_gmail---library---store---OAuthStoreMySQLi.php.html">/gmail/library/store/OAuthStoreMySQLi.php</a> (line <span class="field">41</span>)
+		</p>
+		
+				
+		<pre><a href="../Gapps/OAuthStoreAbstract.html">OAuthStoreAbstract</a>
+   |
+   --<a href="../Gapps/OAuthStoreSQL.html">OAuthStoreSQL</a>
+      |
+      --<a href="../Gapps/OAuthStoreMySQL.html">OAuthStoreMySQL</a>
+         |
+         --OAuthStoreMySQLi</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-vars">Vars</a>
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																														
+				<div class="method-definition">
+											<span class="method-result">OAuthStoreMySQLi</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											([<span class="var-type">array</span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#install" title="details" class="method-name">install</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#query" title="details" class="method-name">query</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, <span class="var-type">vararg</span>&nbsp;<span class="var-name">1</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#query_affected_rows" title="details" class="method-name">query_affected_rows</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#query_all_assoc" title="details" class="method-name">query_all_assoc</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, <span class="var-type">vararg</span>&nbsp;<span class="var-name">1</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#query_insert_id" title="details" class="method-name">query_insert_id</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#query_one" title="details" class="method-name">query_one</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, <span class="var-type">vararg</span>&nbsp;<span class="var-name">1</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#query_row" title="details" class="method-name">query_row</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, <span class="var-type">vararg</span>&nbsp;<span class="var-name">1</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#query_row_assoc" title="details" class="method-name">query_row_assoc</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, <span class="var-type">vararg</span>&nbsp;<span class="var-name">1</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#sql_errcheck" title="details" class="method-name">sql_errcheck</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$sql</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#sql_escape_string" title="details" class="method-name">sql_escape_string</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$s</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#sql_printf" title="details" class="method-name">sql_printf</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$args</span>)
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+							<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../Gapps/OAuthStoreMySQL.html">OAuthStoreMySQL</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../Gapps/OAuthStoreMySQL.html#var$conn">OAuthStoreMySQL::$conn</a></span><br>
+							</span>
+											</blockquote> 
+									<p>Inherited from <span class="classname"><a href="../Gapps/OAuthStoreSQL.html">OAuthStoreSQL</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../Gapps/OAuthStoreSQL.html#var$max_request_token_ttl">OAuthStoreSQL::$max_request_token_ttl</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Gapps/OAuthStoreSQL.html#var$max_timestamp_skew">OAuthStoreSQL::$max_timestamp_skew</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-vars">Vars</a>
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">65</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Construct the OAuthStoreMySQLi.</p>
+<p class="description"><p>In the options you have to supply either: <ul><li>server, username, password and database (for a mysqli_connect)</li><li>conn (for the connection to be used)</li></ul></p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">OAuthStoreMySQLi</span>
+		<span class="method-name">
+			__construct
+		</span>
+					([<span class="var-type">array</span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$options</span><span class="var-description">: options</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreSQL.html#method__construct">OAuthStoreSQL::__construct()</a></dt>
+						<dd>Construct the OAuthStoreMySQL.</dd>
+					</dl>
+			
+	</div>
+<a name="methodinstall" id="install"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">install</span> (line <span class="line-number">44</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			install
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreMySQL.html#methodinstall">OAuthStoreMySQL::install()</a></dt>
+						<dd>Initialise the database</dd>
+					</dl>
+			
+	</div>
+<a name="methodquery" id="query"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">query</span> (line <span class="line-number">117</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Perform a query, ignore the results</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			query
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, <span class="var-type">vararg</span>&nbsp;<span class="var-name">1</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">vararg</span>
+				<span class="var-name">1</span><span class="var-description">: arguments (for sprintf)</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: sql</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreMySQL.html#methodquery">OAuthStoreMySQL::query()</a></dt>
+						<dd>Perform a query, ignore the results</dd>
+					</dl>
+			
+	</div>
+<a name="methodquery_affected_rows" id="query_affected_rows"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">query_affected_rows</span> (line <span class="line-number">239</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return the number of rows affected in the last query</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			query_affected_rows
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreMySQL.html#methodquery_affected_rows">OAuthStoreMySQL::query_affected_rows()</a></dt>
+						<dd>Return the number of rows affected in the last query</dd>
+					</dl>
+			
+	</div>
+<a name="methodquery_all_assoc" id="query_all_assoc"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">query_all_assoc</span> (line <span class="line-number">138</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Perform a query, ignore the results</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			query_all_assoc
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, <span class="var-type">vararg</span>&nbsp;<span class="var-name">1</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">vararg</span>
+				<span class="var-name">1</span><span class="var-description">: arguments (for sprintf)</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: sql</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreMySQL.html#methodquery_all_assoc">OAuthStoreMySQL::query_all_assoc()</a></dt>
+						<dd>Perform a query, ignore the results</dd>
+					</dl>
+			
+	</div>
+<a name="methodquery_insert_id" id="query_insert_id"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">query_insert_id</span> (line <span class="line-number">250</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return the id of the last inserted row</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			query_insert_id
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreMySQL.html#methodquery_insert_id">OAuthStoreMySQL::query_insert_id()</a></dt>
+						<dd>Return the id of the last inserted row</dd>
+					</dl>
+			
+	</div>
+<a name="methodquery_one" id="query_one"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">query_one</span> (line <span class="line-number">216</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Perform a query, return the first column of the first row</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			query_one
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, <span class="var-type">vararg</span>&nbsp;<span class="var-name">1</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">vararg</span>
+				<span class="var-name">1</span><span class="var-description">: arguments (for sprintf)</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: sql</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreMySQL.html#methodquery_one">OAuthStoreMySQL::query_one()</a></dt>
+						<dd>Perform a query, return the first column of the first row</dd>
+					</dl>
+			
+	</div>
+<a name="methodquery_row" id="query_row"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">query_row</span> (line <span class="line-number">189</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Perform a query, return the first row</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			query_row
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, <span class="var-type">vararg</span>&nbsp;<span class="var-name">1</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">vararg</span>
+				<span class="var-name">1</span><span class="var-description">: arguments (for sprintf)</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: sql</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreMySQL.html#methodquery_row">OAuthStoreMySQL::query_row()</a></dt>
+						<dd>Perform a query, return the first row</dd>
+					</dl>
+			
+	</div>
+<a name="methodquery_row_assoc" id="query_row_assoc"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">query_row_assoc</span> (line <span class="line-number">162</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Perform a query, return the first row</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			query_row_assoc
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, <span class="var-type">vararg</span>&nbsp;<span class="var-name">1</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">vararg</span>
+				<span class="var-name">1</span><span class="var-description">: arguments (for sprintf)</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: sql</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreMySQL.html#methodquery_row_assoc">OAuthStoreMySQL::query_row_assoc()</a></dt>
+						<dd>Perform a query, return the first row</dd>
+					</dl>
+			
+	</div>
+<a name="methodsql_errcheck" id="sql_errcheck"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">sql_errcheck</span> (line <span class="line-number">293</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			sql_errcheck
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$sql</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$sql</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreMySQL.html#methodsql_errcheck">OAuthStoreMySQL::sql_errcheck()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodsql_escape_string" id="sql_escape_string"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">sql_escape_string</span> (line <span class="line-number">268</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			sql_escape_string
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$s</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$s</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreMySQL.html#methodsql_escape_string">OAuthStoreMySQL::sql_escape_string()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodsql_printf" id="sql_printf"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">sql_printf</span> (line <span class="line-number">256</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			sql_printf
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$args</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$args</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Gapps/OAuthStoreMySQL.html#methodsql_printf">OAuthStoreMySQL::sql_printf()</a></dt>
+					</dl>
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../Gapps/OAuthStoreMySQL.html">OAuthStoreMySQL</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../Gapps/OAuthStoreMySQL.html#methodinstall">OAuthStoreMySQL::install()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreMySQL.html#methodquery">OAuthStoreMySQL::query()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreMySQL.html#methodquery_affected_rows">OAuthStoreMySQL::query_affected_rows()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreMySQL.html#methodquery_all_assoc">OAuthStoreMySQL::query_all_assoc()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreMySQL.html#methodquery_insert_id">OAuthStoreMySQL::query_insert_id()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreMySQL.html#methodquery_one">OAuthStoreMySQL::query_one()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreMySQL.html#methodquery_row">OAuthStoreMySQL::query_row()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreMySQL.html#methodquery_row_assoc">OAuthStoreMySQL::query_row_assoc()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreMySQL.html#methodsql_errcheck">OAuthStoreMySQL::sql_errcheck()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreMySQL.html#methodsql_escape_string">OAuthStoreMySQL::sql_escape_string()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreMySQL.html#methodsql_printf">OAuthStoreMySQL::sql_printf()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../Gapps/OAuthStoreSQL.html">OAuthStoreSQL</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#method__construct">OAuthStoreSQL::__construct()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodaddConsumerRequestToken">OAuthStoreSQL::addConsumerRequestToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodaddLog">OAuthStoreSQL::addLog()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodaddServerToken">OAuthStoreSQL::addServerToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodauthorizeConsumerRequestToken">OAuthStoreSQL::authorizeConsumerRequestToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodcheckServerNonce">OAuthStoreSQL::checkServerNonce()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodcountConsumerAccessTokens">OAuthStoreSQL::countConsumerAccessTokens()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodcountServerTokens">OAuthStoreSQL::countServerTokens()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methoddeleteConsumer">OAuthStoreSQL::deleteConsumer()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methoddeleteConsumerAccessToken">OAuthStoreSQL::deleteConsumerAccessToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methoddeleteConsumerRequestToken">OAuthStoreSQL::deleteConsumerRequestToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methoddeleteServer">OAuthStoreSQL::deleteServer()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methoddeleteServerToken">OAuthStoreSQL::deleteServerToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodexchangeConsumerRequestForAccessToken">OAuthStoreSQL::exchangeConsumerRequestForAccessToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodgetConsumer">OAuthStoreSQL::getConsumer()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodgetConsumerAccessToken">OAuthStoreSQL::getConsumerAccessToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodgetConsumerRequestToken">OAuthStoreSQL::getConsumerRequestToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodgetConsumerStatic">OAuthStoreSQL::getConsumerStatic()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodgetSecretsForSignature">OAuthStoreSQL::getSecretsForSignature()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodgetSecretsForVerify">OAuthStoreSQL::getSecretsForVerify()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodgetServer">OAuthStoreSQL::getServer()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodgetServerForUri">OAuthStoreSQL::getServerForUri()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodgetServerToken">OAuthStoreSQL::getServerToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodgetServerTokenSecrets">OAuthStoreSQL::getServerTokenSecrets()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodlistConsumers">OAuthStoreSQL::listConsumers()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodlistConsumerTokens">OAuthStoreSQL::listConsumerTokens()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodlistLog">OAuthStoreSQL::listLog()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodlistServers">OAuthStoreSQL::listServers()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodlistServerTokens">OAuthStoreSQL::listServerTokens()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodquery">OAuthStoreSQL::query()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodquery_affected_rows">OAuthStoreSQL::query_affected_rows()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodquery_all_assoc">OAuthStoreSQL::query_all_assoc()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodquery_insert_id">OAuthStoreSQL::query_insert_id()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodquery_one">OAuthStoreSQL::query_one()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodquery_row">OAuthStoreSQL::query_row()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodquery_row_assoc">OAuthStoreSQL::query_row_assoc()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodsetConsumerAccessTokenTtl">OAuthStoreSQL::setConsumerAccessTokenTtl()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodsetServerTokenTtl">OAuthStoreSQL::setServerTokenTtl()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodsql_errcheck">OAuthStoreSQL::sql_errcheck()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodsql_escape_string">OAuthStoreSQL::sql_escape_string()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodsql_printf">OAuthStoreSQL::sql_printf()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodupdateConsumer">OAuthStoreSQL::updateConsumer()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreSQL.html#methodupdateServer">OAuthStoreSQL::updateServer()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../Gapps/OAuthStoreAbstract.html">OAuthStoreAbstract</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodaddConsumerRequestToken">OAuthStoreAbstract::addConsumerRequestToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodaddLog">OAuthStoreAbstract::addLog()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodaddServerToken">OAuthStoreAbstract::addServerToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodauthorizeConsumerRequestToken">OAuthStoreAbstract::authorizeConsumerRequestToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodcheckServerNonce">OAuthStoreAbstract::checkServerNonce()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodcountConsumerAccessTokens">OAuthStoreAbstract::countConsumerAccessTokens()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodcountServerTokens">OAuthStoreAbstract::countServerTokens()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methoddeleteConsumer">OAuthStoreAbstract::deleteConsumer()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methoddeleteConsumerAccessToken">OAuthStoreAbstract::deleteConsumerAccessToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methoddeleteConsumerRequestToken">OAuthStoreAbstract::deleteConsumerRequestToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methoddeleteServer">OAuthStoreAbstract::deleteServer()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methoddeleteServerToken">OAuthStoreAbstract::deleteServerToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodexchangeConsumerRequestForAccessToken">OAuthStoreAbstract::exchangeConsumerRequestForAccessToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodgenerateKey">OAuthStoreAbstract::generateKey()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodgetConsumer">OAuthStoreAbstract::getConsumer()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodgetConsumerAccessToken">OAuthStoreAbstract::getConsumerAccessToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodgetConsumerRequestToken">OAuthStoreAbstract::getConsumerRequestToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodgetConsumerStatic">OAuthStoreAbstract::getConsumerStatic()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodgetSecretsForSignature">OAuthStoreAbstract::getSecretsForSignature()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodgetSecretsForVerify">OAuthStoreAbstract::getSecretsForVerify()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodgetServer">OAuthStoreAbstract::getServer()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodgetServerForUri">OAuthStoreAbstract::getServerForUri()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodgetServerToken">OAuthStoreAbstract::getServerToken()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodgetServerTokenSecrets">OAuthStoreAbstract::getServerTokenSecrets()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodinstall">OAuthStoreAbstract::install()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodisUTF8">OAuthStoreAbstract::isUTF8()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodlistConsumers">OAuthStoreAbstract::listConsumers()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodlistConsumerTokens">OAuthStoreAbstract::listConsumerTokens()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodlistLog">OAuthStoreAbstract::listLog()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodlistServers">OAuthStoreAbstract::listServers()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodlistServerTokens">OAuthStoreAbstract::listServerTokens()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodmakeUTF8">OAuthStoreAbstract::makeUTF8()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodsetConsumerAccessTokenTtl">OAuthStoreAbstract::setConsumerAccessTokenTtl()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodupdateConsumer">OAuthStoreAbstract::updateConsumer()</a></span><br>
+													<span class="method-name"><a href="../Gapps/OAuthStoreAbstract.html#methodupdateServer">OAuthStoreAbstract::updateServer()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Thu, 02 Sep 2010 15:03:23 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>
