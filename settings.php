@@ -73,49 +73,13 @@ $configs[] = new admin_setting_configcheckbox('showlastname', new lang_string('s
 $gname = new lang_string('gsyncblockname','block_gapps');
 $hbutton = '';//$OUTPUT->old_help_icon('googlesynchelp', $gname,'block_gapps');  // $OUTPUT->help_icon() instead
 $configs[] = new admin_setting_heading('gsyncheader', $gname.' '.$hbutton, "");
-
-
-if (!class_exists('admin_setting_special_croninterval')) {
-    /**
-     * This setting behaves exactly like
-     * admin_setting_configtext except it
-     * also stores the value from this config
-     * as seconds in the cron field of the
-     * gdata block record.
-     **/
-    class admin_setting_special_croninterval extends admin_setting_configtext {
-
-        /**
-         * Set the cron field for the gdata block record
-         * to the number of sections set in this setting.
-         *
-         * @return boolean
-         **/
-        function config_write($name, $value) {
-            global $DB;
-            if (empty($value)) {
-                $cron = 0;
-            } else {
-                $cron = $value * MINSECS;
-            }
-            //$DB->set_field_select('block', 'cron', $cron,'name = ?',array('gdata'));
-            // set_field('block', 'cron', $cron, 'name', 'gdata')
-            if ($DB->set_field_select('block', 'cron', $cron,'name = ?',array('gdata'))) {
-                return parent::config_write($name, $value);
-            }
-            return false;
-        }
-    }
-}
-
-
 $configs[] = new admin_setting_configtext('username', new lang_string('usernamesetting', 'block_gapps'), new lang_string('usernamesettingdesc', 'block_gapps'), '', PARAM_RAW, 30);
 $configs[] = new admin_setting_configpasswordunmask('password', new lang_string('passwordsetting', 'block_gapps'), new lang_string('passwordsettingdesc', 'block_gapps'), '');
 $configs[] = new admin_setting_configtext('domain', new lang_string('domainsetting', 'block_gapps'), new lang_string('domainsettingdesc', 'block_gapps'), '', PARAM_RAW, 30);
 $configs[] = new admin_setting_configcheckbox('usedomainemail', new lang_string('usedomainemailsetting', 'block_gapps'), new lang_string('usedomainemailsettingdesc', 'block_gapps'), 0);
 $configs[] = new admin_setting_configcheckbox('allowevents', new lang_string('alloweventssetting', 'block_gapps'), new lang_string('alloweventssettingdesc', 'block_gapps'), 1);
 $configs[] = new admin_setting_configcheckbox('autoadd', new lang_string('autoaddsetting', 'block_gapps'), new lang_string('autoaddsettingdesc', 'block_gapps'), 1);
-$configs[] = new admin_setting_special_croninterval('croninterval', new lang_string('cronintervalsetting', 'block_gapps'), new lang_string('cronintervalsettingdesc', 'block_gapps'), 30, PARAM_INT, 30);
+$configs[] = new admin_setting_configtext('croninterval', new lang_string('cronintervalsetting', 'block_gapps'), new lang_string('cronintervalsettingdesc', 'block_gapps'), 30, PARAM_INT, 30);
 $configs[] = new admin_setting_configtext('cronexpire', new lang_string('cronexpiresetting', 'block_gapps'), new lang_string('cronexpiresettingdesc', 'block_gapps'), '24', PARAM_INT, 30);
 
 // How to handle Google Apps Accounts when not syncing (handle guser sync)

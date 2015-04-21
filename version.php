@@ -19,9 +19,9 @@
  * @license    http://opensource.org/licenses/gpl-3.0.html     GNU Public License
  */
 
-$plugin->version      = 2014051400;
+$plugin->version      = 2014051401;
 $plugin->requires     = 2014051203;
 $plugin->component    = 'block_gapps';
-$plugin->cron         = 1;
+$plugin->cron         = 0;
 $plugin->release      = '2.7.0 (Build: 20141229)';
 $plugin->dependencies = array('local_mr' => 2010090201);
