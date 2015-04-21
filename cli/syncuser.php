@@ -55,8 +55,8 @@ Example:
 ";
     die;
 }
-
-$gapps = new blocks_gapps_model_gsync();
-$gapps->gapps_connect_via_authorization();
-$gapps->sync_user_cli($options['userid']);
+cli_problem('This has been disabled because the API used has been removed by Google');
+//$gapps = new blocks_gapps_model_gsync();
+//$gapps->gapps_connect_via_authorization();
+//$gapps->sync_user_cli($options['userid']);
 exit(0);

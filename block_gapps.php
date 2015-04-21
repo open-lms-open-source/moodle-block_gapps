@@ -391,6 +391,9 @@ class block_gapps extends block_base {
      * @return boolean
      */
     function cron() {
+
+        return true; // Cron is disabled since the API being used has been removed by Google.
+
         global $CFG;
         mtrace("");
         $status = true;
