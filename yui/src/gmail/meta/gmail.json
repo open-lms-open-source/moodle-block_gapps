@@ -1,0 +1,9 @@
+{
+    "moodle-block_gapps-gmail": {
+        "requires": [
+            "base",
+            "event",
+            "handlebars"
+        ]
+    }
+}

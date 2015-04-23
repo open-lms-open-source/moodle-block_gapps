@@ -1,10 +1,55 @@
-.blocks-gapps .mform {
-    width: 100%;
+.block_gapps .gapps {
+    margin: 0 0 10px 0;
 }
 
-/* Widen tables so data does not overlap */
-body#page-blocks-gapps-view div.boxwidthnormal  {
-    width: 90%;
+.block_gapps .gapps li {
+    padding: 2px 0;
 }
 
+.block_gapps .authorize {
+    display: none;
+}
 
+.block_gapps .messages {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.block_gapps.block .content hr {
+    margin: 2px 0;
+}
+
+.block_gapps .messages li:last-child hr {
+    display: none;
+}
+
+/* Compatibility with non-bootstrap based themes */
+.block_gapps .icon-gmail,
+.block_gapps .icon-calendar,
+.block_gapps .icon-drive {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-top: 1px;
+    *margin-right: .3em;
+    line-height: 16px;
+    vertical-align: text-top;
+    background: no-repeat 0 0;
+}
+
+.block_gapps .icon-gmail {
+    background-image: url("https://www.gstatic.com/images/icons/material/product/1x/gmail_16dp.png");
+}
+
+.block_gapps .icon-calendar {
+    background-image: url("https://www.gstatic.com/images/icons/material/product/1x/calendar_16dp.png");
+}
+
+.block_gapps .icon-drive {
+    background-image: url("https://www.gstatic.com/images/icons/material/product/1x/drive_16dp.png");
+}
+
+.block_gapps .unstyled {
+    margin-left: 0;
+    list-style: none;
+}

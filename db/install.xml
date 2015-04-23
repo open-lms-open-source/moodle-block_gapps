@@ -1,22 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="blocks/gapps/db" VERSION="20131216" COMMENT="XMLDB file for gapps block"
+<XMLDB PATH="blocks/gapps/db" VERSION="20150515" COMMENT="XMLDB file for gapps block"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
 >
   <TABLES>
-    <TABLE NAME="block_gapps_oauth_token" COMMENT="block_gapps_oauth_token for token management">
-      <FIELDS>
-        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
-        <FIELD NAME="user_id" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false"/>
-        <FIELD NAME="token" TYPE="char" LENGTH="64" NOTNULL="true" SEQUENCE="false"/>
-        <FIELD NAME="token_secret" TYPE="char" LENGTH="64" NOTNULL="true" SEQUENCE="false"/>
-        <FIELD NAME="token_type" TYPE="char" LENGTH="64" NOTNULL="false" SEQUENCE="false"/>
-        <FIELD NAME="timestamp" TYPE="int" LENGTH="12" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
-      </FIELDS>
-      <KEYS>
-        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
-      </KEYS>
-    </TABLE>
     <TABLE NAME="block_gapps_gdata" COMMENT="Moodle to Google Apps sync data">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
