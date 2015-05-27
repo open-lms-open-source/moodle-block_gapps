@@ -23,7 +23,6 @@
  */
 
 $string['authorizeaccess'] = 'Authorize access to Gmail to view your unread messages here.';
-$string['blockname'] = 'Google Apps';
 $string['calendar'] = 'Calendar';
 $string['clientid'] = 'Client ID';
 $string['clientiddesc'] = 'This is the Client ID of your service account in the Google Developers Console.  This is only necessary if you want to display Gmail messages in the Google Apps block.';
@@ -40,6 +39,7 @@ $string['msgnumberunreadinfo'] = 'The number of unread Gmail messages to display
 $string['newwinlink'] = 'Open links in popup';
 $string['newwinlinkinfo'] = 'All links in the Google Apps block will open in a new window if this setting is enabled.';
 $string['nosubject'] = 'No subject';
+$string['pluginname'] = 'Google Apps';
 $string['showfirstname'] = 'Show first name';
 $string['showfirstnameinfo'] = 'Show the Gmail author\'s first name next to their message.';
 $string['showlastname'] = 'Show last name';
