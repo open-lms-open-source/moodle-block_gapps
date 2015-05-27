@@ -38,7 +38,7 @@ class block_gapps extends block_base {
      * Block setup
      */
     public function init() {
-        $this->title = get_string('blockname', 'block_gapps');
+        $this->title = get_string('pluginname', 'block_gapps');
     }
 
     /**
