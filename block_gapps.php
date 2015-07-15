@@ -77,19 +77,10 @@ class block_gapps extends block_base {
         $container = new container();
         $config = $container->get_config();
 
-        // Is the block configured?
         if (empty($config->domain) && has_capability('moodle/site:config', context_system::instance())) {
             $this->content->text = $OUTPUT->notification(get_string('domainnotconfigured', 'block_gapps'));
             return $this->content;
-        }
-
-        // Should the user see the block?
-        if (!isloggedin() || empty($config->domain)) {
-            return $this->content;
-        }
-
-        // Check for context level before checking for guest access.
-        if ($this->page->context->contextlevel == CONTEXT_COURSE && is_guest($this->page->context)) {
+        } else if (!isloggedin() || is_guest($this->page->context) || empty($config->domain)) {
             return $this->content;
         }
 
