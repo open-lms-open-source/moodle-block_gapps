@@ -80,7 +80,7 @@ class block_gapps extends block_base {
         if (empty($config->domain) && has_capability('moodle/site:config', context_system::instance())) {
             $this->content->text = $OUTPUT->notification(get_string('domainnotconfigured', 'block_gapps'));
             return $this->content;
-        } else if (!isloggedin() || is_guest($this->page->context) || empty($config->domain)) {
+        } else if (!isloggedin() || isguestuser() || empty($config->domain)) {
             return $this->content;
         }
 
