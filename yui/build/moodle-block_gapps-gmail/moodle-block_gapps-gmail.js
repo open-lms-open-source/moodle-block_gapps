@@ -21,27 +21,11 @@ var GMAIL = function() {
 Y.extend(GMAIL, Y.Base,
     {
         /**
-         * Check authorization and setup event handlers.
+         * Check authorization.
          * @method initializer
          */
         initializer: function() {
-            if (this.get('popup')) {
-                Y.one('body').delegate('click', this.popup_handler, '.block_gapps .gapps a, .block_gapps .unreadmessages a');
-            }
             this.check_auth();
-        },
-
-        /**
-         * Open link in popup
-         * @method popup_handler
-         * @param e
-         */
-        popup_handler: function(e) {
-            openpopup(e, {
-                url: e.currentTarget.get('href'),
-                name: "block_gapps",
-                options: "height=800,width=1000,top=0,left=0,menubar=0,location=0,scrollbars,resizable,toolbar,status,directories=0,fullscreen=0,dependent"
-            });
         },
 
         /**
@@ -314,15 +298,7 @@ Y.extend(GMAIL, Y.Base,
              * @type Integer
              * @default 10
              */
-            numberOfMessages: { value: 10, validator: Y.Lang.isNumber },
-            /**
-             * Max number of messages to display
-             *
-             * @attribute numberOfMessages
-             * @type Boolean
-             * @default false
-             */
-            popup: { value: false, validator: Y.Lang.isBoolean }
+            numberOfMessages: { value: 10, validator: Y.Lang.isNumber }
         }
     }
 );
