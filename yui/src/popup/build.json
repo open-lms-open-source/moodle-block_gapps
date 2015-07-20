@@ -1,0 +1,10 @@
+{
+    "name": "moodle-block_gapps-popup",
+    "builds": {
+        "moodle-block_gapps-popup": {
+            "jsfiles": [
+                "popup.js"
+            ]
+        }
+    }
+}

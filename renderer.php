@@ -86,7 +86,6 @@ class block_gapps_renderer extends plugin_renderer_base {
     public function unread_messages_js(config_model $config) {
         $clientid = json_encode($config->clientid);
         $number   = (int) $config->get_number_of_messages_to_show();
-        $popup    = !empty($config->newwinlink) ? 'true' : 'false';
 
         return <<<HTML
 <div class="unreadmessages"></div>
@@ -96,8 +95,7 @@ class block_gapps_renderer extends plugin_renderer_base {
             new M.block_gapps.Gmail({
                 gapi: gapi,
                 clientId: $clientid,
-                numberOfMessages: $number,
-                popup: $popup
+                numberOfMessages: $number
             });
         });
     }
