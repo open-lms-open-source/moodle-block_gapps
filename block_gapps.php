@@ -65,6 +65,7 @@ class block_gapps extends block_base {
     function get_content() {
         global $OUTPUT;
 
+        // Only send the JS once, just in case we somehow get two blocks on one page.
         static $sendjs = true;
 
         if ($this->content !== null) {
@@ -89,16 +90,18 @@ class block_gapps extends block_base {
         $this->content->text = $renderer->google_apps($config->domain);
 
         if (!empty($config->clientid)) {
-            // Only send the JS once, just incase we somehow get two blocks on one page.
             if ($sendjs) {
                 $this->content->text .= $renderer->unread_messages_js($config);
                 $this->content->text .= $renderer->unread_messages_template($config);
-                $sendjs = false;
             }
 
             $this->content->footer = html_writer::tag('small',
                 html_writer::link('#', get_string('authorizeaccess', 'block_gapps'), ['class' => 'authorize']));
         }
+        if ($sendjs && !empty($config->newwinlink)) {
+            $this->page->requires->yui_module('moodle-block_gapps-popup', 'M.block_gapps.init_popup');
+        }
+        $sendjs = false;
 
         return $this->content;
     }
