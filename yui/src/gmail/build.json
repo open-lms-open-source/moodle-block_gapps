@@ -1,0 +1,10 @@
+{
+    "name": "moodle-block_gapps-gmail",
+    "builds": {
+        "moodle-block_gapps-gmail": {
+            "jsfiles": [
+                "gmail.js"
+            ]
+        }
+    }
+}
