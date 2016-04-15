@@ -37,8 +37,7 @@ Y.extend(GMAIL, Y.Base,
             if (reason instanceof Error) {
                 Y.log(reason.message, 'warn', GMAIL.NAME);
             } else {
-                Y.log('Request failed: [' + reason.status + ' ' + reason.statusText + '] ' +
-                    reason.result.error.message, 'error', GMAIL.NAME);
+                Y.log('Request failed: [' + reason.status + ' ' + reason.statusText + '] ' + reason.result.error.message, 'error', GMAIL.NAME);
             }
         },
 

@@ -49,11 +49,11 @@ class block_gapps extends block_base {
     public function has_config() {
         return true;
     }
-    
+
     /**
      * Clean up the configs upon deletion of the block
      */
-    function before_delete() {
+    public function before_delete() {
         global $DB;
 
         $DB->delete_records('config_plugins', array('plugin' => 'blocks/gapps'));
@@ -62,7 +62,7 @@ class block_gapps extends block_base {
     /**
      * Block content
      */
-    function get_content() {
+    public function get_content() {
         global $OUTPUT;
 
         // Only send the JS once, just in case we somehow get two blocks on one page.

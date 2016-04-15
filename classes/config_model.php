@@ -84,6 +84,6 @@ class config_model {
      * @return int
      */
     public function get_number_of_messages_to_show() {
-        return !empty($this->msgnumber) ? $this->msgnumber: 10;
+        return !empty($this->msgnumber) ? $this->msgnumber : 10;
     }
 }
