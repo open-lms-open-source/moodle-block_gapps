@@ -32,7 +32,7 @@ function xmldb_block_gapps_install() {
 
     $dbman = $DB->get_manager();
 
-    echo $OUTPUT->notification('block_gapps 2.0 Installing', 'notifysuccess');
+    echo $OUTPUT->notification('block_gapps 2.0 Installing', 'success');
 
     // Code that is really meant to be run when upgrading from 1.9 to 2.0
     // however it's safe to run because what it pulls won't exist
@@ -86,10 +86,10 @@ function xmldb_block_gapps_install() {
         foreach ($data as $row) {
             $DB->insert_record('block_gapps_gdata', $row);
         }
-        echo $OUTPUT->notification('block_gdata_gapps data transfered to block_gapps_gdata.', 'notifysuccess');
+        echo $OUTPUT->notification('block_gdata_gapps data transfered to block_gapps_gdata.', 'success');
 
         $dbman->drop_table(new xmldb_table('block_gdata_gapps'));
-        echo $OUTPUT->notification('block_gdata_gapps deleted.', 'notifysuccess');
+        echo $OUTPUT->notification('block_gdata_gapps deleted.', 'success');
 
     }
 
