@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 /** @var object $plugin */
 $plugin->version   = 2016121300;
-$plugin->requires  = 2016052300;
+$plugin->requires  = 2016120500;
 $plugin->component = 'block_gapps';
 $plugin->cron      = 0;
-$plugin->release   = '3.1.3';
+$plugin->release   = '3.2.1';
