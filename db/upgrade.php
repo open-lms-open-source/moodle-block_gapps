@@ -97,5 +97,18 @@ function xmldb_block_gapps_upgrade($oldversion=0) {
         upgrade_block_savepoint(true, 2014051403, 'gapps');
     }
 
+    if ($oldversion < 2018062100) {
+        // Define table block_gapps_oauth_token to be dropped.
+        $table = new xmldb_table('block_gapps_gdata');
+
+        // Conditionally launch drop table for block_gapps_gdata.
+        if ($dbman->table_exists($table)) {
+            $dbman->drop_table($table);
+        }
+
+        // Gapps savepoint reached.
+        upgrade_block_savepoint(true, 2018062100, 'gapps');
+    }
+
     return true;
 }
