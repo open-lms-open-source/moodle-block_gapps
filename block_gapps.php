@@ -18,7 +18,7 @@
  * Google Apps block
  *
  * @package   block_gapps
- * @copyright Copyright (c) 2015 Blackboard Inc. (http://www.moodlerooms.com)
+ * @copyright Copyright (c) 2015 Blackboard Inc. (http://www.blackboardopenlms.com)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
  * Google Apps block definition
  *
  * @package   block_gapps
- * @copyright Copyright (c) 2015 Blackboard Inc. (http://www.moodlerooms.com)
+ * @copyright Copyright (c) 2015 Blackboard Inc. (http://www.blackboardopenlms.com)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class block_gapps extends block_base {
