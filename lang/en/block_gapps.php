@@ -54,3 +54,6 @@ $string['privacy:metadata:google_apps:userid'] = 'The Moodle user ID is being sy
 $string['privacy:metadata:google_apps:email'] = 'The User\'s E-mail is synced to Google Apps';
 $string['privacy:metadata:google_apps:password'] = 'The User\'s Password is synced to Google Apps';
 $string['privacy_stored_password'] = 'There is a password stored';
+
+$string['search:content'] = 'gapps Block content';
+
