@@ -55,14 +55,17 @@ function xmldb_block_gapps_install() {
     }
 
     // Delete Old Events.
+    // @codingStandardsIgnoreStart
+    /**
     try {
         // Field "component" does not exist in table "events_handlers" is thrown.
-        events_uninstall('block/gaccess');
-        events_uninstall('block/gdata');
-        events_uninstall('block/gmail');
+         events_uninstall('block/gaccess');
+         events_uninstall('block/gdata');
+         events_uninstall('block/gmail');
     } catch (Exception $e) {
         print $e->getMessage();
-    }
+    } */
+    // @codingStandardsIgnoreEnd
 
     try {
         // Delete Old Caps.
