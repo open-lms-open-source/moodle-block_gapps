@@ -32,10 +32,13 @@ use core_privacy\local\request\contextlist;
 use core_privacy\local\request\plugin\provider as request_provider;
 use core_privacy\local\request\writer;
 use core_privacy\local\request\transform;
+use core_privacy\local\request\approved_userlist;
+use core_privacy\local\request\userlist;
 
 defined('MOODLE_INTERNAL') || die();
 
-class provider implements metadata_provider, request_provider {
+class provider implements metadata_provider, request_provider,
+    \core_privacy\local\request\core_userlist_provider {
 
     use legacy_polyfill;
 
@@ -163,4 +166,35 @@ class provider implements metadata_provider, request_provider {
         return $collection;
     }
 
+    /**
+     * Get the list of users within a specific context.
+     *
+     * @param userlist $userlist The userlist containing the list of users who have data in this context/plugin combination.
+     */
+    public static function get_users_in_context(userlist $userlist) {
+        global $DB;
+        $context = $userlist->get_context();
+
+        if (!$context instanceof \context_user) {
+            return;
+        }
+
+        if ($DB->record_exists('tool_googleadmin_users', ['userid' => $context->instanceid])) {
+            $userlist->add_user($context->instanceid);
+        }
+    }
+
+    /**
+     * Delete multiple users within a single context.
+     *
+     * @param approved_userlist $userlist The approved context and user information to delete information for.
+     */
+    public static function delete_data_for_users(approved_userlist $userlist) {
+        global $DB;
+        $context = $userlist->get_context();
+
+        if ($context instanceof \context_user && in_array($context->instanceid, $userlist->get_userids())) {
+            $DB->delete_records('tool_googleadmin_users', ['userid' => $context->instanceid]);
+        }
+    }
 }

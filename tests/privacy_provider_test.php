@@ -30,6 +30,8 @@ use block_gapps\privacy\provider;
 use core_privacy\local\request\approved_contextlist;
 use core_privacy\local\request\writer;
 use core_privacy\tests\provider_testcase;
+use \core_privacy\local\request\approved_userlist;
+
 
 class block_gapps_privacy_provider_testcase extends provider_testcase {
 
@@ -117,5 +119,32 @@ class block_gapps_privacy_provider_testcase extends provider_testcase {
         $this->create_credentials($credentials);
 
         return [$user1, $user2];
+    }
+
+    public function test_get_users_in_context() {
+        $this->resetAfterTest();
+        $user = $this->getDataGenerator()->create_user();
+        $credentials[] = (object)['userid' => $user->id, 'email' => 'test@email.com', 'password' => 'secret'];
+        $this->create_credentials($credentials);
+        $usercontext = \context_user::instance($user->id);
+
+        $userlist = new \core_privacy\local\request\userlist($usercontext, 'block_gapps', [$usercontext->id]);
+        provider::get_users_in_context($userlist);
+        $this->assertCount(1, $userlist->get_userids());
+    }
+
+    public function test_delete_data_for_users() {
+        global $DB;
+
+        $this->resetAfterTest();
+        $user = $this->getDataGenerator()->create_user();
+
+        $credentials[] = (object)['userid' => $user->id, 'email' => 'test@email.com', 'password' => 'secret'];
+        $this->create_credentials($credentials);
+        $usercontext = \context_user::instance($user->id);
+
+        $approveduserlist = new \core_privacy\local\request\approved_userlist($usercontext, 'block_gapps', [$user->id]);
+        provider::delete_data_for_users($approveduserlist);
+        $this->assertEquals(0, $DB->count_records('tool_googleadmin_users', ['userid' => $user->id]));
     }
 }
