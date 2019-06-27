@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2018 Blackboard Inc. (http://www.blackboard.com)
+ * @copyright  Copyright (c) 2019 Blackboard Inc. (http://www.blackboard.com)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -44,3 +44,12 @@ $string['showfirstnameinfo'] = 'Mostra il nome dell\'autore Gmail accanto al suo
 $string['showlastname'] = 'Mostra cognome';
 $string['showlastnameinfo'] = 'Mostra il cognome dell\'autore Gmail accanto al suo messaggio.';
 $string['unreadmessages'] = 'Hai {$a} messaggi non letti nella posta in arrivo.';
+$string['privacy:metadata:tool_googleadmin_users'] = 'Memorizza le credenziali utente per Google Apps';
+$string['privacy:metadata:tool_googleadmin_users:userid'] = 'L\'ID utente';
+$string['privacy:metadata:tool_googleadmin_users:email'] = 'L\'e-mail dell\'utente';
+$string['privacy:metadata:tool_googleadmin_users:password'] = 'La password utente';
+$string['privacy:metadata:google_apps'] = 'Per sincronizzarsi con Google Apps, i dati dell\'utente devono essere scambiati con tale servizio.';
+$string['privacy:metadata:google_apps:userid'] = 'L\'ID utente Moodle è in fase di sincronizzazione con Google Apps';
+$string['privacy:metadata:google_apps:email'] = 'L\'e-mail dell\'utente viene sincronizzata con Google Apps';
+$string['privacy:metadata:google_apps:password'] = 'La password dell\'utente viene sincronizzata con Google Apps';
+$string['privacy_stored_password'] = 'È presente una password memorizzata';
