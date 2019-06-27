@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2018 Blackboard Inc. (http://www.blackboard.com)
+ * @copyright  Copyright (c) 2019 Blackboard Inc. (http://www.blackboard.com)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -44,3 +44,12 @@ $string['showfirstnameinfo'] = 'Näytä Gmail-käyttäjän etunimi viestin yhtey
 $string['showlastname'] = 'Näytä sukunimi';
 $string['showlastnameinfo'] = 'Näytä Gmail-käyttäjän sukunimi viestin yhteydessä.';
 $string['unreadmessages'] = 'Postilaatikossasi on {$a} lukematonta viestiä.';
+$string['privacy:metadata:tool_googleadmin_users'] = 'Tallentaa käyttäjän Google Apps -tunnistetiedot';
+$string['privacy:metadata:tool_googleadmin_users:userid'] = 'Käyttäjän tunnus';
+$string['privacy:metadata:tool_googleadmin_users:email'] = 'Käyttäjän sähköpostiosoite';
+$string['privacy:metadata:tool_googleadmin_users:password'] = 'Käyttäjän salasana';
+$string['privacy:metadata:google_apps'] = 'Google Apps -synkronointi edellyttää käyttäjätietojen vaihtamista kyseisen palvelun kanssa.';
+$string['privacy:metadata:google_apps:userid'] = 'Google Appsiin synkronoitava Moodle-käyttäjätunnus';
+$string['privacy:metadata:google_apps:email'] = 'Google Appsiin synkronoitava käyttäjän sähköpostiosoite';
+$string['privacy:metadata:google_apps:password'] = 'Google Appsiin synkronoitava käyttäjän salasana';
+$string['privacy_stored_password'] = 'Salasana on tallennettu';
