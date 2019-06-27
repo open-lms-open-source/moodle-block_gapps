@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2018 Blackboard Inc. (http://www.blackboard.com)
+ * @copyright  Copyright (c) 2019 Blackboard Inc. (http://www.blackboard.com)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -44,3 +44,12 @@ $string['showfirstnameinfo'] = '在 Gmail 訊息旁顯示作者名字';
 $string['showlastname'] = '顯示姓氏';
 $string['showlastnameinfo'] = '在 Gmail 訊息旁顯示作者姓氏';
 $string['unreadmessages'] = '您的收件匣中有 {$a} 封未讀訊息。';
+$string['privacy:metadata:tool_googleadmin_users'] = '儲存 Google Apps 的使用者認證';
+$string['privacy:metadata:tool_googleadmin_users:userid'] = '使用者的編號';
+$string['privacy:metadata:tool_googleadmin_users:email'] = '使用者的電子郵件';
+$string['privacy:metadata:tool_googleadmin_users:password'] = '使用者的密碼';
+$string['privacy:metadata:google_apps'] = '需要與 Google Apps 進行使用者資料交換，才能與該服務同步。';
+$string['privacy:metadata:google_apps:userid'] = 'Moodle 使用者編號正在與 Google Apps 同步';
+$string['privacy:metadata:google_apps:email'] = '使用者的電子郵件已與 Google Apps 同步';
+$string['privacy:metadata:google_apps:password'] = '使用者的密碼已與 Google Apps 同步';
+$string['privacy_stored_password'] = '已儲存一組密碼';
