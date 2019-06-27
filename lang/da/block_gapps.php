@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2018 Blackboard Inc. (http://www.blackboard.com)
+ * @copyright  Copyright (c) 2019 Blackboard Inc. (http://www.blackboard.com)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -44,3 +44,12 @@ $string['showfirstnameinfo'] = 'Vis Gmail-forfatterens fornavn ud for vedkommend
 $string['showlastname'] = 'Vis efternavn';
 $string['showlastnameinfo'] = 'Vis Gmail-forfatterens efternavn ud for vedkommendes meddelelse.';
 $string['unreadmessages'] = 'Du har {$a} ulæste meddelelser i din indbakke.';
+$string['privacy:metadata:tool_googleadmin_users'] = 'Gemmer brugeres legitimationsoplysninger for Google Apps';
+$string['privacy:metadata:tool_googleadmin_users:userid'] = 'Brugerens id';
+$string['privacy:metadata:tool_googleadmin_users:email'] = 'Brugerens e-mail';
+$string['privacy:metadata:tool_googleadmin_users:password'] = 'Brugerens adgangskode';
+$string['privacy:metadata:google_apps'] = 'For at kunne synkronisere med Google Apps skal der udveksles brugerdata med den pågældende tjeneste.';
+$string['privacy:metadata:google_apps:userid'] = 'Brugerens Moodle-id synkroniseres med Google Apps';
+$string['privacy:metadata:google_apps:email'] = 'Brugerens e-mail synkroniseres med Google Apps';
+$string['privacy:metadata:google_apps:password'] = 'Brugerens adgangskode synkroniseres med Google Apps';
+$string['privacy_stored_password'] = 'Der er gemt en adgangskode';
