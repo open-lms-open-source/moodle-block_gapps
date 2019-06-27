@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2018 Blackboard Inc. (http://www.blackboard.com)
+ * @copyright  Copyright (c) 2019 Blackboard Inc. (http://www.blackboard.com)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -44,3 +44,12 @@ $string['showfirstnameinfo'] = 'Toon de voornaam van de Gmail-auteur naast het b
 $string['showlastname'] = 'Achternaam weergeven';
 $string['showlastnameinfo'] = 'Toon de achternaam van de Gmail-auteur naast het betreffende bericht.';
 $string['unreadmessages'] = 'Je hebt {$a} ongelezen berichten in je inbox.';
+$string['privacy:metadata:tool_googleadmin_users'] = 'Hiermee worden gebruikersreferenties voor Google Apps opgeslagen';
+$string['privacy:metadata:tool_googleadmin_users:userid'] = 'De ID van de gebruiker';
+$string['privacy:metadata:tool_googleadmin_users:email'] = 'Het e-mailadres van de gebruiker';
+$string['privacy:metadata:tool_googleadmin_users:password'] = 'Het wachtwoord van de gebruiker';
+$string['privacy:metadata:google_apps'] = 'Om te kunnen synchroniseren met Google Apps, moeten er gebruikersgegevens worden uitgewisseld met die service.';
+$string['privacy:metadata:google_apps:userid'] = 'De gebruikers-ID voor Moodle wordt gesynchroniseerd met Google Apps';
+$string['privacy:metadata:google_apps:email'] = 'Het e-mailadres van de gebruiker wordt gesynchroniseerd met Google Apps';
+$string['privacy:metadata:google_apps:password'] = 'Het wachtwoord van de gebruiker wordt gesynchroniseerd met Google Apps';
+$string['privacy_stored_password'] = 'Er is een wachtwoord opgeslagen';
