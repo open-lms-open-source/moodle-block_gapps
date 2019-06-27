@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2018 Blackboard Inc. (http://www.blackboard.com)
+ * @copyright  Copyright (c) 2019 Blackboard Inc. (http://www.blackboard.com)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -44,3 +44,12 @@ $string['showfirstnameinfo'] = 'إظهار الاسم الأول لمؤلف Gmai
 $string['showlastname'] = 'إظهار الاسم الأخير';
 $string['showlastnameinfo'] = 'إظهار الاسم الأخير لمؤلف Gmail بجانب الرسالة الخاصة به.';
 $string['unreadmessages'] = 'لديك {$a} من الرسائل غير المقروءة في علبة الوارد.';
+$string['privacy:metadata:tool_googleadmin_users'] = 'تخزين بيانات اعتماد المستخدم الخاصة بـ Google Apps';
+$string['privacy:metadata:tool_googleadmin_users:userid'] = 'معرف المستخدم';
+$string['privacy:metadata:tool_googleadmin_users:email'] = 'البريد الإلكتروني للمستخدم';
+$string['privacy:metadata:tool_googleadmin_users:password'] = 'كلمة مرور المستخدم';
+$string['privacy:metadata:google_apps'] = 'للمزامنة مع Google Apps، يجب أن يتم تبادل بيانات المستخدم مع هذه الخدمة.';
+$string['privacy:metadata:google_apps:userid'] = 'تتم مزامنة معرف مستخدم Moodle إلى Google Apps';
+$string['privacy:metadata:google_apps:email'] = 'تتم مزامنة البريد الإلكتروني للمستخدم إلى Google Apps';
+$string['privacy:metadata:google_apps:password'] = 'تتم مزامنة كلمة مرور المستخدم إلى Google Apps';
+$string['privacy_stored_password'] = 'توجد كلمة مرور مخزنة';
