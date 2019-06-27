@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2018 Blackboard Inc. (http://www.blackboard.com)
+ * @copyright  Copyright (c) 2019 Blackboard Inc. (http://www.blackboard.com)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -44,3 +44,12 @@ $string['showfirstnameinfo'] = 'Zobrazí jméno autora z Gmailu vedle zprávy.';
 $string['showlastname'] = 'Zobrazit příjmení';
 $string['showlastnameinfo'] = 'Zobrazí příjmení autora z Gmailu vedle zprávy.';
 $string['unreadmessages'] = 'Ve schránce máte nepřečtené zprávy: {$a}.';
+$string['privacy:metadata:tool_googleadmin_users'] = 'Ukládá přihlašovací údaje uživatele do Google Apps.';
+$string['privacy:metadata:tool_googleadmin_users:userid'] = 'ID uživatele';
+$string['privacy:metadata:tool_googleadmin_users:email'] = 'E-mail uživatele';
+$string['privacy:metadata:tool_googleadmin_users:password'] = 'Heslo uživatele';
+$string['privacy:metadata:google_apps'] = 'K synchronizaci s Google Apps je potřeba s touto službou vyměnit data uživatele.';
+$string['privacy:metadata:google_apps:userid'] = 'ID uživatele v Moodlu se synchronizuje s Google Apps.';
+$string['privacy:metadata:google_apps:email'] = 'E-mail uživatele je synchronizován s Google Apps.';
+$string['privacy:metadata:google_apps:password'] = 'Heslo uživatele je synchronizováno s Google Apps.';
+$string['privacy_stored_password'] = 'Existuje uložené heslo.';
