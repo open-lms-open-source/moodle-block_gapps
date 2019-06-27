@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2018 Blackboard Inc. (http://www.blackboard.com)
+ * @copyright  Copyright (c) 2019 Blackboard Inc. (http://www.blackboard.com)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -44,3 +44,12 @@ $string['showfirstnameinfo'] = 'Gmail yazarının adını, iletinin yanında gö
 $string['showlastname'] = 'Soyadını göster';
 $string['showlastnameinfo'] = 'Gmail yazarının soyadını, iletinin yanında gösterin.';
 $string['unreadmessages'] = 'Gelen kutunuzda {$a} okunmamış ileti var.';
+$string['privacy:metadata:tool_googleadmin_users'] = 'Kullanıcının Google Apps kimlik bilgilerini depolar';
+$string['privacy:metadata:tool_googleadmin_users:userid'] = 'Kullanıcının kimliği';
+$string['privacy:metadata:tool_googleadmin_users:email'] = 'Kullanıcının E-postası';
+$string['privacy:metadata:tool_googleadmin_users:password'] = 'Kullanıcının Parolası';
+$string['privacy:metadata:google_apps'] = 'Google Apps ile senkronizasyon yapılabilmesi için o hizmetle kullanıcı verisi alışverişi yapılması gerekir.';
+$string['privacy:metadata:google_apps:userid'] = 'Moodle kullanıcı kimliği Google Apps ile senkronize ediliyor';
+$string['privacy:metadata:google_apps:email'] = 'Kullanıcının E-postası Google Apps ile senkronize ediliyor';
+$string['privacy:metadata:google_apps:password'] = 'Kullanıcının Parolası Google Apps ile senkronize ediliyor';
+$string['privacy_stored_password'] = 'Depolanmış bir parola var';
