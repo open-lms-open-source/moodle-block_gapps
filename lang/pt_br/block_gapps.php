@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2018 Blackboard Inc. (http://www.blackboard.com)
+ * @copyright  Copyright (c) 2019 Blackboard Inc. (http://www.blackboard.com)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -23,8 +23,8 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['authorizeaccess'] = 'Autorize o acesso ao Gmail para visualizar suas mensagens não lidas aqui.';
 $string['calendar'] = 'Calendário';
-$string['clientid'] = 'ID do cliente';
-$string['clientiddesc'] = 'Este é o ID do cliente de sua conta de serviço no Console de desenvolvedores do Google. Ele é necessário apenas se você quiser exibir mensagens do Gmail no bloco do Google Apps.';
+$string['clientid'] = 'Código do cliente';
+$string['clientiddesc'] = 'Este é o código do cliente de sua conta de serviço no Console de desenvolvedores do Google. Ele é necessário apenas se você quiser exibir mensagens do Gmail no bloco do Google Apps.';
 $string['compose'] = 'Escrever e-mail';
 $string['domainnotconfigured'] = 'O domínio do Google Apps não está configurado nas configurações do administrador do Google Apps.';
 $string['domainsetting'] = 'Domínio do Google Apps';
@@ -44,3 +44,12 @@ $string['showfirstnameinfo'] = 'Mostrar o nome do autor do Gmail próximo à sua
 $string['showlastname'] = 'Mostrar sobrenome';
 $string['showlastnameinfo'] = 'Mostrar o sobrenome do autor do Gmail próximo à sua mensagem.';
 $string['unreadmessages'] = 'Você tem {$a} mensagens não lidas em sua caixa de entrada.';
+$string['privacy:metadata:tool_googleadmin_users'] = 'Armazena as credenciais do usuário para Google Apps';
+$string['privacy:metadata:tool_googleadmin_users:userid'] = 'O código do usuário';
+$string['privacy:metadata:tool_googleadmin_users:email'] = 'O e-mail do usuário';
+$string['privacy:metadata:tool_googleadmin_users:password'] = 'A senha do usuário';
+$string['privacy:metadata:google_apps'] = 'Para serem sincronizados com Google Apps, os dados do usuário precisam ser trocados com o serviço em questão.';
+$string['privacy:metadata:google_apps:userid'] = 'O código do usuário do Moodle está sendo sincronizado com os Google Apps';
+$string['privacy:metadata:google_apps:email'] = 'O E-mail do usuário é sincronizado com os Google Apps';
+$string['privacy:metadata:google_apps:password'] = 'A Senha do usuário é sincronizada com os Google Apps';
+$string['privacy_stored_password'] = 'Há uma senha armazenada';
