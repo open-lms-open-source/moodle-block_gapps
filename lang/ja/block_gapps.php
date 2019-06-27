@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2018 Blackboard Inc. (http://www.blackboard.com)
+ * @copyright  Copyright (c) 2019 Blackboard Inc. (http://www.blackboard.com)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -44,3 +44,12 @@ $string['showfirstnameinfo'] = 'メッセージの横にGmail作成者の名を�
 $string['showlastname'] = '姓を表示する';
 $string['showlastnameinfo'] = 'メッセージの横にGmail作成者の姓を表示します。';
 $string['unreadmessages'] = '受信箱に {$a} 通の未読メッセージがあります。';
+$string['privacy:metadata:tool_googleadmin_users'] = 'ユーザのGoogle Appsの認証情報を保存します。';
+$string['privacy:metadata:tool_googleadmin_users:userid'] = 'ユーザのID';
+$string['privacy:metadata:tool_googleadmin_users:email'] = 'ユーザのメール';
+$string['privacy:metadata:tool_googleadmin_users:password'] = 'ユーザのパスワード';
+$string['privacy:metadata:google_apps'] = 'Google Appsと同期するには、ユーザデータを同サービスと交換する必要があります。';
+$string['privacy:metadata:google_apps:userid'] = 'MoodleユーザIDはGoogle Appsと同期中です';
+$string['privacy:metadata:google_apps:email'] = 'ユーザのメールはGoogle Appsに同期されています';
+$string['privacy:metadata:google_apps:password'] = 'ユーザのパスワードはGoogle Appsに同期されています';
+$string['privacy_stored_password'] = '保存されたパスワードがあります';
