@@ -18,8 +18,8 @@
  * Privacy implementation for the Block Google Apps.
  *
  * @package    block_gapps
- * @author     Juan Felipe Martinez (juan.martinez@blackboard.com)
- * @copyright  Copyright (c) 2018 Blackboard Inc. (http://www.blackboard.com)
+ * @author     Juan Felipe Martinez
+ * @copyright  Copyright (c) 2018 Open LMS (https://www.openlms.net)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
