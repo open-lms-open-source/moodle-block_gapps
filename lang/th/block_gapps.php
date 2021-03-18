@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2020 Blackboard Inc. (http://www.blackboard.com)
+ * @copyright  Copyright (c) 2021 Open LMS (https://www.openlms.net)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -23,7 +23,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['authorizeaccess'] = 'ให้สิทธิ์การเข้าถึง Gmail เพื่อดูข้อความที่ยังไม่ได้อ่านของคุณที่นี่';
 $string['calendar'] = 'ปฏิทิน';
-$string['clientid'] = 'ID ลูกค้า';
+$string['clientid'] = 'ID ไคลเอ็นต์';
 $string['clientiddesc'] = 'นี่คือ ID ไคลเอนต์ของบัญชีบริการของคุณในคอนโซล Google Developers รหัสนี้จะจำเป็นเฉพาะเมื่อคุณต้องการให้แสดงข้อความ Gmail ในบล็อกของ Google Apps';
 $string['compose'] = 'เขียนอีเมล';
 $string['domainnotconfigured'] = 'โดเมน Google Apps ไม่ได้รับการกำหนดค่าในการตั้งค่าผู้ดูแลระบบ Google Apps';
