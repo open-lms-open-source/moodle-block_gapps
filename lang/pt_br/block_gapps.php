@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2020 Blackboard Inc. (http://www.blackboard.com)
+ * @copyright  Copyright (c) 2021 Open LMS (https://www.openlms.net)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -23,7 +23,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['authorizeaccess'] = 'Autorize o acesso ao Gmail para visualizar suas mensagens não lidas aqui.';
 $string['calendar'] = 'Calendário';
-$string['clientid'] = 'Código do cliente';
+$string['clientid'] = 'Código de cliente';
 $string['clientiddesc'] = 'Este é o código do cliente de sua conta de serviço no Console de desenvolvedores do Google. Ele é necessário apenas se você quiser exibir mensagens do Gmail no bloco do Google Apps.';
 $string['compose'] = 'Escrever e-mail';
 $string['domainnotconfigured'] = 'O domínio do Google Apps não está configurado nas configurações do administrador do Google Apps.';
