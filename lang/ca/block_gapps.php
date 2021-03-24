@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2020 Open LMS (https://www.openlms.net)
+ * @copyright  Copyright (c) 2021 Open LMS (https://www.openlms.net)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -23,7 +23,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['authorizeaccess'] = 'Autoritzeu Gmail per visualitzar els missatges sense llegir.';
 $string['calendar'] = 'Calendari';
-$string['clientid'] = 'ID de client';
+$string['clientid'] = 'ID del client';
 $string['clientiddesc'] = 'Aquest és l\'ID de client del vostre compte de servei a Google Developers Console. Només el necessitareu si voleu que es mostrin els missatges de Gmail al bloc de Google Apps.';
 $string['compose'] = 'Redacta un correu electrònic';
 $string['domainnotconfigured'] = 'El domini de Google Apps no està configurat als paràmetres d\'administrador de Google Apps.';

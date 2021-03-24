@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2020 Open LMS (https://www.openlms.net)
+ * @copyright  Copyright (c) 2021 Open LMS (https://www.openlms.net)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -28,7 +28,7 @@ $string['clientiddesc'] = 'Toto je ID klienta vašeho účtu služby ve vývojá
 $string['compose'] = 'Napsat nový e-mail';
 $string['domainnotconfigured'] = 'Doména Aplikací Google není nakonfigurována v nastaveních správce Aplikací Google.';
 $string['domainsetting'] = 'Doména Google Apps';
-$string['domainsettingdesc'] = 'Toto je doména přiřazená vašemu účtu Google Apps. Pokud se například přihlásíte ke službě Google Apps jako uživatel nekdo@bar.cz, je doménou bar.cz.';
+$string['domainsettingdesc'] = 'Toto je doména přiřazená vašemu účtu Google Apps. Pokud se například přihlásíte ke Google Apps jako uživatel nekdo@bar.cz, je doménou bar.cz.';
 $string['drive'] = 'Disk';
 $string['gapps:addinstance'] = 'Přidat nový blok Google Apps';
 $string['gapps:myaddinstance'] = 'Přidat nový blok Google Apps do Moje stránka';
