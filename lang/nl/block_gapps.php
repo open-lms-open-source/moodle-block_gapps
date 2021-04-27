@@ -23,7 +23,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['authorizeaccess'] = 'Sta toegang tot Gmail toe om je ongelezen berichten hier te lezen.';
 $string['calendar'] = 'Kalender';
-$string['clientid'] = 'Client ID';
+$string['clientid'] = 'Client-ID';
 $string['clientiddesc'] = 'Dit is de client-ID van je service-account in de Google Developers Console. Dit is alleen nodig als je Gmail-berichten in het Google Apps-blok wilt weergeven.';
 $string['compose'] = 'Nieuwe e-mail opstellen';
 $string['domainnotconfigured'] = 'Het Google Apps-domein is niet geconfigureerd in de Google Apps-beheerinstellingen.';
