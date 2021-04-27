@@ -23,7 +23,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['authorizeaccess'] = 'Autorizza qui l\'accesso a Gmail per visualizzare i messaggi non letti.';
 $string['calendar'] = 'Calendario';
-$string['clientid'] = 'Client ID';
+$string['clientid'] = 'ID client';
 $string['clientiddesc'] = 'Client ID dell\'account servizio nella Google Developers Console. Necessario solo se desideri visualizzare messaggi Gmail nel blocco Google Apps.';
 $string['compose'] = 'Componi e-mail';
 $string['domainnotconfigured'] = 'Il dominio Google Apps non è configurato nelle impostazioni amministratore di Google Apps.';
