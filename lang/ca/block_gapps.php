@@ -23,7 +23,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['authorizeaccess'] = 'Autoritzeu Gmail per visualitzar els missatges sense llegir.';
 $string['calendar'] = 'Calendari';
-$string['clientid'] = 'ID del client';
+$string['clientid'] = 'ID de client';
 $string['clientiddesc'] = 'Aquest és l\'ID de client del vostre compte de servei a Google Developers Console. Només el necessitareu si voleu que es mostrin els missatges de Gmail al bloc de Google Apps.';
 $string['compose'] = 'Redacta un correu electrònic';
 $string['domainnotconfigured'] = 'El domini de Google Apps no està configurat als paràmetres d\'administrador de Google Apps.';
