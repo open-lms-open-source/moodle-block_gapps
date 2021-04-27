@@ -23,7 +23,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['authorizeaccess'] = 'Hier erlauben Sie den Zugriff auf Gmail zum Lesen Ihrer ungelesenen Mitteilungen.';
 $string['calendar'] = 'Kalender';
-$string['clientid'] = 'Kunden-ID';
+$string['clientid'] = 'Client-ID';
 $string['clientiddesc'] = 'Dies ist die Client-ID Ihres Service-Kontos in der Google Developers Console. Diese ist nur erforderlich, wenn Sie Gmail-Mitteilungen im Google Apps-Block anzeigen möchten.';
 $string['compose'] = 'E-Mail verfassen';
 $string['domainnotconfigured'] = 'Die Google Apps-Domäne ist nicht in den Admin-Einstellungen von Google Apps konfiguriert.';
