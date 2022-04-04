@@ -24,8 +24,6 @@
 
 use block_gapps\container;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Google Apps block definition
  *

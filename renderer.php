@@ -24,8 +24,6 @@
 
 use block_gapps\config_model;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Plugin renderer
  *

@@ -24,8 +24,6 @@
 
 namespace block_gapps;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Container
  *

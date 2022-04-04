@@ -34,8 +34,6 @@ use core_privacy\local\request\writer;
 use core_privacy\local\request\approved_userlist;
 use core_privacy\local\request\userlist;
 
-defined('MOODLE_INTERNAL') || die();
-
 class provider implements metadata_provider, request_provider,
     \core_privacy\local\request\core_userlist_provider {
 
