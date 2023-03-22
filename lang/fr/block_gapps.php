@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2022 Open LMS (https://www.openlms.net)
+ * @copyright  Copyright (c) 2023 Open LMS (https://www.openlms.net)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -28,7 +28,7 @@ $string['clientiddesc'] = 'Il s\'agit de l\'ID client de votre compte de service
 $string['compose'] = 'Écrire un courrier électronique';
 $string['domainnotconfigured'] = 'Le domaine Google Apps n\'est pas configuré dans les paramètres admin de Google Apps.';
 $string['domainsetting'] = 'Domaine Google Apps';
-$string['domainsettingdesc'] = 'Il s\'agit du domaine associé au compte Google Apps. Par exemple, si vous vous connectez à Google Apps en tant que test@exemple.fr, votre domaine est "exemple.fr".';
+$string['domainsettingdesc'] = 'Il s\'agit du domaine associé au compte Google Apps. Par exemple, si vous vous connectez à Google Apps en tant que test@exemple.fr, votre domaine est &quot;exemple.fr&quot;.';
 $string['drive'] = 'Lecteur';
 $string['gapps:addinstance'] = 'Ajouter un nouveau bloc Google Apps';
 $string['gapps:myaddinstance'] = 'Ajouter un nouveau bloc Google Apps à Ma page';
