@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2022 Open LMS (https://www.openlms.net)
+ * @copyright  Copyright (c) 2023 Open LMS (https://www.openlms.net)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -24,7 +24,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['authorizeaccess'] = 'Zezwalaj na dostęp do poczty Gmail, aby wyświetlić nieprzeczytane wiadomości tutaj.';
 $string['calendar'] = 'Kalendarz';
 $string['clientid'] = 'Identyfikator klienta';
-$string['clientiddesc'] = 'Jest to identyfikator klienta konta usługi w konsoli programisty Google. Jest on wymagany wyłącznie do wyświetlania wiadomości z poczty Gmail w bloku Google Apps.';
+$string['clientiddesc'] = 'Jest to identyfikator klienta konta usługi w konsoli programisty Google. Jest wymagany wyłącznie do wyświetlania wiadomości z poczty Gmail w bloku Google Apps.';
 $string['compose'] = 'Utwórz wiadomość e-mail';
 $string['domainnotconfigured'] = 'Nie skonfigurowano domeny Google Apps w ustawieniach administratora Google Apps.';
 $string['domainsetting'] = 'Domena Google Apps';
