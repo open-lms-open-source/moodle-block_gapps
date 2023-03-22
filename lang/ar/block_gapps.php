@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2022 Open LMS (https://www.openlms.net)
+ * @copyright  Copyright (c) 2023 Open LMS (https://www.openlms.net)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -24,7 +24,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['authorizeaccess'] = 'تخويل الوصول إلى Gmail لعرض رسائلك غير المقروءة هنا.';
 $string['calendar'] = 'التقويم';
 $string['clientid'] = 'معرف العميل';
-$string['clientiddesc'] = 'هذا هو معرف العميل الخاص بحساب الخدمة الموجود في "وحدة تحكم مطوري Google".  لا يكون ذلك ضروريًا إلا إذا كنت تريد عرض رسائل Gmail في كتلة Google Apps.';
+$string['clientiddesc'] = 'هذا هو معرف العميل الخاص بحساب الخدمة الموجود في "وحدة تحكم مطوّري البرامج في Google". لا يكون ذلك ضروريًا إلا إذا كنت تريد عرض رسائل Gmail في كتلة Google Apps.';
 $string['compose'] = 'إنشاء رسالة';
 $string['domainnotconfigured'] = 'لم يتم تكوين مجال Google Apps في إعدادات مسؤول Google Apps.';
 $string['domainsetting'] = 'مجال Google Apps';
