@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2022 Open LMS (https://www.openlms.net)
+ * @copyright  Copyright (c) 2023 Open LMS (https://www.openlms.net)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -24,7 +24,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['authorizeaccess'] = 'Autorice el acceso a Gmail para ver sus mensajes sin leer aquí.';
 $string['calendar'] = 'Calendario';
 $string['clientid'] = 'ID de cliente';
-$string['clientiddesc'] = 'Este es el ID de cliente de su cuenta de servicio en la consola de desarrolladores de Google. Esto solo es necesario si desea mostrar los mensajes de Gmail en el block de Google Apps.';
+$string['clientiddesc'] = 'Este es el ID de cliente de su cuenta de servicio en la consola de desarrolladores de Google. Esto solo es necesario si desea mostrar los mensajes de Gmail en el bloque Google Apps.';
 $string['compose'] = 'Redactar correo electrónico';
 $string['domainnotconfigured'] = 'El dominio de Google Apps no está configurado en los ajustes de administración de Google Apps.';
 $string['domainsetting'] = 'Dominio de Google Apps';
@@ -34,9 +34,9 @@ $string['gapps:addinstance'] = 'Agregar un bloque nuevo de Google Apps';
 $string['gapps:myaddinstance'] = 'Agregar un bloque nuevo de Google Apps a Mi área personal';
 $string['gmail'] = 'Gmail';
 $string['msgnumberunread'] = 'Cantidad de mensajes sin leer';
-$string['msgnumberunreadinfo'] = 'La cantidad de mensajes sin leer para mostrar en el block de Google Apps.';
+$string['msgnumberunreadinfo'] = 'La cantidad de mensajes sin leer para mostrar en el bloque Google Apps.';
 $string['newwinlink'] = 'Abrir enlaces en nueva ventana';
-$string['newwinlinkinfo'] = 'Si se habilita este ajuste, todos los enlaces en el block de Google Apps se abrirán en una nueva ventana.';
+$string['newwinlinkinfo'] = 'Si se habilita este ajuste, todos los enlaces en el bloque Google Apps se abrirán en una nueva ventana.';
 $string['nosubject'] = 'Sin asunto';
 $string['pluginname'] = 'Google Apps';
 $string['showfirstname'] = 'Mostrar nombre';
