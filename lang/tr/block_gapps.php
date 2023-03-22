@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2022 Open LMS (https://www.openlms.net)
+ * @copyright  Copyright (c) 2023 Open LMS (https://www.openlms.net)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -24,7 +24,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['authorizeaccess'] = 'Okunmamış iletilerinizi burada görmek için Gmail erişimine izin verin.';
 $string['calendar'] = 'Takvim';
 $string['clientid'] = 'İstemci Kimliği';
-$string['clientiddesc'] = 'Bu, Google Developers Console’daki hizmet hesabınızın İstemci kimliğidir. Bu kimlik, yalnızca Gmail iletilerini Google Apps blokunda görüntülemek istediğinizde gereklidir.';
+$string['clientiddesc'] = 'Bu, Google Developers Console\'daki hizmet hesabınızın İstemci kimliğidir. Bu kimlik, yalnızca Gmail iletilerini Google Apps blokunda görüntülemek istediğinizde gereklidir.';
 $string['compose'] = 'E-posta oluştur';
 $string['domainnotconfigured'] = 'Google Apps etki alanı, Google Apps yönetici ayarlarında yapılandırılmadı.';
 $string['domainsetting'] = 'Google Apps etki alanı';
