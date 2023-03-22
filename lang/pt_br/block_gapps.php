@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2022 Open LMS (https://www.openlms.net)
+ * @copyright  Copyright (c) 2023 Open LMS (https://www.openlms.net)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -24,11 +24,11 @@ defined('MOODLE_INTERNAL') || die();
 $string['authorizeaccess'] = 'Autorize o acesso ao Gmail para visualizar suas mensagens não lidas aqui.';
 $string['calendar'] = 'Calendário';
 $string['clientid'] = 'Código de cliente';
-$string['clientiddesc'] = 'Este é o código do cliente de sua conta de serviço no Console de desenvolvedores do Google. Ele é necessário apenas se você quiser exibir mensagens do Gmail no bloco do Google Apps.';
+$string['clientiddesc'] = 'Este é o ID do cliente de sua conta de serviço no Console de Desenvolvedores do Google. Ele é necessário apenas se você quiser exibir mensagens do Gmail no bloco do Google Apps.';
 $string['compose'] = 'Escrever e-mail';
 $string['domainnotconfigured'] = 'O domínio do Google Apps não está configurado nas configurações do administrador do Google Apps.';
 $string['domainsetting'] = 'Domínio do Google Apps';
-$string['domainsettingdesc'] = 'Este é o domínio associado à sua conta do Google Apps. Por exemplo, caso seu nome de usuário do Google Apps seja "foo@bar.com", o seu domínio será "bar.com".';
+$string['domainsettingdesc'] = 'Este é o domínio associado à sua conta do Google Apps. Por exemplo, caso seu nome de usuário do Google Apps seja &quot;foo@bar.com&quot;, o seu domínio será &quot;bar.com&quot;.';
 $string['drive'] = 'Unidade';
 $string['gapps:addinstance'] = 'Adicionar novo bloco de Aplicativos Google';
 $string['gapps:myaddinstance'] = 'Adicionar um novo bloco de Google Apps à Minha página inicial';
