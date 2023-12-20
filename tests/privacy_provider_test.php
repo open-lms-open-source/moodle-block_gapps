@@ -29,7 +29,7 @@ use block_gapps\privacy\provider;
 use core_privacy\local\request\approved_contextlist;
 use core_privacy\local\request\writer;
 use core_privacy\tests\provider_testcase;
-use \core_privacy\local\request\approved_userlist;
+use core_privacy\local\request\approved_userlist;
 
 
 class privacy_provider_test extends provider_testcase {
