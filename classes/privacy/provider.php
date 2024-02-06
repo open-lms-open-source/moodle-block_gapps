@@ -145,7 +145,7 @@ class provider implements metadata_provider, request_provider,
         $metadatafields = [
             'userid' => 'privacy:metadata:tool_googleadmin_users:userid',
             'email' => 'privacy:metadata:tool_googleadmin_users:email',
-            'password' => 'privacy:metadata:tool_googleadmin_users:password'
+            'password' => 'privacy:metadata:tool_googleadmin_users:password',
         ];
 
         $collection->add_database_table('tool_googleadmin_users', $metadatafields, 'privacy:metadata:tool_googleadmin_users');
@@ -153,7 +153,7 @@ class provider implements metadata_provider, request_provider,
         $externalfields = [
             'userid' => 'privacy:metadata:google_apps:userid',
             'email' => 'privacy:metadata:google_apps:email',
-            'password' => 'privacy:metadata:google_apps:password'
+            'password' => 'privacy:metadata:google_apps:password',
         ];
 
         $collection->add_external_location_link('google_apps', $externalfields, 'privacy:metadata:google_apps');

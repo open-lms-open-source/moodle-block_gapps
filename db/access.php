@@ -33,19 +33,19 @@ $capabilities = array(
         'contextlevel'         => CONTEXT_BLOCK,
         'archetypes'           => array(
             'editingteacher' => CAP_ALLOW,
-            'manager'        => CAP_ALLOW
+            'manager'        => CAP_ALLOW,
         ),
 
-        'clonepermissionsfrom' => 'moodle/site:manageblocks'
+        'clonepermissionsfrom' => 'moodle/site:manageblocks',
     ),
 
     'block/gapps:myaddinstance' => array(
         'captype'              => 'write',
         'contextlevel'         => CONTEXT_SYSTEM,
         'archetypes'           => array(
-            'user' => CAP_ALLOW
+            'user' => CAP_ALLOW,
         ),
 
-        'clonepermissionsfrom' => 'moodle/my:manageblocks'
+        'clonepermissionsfrom' => 'moodle/my:manageblocks',
     ),
 );
