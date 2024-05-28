@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2023 Open LMS (https://www.openlms.net)
+ * @copyright  Copyright (c) 2024 Open LMS (https://www.openlms.net)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -28,7 +28,7 @@ $string['clientiddesc'] = 'Dies ist die Client-ID Ihres Service-Kontos in der Go
 $string['compose'] = 'E-Mail verfassen';
 $string['domainnotconfigured'] = 'Die Google Apps-Domäne ist nicht in den Admin-Einstellungen von Google Apps konfiguriert.';
 $string['domainsetting'] = 'Google Apps-Domäne';
-$string['domainsettingdesc'] = 'Hierbei handelt es sich um die mit Ihrem Google Apps-Konto verbundene Domäne. Zum Beispiel: Wenn Sie sich bei Google Apps als &apos;foo@bar.com&apos;anmelden, ist Ihre Domäne &apos;bar.com&apos;.';
+$string['domainsettingdesc'] = 'Hierbei handelt es sich um die mit Ihrem Google Apps-Konto verbundene Domäne. Zum Beispiel: Wenn Sie sich bei Google Apps als \'foo@bar.com\'anmelden, ist Ihre Domäne \'bar.com\'.';
 $string['drive'] = 'Laufwerk';
 $string['gapps:addinstance'] = 'Neuen Block „Google Apps“ hinzufügen';
 $string['gapps:myaddinstance'] = 'Neuen Block „Google Apps“ zu „Meine Startseite“ hinzufügen';
