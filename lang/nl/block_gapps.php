@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2023 Open LMS (https://www.openlms.net)
+ * @copyright  Copyright (c) 2024 Open LMS (https://www.openlms.net)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -28,7 +28,7 @@ $string['clientiddesc'] = 'Dit is de client-id van je service-account in de Goog
 $string['compose'] = 'Nieuwe e-mail opstellen';
 $string['domainnotconfigured'] = 'Het Google Apps-domein is niet geconfigureerd in de Google Apps-beheerinstellingen.';
 $string['domainsetting'] = 'Google Apps-domein';
-$string['domainsettingdesc'] = 'Dit is het domein dat bij je Google Apps-account hoort. Als je je bijvoorbeeld aanmeldt bij Google Apps als &apos;foo@bar.com&apos;, dan is je domein &apos;bar.com&apos;.';
+$string['domainsettingdesc'] = 'Dit is het domein dat bij je Google Apps-account hoort. Als je je bijvoorbeeld aanmeldt bij Google Apps als \'foo@bar.com\', dan is je domein \'bar.com\'.';
 $string['drive'] = 'Drive';
 $string['gapps:addinstance'] = 'Voeg een nieuw Google Apps-blok toe';
 $string['gapps:myaddinstance'] = 'Voeg een nieuw Google Apps-blok toe aan Mijn startpagina';
