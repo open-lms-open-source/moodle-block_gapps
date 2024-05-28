@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2023 Open LMS (https://www.openlms.net)
+ * @copyright  Copyright (c) 2024 Open LMS (https://www.openlms.net)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -24,7 +24,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['authorizeaccess'] = 'Autorizujte přístup k Gmailu a nepřečtené zprávy se vám zobrazí zde.';
 $string['calendar'] = 'Kalendář';
 $string['clientid'] = 'ID klienta';
-$string['clientiddesc'] = 'Toto je ID klienta vašeho účtu služby ve vývojářské konzoli Google. Toto je nutné pouze v případě, že chcete zobrazovat zprávy Gmailu v bloku Aplikace Google.';
+$string['clientiddesc'] = 'Toto je ID klienta vašeho účtu služby ve vývojářské konzoli Google. Toto je nutné pouze v případě, že chcete zobrazovat zprávy Gmailu v bloku Aplikace Google.';
 $string['compose'] = 'Napsat nový e-mail';
 $string['domainnotconfigured'] = 'Doména Aplikací Google není nakonfigurována v nastaveních správce Aplikací Google.';
 $string['domainsetting'] = 'Doména Google Apps';
