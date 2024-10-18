@@ -90,14 +90,13 @@ class block_gapps extends block_base {
         if (!empty($config->clientid)) {
             if ($sendjs) {
                 $this->content->text .= $renderer->unread_messages_js($config);
-                $this->content->text .= $renderer->unread_messages_template($config);
             }
 
             $this->content->footer = html_writer::tag('small',
                 html_writer::link('#', get_string('authorizeaccess', 'block_gapps'), ['class' => 'authorize']));
         }
         if ($sendjs && !empty($config->newwinlink)) {
-            $this->page->requires->yui_module('moodle-block_gapps-popup', 'M.block_gapps.init_popup');
+            $this->page->requires->js_call_amd('block_gapps/popup', 'init');
         }
         $sendjs = false;
 

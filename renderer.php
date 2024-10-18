@@ -86,69 +86,16 @@ class block_gapps_renderer extends plugin_renderer_base {
         $number   = (int) $config->get_number_of_messages_to_show();
 
         return <<<HTML
+
 <div class="unreadmessages"></div>
 <script type="text/javascript">
-    function block_gapps_client_load() {
-        Y.use("moodle-block_gapps-gmail", function() {
-            new M.block_gapps.Gmail({
-                gapi: gapi,
-                clientId: $clientid,
-                numberOfMessages: $number
-            });
+    function onGoogleApiLoad() {
+        require(['block_gapps/gmail'], function(Gmail) {
+            Gmail.init($clientid, $number);
         });
     }
 </script>
-<script src="https://apis.google.com/js/client.js?onload=block_gapps_client_load"></script>
-HTML;
-    }
-
-    /**
-     * Template for unread messages
-     *
-     * @param config_model $config
-     * @return string
-     * @throws coding_exception
-     */
-    public function unread_messages_template(config_model $config) {
-        $nosubject = get_string('nosubject', 'block_gapps');
-        $unread    = get_string('unreadmessages', 'block_gapps', '{{unreadCount}}');
-        $compose   = get_string('compose', 'block_gapps');
-
-        $from = [];
-        if ($config->showfirstname) {
-            $from[] = '{{fromFirstName}}';
-        }
-        if ($config->showlastname) {
-            $from[] = '{{fromLastName}}';
-        }
-        $from = implode(' ', $from);
-
-        if (!empty($from)) {
-            $from .= '<br />';
-        }
-
-        return <<<HTML
-<script id="block_gapps-unread-messages-template" type="text/x-handlebars-template">
-    <small class="unreadinfo">$unread</small><br />
-    <small><a href="https://mail.google.com/mail/u/0/#inbox?compose=new">$compose</a></small>
-    {{#if messages}}
-    <ul class="messages unstyled">
-        {{#each messages}}
-        <li>
-            $from
-            <a title="{{snippet}}" href="https://mail.google.com/mail/u/0/#inbox/{{id}}">
-                {{#if subject}}
-                    {{subject}}
-                {{else}}
-                    $nosubject
-                {{/if}}
-            </a>
-            <hr />
-        </li>
-        {{/each}}
-    </ul>
-    {{/if}}
-</script>
+<script src="https://apis.google.com/js/client.js?onload=onGoogleApiLoad"></script>
 HTML;
     }
 }
