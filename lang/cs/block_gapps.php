@@ -24,7 +24,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['authorizeaccess'] = 'Autorizujte přístup k Gmailu a nepřečtené zprávy se vám zobrazí zde.';
 $string['calendar'] = 'Kalendář';
 $string['clientid'] = 'ID klienta';
-$string['clientiddesc'] = 'Toto je ID klienta vašeho účtu služby ve vývojářské konzoli Google. Toto je nutné pouze v případě, že chcete zobrazovat zprávy Gmailu v bloku Aplikace Google.';
+$string['clientiddesc'] = 'Toto je ID klienta vašeho účtu služby ve vývojářské konzoli Google. Toto je nutné pouze v&nbsp;případě, že chcete zobrazovat zprávy Gmailu v&nbsp;bloku Aplikace Google.';
 $string['compose'] = 'Napsat nový e-mail';
 $string['domainnotconfigured'] = 'Doména Aplikací Google není nakonfigurována v nastaveních správce Aplikací Google.';
 $string['domainsetting'] = 'Doména Google Apps';
