@@ -15,26 +15,26 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2024 Open LMS (https://www.openlms.net)
+ * @copyright  Copyright (c) 2025 Open LMS (https://www.openlms.net)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['authorizeaccess'] = 'Sta toegang tot Gmail toe om je ongelezen berichten hier te lezen.';
+$string['authorizeaccess'] = 'Sta toegang tot Gmail toe om uw ongelezen berichten hier te lezen.';
 $string['calendar'] = 'Kalender';
 $string['clientid'] = 'Client-ID';
-$string['clientiddesc'] = 'Dit is de client-id van je service-account in de Google Developers Console. Dit is alleen nodig als je Gmail-berichten in het Google Apps-blok wilt weergeven.';
+$string['clientiddesc'] = 'Dit is de client-ID van uw service-account in de Google Developers Console. Dit is alleen nodig als uw Gmail-berichten in het Google Apps-blok wilt weergeven.';
 $string['compose'] = 'Nieuwe e-mail opstellen';
 $string['domainnotconfigured'] = 'Het Google Apps-domein is niet geconfigureerd in de Google Apps-beheerinstellingen.';
 $string['domainsetting'] = 'Google Apps-domein';
-$string['domainsettingdesc'] = 'Dit is het domein dat bij je Google Apps-account hoort. Als je je bijvoorbeeld aanmeldt bij Google Apps als \'foo@bar.com\', dan is je domein \'bar.com\'.';
+$string['domainsettingdesc'] = 'Dit is het domein dat bij uw Google Apps-account hoort. Als u zich bijvoorbeeld aanmeldt bij Google Apps als \'foo@bar.com\', dan is uw domein \'bar.com\'.';
 $string['drive'] = 'Drive';
 $string['gapps:addinstance'] = 'Voeg een nieuw Google Apps-blok toe';
 $string['gapps:myaddinstance'] = 'Voeg een nieuw Google Apps-blok toe aan Mijn startpagina';
 $string['gmail'] = 'Gmail';
 $string['msgnumberunread'] = 'Aantal ongelezen berichten';
-$string['msgnumberunreadinfo'] = 'Het aantal ongelezen Gmail-berichten dat je wilt weergeven in het Google Apps-blok.';
+$string['msgnumberunreadinfo'] = 'Het aantal ongelezen Gmail-berichten dat u wilt weergeven in het Google Apps-blok.';
 $string['newwinlink'] = 'Koppelingen openen in pop-up';
 $string['newwinlinkinfo'] = 'Als deze instelling is ingeschakeld, worden alle koppelingen in het Google Apps-blok in een nieuw venster geopend.';
 $string['nosubject'] = 'Geen onderwerp';
@@ -43,7 +43,7 @@ $string['showfirstname'] = 'Voornaam weergeven';
 $string['showfirstnameinfo'] = 'Toon de voornaam van de Gmail-auteur naast het betreffende bericht.';
 $string['showlastname'] = 'Achternaam weergeven';
 $string['showlastnameinfo'] = 'Toon de achternaam van de Gmail-auteur naast het betreffende bericht.';
-$string['unreadmessages'] = 'Je hebt {$a} ongelezen berichten in je inbox.';
+$string['unreadmessages'] = 'U hebt {$a} ongelezen berichten in uw inbox.';
 $string['privacy:metadata:tool_googleadmin_users'] = 'Hiermee worden gebruikersreferenties voor Google Apps opgeslagen';
 $string['privacy:metadata:tool_googleadmin_users:userid'] = 'De id van de gebruiker';
 $string['privacy:metadata:tool_googleadmin_users:email'] = 'Het e-mailadres van de gebruiker';
