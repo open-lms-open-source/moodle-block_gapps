@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2024 Open LMS (https://www.openlms.net)
+ * @copyright  Copyright (c) 2025 Open LMS (https://www.openlms.net)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -43,7 +43,7 @@ $string['showfirstname'] = 'Afficher le prénom';
 $string['showfirstnameinfo'] = 'Affiche le prénom de l\'auteur Gmail à côté de son message.';
 $string['showlastname'] = 'Afficher le nom';
 $string['showlastnameinfo'] = 'Affiche le nom de l\'auteur Gmail à côté de son message.';
-$string['unreadmessages'] = 'Vous avez {$a} messages non lus.';
+$string['unreadmessages'] = 'Vous avez {$a} messages non lus dans votre boîte de réception.';
 $string['privacy:metadata:tool_googleadmin_users'] = 'Enregistre les informations d\'identification de l\'utilisateur pour Google Apps';
 $string['privacy:metadata:tool_googleadmin_users:userid'] = 'Identifiant de l\'utilisateur';
 $string['privacy:metadata:tool_googleadmin_users:email'] = 'Adresse électronique de l\'utilisateur';
