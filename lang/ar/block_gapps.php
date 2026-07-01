@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2025 Open LMS (https://www.openlms.net)
+ * @copyright  Copyright (c) 2026 Open LMS (https://www.openlms.net)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -24,11 +24,11 @@ defined('MOODLE_INTERNAL') || die();
 $string['authorizeaccess'] = 'تخويل الوصول إلى Gmail لعرض رسائلك غير المقروءة هنا.';
 $string['calendar'] = 'التقويم';
 $string['clientid'] = 'معرف العميل';
-$string['clientiddesc'] = 'هذا هو معرف العميل الخاص بحساب الخدمة الموجود في "وحدة تحكم مطوري Google".  لا يكون ذلك ضروريًا إلا إذا كنت تريد عرض رسائل Gmail في كتلة Google Apps.';
+$string['clientiddesc'] = 'هذا هو معرف العميل الخاص بحساب الخدمة الموجود في &quot;وحدة تحكم مطوري Google&quot;.  لا يكون ذلك ضروريًا إلا إذا كنت تريد عرض رسائل Gmail في كتلة Google Apps.';
 $string['compose'] = 'إنشاء رسالة';
 $string['domainnotconfigured'] = 'لم يتم تكوين مجال Google Apps في إعدادات مسؤول Google Apps.';
 $string['domainsetting'] = 'مجال Google Apps';
-$string['domainsettingdesc'] = 'يعتبر هذا المجال هو المجال المرتبط بحساب Google Apps الخاص بك. على سبيل المثال، إذا قمت بتسجيل الدخول إلى Google Apps كـ \'foo@bar.com\'، يكون مجالك هو \'bar.com\'.';
+$string['domainsettingdesc'] = 'يعتبر هذا المجال هو المجال المرتبط بحساب Google Apps الخاص بك. على سبيل المثال، إذا قمت بتسجيل الدخول إلى Google Apps كـ &apos;foo@bar.com&apos;، يكون مجالك هو &apos;bar.com&apos;.';
 $string['drive'] = 'محرك أقراص';
 $string['gapps:addinstance'] = 'إضافة كتلة Google Apps جديدة';
 $string['gapps:myaddinstance'] = 'إضافة كتلة Google Apps جديدة إلى الصفحة الرئيسية الخاصة بي';
