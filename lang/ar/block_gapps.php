@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @copyright  Copyright (c) 2025 Open LMS (https://www.openlms.net)
+ * @copyright  Copyright (c) 2026 Open LMS (https://www.openlms.net)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -28,7 +28,7 @@ $string['clientiddesc'] = 'هذا هو معرف العميل الخاص بحسا
 $string['compose'] = 'إنشاء رسالة';
 $string['domainnotconfigured'] = 'لم يتم تكوين مجال Google Apps في إعدادات مسؤول Google Apps.';
 $string['domainsetting'] = 'مجال Google Apps';
-$string['domainsettingdesc'] = 'يعتبر هذا المجال هو المجال المرتبط بحساب Google Apps الخاص بك. على سبيل المثال، إذا قمت بتسجيل الدخول إلى Google Apps كـ \'foo@bar.com\'، يكون مجالك هو \'bar.com\'.';
+$string['domainsettingdesc'] = 'يعتبر هذا المجال هو المجال المرتبط بحساب Google Apps الخاص بك. على سبيل المثال، إذا قمت بتسجيل الدخول إلى Google Apps كـ &apos;foo@bar.com&apos;، يكون مجالك هو &apos;bar.com&apos;.';
 $string['drive'] = 'محرك أقراص';
 $string['gapps:addinstance'] = 'إضافة كتلة Google Apps جديدة';
 $string['gapps:myaddinstance'] = 'إضافة كتلة Google Apps جديدة إلى الصفحة الرئيسية الخاصة بي';
